@@ -1,0 +1,297 @@
+label start_thais_temple
+node (32369,32215,7)
+node (32354,32215,7)
+node (32344,32224,7)
+node (32336, 32235, 7)
+node (32339, 32266, 7)
+node (32345, 32291, 7)
+node (32362, 32318, 7)
+node (32386, 32335, 7)
+node (32411, 32345, 7)
+node (32377, 32360, 7)
+node (32345, 32362, 7)
+stand (32344, 32361, 7)
+stand (32346, 32363, 6)
+action bless_thais
+stand (32344, 32361, 6)
+node (32378, 32359, 7)
+node (32408, 32348, 7)
+node (32409, 32341, 7)
+node (32388, 32335, 7)
+node (32367, 32332, 7)
+node (32360, 32316, 7)
+node (32349, 32297, 7)
+node (32340, 32274, 7)
+node (32338, 32249, 7)
+node (32334, 32219, 7)
+ladder (32321, 32211, 7)
+node (32309, 32211, 6)
+label thaistocarlin
+action travel_carlin
+node (32387, 31815, 6)
+stand (32378, 31815, 6)
+node (32368, 31800, 7)
+node (32342, 31770, 7)
+node (32342, 31748, 7)
+node (32355,31740,7)
+node (32359,31724,7)
+node (32365,31705,7)
+node (32369,31696,7)
+node (32366,31689,7)
+node (32358, 31689, 7)
+ladder (32360, 31691, 7)
+node (32358, 31684, 6)
+stand (32358, 31684, 6)
+action bless_carlin
+stand (32360, 31691, 6)
+label walk_ab
+node (32367,31694,7)
+node (32381,31696,7)
+node (32396,31703,7)
+node (32395,31716,7)
+node (32406,31728,7)
+node (32423, 31749, 7)
+node (32444, 31749, 7)
+node (32463, 31750, 7)
+node (32480, 31755, 7)
+node (32492, 31762, 7)
+node (32512, 31757, 7)
+node (32534, 31752, 7)
+node (32555, 31751, 7)
+node (32577, 31750, 7)
+node (32608, 31758, 7)
+node (32617,31754,7)
+node (32630,31758,7)
+node (32638, 31757, 7)
+node (32658, 31757, 7)
+node (32681, 31753, 7)
+node (32699, 31743, 7)
+node (32698, 31718, 7)
+ladder (32695, 31717, 7)
+ladder (32696, 31716, 6)
+ladder (32695, 31717, 5)
+ladder (32696, 31716, 4)
+ladder (32695, 31717, 3)
+stand (32699, 31718, 2)
+action wait
+action bless_abdendriel
+stand (32695, 31717, 2)
+stand (32696, 31716, 3)
+stand (32695, 31717, 4)
+stand (32696, 31716, 5)
+stand (32695, 31717, 6)
+node (32693, 31741, 7)
+node (32672, 31746, 7)
+node (32641, 31731, 7)
+node (32641, 31706, 7)
+node (32653, 31694, 7)
+node (32673, 31673, 7)
+node (32698, 31665, 7)
+node (32720, 31669, 7)
+ladder (32722, 31669, 7)
+node (32736, 31668, 6)
+label abtoedron
+action travel_carlin
+action travel_edron
+action travel_cormaya
+action travel_eremo
+node (33323, 31883, 7)
+node (33323, 31883, 7)
+action bless_eremo
+action travel_passage
+node (33293, 31960, 6)
+stand (33293, 31957, 6)
+stand (33293, 31960, 6)
+node (33302, 31972, 7)
+node (33294, 31985, 7)
+node (33290, 32003, 7)
+node (33308, 32003, 7)
+stand (33309, 31996, 7)
+stand (33311, 31997, 8)
+stand (33309, 31996, 9)
+stand (33311, 31997, 10)
+stand (33309, 31996, 11)
+stand (33311, 31997, 12)
+stand (33309, 31996, 13)
+stand (33311, 31997, 14)
+node (33310, 31988, 15)
+stand (33310, 31988, 15)
+action travel_kazordoon
+node (32658, 31957, 15)
+action buy_ticket
+node (32663, 31968, 15)
+node (32676, 31977, 15)
+stand (32676, 31974, 15)
+label cart1
+stand (32676, 31974, 15)
+label use_cart1
+ladder (32677, 31974, 15)
+action wait
+node (32613, 31934, 11)
+node (32613, 31951, 11)
+node (32613, 31970, 11)
+node (32613, 31989, 11)
+stand (32613, 31992, 11)
+node (32624, 31992, 12)
+node (32644, 31985, 12)
+node (32644,31973,12)
+action bless_kaz1
+node (32644, 31968, 12)
+node (32644,31965,12)
+action bless_kaz1
+node (32644, 31977, 12)
+node (32641, 31993, 12)
+node (32620, 31992, 12)
+stand (32613, 31992, 12)
+node (32613, 31975, 11)
+node (32613, 31944, 11)
+node (32613, 31915, 11)
+node (32622, 31877, 11)
+node (32630, 31883, 11)
+node (32637, 31893, 11)
+stand (32653, 31893, 11)
+action bless_kaz2
+node (32633, 31892, 11)
+node (32630, 31878, 11)
+node (32613, 31886, 11)
+node (32613, 31911, 11)
+node (32621, 31925, 11)
+stand (32625, 31920, 11)
+label cart2
+stand (32625, 31920, 11)
+label use_cart2
+ladder (32624, 31920, 11)
+action wait
+node (32673, 31978, 15)
+node (32659, 31962, 15)
+node (32659, 31956, 15)
+label kaztocormaya
+action travel_cormaya
+stand (33311, 31997, 15)
+stand (33309, 31996, 14)
+stand (33311, 31997, 13)
+stand (33309, 31996, 12)
+stand (33311, 31997, 11)
+stand (33309, 31996, 10)
+stand (33311, 31997, 9)
+stand (33309, 31996, 8)
+node (33302, 32003, 7)
+node (33289, 31992, 7)
+node (33301, 31982, 7)
+node (33301, 31966, 7)
+ladder (33293, 31960, 7)
+node (33286, 31956, 6)
+label cormayatoedron
+action travel_edron
+action check_enhanced
+label enhanced
+action travel_port_hope
+node (32546,32787,6)
+node (32556,32772,6)
+stand (32569,32775,6)
+stand (32556,32781,7)
+action travel_east
+action travel_banuta
+node (32815,32618,7)
+node (32819,32595,7)
+node (32842,32582,7)
+node (32879,32548,7)
+node (32901,32525,7)
+shovel (32910,32515,7)
+stand (32910,32514,8)
+action bless_enhanced
+rope (32910,32515,8)
+node (32882,32535,7)
+node (32869,32560,7)
+node (32842,32576,7)
+node (32808,32602,7)
+node (32790,32615,7)
+node (32772,32633,7)
+node (32755,32649,7)
+node (32736,32665,7)
+node (32722,32670,7)
+node (32701,32681,7)
+node (32689,32699,7)
+node (32678,32714,7)
+node (32659,32745,7)
+node (32617,32762,7)
+node (32594,32770,7)
+ladder (32578,32766,7)
+node (32557,32776,6)
+node (32544,32787,6)
+stand (32529,32784,6)
+action travel_venore
+action travel_svargrond
+node (32341,31111,6)
+stand (32341,31112,6)
+node (32316,31121,7)
+node (32294,31132,7)
+node (32279,31140,7)
+node (32252,31142,7)
+node (32225,31154,7)
+node (32253,31175,7)
+node (32255,31188,7)
+node (32256,31198,7)
+label travel_camp
+action travel_camp
+label not_in_camp
+stand (32462,31173,7)
+action travel_camp
+stand (32225,31381,7)
+action travel_camp
+stand (32333,31227,7)
+action travel_camp
+label in_camp
+node (32028,31299,7)
+node (32041,31284,7)
+node (32044,31264,7)
+node (32019,31263,7)
+node (31991,31275,7)
+node (31962,31282,7)
+node (31951,31304,7)
+node (31934,31299,7)
+stand (31940,31307,7)
+action levitate_north_up
+action bless_enhanced
+stand (31940,31306,6)
+action levitate_south_down
+node (31947,31301,7)
+node (31965,31284,7)
+node (31993,31275,7)
+node (32023,31260,7)
+node (32044,31265,7)
+node (32042,31283,7)
+node (32028,31298,7)
+node (32019,31293,7)
+action travel_back_camp
+node (32253,31173,7)
+node (32271,31160,7)
+node (32294,31133,7)
+node (32317,31119,7)
+node (32341,31115,7)
+ladder (32341,31112,7)
+stand (32342,31107,6)
+action travel_venore
+action travel_edron
+label go_train_edron
+node (33176, 31771, 6)
+stand (33175, 31775, 6)
+node (33190, 31778, 7)
+node (33191, 31790, 7)
+stand (33179, 31790, 7)
+action check_skill
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
