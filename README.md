@@ -13,7 +13,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 8+    | [Salamander Cave](salamander_cave/setup.json)             | :star: :star:                           | :star: :star:                           |
 | 8+    | [Swamp Trolls](swamp_troll/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
 | 20+   | Amazon Camp Venore              | :star: :star:                           | :star: :star:                           |
-| 45+   | Forest Furry Camp               | :star: :star: :star:                    | :star: :star: :star:                    |
+| 45+   | [Forest Furry Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
 | 60+   | Dark Cathedral -2               | :star:                                  | :star: :star: :star:                    |
 | 75+   | Corym Venore North -1           | :star: :star:                           | :star: :star: :star:                    |
 | 80+   | Stonerefiner                    | :star: :star: :star:                    | :star: :star: :star:                    |
@@ -31,7 +31,7 @@ Soon
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                            |
 | 45+   | Mutated Humans		  | :star:                                  | :star: :star: :star:             |  
-| 50+   | Pirates Yalahar                 | :star: :star:                           | :star: :star:                           |
+| 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
 | 70+   | Ancient Scarab Khazel           | :star: :star:                           | :star: :star:                    |     
 | 90+   | Mother of Scarab                | :star: :star:                           | :star: :star:                    |  
 | 90+   | Killer Caimans                  | :star: :star: :star:                    | :star: :star:                           |
@@ -43,7 +43,7 @@ Soon
 | 120+  | Sea Serpent north               | :star: :star: :star:                    | :star: :star: :star:                    | 
 | 130+  | Wyrm Cave Liberty Bay           | :star:                                  | :star: :star: :star:                    |    
 | 150+  | Krailos Giant Spider Cave       | :star: :star: :star:                    | :star: :star: :star:                    |              
-| 150+  | Vampire Crypt Edron             | :star: :star: :star:                    | :star: :star: :star:                    |
+| 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup.json)             | :star: :star: :star:                    | :star: :star: :star:                    |
 | 160+  | Krailos Nightmare               | :star:                                  | :star: :star: :star:                    |
 | 160+  | Hero Old Fortress -1            | :star:                                  | :star: :star: :star: :star:             |  
 | 180+  | Sea Serpent South               | :star: :star:                           | :star: :star: :star:                    |

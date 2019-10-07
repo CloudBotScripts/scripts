@@ -1,0 +1,74 @@
+{
+"general": 
+{
+	"loot_type":"manual",
+	"walk_type":"mouse"
+},
+"script_options": {
+	"hours_leave": [1, 9],
+	"lower_level": true,
+	"upper_level": false
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":60, "use_hotkey":"F3", "hotkey_slot":3,       "priority":3},
+	{"type":"hp", "below_percent":85, "use_hotkey":"F1", "min_mana_percent":20, "priority":2},
+	{"type":"mp", "below_percent":30, "use_hotkey":"F4", "hotkey_slot":4,       "priority":1}
+],
+"hunt_config": {
+	"cap_leave": 100,
+	"mana_name": "mana potion",
+	"take_mana": 200,
+	"mana_leave": 50,
+	"hotkey_mana_potions": 4,
+	"health_name": "health potion",
+	"take_health": 50,
+	"health_leave": 20,
+	"hotkey_health_potions": 3
+},
+"persistent_actions": 
+[
+	{"action":"drop_vials", "interval":60},
+	{"action":"anti_paralyze", "interval":1, "args":["F1"]}
+],
+"target_monsters": 
+[
+	{"name":"Leaf Golem", "action":"follow", "loot":true},
+	{"name":"Wilting Leaf Golem", "action":"follow", "loot":true},
+	{"name":"Forest Fury", "action":"follow", "loot":true},
+	{"name":"Poacher", "action":"follow", "loot":true},
+	{"name":"Dryad", "action":"follow", "loot":true},
+	{"name":"Goblin", "action":"follow", "loot":true}
+],
+"target_spells": [],
+
+"loot": 
+[
+	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+	{"name":"gold coin", "action":"loot", "dest":"gold_bp"},
+	{"name":"health potion", "action":"loot", "dest":"loot_bp"},
+	{"name":"small emerald", "action":"loot", "dest":"loot_bp"},
+	{"name":"small topaz", "action":"loot", "dest":"loot_bp"},
+	{"name":"small amethyst", "action":"loot", "dest":"loot_bp"},
+	{"name":"seeds", "action":"loot", "dest":"loot_bp"},
+	{"name":"dowser", "action":"loot", "dest":"loot_bp"},
+	{"name":"fir cone", "action":"loot", "dest":"loot_bp"},
+	{"name":"elven hoof", "action":"loot", "dest":"loot_bp"},
+	{"name":"elvish bow", "action":"loot", "dest":"loot_bp"},
+	{"name":"venison", "action":"loot", "dest":"loot_bp"},
+	{"name":"carrot on a stick", "action":"loot", "dest":"loot_bp"},
+	{"name":"coconut_shoes", "action":"loot", "dest":"loot_bp"},
+	{"name":"flower dress", "action":"loot", "dest":"loot_bp"},
+	{"name":"flower wreath", "action":"loot", "dest":"loot_bp"},
+	{"name":"leaf legs", "action":"loot", "dest":"loot_bp"},
+	{"name":"mana potion", "action":"loot", "dest":"loot_bp"},
+	{"name":"white mushroom", "action":"use"},
+	{"name":"meat", "action":"use"},
+	{"name":"ham", "action":"use"}
+]
+}
