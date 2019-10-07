@@ -1,0 +1,46 @@
+label oramond
+label go_bank
+node (33625, 31894, 6)
+stand (33626,31891,6)
+stand (33626,31892,5)
+action bank 
+stand (33623,31890,5)
+stand (33625, 31892, 4)
+action sell
+stand (33623, 31890, 4)
+stand (33626,31891,5)
+label refill
+stand (33622, 31895, 6)
+node (33638, 31893, 7)
+action deposit 
+action refill
+stand (33629, 31895, 7)
+node (33616, 31891, 6)
+node (33619, 31884, 6)
+stand (33620, 31880, 6)
+stand (33617, 31879, 5)
+stand (33618, 31882, 4)
+action sell
+action buy_potions
+stand (33617, 31879, 4)
+stand (33620, 31880, 5)
+node (33627,31887,6)
+action check_ammo
+stand (33630,31883,6)
+stand (33632,31881,5)
+action buy_ammo
+stand (33630,31882,5)
+label skip_ammo
+node (33633,31888,6)
+action check_imbuements
+label imbue_items
+node (33626,31887,6)
+node (33615,31891,6)
+node (33599,31895,6)
+node (33594,31899,6)
+stand (33595,31898,6)
+action use_imbuing_shrine
+node (33605,31902,6)
+label skip_imbuement
+node (33621,31902,6)
+action check_supplies

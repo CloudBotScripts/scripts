@@ -1,0 +1,57 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"walk_type":"mouse"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"axe"
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":60, "use_hotkey":"F3", "hotkey_slot":3,       "priority":3},
+	{"type":"hp", "below_percent":85, "use_hotkey":"F1", "min_mana_percent":20, "priority":2},
+	{"type":"mp", "below_percent":50, "use_hotkey":"F4", "hotkey_slot":4,       "priority":1},
+	{"type":"hp", "below_percent":95, "use_hotkey":"R", "min_mana_percent":20, "priority":1, "cooldown":60}
+],
+"hunt_config": {
+	"cap_leave": 100,
+	"mana_name": "mana potion",
+	"take_mana": 200,
+	"mana_leave": 80,
+	"hotkey_mana_potions": 4,
+	"health_name": "strong health potion",
+	"take_health": 50,
+	"health_leave": 20,
+	"hotkey_health_potions": 3
+},
+"persistent_actions": [
+	{"action":"haste", "interval":40},
+	{"action":"drop_vials", "interval":300},
+	{"action":"lure_monsters", "interval":0.5},
+	{"action":"recover_full_mana", "interval":3, "args":["f4"]},
+	{"action":"eat_food", "interval":60}
+],
+"target_monsters": 
+[
+	{"name":"Pirate Buccaneer", "action":"follow", "loot":true},
+	{"name":"Pirate Corsair", "action":"follow", "loot":true},
+	{"name":"Pirate Cutthroat", "action":"follow", "loot":true},
+	{"name":"Pirate Marauder", "action":"follow", "loot":true}
+],
+"target_spells":
+[ 
+	{"name":"exori ico", "hotkey":"q", "min_mana_percent":30, "priority":1, "cooldown":6,
+		"monsters":["Pirate Buccaneer", "Pirate Corsair", "Pirate Cutthroat", "Pirate Marauder"]},
+	{"name":"exeta res", "hotkey":"x", "min_mana_percent":20, "priority":5, "cooldown": 5, "min_monster_count":2},
+	{"name":"exori", "hotkey":"1", "min_mana_percent":30, "priority":2, "min_monster_count":3}
+],
+"loot": []
+}
+
