@@ -5,7 +5,7 @@
 	"walk_type":"mouse"
 },
 "script_options": {
-	"hours_leave": [0, 9]
+	"hours_leave": [9]
 },
 "containers": 
 {

@@ -11,7 +11,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 8+    | [Salamander Cave](salamander_cave/setup.json)             | :star: :star:                           | :star: :star:                           |
-| 8+    | [Swamp Trolls]()                | :star: :star: :star:                    | :star: :star: :star:                    |
+| 8+    | [Swamp Trolls](swamp_troll/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
 | 20+   | Amazon Camp Venore              | :star: :star:                           | :star: :star:                           |
 | 45+   | Forest Furry Camp               | :star: :star: :star:                    | :star: :star: :star:                    |
 | 60+   | Dark Cathedral -2               | :star:                                  | :star: :star: :star:                    |
