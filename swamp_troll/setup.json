@@ -1,0 +1,48 @@
+{
+"general": 
+{
+	"loot_type":"manual",
+	"walk_type":"mouse"
+},
+"script_options": {
+	"hours_leave": [0, 9]
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":60, "use_hotkey":"F3", "hotkey_slot":3,       "priority":3},
+	{"type":"hp", "below_percent":85, "use_hotkey":"F1", "min_mana_percent":20, "priority":2},
+	{"type":"mp", "below_percent":30, "use_hotkey":"F4", "hotkey_slot":4,       "priority":1}
+],
+"hunt_config": {
+	"cap_leave": 60,
+	"mana_name": "mana potion",
+	"take_mana": 10,
+	"mana_leave": 4,
+	"hotkey_mana_potions": 4,
+	"health_name": "health potion",
+	"take_health": 5,
+	"health_leave": 2,
+	"hotkey_health_potions": 3
+},
+"persistent_actions": [],
+"target_monsters": 
+[
+	{"name":"Swamp Troll", "action":"follow", "loot":true},
+	{"name":"Marsh Stalker", "action":"follow", "loot":true},
+	{"name":"Swampling", "action":"follow", "loot":true},
+	{"name":"Rotworm", "action":"follow", "loot":true},
+	{"name":"Bat", "action":"follow", "loot":false}
+],
+"target_spells": [],
+"loot": [
+	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+	{"name":"medicine pouch", "action":"loot", "dest":"loot_bp"},
+	{"name":"fish", "action":"use"}
+]
+}
+
