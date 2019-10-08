@@ -5,7 +5,6 @@ action bank
 stand (33020, 32059, 6)
 node (33018, 32053, 7)
 action deposit
-action refill
 stand (33020, 32059, 7)
 node (33007, 32053, 6)
 node (32982, 32054, 6)

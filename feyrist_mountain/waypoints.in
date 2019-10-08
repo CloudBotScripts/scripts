@@ -1,0 +1,114 @@
+label start
+action debug
+label go_bank
+stand (33173,31803,7)
+action bank
+stand (33168,31812,7)
+node (33165,31799,8)
+stand (33165,31799,8)
+action deposit
+action refill
+node (33166,31800,8)
+stand (33168,31812,8)
+node (33190,31819,7)
+node (33206,31844,7)
+node (33224,31839,7)
+stand (33247,31841,7)
+node (33253,31841,6)
+stand (33255,31838,6)
+stand (33255,31840,7)
+action sell
+action buy_potions
+stand (33255,31838,7)
+action check_supplies
+label go_hunt
+node (33261,31825,6)
+stand (33265,31832,6)
+stand (33271,31832,7)
+stand (33268,31830,8)
+stand (33271,31831,9)
+action skip_portal
+label red_portal_1
+stand (32342,32271,11)
+action use_gem_north
+action skip_portal
+label red_portal_2
+stand (32908,32338,15)
+action use_gem_north
+action skip_portal
+label after_portal
+node (33579,32262,7)
+label debug
+label hunt
+node (33563,32268,7)
+node (33559,32281,7)
+node (33550,32294,7)
+node (33550,32279,7)
+node (33546,32300,7)
+node (33537,32307,7)
+node (33528,32324,7)
+node (33518,32323,7)
+node (33534,32308,7)
+action skip_mountain
+stand (33534,32306,7)
+stand (33533,32306,7)
+stand (33529,32310,6)
+stand (33528,32310,6)
+node (33526,32306,5)
+stand (33524,32306,5)
+node (33520,32299,6)
+node (33517,32311,6)
+stand (33523,32306,6)
+stand (33524,32306,6)
+stand (33528,32310,5)
+stand (33533,32306,6)
+label after_mountain
+node (33544,32299,7)
+node (33551,32278,7)
+node (33572,32265,7)
+node (33582,32262,7)
+action check
+label leave
+ladder (33586,32262,7)
+action skip_portal_2
+label red_portal_1
+stand (32905,32340,15)
+action skip_portal_2
+label red_portal_2
+stand (32339,32272,11)
+action skip_portal_2
+label after_portal_2
+node (33268,31832,9)
+ladder (33268,31830,9)
+stand (33271,31832,8)
+stand (33265,31832,7)
+node (33261,31824,6)
+node (33249,31840,6)
+stand (33247,31841,6)
+node (33221,31840,7)
+node (33192,31834,7)
+node (33191,31819,7)
+action check_time
+label train
+node (33190, 31778, 7)
+node (33191, 31790, 7)
+stand (33179, 31790, 7)
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start trainer
+node (33199, 31792, 7)
+node (33202,31801,7)

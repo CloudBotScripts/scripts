@@ -13,7 +13,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 8+    | [Salamander Cave](salamander_cave/setup.json)             | :star: :star:                           | :star: :star:                           |
 | 8+    | [Swamp Trolls](swamp_troll/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
 | 20+   | Amazon Camp Venore              | :star: :star:                           | :star: :star:                           |
-| 45+   | [Forest Furry Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
+| 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
 | 60+   | Dark Cathedral -2               | :star:                                  | :star: :star: :star:                    |
 | 75+   | Corym Venore North -1           | :star: :star:                           | :star: :star: :star:                    |
 | 80+   | Stonerefiner                    | :star: :star: :star:                    | :star: :star: :star:                    |
@@ -48,7 +48,7 @@ Soon
 | 160+  | Hero Old Fortress -1            | :star:                                  | :star: :star: :star: :star:             |  
 | 180+  | Sea Serpent South               | :star: :star:                           | :star: :star: :star:                    |
 | 180+  | Putrid Mummy                    | :star: :star: :star:                    | :star: :star:                           |
-| 180+  | Feyrist Mountain                | :star: :star: :star:                    | :star: :star: :star:                    |    
+| 180+  | [Feyrist Mountain](feyrist_mountain/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |    
 
 ### Elite Knight (200-300)
 | Level | Name                            | Profit                                  | XP                                      |

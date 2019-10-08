@@ -1,11 +1,10 @@
 {
 "general": 
 {
-	"loot_type":"manual",
-	"walk_type":"mouse"
+	"loot_type":"manual"
 },
 "script_options": {
-	"hours_leave": [1, 9],
+	"hours_leave": [9],
 	"lower_level": true,
 	"upper_level": false
 },
@@ -14,27 +13,35 @@
 	"gold_bp":"Golden Backpack",
 	"loot_bp":"Red Backpack"
 },
+"tools": {},
+"items":
+{
+	"mana potion": {"hotkey":"f4", "id":268, "use":"self"},
+	"health potion": {"hotkey":"f3", "id":266, "use":"self"}
+},
+"spells":
+{
+	"exura ico":"f1"
+},
 "healing":
 [
-	{"type":"hp", "below_percent":60, "use_hotkey":"F3", "hotkey_slot":3,       "priority":3},
-	{"type":"hp", "below_percent":85, "use_hotkey":"F1", "min_mana_percent":20, "priority":2},
-	{"type":"mp", "below_percent":30, "use_hotkey":"F4", "hotkey_slot":4,       "priority":1}
+	{"type":"hp", "below_percent":60, "use_item":"health potion", "priority":3},
+	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":2},
+	{"type":"mp", "below_percent":30, "use_item":"mana potion", "priority":1}
 ],
 "hunt_config": {
 	"cap_leave": 100,
 	"mana_name": "mana potion",
 	"take_mana": 200,
 	"mana_leave": 50,
-	"hotkey_mana_potions": 4,
 	"health_name": "health potion",
 	"take_health": 50,
-	"health_leave": 20,
-	"hotkey_health_potions": 3
+	"health_leave": 20
 },
 "persistent_actions": 
 [
 	{"action":"drop_vials", "interval":60},
-	{"action":"anti_paralyze", "interval":1, "args":["F1"]}
+	{"action":"anti_paralyze", "interval":1, "args":["f1"]}
 ],
 "target_monsters": 
 [
@@ -46,11 +53,10 @@
 	{"name":"Goblin", "action":"follow", "loot":true}
 ],
 "target_spells": [],
-
 "loot": 
 [
-	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
 	{"name":"gold coin", "action":"loot", "dest":"gold_bp"},
+	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
 	{"name":"health potion", "action":"loot", "dest":"loot_bp"},
 	{"name":"small emerald", "action":"loot", "dest":"loot_bp"},
 	{"name":"small topaz", "action":"loot", "dest":"loot_bp"},

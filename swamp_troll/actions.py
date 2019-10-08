@@ -16,10 +16,6 @@ def waypoint_action(client, action):
         client.reach_locker()
         deposit_all_from_backpack_to_depot(client, client.container_conf['loot_bp'], 2)
 
-    elif action == "refill":
-        if not withdraw_item_from_stash(client, 'brown mushroom', 100, 11): 
-            print('Not enough mushrooms')
-
     elif action == "buy_potions":
         npc_refill(client, mana=True, health=True)
 

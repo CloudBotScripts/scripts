@@ -3,8 +3,6 @@ import sys
 sys.path.append('../scripts/')
 from lib import *
 
-persistent_actions = []
-
 def waypoint_action(client, action):
     if action == "start":
       print('Bot started')
