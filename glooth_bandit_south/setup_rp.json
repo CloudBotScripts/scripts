@@ -2,11 +2,10 @@
 "general": 
 {
 	"loot_type":"auto",
-	"loot_priority":"after",
-	"walk_type":"mouse"
+	"loot_priority":"after"
 },
 "script_options": {
-	"hours_leave": [4, 9],
+	"hours_leave": [9],
 	"skill_train":"distance",
 	"imbuements":[
 		{"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
@@ -30,8 +29,8 @@
 {
 	"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
 	"ultimate spirit potion": {"hotkey":"f", "id":23374, "use":"self"},
-	"crystalline arrow": {"hotkey":"j", "id":15793, "use":"self"},
-	"diamond arrow": {"hotkey":"f4", "id":25757, "use":"self"},
+	"crystalline arrow": {"hotkey":"j", "id":15793, "use":"equip"},
+	"diamond arrow": {"hotkey":"k", "id":25757, "use":"equip"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
 "spells":
@@ -39,6 +38,7 @@
 	"utani hur": "v",
 	"utura gran": "R",
 	"exevo gran con hur": "f4",
+	"utevo gran res sac": "f3",
 	"exura gran san":"r",
 	"exevo mas san":"1",
 	"exori san":"q"

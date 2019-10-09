@@ -84,7 +84,9 @@ Soon
 | 250+  | Cults Edron Full                | :star: :star:                           | :star: :star: :star: :star:             |
 | 250+  | Wyrm Cave Drefia                | :star:                                  | :star: :star: :star: :star: :star:      |
 | 250+  | Hero Old Fortress -2            | :star: :star:                           | :star: :star: :star: :star: :star:      |   
-| 250+  | Glooth Bandit E/S/W             | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
+| 250+  | Glooth Bandit East              | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
+| 250+  | Glooth Bandit West              | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
+| 250+  | [Glooth Bandit South](glooth_bandit_south/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 
 ### Royal Paladin (300+)
 | Level | Name                            | Profit                                  | XP                                      |
