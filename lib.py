@@ -35,13 +35,13 @@ def recover_full_mana(client, hotkey='e'):
         client.hotkey(hotkey)
 
 # Call eat food
-def eat_food(client):
-    food_hotkey = 'f11'
+def eat_food(client, hotkey='f11'):
+    food_hotkey = hotkey
     client.hotkey(food_hotkey)
 
 # Cast haste
-def haste(client):
-    spell_hotkey = 'v'
+def haste(client, hotkey='v'):
+    spell_hotkey = hotkey
     monster_count = client.battle_list.get_monster_count()
     conditions = client.condition_bar.get_condition_list()
     if monster_count < 1 and 'haste' not in conditions:
@@ -77,9 +77,9 @@ def cast_spell(client):
         client.hotkey(spell_hotkey)
 
 # Refill ammo using hotkey
-def refill_ammo(client):
-    refill_hotkey_slot = 21
-    refill_hotkey = 'j'
+def refill_ammo(client, ammo_name="arrow"):
+    refill_hotkey_slot = client.items[ammo_name]
+    refill_hotkey = client.item_hotkeys[ammo_name]
 
     # Stars
     #ammo_count = client.equips.get_count_item_in_slot('weapon')
@@ -92,11 +92,10 @@ def refill_ammo(client):
 
 # Call refill of ammo
 def refill_diamond_ammo(client, save_single_target=False):
-    refill_hotkey_slot = 21
-    refill_hotkey = 'j'
-
-    diamond_hotkey_slot = 20
-    diamond_hotkey = 'k'
+    crystalline_hotkey_slot = client.items["crystalline arrow"]
+    crystalline_hotkey = client.item_hotkeys["crystalline arrow"]
+    diamond_hotkey_slot = client.items["diamond arrow"]
+    diamond_hotkey = client.item_hotkeys["diamond arrow"]
 
     ammo_used = client.get_name_item_in_slot(client.equips, 'ammunition')
 
@@ -106,7 +105,7 @@ def refill_diamond_ammo(client, save_single_target=False):
         monster_count = len(monster_list)
         if monster_count == 1 and client.battle_list.is_targetting():
             if ammo_used != 'crystalline arrows': 
-                client.hotkey(refill_hotkey)
+                client.hotkey(crystalline_hotkey)
             return
 
     # Use diamond arrows
@@ -120,7 +119,7 @@ def refill_diamond_ammo(client, save_single_target=False):
     else:
         ammo_count = client.equips.get_count_item_in_slot('ammunition')
         if ammo_count is None or ammo_count < 70:
-            client.hotkey(refill_hotkey)
+            client.hotkey(crystalline_hotkey)
 
 def conjure_diamond_arrows(client):
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
@@ -168,14 +167,15 @@ def equip_ring(client, hotkey='f10', selected_monsters='all', amount=1):
     if selected_monsters != 'all':
         monster_list = [m for m in monster_list if m in selected_monsters]
     monster_count = len(monster_list)
+    print(monster_list)
     
     item_name = client.equips.get_item_in_slot('ring')
     print(item_name)
 
-    if monster_count >= amount and item_name == 'unknown':
+    if monster_count >= amount and item_name == 'none':
         print('Equip ring')
         client.hotkey(hotkey)
-    elif monster_count < amount and item_name != 'unknown':
+    elif monster_count < amount and item_name != 'none':
         print('Unequip ring')
         client.hotkey(hotkey)
 
@@ -295,26 +295,31 @@ def npc_refill(client, mana=False, health=False, ammo=False, rune=False):
     buy_list_names = []
     buy_list_count = []
     if mana:
-        mana_count = client.get_hotkey_item_count(client.hunt_config['hotkey_mana_potions'])
-        buy_list_names.append(client.hunt_config['mana_name'])
-        buy_list_count.append(client.hunt_config['take_mana'] - mana_count)
+        mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
+        mana_count = client.get_hotkey_item_count(client.items[mana_name])
+        buy_list_names.append(mana_name)
+        buy_list_count.append(take_mana - mana_count)
     if health:
-        health_count = client.get_hotkey_item_count(client.hunt_config['hotkey_health_potions'])
-        buy_list_names.append(client.hunt_config['health_name'])
-        buy_list_count.append(client.hunt_config['take_health'] - health_count)
+        health_name, take_health = client.hunt_config['health_name'], client.hunt_config['take_health']
+        health_count = client.get_hotkey_item_count(client.items[health_name])
+        buy_list_names.append(health_name)
+        buy_list_count.append(take_health - health_count)
 
-        if 'hotkey_health_potions2' in client.hunt_config.keys():
-            health_count2 = client.get_hotkey_item_count(client.hunt_config['hotkey_health_potions2'])
-            buy_list_names.append(client.hunt_config['health_name2'])
-            buy_list_count.append(client.hunt_config['take_health2'] - health_count2)
+        if 'health_name2' in client.hunt_config.keys():
+            health_name2, take_health2 = client.hunt_config['health_name2'], client.hunt_config['take_health2']
+            health_count2 = client.get_hotkey_item_count(client.items[health_name2])
+            buy_list_names.append(health_name2)
+            buy_list_count.append(take_health2 - health_count2)
     if rune:
-        rune_count = client.get_hotkey_item_count(client.hunt_config['hotkey_runes'])
-        buy_list_names.append(client.hunt_config['rune_name'])
-        buy_list_count.append(client.hunt_config['take_rune'] - rune_count)
+        rune_name, take_rune = client.hunt_config['rune_name'], client.hunt_config['take_rune']
+        rune_count = client.get_hotkey_item_count(client.items[rune_name])
+        buy_list_names.append(rune_name)
+        buy_list_count.append(take_rune - rune_count)
     if ammo:
-        ammo_count = client.get_hotkey_item_count(client.hunt_config['hotkey_ammo'])
-        buy_list_names.append(client.hunt_config['ammo_name'])
-        buy_list_count.append(client.hunt_config['take_ammo'] - ammo_count)
+        ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
+        ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
+        buy_list_names.append(ammo_name)
+        buy_list_count.append(take_ammo - ammo_count)
 
     print('Buying', list(zip(buy_list_names, buy_list_count)))
     success = client.buy_items_from_npc(buy_list_names, buy_list_count)
@@ -324,20 +329,25 @@ def npc_refill(client, mana=False, health=False, ammo=False, rune=False):
 def check_hunt(client, success, fail, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
     mana_check = health_check = cap_check = ammo_check = rune_check = time_check = True
     if mana:
-        mana_count = client.get_hotkey_item_count(client.hunt_config['hotkey_mana_potions'])
+        mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
+        mana_count = client.get_hotkey_item_count(client.items[mana_name])
         mana_check = mana_count > client.hunt_config['mana_leave']
     if health:
-        health_count = client.get_hotkey_item_count(client.hunt_config['hotkey_health_potions'])
+        health_name, take_health = client.hunt_config['health_name'], client.hunt_config['take_health']
+        health_count = client.get_hotkey_item_count(client.items[health_name])
         health_check = health_count > client.hunt_config['health_leave']
-        if 'hotkey_health_potions2' in client.hunt_config.keys():
-            health_count2 = client.get_hotkey_item_count(client.hunt_config['hotkey_health_potions2'])
+        if 'health_name2' in client.hunt_config.keys():
+            health_name2, take_health2 = client.hunt_config['health_name2'], client.hunt_config['take_health2']
+            health_count2 = client.get_hotkey_item_count(client.items[health_name2])
             health_check2 = health_count2 > client.hunt_config['health_leave2']
             health_check = health_check and health_check2
     if rune:
-        rune_count = client.get_hotkey_item_count(client.hunt_config['hotkey_runes'])
+        rune_name, take_rune = client.hunt_config['rune_name'], client.hunt_config['take_rune']
+        rune_count = client.get_hotkey_item_count(client.items[rune_name])
         rune_check = rune_count > client.hunt_config['rune_leave']
     if ammo:
-        ammo_count = client.get_hotkey_item_count(client.hunt_config['hotkey_ammo'])
+        ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
+        ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
         ammo_check = ammo_count > client.hunt_config['ammo_leave']
     if cap:
         cap_check = client.get_cap() > client.hunt_config['cap_leave']
@@ -383,29 +393,34 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
     mana_check = health_check = cap_check = ammo_check = rune_check = imbuement_check = True
     print('Check Supplies results:')
     if mana:
-        mana_count = client.get_hotkey_item_count(client.hunt_config['hotkey_mana_potions'])
-        mana_check = mana_count >= 0.9 * client.hunt_config['take_mana']
-        print('Mana:', mana_check, mana_count, '/', client.hunt_config['take_mana'])
+        mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
+        mana_count = client.get_hotkey_item_count(client.items[mana_name])
+        mana_check = mana_count >= 0.9 * take_mana
+        print('Mana:', mana_check, mana_count, '/', take_mana)
     if health:
-        health_count = client.get_hotkey_item_count(client.hunt_config['hotkey_health_potions'])
-        health_check = health_count >= 0.9 * client.hunt_config['take_health']
-        print('Health:', health_check, health_count, '/', client.hunt_config['take_health'])
-        if 'hotkey_health_potions2' in client.hunt_config.keys():
-            health_count2 = client.get_hotkey_item_count(client.hunt_config['hotkey_health_potions2'])
-            health_check2 = health_count2 >=  0.9 * client.hunt_config['take_health2']
+        health_name, take_health = client.hunt_config['health_name'], client.hunt_config['take_health']
+        health_count = client.get_hotkey_item_count(client.items[health_name])
+        health_check = health_count >= 0.9 * take_health
+        print('Health:', health_check, health_count, '/', take_health)
+        if 'health_name2' in client.hunt_config.keys():
+            health_name2, take_health2 = client.hunt_config['health_name2'], client.hunt_config['take_health2']
+            health_count2 = client.get_hotkey_item_count(client.items[health_name2])
+            health_check2 = health_count2 >=  0.9 * take_health2
             health_check = health_check and health_check2
-            print('Health2:', health_check2, health_count2, '/', client.hunt_config['take_health2'])
+            print('Health2:', health_check2, health_count2, '/', take_health2)
     if rune:
-        rune_count = client.get_hotkey_item_count(client.hunt_config['hotkey_runes'])
-        rune_check = rune_count >= 0.9 * client.hunt_config['take_rune']
-        print('Rune:', rune_check, rune_count, '/', client.hunt_config['take_rune'])
+        rune_name, take_rune = client.hunt_config['rune_name'], client.hunt_config['take_rune']
+        rune_count = client.get_hotkey_item_count(client.items[rune_name])
+        rune_check = rune_count >= 0.9 * take_rune
+        print('Rune:', rune_check, rune_count, '/', take_rune)
     if cap:
         cap_check = client.get_cap() > 1.1 * client.hunt_config['cap_leave']
         print('Cap:', cap_check, client.get_cap(), '/', client.hunt_config['cap_leave'])
     if ammo:
-        ammo_count = client.get_hotkey_item_count(client.hunt_config['hotkey_ammo'])
-        ammo_check = ammo_count >= 0.9 * client.hunt_config['take_ammo']
-        print('Ammo:', ammo_check, ammo_count, '/', client.hunt_config['take_ammo'])
+        ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
+        ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
+        ammo_check = ammo_count >= 0.9 * take_ammo
+        print('Ammo:', ammo_check, ammo_count, '/', take_ammo)
     if imbuement:
         imbuement_check = check_imbuements(client)
         print('Imbuements:', imbuement_check)
