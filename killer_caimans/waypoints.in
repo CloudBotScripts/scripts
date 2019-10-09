@@ -1,0 +1,159 @@
+label start
+label go_bank
+stand (33173,31803,7)
+action bank
+label deposit
+stand (33168,31812,7)
+stand (33165,31799,8)
+action deposit
+action refill
+node (33166,31800,8)
+stand (33168,31812,8)
+node (33191,31829,7)
+node (33211,31844,7)
+node (33231,31840,7)
+stand (33247,31841,7)
+node (33253,31840,6)
+stand (33255,31838,6)
+stand (33255,31841,7)
+action sell
+action buy_potions
+stand (33255,31838,7)
+stand (33247,31841,6)
+node (33212,31844,7)
+node (33191,31826,7)
+node (33170,31814,7)
+action check_supplies
+label go_hunt
+node (33184, 31817, 7)
+node (33199, 31792, 7)
+ladder (33175, 31775, 7)
+stand (33176, 31764, 6)
+stand (33176, 31764, 6)
+action travel_cormaya
+stand (33293, 31960, 6)
+node (33301, 31970, 7)
+node (33289, 31996, 7)
+stand (33309, 31996, 7)
+stand (33311, 31997, 8)
+stand (33309, 31996, 9)
+stand (33311, 31997, 10)
+stand (33309, 31996, 11)
+stand (33311, 31997, 12)
+stand (33309, 31996, 13)
+stand (33311, 31997, 14)
+stand (33311, 31988, 15)
+stand (33311, 31988, 15)
+action travel_farmine
+stand (33060, 31530, 14)
+stand (33060, 31530, 14)
+ladder (33060, 31529, 14)
+stand (33061, 31527, 14)
+action use_elevator
+stand (33004, 31557, 4)
+rope (33015,31547,5)
+stand (33013, 31555, 4)
+stand (33026, 31549, 5)
+action levitate_east_down
+node (33048,31554,6)
+node (33072,31540,6)
+stand (33081, 31533, 6)
+node (33094,31511,7)
+node (33105,31480,7)
+node (33115,31463,7)
+node (33133,31449,7)
+stand (33137, 31449, 7)
+label hunt
+node (33130, 31457, 8)
+node (33134, 31465, 8)
+node (33146, 31461, 8)
+node (33148, 31461, 8)
+node (33154, 31451, 8)
+node (33162, 31434, 8)
+node (33151, 31434, 8)
+node (33142, 31425, 8)
+node (33133, 31425, 8)
+action check_down
+label continue
+stand (33131, 31428, 8)
+node (33141, 31435, 9)
+node (33145, 31445, 9)
+node (33131, 31449, 9)
+node (33117, 31441, 9)
+node (33112, 31424, 9)
+node (33124, 31412, 9)
+node (33146, 31414, 9)
+node (33134, 31428, 9)
+stand (33131, 31429, 9)
+stand (33131, 31428, 9)
+node (33136, 31451, 8)
+action check
+label leave
+stand (33137, 31449, 8)
+node (33123,31462,7)
+node (33110,31476,7)
+node (33101,31496,7)
+node (33093,31524,7)
+node (33084,31532,7)
+stand (33082, 31532, 7)
+stand (33081, 31532, 7)
+node (33066, 31544, 6)
+node (33043, 31549, 6)
+stand (33027, 31548, 6)
+action levitate_west_up
+stand (33013, 31556, 5)
+stand (33013, 31555, 5)
+stand (33008, 31554, 4)
+action levitate_south_down
+stand (33005, 31557, 5)
+stand (33004, 31557, 5)
+stand (32993, 31547, 4)
+action use_elevator
+stand (33060, 31528, 14)
+ladder (33060, 31529, 14)
+stand (33060, 31531, 14)
+node (33050, 31536, 14)
+stand (33025, 31553, 14)
+stand (33025, 31553, 14)
+action travel_cormaya
+stand (33311, 31997, 15)
+stand (33309, 31996, 14)
+stand (33311, 31997, 13)
+stand (33309, 31996, 12)
+stand (33311, 31997, 11)
+stand (33309, 31996, 10)
+stand (33311, 31997, 9)
+stand (33309, 31996, 8)
+node (33302, 32003, 7)
+node (33298, 31984, 7)
+ladder (33293, 31960, 7)
+stand (33289, 31956, 6)
+stand (33289, 31956, 6)
+action travel_edron
+stand (33175, 31775, 6)
+node (33190, 31786, 7)
+node (33202,31807,7)
+node (33183,31819,7)
+action check_time
+label train
+node (33191, 31790, 7)
+stand (33179, 31790, 7)
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start trainer
+node (33199, 31792, 7)
+node (33202,31801,7)

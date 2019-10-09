@@ -34,7 +34,7 @@ Soon
 | 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
 | 70+   | Ancient Scarab Khazel           | :star: :star:                           | :star: :star:                    |     
 | 90+   | Mother of Scarab                | :star: :star:                           | :star: :star:                    |  
-| 90+   | Killer Caimans                  | :star: :star: :star:                    | :star: :star:                           |
+| 90+   | [Killer Caimans](killer_caimans/setup.json)                  | :star: :star: :star:                    | :star: :star:                           |
 
 ### Elite Knight (100-200)
 | Level | Name                            | Profit                                  | XP                                      |

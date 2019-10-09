@@ -1,5 +1,4 @@
 label start
-action debug
 label go_bank
 stand (33173,31803,7)
 action bank
@@ -38,7 +37,6 @@ action use_gem_north
 action skip_portal
 label after_portal
 node (33579,32262,7)
-label debug
 label hunt
 node (33563,32268,7)
 node (33559,32281,7)
