@@ -1,0 +1,4 @@
+Level: 85+
+Vocation: EK
+XP/h: 150-200k/h
+Profit/h: 5-40k/h 
