@@ -1,0 +1,96 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"loot_priority":"after",
+	"walk_type":"mouse"
+},
+"script_options": {
+	"hours_leave": [4, 9],
+	"skill_train":"distance",
+	"imbuements":[
+		{"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
+		{"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"},
+		{"equip_slot":"weapon", "name":"Intricate Strike", "type":"Critical Hit"}
+	],
+	"summon":"f3",
+	"sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Shopping Bag"
+},
+"tools":
+{
+	"rope": {"name":"squeezing gear of girlpower", "id": 9596},
+	"shovel": {"name":"squeezing gear of girlpower", "id": 9596}
+},
+"items":
+{
+	"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
+	"ultimate spirit potion": {"hotkey":"f", "id":23374, "use":"self"},
+	"crystalline arrow": {"hotkey":"j", "id":15793, "use":"self"},
+	"diamond arrow": {"hotkey":"f4", "id":25757, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"utura gran": "R",
+	"exevo gran con hur": "f4",
+	"exura gran san":"r",
+	"exevo mas san":"1",
+	"exori san":"q"
+},
+"healing":
+[
+	{"type":"mp", "below_percent":20, "use_item":"ultimate spirit potion",      "priority":5},
+	{"type":"hp", "below_percent":75, "use_spell":"exura gran san", "min_mana_percent":10,  "priority":4},
+	{"type":"hp", "below_percent":50, "use_item":"ultimate spirit potion",      "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"strong mana potion", "priority":3},
+	{"type":"hp", "below_percent":98, "use_spell":"utura gran", "min_mana_percent":50, "priority":1, "cooldown":60},
+	{"type":"hp", "below_percent":101, "use_spell":"exevo gran con hur", "min_mana_percent":70, "priority":1, "cooldown":301}
+],
+"hunt_config": {
+	"cap_leave": 200,
+	"mana_name": "strong mana potion",
+	"take_mana": 1000,
+	"mana_leave": 300,
+	"health_name": "ultimate spirit potion",
+	"take_health": 200,
+	"health_leave": 80,
+	"ammo_name": "crystalline arrow",
+	"take_ammo": 600,
+	"ammo_leave": 300,
+	"hotkey_ammo": 21
+},
+"persistent_actions": [
+	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
+	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
+	{"action":"drop_vials", "interval":60},
+	{"action":"refill_diamond_ammo", "interval":5, "use_in_battle":true},
+	{"action":"lure_monsters_diamond_arrow", "interval":1, "args":[5]}
+],
+"target_monsters": 
+[
+	{"name":"Glooth Bandit", "action":"follow", "loot":true},
+	{"name":"Glooth Brigand", "action":"follow", "loot":true},
+	{"name":"Metal Gargoyle", "action":"follow", "loot":true},
+	{"name":"Rustheap Golem", "action":"follow", "loot":true},
+	{"name":"Glooth Anemone", "action":"follow", "loot":true},
+	{"name":"Walker", "action":"follow", "loot":true},
+	{"name":"Glooth Golem", "action":"follow", "loot":true},
+	{"name":"Rot Elemental", "action":"follow", "loot":true},
+	{"name":"Glooth Blob", "action":"follow", "loot":true},
+	{"name":"Devourer", "action":"follow", "loot":true},
+	{"name":"Warlock", "action":"follow", "loot":true}
+],
+"target_spells":
+[
+	{"name":"exori san", "min_mana_percent":30, "priority":1, "cooldown":2,
+		"monsters":["Glooth Bandit", "Glooth Brigand", "Metal Gargoyle", "Walker", "Rustheap Golem", "Glooth Golem", "Rot Elemental", "Glooth Blob", "Devourer", "Glooth Anemone", "Warlock"]},
+	{"name":"exevo mas san", "min_mana_percent":50, "priority":3, "min_monster_count":3, "cooldown":4}
+],
+"loot": []
+}

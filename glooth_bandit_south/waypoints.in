@@ -1,0 +1,106 @@
+label start
+load scripts/general/refill_oramond.in
+label gohunt
+node (33626, 31897, 6)
+node (33621, 31914, 6)
+node (33637, 31926, 6)
+node (33635, 31941, 6)
+stand (33636, 31944, 6)
+stand (33647, 31948, 7)
+door (33647, 31947, 7)
+node (33651, 31943, 7)
+stand (33651, 31941, 7)
+node (33549, 31969, 12)
+door (33551, 31973, 12)
+door (33549, 31977, 12)
+node (33533, 31988, 12)
+label hunt
+node (33515, 32018, 12)
+rope (33514, 32025, 12)
+node (33520, 32033, 11)
+action summon
+stand (33525, 32038, 11)
+node (33538, 32039, 12)
+node (33551, 32034, 12)
+node (33568, 32024, 12)
+node (33579, 32041, 12)
+action check_teleport
+label continue
+stand (33574, 32034, 12)
+node (33571,32049,11)
+node (33585,32046,11)
+node (33600,32032,11)
+node (33605,32017,11)
+node (33601,32009,11)
+node (33605,32001,11)
+node (33620,31999,11)
+node (33622,32006,11)
+node (33603,32003,11)
+node (33606,32022,11)
+node (33593,32035,11)
+node (33576,32037,11)
+action summon
+stand (33573, 32038, 11)
+label skip_teleport
+node (33567, 32038, 12)
+node (33558, 32024, 12)
+node (33554, 32025, 12)
+node (33542, 32037, 12)
+node (33527, 32038, 12)
+rope (33525, 32038, 12)
+node (33518, 32032, 11)
+stand (33514, 32025, 11)
+node (33515, 32018, 12)
+action check
+label leave
+node (33523, 31997, 12)
+node (33544, 31983, 12)
+door (33549, 31977, 12)
+door (33551, 31973, 12)
+node (33560, 31969, 12)
+stand (33558, 31970, 12)
+node (33647, 31944, 7)
+door (33647, 31947, 7)
+node (33645, 31950, 7)
+node (33635, 31946, 7)
+stand (33635, 31944, 7)
+node (33637, 31934, 6)
+node (33633, 31891, 6)
+stand (33633, 31883, 6)
+label sell_flint
+action sell
+node (33631, 31897, 6)
+action check_time
+label train
+stand (33637,31891,6)
+stand (33479,31986,7)
+action travel_edron
+node (33176,31771,6)
+stand (33175,31775,6)
+node (33192,31791,7)
+node (33202,31796,7)
+action check_time
+label train
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start_train
+node (33180,31777,7)
+ladder (33175,31775,7)
+node (33176,31764,6)
+action travel_oramond
+node (33486,31985,7)
+stand (33492,31985,7)
