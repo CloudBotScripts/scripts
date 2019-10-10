@@ -74,6 +74,8 @@ Soon
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                            |
 
+### Royal Paladin (100-200)
+| 180+  | [Hero Old Fortress -1](hero_fortress/setup_rp.json)            | :star:                                  | :star: :star: :star: :star:             |  
 
 ### Royal Paladin (200-300)
 | Level | Name                            | Profit                                  | XP                                      |
