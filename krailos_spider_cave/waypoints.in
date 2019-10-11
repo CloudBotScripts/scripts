@@ -1,0 +1,94 @@
+label start 
+load scripts/general/refill_edron.in
+label gohunt
+node (33202,31809,7)
+node (33196,31790,7)
+node (33189,31778,7)
+ladder (33175,31775,7)
+node (33176,31763,6)
+action travel_krailos
+stand (33498,31710,6)
+stand (33500,31704,7)
+stand (33501,31704,7)
+node (33512,31702,7)
+node (33525,31699,7)
+stand (33526,31697,7)
+node (33528,31697,7)
+node (33546,31693,7)
+node (33571,31705,7)
+node (33610,31713,7)
+node (33641,31712,7)
+node (33663,31723,7)
+node (33677,31742,7)
+stand (33686,31744,7)
+node (33690,31760,8)
+node (33672,31763,8)
+stand (33657,31759,8)
+label hunt
+node (33653,31772,9)
+node (33645,31766,9)
+node (33642,31780,9)
+node (33657,31787,9)
+node (33679,31786,9)
+node (33681,31769,9)
+node (33669,31764,9)
+node (33680,31753,9)
+node (33679,31742,9)
+node (33665,31747,9)
+node (33654,31754,9)
+node (33643,31752,9)
+node (33651,31745,9)
+node (33643,31739,9)
+node (33652,31743,9)
+node (33661,31753,9)
+node (33665,31764,9)
+action check
+label leave
+stand (33657,31759,9)
+rope (33657,31759,9)
+node (33684,31763,8)
+node (33688,31750,8)
+rope (33686,31744,8)
+node (33669,31733,7)
+node (33644,31720,7)
+node (33621,31715,7)
+node (33595,31699,7)
+node (33564,31692,7)
+node (33536,31693,7)
+node (33527,31696,7)
+stand (33527,31697,7)
+node (33515,31701,7)
+node (33510,31702,7)
+stand (33502,31703,7)
+stand (33501,31703,7)
+ladder (33498,31710,7)
+stand (33491,31712,6)
+action travel_edron
+stand (33175,31775,6)
+node (33191,31789,7)
+node (33203,31805,7)
+node (33192,31819,7)
+action check_time
+label train
+node (33190, 31778, 7)
+node (33191, 31790, 7)
+stand (33179, 31790, 7)
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start trainer
+node (33199, 31792, 7)
+node (33202,31801,7)

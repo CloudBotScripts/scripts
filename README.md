@@ -42,7 +42,7 @@ Soon
 | 100+  | Giant Spider Port Hope          | :star: :star:                           | :star: :star:                           |         
 | 120+  | Sea Serpent north               | :star: :star: :star:                    | :star: :star: :star:                    | 
 | 130+  | Wyrm Cave Liberty Bay           | :star:                                  | :star: :star: :star:                    |    
-| 150+  | Krailos Giant Spider Cave       | :star: :star: :star:                    | :star: :star: :star:                    |              
+| 150+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
 | 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup.json)             | :star: :star: :star:                    | :star: :star: :star:                    |
 | 160+  | Krailos Nightmare               | :star:                                  | :star: :star: :star:                    |
 | 160+  | Hero Old Fortress -1            | :star:                                  | :star: :star: :star: :star:             |  
@@ -54,8 +54,8 @@ Soon
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 200+  | Hydra Oramond                   | :star:                                  | :star: :star:                           |
-| 200+  | Minotaur Cults                  | :star: :star: :star: :star:             | :star: :star:                           |
-| 200+  | Feyrist Nightmare cave          | :star: :star: :star:                    | :star: :star: :star:                    |      
+| 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
+| 200+  | [Feyrist Nightmare cave](feyrist_nightmare_cave/setup.json)| :star: :star: :star:             | :star: :star: :star:                    |      
 | 250+  | Cults Edron Full                | :star: :star:                           | :star: :star: :star: :star:             |
 | 250+  | Wyrm Cave Drefia                | :star:                                  | :star: :star: :star: :star: :star:      |
 | 250+  | Hero Old Fortress -2            | :star: :star:                           | :star: :star: :star: :star: :star:      |   
@@ -82,7 +82,7 @@ Soon
 ### Royal Paladin (200-300)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 200+  | Minotaur Cults                  | :star: :star: :star: :star:             | :star: :star:                           |
+| 200+  | [Minotaur Cults](minotaur_cults/setup_rp.json)          | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | Cults Edron First Floor         | :star: :star:                           | :star: :star: :star:                    |        
 | 200+  | Feyrist Nightmare cave          | :star: :star: :star:                    | :star: :star: :star:                    |      
 | 250+  | Cults Edron Full                | :star: :star:                           | :star: :star: :star: :star:             |
