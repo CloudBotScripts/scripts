@@ -61,8 +61,8 @@
 	"take_health": 200,
 	"health_leave": 80,
 	"ammo_name": "crystalline arrow",
-	"take_ammo": 600,
-	"ammo_leave": 300
+	"take_ammo": 500,
+	"ammo_leave": 250
 },
 "persistent_actions": [
 	{"action":"drop_vials", "interval":60},

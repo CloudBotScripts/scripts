@@ -9,8 +9,10 @@
 	"skill_train":"distance",
 	"imbuements":[
 		{"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
+		{"equip_slot":"weapon", "name":"Intricate Vampirism", "type":"Life Leech"},
+		{"equip_slot":"weapon", "name":"Intricate Strike", "type":"Critical Hit"},
 		{"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"},
-		{"equip_slot":"weapon", "name":"Intricate Strike", "type":"Critical Hit"}
+		{"equip_slot":"armor", "name":"Intricate Vampirism", "type":"Life Leech"}
 	],
 	"summon":"f3",
 	"sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
@@ -55,43 +57,41 @@
 "hunt_config": {
 	"cap_leave": 200,
 	"mana_name": "strong mana potion",
-	"take_mana": 1000,
-	"mana_leave": 300,
+	"take_mana": 1400,
+	"mana_leave": 350,
 	"health_name": "ultimate spirit potion",
-	"take_health": 200,
+	"take_health": 250,
 	"health_leave": 80,
 	"ammo_name": "crystalline arrow",
-	"take_ammo": 600,
-	"ammo_leave": 300
+	"take_ammo": 500,
+	"ammo_leave": 250
 },
 "persistent_actions": [
 	{"action":"drop_vials", "interval":60},
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
-	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-	{"action":"refill_diamond_ammo", "interval":5, "use_in_battle":true},
+	{"action":"eat_food", "interval":30, "args":{"hotkey":"f11"}},
+	{"action":"refill_diamond_ammo", "interval":2, "use_in_battle":true, "args":{"save_single_target":true}},
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
 	{"action":"lure_monsters_diamond_arrow", "interval":0.5, "args":{"count":5}}
 ],
 "target_monsters": 
 [
-	{"name":"Glooth Bandit", "action":"follow", "loot":true},
-	{"name":"Glooth Brigand", "action":"follow", "loot":true},
 	{"name":"Metal Gargoyle", "action":"follow", "loot":true},
 	{"name":"Rustheap Golem", "action":"follow", "loot":true},
-	{"name":"Glooth Golem", "action":"follow", "loot":true},
 	{"name":"Glooth Anemone", "action":"follow", "loot":true},
+	{"name":"Blood Beast", "action":"follow", "loot":true},
 	{"name":"Walker", "action":"follow", "loot":true},
+	{"name":"Glooth Golem", "action":"follow", "loot":true},
 	{"name":"Rot Elemental", "action":"follow", "loot":true},
 	{"name":"Glooth Blob", "action":"follow", "loot":true},
-	{"name":"Devourer", "action":"follow", "loot":true},
-	{"name":"Warlock", "action":"follow", "loot":true}
+	{"name":"Devourer", "action":"follow", "loot":true}
 ],
 "target_spells":
 [
-	{"name":"exori san", "min_mana_percent":30, "priority":1, "cooldown":2,
-		"monsters":["Glooth Bandit", "Glooth Brigand", "Metal Gargoyle", "Walker", "Rustheap Golem", "Glooth Golem", "Rot Elemental", "Glooth Blob", "Devourer", "Glooth Anemone", "Warlock"]},
-	{"name":"exevo mas san", "min_mana_percent":50, "priority":3, "min_monster_count":3, "cooldown":4}
+	{"name":"exori san", "min_mana_percent":20, "priority":1, "cooldown":2,
+		"monsters":["Metal Gargoyle", "Rustheap Golem", "Glooth Golem", "Rot Elemental", "Glooth Blob", "Devourer", "Glooth Anemone"]},
+	{"name":"exevo mas san", "min_mana_percent":30, "priority":3, "min_monster_count":3, "cooldown":4}
 ],
 "loot": []
 }

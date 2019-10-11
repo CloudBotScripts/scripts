@@ -44,7 +44,7 @@ Soon
 | 130+  | Wyrm Cave Liberty Bay           | :star:                                  | :star: :star: :star:                    |    
 | 150+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
 | 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup.json)             | :star: :star: :star:                    | :star: :star: :star:                    |
-| 160+  | Krailos Nightmare               | :star:                                  | :star: :star: :star:                    |
+| 160+  | [Krailos Nightmare](krailos_nightmare/setup_ek.json) | :star:                                  | :star: :star: :star:                    |
 | 160+  | Hero Old Fortress -1            | :star:                                  | :star: :star: :star: :star:             |  
 | 180+  | Sea Serpent South               | :star: :star:                           | :star: :star: :star:                    |
 | 180+  | Putrid Mummy                    | :star: :star: :star:                    | :star: :star:                           |
@@ -59,12 +59,14 @@ Soon
 | 250+  | Cults Edron Full                | :star: :star:                           | :star: :star: :star: :star:             |
 | 250+  | Wyrm Cave Drefia                | :star:                                  | :star: :star: :star: :star: :star:      |
 | 250+  | Hero Old Fortress -2            | :star: :star:                           | :star: :star: :star: :star: :star:      |   
-| 250+  | Glooth Bandit E/S/W             | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
+| 250+  | [Glooth Bandit East](glooth_bandit_east/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
+| 250+  | [Glooth Bandit West](glooth_bandit_west/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
+| 250+  | [Glooth Bandit South](glooth_bandit_south/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 
 ### Elite Knight (300+)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 300+  | Oramond Sewers                  | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
+| 300+  | [Oramond Sewers](oramond_sewers/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
 | 350+  | Medusa Tower                    | :star: :star:                           | :star: :star: :star: :star: :star:      |
 | 400+  | Oramond Glooth Tower            | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
 
@@ -77,6 +79,7 @@ Soon
 ### Royal Paladin (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 180+  | [Krailos Nightmare](krailos_nightmare/setup_rp.json) | :star:                                  | :star: :star: :star:                    |
 | 180+  | [Hero Old Fortress -1](hero_fortress/setup_rp.json)            | :star:                                  | :star: :star: :star: :star:             |  
 
 ### Royal Paladin (200-300)
@@ -88,14 +91,14 @@ Soon
 | 250+  | Cults Edron Full                | :star: :star:                           | :star: :star: :star: :star:             |
 | 250+  | Wyrm Cave Drefia                | :star:                                  | :star: :star: :star: :star: :star:      |
 | 250+  | Hero Old Fortress -2            | :star: :star:                           | :star: :star: :star: :star: :star:      |   
-| 250+  | Glooth Bandit East              | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
-| 250+  | Glooth Bandit West              | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
+| 250+  | [Glooth Bandit East](glooth_bandit_east/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
+| 250+  | [Glooth Bandit West](glooth_bandit_west/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit South](glooth_bandit_south/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 
 ### Royal Paladin (300+)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 300+  | Oramond Sewers                  | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
+| 300+  | [Oramond Sewers](oramond_sewers/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
 | 350+  | Medusa Tower                    | :star: :star:                           | :star: :star: :star: :star: :star:      |
 | 400+  | Oramond Glooth Tower            | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
 
@@ -113,7 +116,7 @@ Soon
 ## Quests/Other
 | Level | Name                            | 
 | ----- | ------------------------------- |
-| 8+    | [Buy Blessing](buy_blessing/setup.json)                    |
+| 8+    | [Buy Blessing](buy_blessing/)                    |
 | 10+   | Ice Fishing Svargrond           |
 | 10+   | Barbarian Test Quest            |
 | 20+   | Meriana Access Quest            |

@@ -1,0 +1,112 @@
+label start 
+load scripts/general/refill_edron.in
+label gohunt
+node (33202,31809,7)
+node (33196,31790,7)
+node (33189,31778,7)
+ladder (33175,31775,7)
+node (33176,31763,6)
+action travel_krailos
+stand (33498,31710,6)
+stand (33500,31704,7)
+stand (33501,31704,7)
+node (33512,31702,7)
+node (33525,31699,7)
+stand (33526,31697,7)
+node (33528,31697,7)
+node (33539,31685,7)
+node (33555,31679,7)
+node (33561,31667,7)
+node (33557,31653,7)
+node (33549,31629,7)
+node (33556,31614,7)
+node (33562,31599,7)
+node (33580,31586,7)
+stand (33580,31585,7)
+label hunt
+node (33575,31590,8)
+node (33561,31606,8)
+node (33549,31589,8)
+node (33548,31568,8)
+action check_down_1
+stand (33552,31559,8)
+node (33541,31559,9)
+node (33549,31585,9)
+node (33557,31595,9)
+node (33574,31603,9)
+node (33580,31606,9)
+node (33559,31593,9)
+node (33563,31580,9)
+node (33541,31582,9)
+node (33548,31562,9)
+rope (33552,31559,9)
+label skip_down_1
+node (33574,31569,8)
+action check2
+label continue
+node (33596,31567,8)
+node (33617,31560,8)
+node (33618,31582,8)
+action check_down_2
+stand (33619,31603,8)
+node (33596,31604,9)
+node (33615,31601,9)
+node (33615,31584,9)
+node (33602,31568,9)
+node (33616,31552,9)
+node (33596,31566,9)
+node (33581,31555,9)
+node (33566,31562,9)
+node (33603,31569,9)
+node (33617,31590,9)
+rope (33619,31603,9)
+label skip_down_2
+node (33594,31602,8)
+node (33595,31571,8)
+node (33574,31570,8)
+node (33578,31589,8)
+action check
+label leave
+stand (33580,31585,8)
+node (33590,31612,7)
+node (33578,31643,7)
+node (33566,31661,7)
+node (33553,31680,7)
+node (33535,31686,7)
+node (33527,31696,7)
+stand (33527,31697,7)
+node (33515,31701,7)
+node (33510,31702,7)
+stand (33502,31703,7)
+stand (33501,31703,7)
+ladder (33498,31710,7)
+stand (33491,31712,6)
+action travel_edron
+stand (33175,31775,6)
+node (33191,31789,7)
+node (33203,31805,7)
+node (33192,31819,7)
+action check_time
+label train
+node (33190, 31778, 7)
+node (33191, 31790, 7)
+stand (33179, 31790, 7)
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start trainer
+node (33199, 31792, 7)
+node (33202,31801,7)

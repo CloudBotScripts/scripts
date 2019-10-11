@@ -10,7 +10,8 @@
 	"imbuements":[
 		{"equip_slot":"weapon", "name":"Intricate Vampirism", "type":"Life Leech"}
 	],
-	"sort_deposit": {"alexander":6, "lailene":6, "tamoril":8, "rashid": 9, "green_djinn": 10}
+	"sort_deposit": {"alexander":6, "lailene":6, "tamoril":8, "rashid": 9, "green_djinn": 10},
+	"hunt_down":true
 },
 "containers": 
 {
@@ -26,7 +27,6 @@
 {
 	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
 	"ultimate health potion": {"hotkey":"F", "id":7643, "use":"self"},
-	"small ruby": {"hotkey":"f10", "id":3030, "use":"crosshair"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
 "spells":
@@ -52,16 +52,17 @@
 	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
 ],
 "hunt_config": {
-	"cap_leave": 200,
+	"cap_leave": 100,
 	"mana_name": "mana potion",
 	"take_mana": 800,
 	"mana_leave": 300,
 	"health_name": "ultimate health potion",
 	"take_health": 200,
-	"health_leave": 100
+	"health_leave": 80
 },
 "persistent_actions": [
-	{"action":"haste", "interval":40, "args":["v"]},
+	{"action":"drop_vials", "interval":200},
+	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
 	{"action":"lure_monsters", "interval":0.5, "args":[4, 2]},
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
@@ -69,17 +70,19 @@
 ],
 "target_monsters": 
 [
-	{"name":"Wailing Widow",  "action":"follow", "loot":true},
-	{"name":"Giant Spider",  "action":"follow", "loot":true},
-	{"name":"Brimstone Bug",  "action":"follow", "loot":true}
+	{"name":"Nightmare",  "action":"follow", "loot":true},
+	{"name":"Nightmare Scion", "action":"follow", "loot":true},
+	{"name":"Undead Gladiator",  "action":"follow", "loot":true}
 ],
 "target_spells":
 [ 
 	{"name":"exori hur", "min_mana_percent":10, "priority":1, "cooldown":5, 
-		"monsters":["Giant Spider", "Wailing Widow", "Brimstone Bug"]},
-	{"name":"exori", "min_mana_percent":20, "priority":2, "cooldown": 4, "min_monster_count":2},
-	{"name":"exori min", "min_mana_percent":30, "priority":3, "cooldown": 6, "min_monster_count":2},
-	{"name":"exori gran", "min_mana_percent":40, "priority":4, "cooldown": 6,  "min_monster_count":3}
+		"monsters":["Nightmare", "Nightmare Scion"]},
+	{"name":"exori", "min_mana_percent":10, "priority":2, "cooldown": 4, "min_monster_count":2},
+	{"name":"exori min","min_mana_percent":20, "priority":3, "cooldown": 6, "min_monster_count":2},
+	{"name":"exori gran", "min_mana_percent":30, "priority":4, "cooldown": 6,  "min_monster_count":3},
+	{"name":"exeta res", "min_mana_percent":20, "priority":5, "cooldown": 5, "min_monster_count":3},
+	{"name":"utito tempo", "min_mana_percent":60, "priority":4, "cooldown": 20, "min_monster_count":4}
 ],
 "loot": []
 }

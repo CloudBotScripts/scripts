@@ -9,11 +9,10 @@
 	"skill_train":"distance",
 	"imbuements":[
 		{"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
-		{"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"},
 		{"equip_slot":"weapon", "name":"Intricate Strike", "type":"Critical Hit"}
 	],
-	"summon":"f3",
-	"sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
+	"sort_deposit": {"alexander":6, "lailene":6, "tamoril":8, "rashid": 9, "green_djinn": 10},
+	"hunt_down":true
 },
 "containers": 
 {
@@ -65,7 +64,7 @@
 	"ammo_leave": 300
 },
 "persistent_actions": [
-	{"action":"drop_vials", "interval":60},
+	{"action":"drop_vials", "interval":200},
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
@@ -75,22 +74,14 @@
 ],
 "target_monsters": 
 [
-	{"name":"Glooth Bandit", "action":"follow", "loot":true},
-	{"name":"Glooth Brigand", "action":"follow", "loot":true},
-	{"name":"Metal Gargoyle", "action":"follow", "loot":true},
-	{"name":"Rustheap Golem", "action":"follow", "loot":true},
-	{"name":"Glooth Golem", "action":"follow", "loot":true},
-	{"name":"Glooth Anemone", "action":"follow", "loot":true},
-	{"name":"Walker", "action":"follow", "loot":true},
-	{"name":"Rot Elemental", "action":"follow", "loot":true},
-	{"name":"Glooth Blob", "action":"follow", "loot":true},
-	{"name":"Devourer", "action":"follow", "loot":true},
-	{"name":"Warlock", "action":"follow", "loot":true}
+    {"name":"Nightmare",  "action":"follow", "loot":true},
+    {"name":"Nightmare Scion", "action":"follow", "loot":true},
+    {"name":"Undead Gladiator",  "action":"follow", "loot":true}
 ],
 "target_spells":
 [
 	{"name":"exori san", "min_mana_percent":30, "priority":1, "cooldown":2,
-		"monsters":["Glooth Bandit", "Glooth Brigand", "Metal Gargoyle", "Walker", "Rustheap Golem", "Glooth Golem", "Rot Elemental", "Glooth Blob", "Devourer", "Glooth Anemone", "Warlock"]},
+		"monsters":["Ogre Brute", "Ogre Savage", "Clomp", "Ogre Shaman", "Nightmare", "Nightmare Scion", "Undead Gladiator"]},
 	{"name":"exevo mas san", "min_mana_percent":50, "priority":3, "min_monster_count":3, "cooldown":4}
 ],
 "loot": []
