@@ -37,6 +37,8 @@
 	"exori min":"2",
 	"exori hur":"3",
 	"exori gran":"4",
+	"exani hur up":"=",
+	"exani hur down":"-",
 	"exori ico":"q"
 },
 "healing":

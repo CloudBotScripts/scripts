@@ -26,6 +26,12 @@ def waypoint_action(client, action):
     elif action == "wait":
         sleep(1)
 
+    elif action == "wait_ten_min":
+        sleep(10 * 60)
+
+    elif action == "confirm":
+        client.hotkey('enter')
+
     elif action == "sell":
         client.sell_all_to_npc()
 
@@ -50,6 +56,10 @@ def waypoint_action(client, action):
             health_name2, take_health2 = client.hunt_config['health_name2'], client.hunt_config['take_health2']
             if not withdraw_item_from_stash(client, health_name2, take_health2, client.items[health_name2]): 
                 print('Not enough potions')
+        if 'ammo_name' in client.hunt_config.keys():
+            ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
+            if not withdraw_item_from_stash(client, ammo_name, take_ammo, client.items[ammo_name]): 
+                print('Not enough ammo')
 
     elif action == "levitate_down":
         levitate(client, 'south', levitate_down)
@@ -99,6 +109,9 @@ def waypoint_action(client, action):
     elif action == "travel_cormaya":
         client.npc_say(['cormaya', 'yes'])
 
+    elif action == "travel_mistrock":
+        client.npc_say(['mistrock', 'yes'])
+
     elif action == "travel_passage":
         client.npc_say(['passage', 'yes'])
 
@@ -107,6 +120,9 @@ def waypoint_action(client, action):
 
     elif action == "travel_west":
         client.npc_say(['west', 'yes'])
+
+    elif action == "travel_center":
+        client.npc_say(['center', 'yes'])
 
     elif action == "buy_potions":
         npc_refill(client, mana=True, health=True)
