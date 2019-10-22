@@ -1,0 +1,4 @@
+Level: 30+
+Vocation: EK
+XP/h: 50-60k/h
+Profit/h: 0-5k/h 

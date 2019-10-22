@@ -32,6 +32,9 @@ def waypoint_action(client, action):
     elif action == "confirm":
         client.hotkey('enter')
 
+    elif action == "communication_task":
+        client.npc_say(['communication', 'yes'])
+
     elif action == "sell":
         client.sell_all_to_npc()
 
