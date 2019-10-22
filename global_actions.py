@@ -29,11 +29,11 @@ def waypoint_action(client, action):
     elif action == "wait_ten_min":
         sleep(10 * 60)
 
-    elif action == "confirm":
-        client.hotkey('enter')
-
     elif action == "communication_task":
         client.npc_say(['communication', 'yes'])
+
+    elif action == "confirm":
+        client.hotkey('enter')
 
     elif action == "sell":
         client.sell_all_to_npc()
@@ -146,6 +146,9 @@ def waypoint_action(client, action):
 
     elif action == "check":
         check_hunt(client, 'hunt', 'leave', ammo='ammo_name' in client.hunt_config.keys(), time=True)
+
+    elif action == "check2":
+        check_hunt(client, 'hunt2', 'leave2', ammo='ammo_name' in client.hunt_config.keys(), time=True)
 
     elif action == "check_time":
         check_time(client, 'train', 'start')
