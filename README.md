@@ -29,7 +29,7 @@ Soon
 ### Elite Knight (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 30+   | Tarantulas Port Hope            | :star:                                  | :star:                            |
+| 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                            |
 | 45+   | Mutated Humans		  | :star:                                  | :star: :star: :star:             |  
 | 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
 | 70+   | Ancient Scarab Khazel           | :star: :star:                           | :star: :star:                    |     
