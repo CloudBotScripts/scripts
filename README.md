@@ -22,7 +22,9 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 Soon
 
 ### Mage (8-100)
-Soon
+| Level | Name                            | Profit                                  | XP                                      |
+| ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 60+   | [Stonerefiner Venore](stonerefiner/setup.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 
 ## Premium Account
 

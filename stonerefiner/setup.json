@@ -1,0 +1,84 @@
+{
+"general": 
+{
+	"loot_type":"manual",
+	"loot_priority":"after"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"magic",
+	"use_soft_boots":false,
+	"imbuements":[],
+	"sort_deposit": {"alexander":6, "lailene":6, "tamoril":8, "rashid": 9, "green_djinn": 10}
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"tools":
+{
+	"rope": {"name":"elvenhair rope", "id": 646},
+	"shovel": {"name":"shovel", "id": 5710}
+},
+"items":
+{
+	"great mana potion": {"hotkey":"e", "id":238, "use":"self"},
+	"ultimate healing rune": {"hotkey":"f2", "id":3160, "use":"self"},
+	"great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani gran hur": "v",
+	"exura vita":"f",
+	"exura gran":"r",
+	"exevo flam hur":"1"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":40, "use_item":"ultimate healing rune", "priority":5},
+	{"type":"hp", "below_percent":60, "use_spell":"exura vita", "min_mana_percent":10, "priority":4},
+	{"type":"hp", "below_percent":75, "use_spell":"exura gran", "min_mana_percent":5,  "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"great mana potion", "priority":2}
+],
+"hunt_config": {
+	"cap_leave": 100,
+	"mana_name": "great mana potion",
+	"take_mana": 400,
+	"mana_leave": 100,
+	"health_name": "ultimate healing rune",
+	"take_health": 40,
+	"health_leave": 10,
+	"rune_name": "great fireball rune",
+	"take_rune": 300,
+	"rune_leave": 120
+},
+"persistent_actions": [
+	{"action":"drop_vials", "interval":60},
+	{"action":"anti_paralyze", "interval":1, "args":["r"]},
+	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
+	{"action":"recover_full_mana", "interval":3, "args":["e"]}
+],
+"target_monsters": 
+[
+	{"name":"Stonerefiner", "action":"distance", "loot":true}
+],
+"target_spells":
+[ 
+	{"name":"exevo flam hur", "min_mana_percent":20, "priority":3, "cooldown": 4,  "min_monster_count":2},
+	{"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3}
+],
+"loot": 
+[
+	{"name":"platinum coin", "action":"loot", "dest":"gold_bp"},
+	{"name":"platinum coins", "action":"loot", "dest":"gold_bp"},
+	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+	{"name":"glob of acid slime", "action":"loot", "dest":"loot_bp"},
+	{"name":"rare earth", "action":"loot", "dest":"loot_bp"},
+	{"name":"poisonous slime", "action":"loot", "dest":"loot_bp"},
+	{"name":"half-digested stone", "action":"loot", "dest":"loot_bp"},
+	{"name":"half-digested stones", "action":"loot", "dest":"loot_bp"},
+	{"name":"stonerefiners skull", "action":"loot", "dest":"loot_bp"}
+]
+}
