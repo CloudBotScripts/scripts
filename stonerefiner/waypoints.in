@@ -1,4 +1,3 @@
-action debug
 label start
 label go_bank
 label refill
@@ -56,7 +55,6 @@ node (33041,32072,12)
 ladder (33046,32066,12)
 node (33039,32054,12)
 node (33039,32036,12)
-label debug
 node (33040,32013,12)
 ladder (33036,32008,12)
 stand (33037,32009,12)
