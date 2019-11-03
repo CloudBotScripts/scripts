@@ -66,9 +66,17 @@ def waypoint_action(client, action):
 
     elif action == "levitate_down":
         levitate(client, 'south', levitate_down)
-
     elif action == "levitate_up":
         levitate(client, 'north', levitate_up)
+
+    elif action == "levitate_north_up":
+        levitate(client, 'north', client.spells['exani hur up'])
+    elif action == "levitate_west_up":
+        levitate(client, 'west', client.spells['exani hur up'])
+    elif action == "levitate_south_down":
+        levitate(client, 'south', client.spells['exani hur down'])
+    elif action == "levitate_east_down":
+        levitate(client, 'east', client.spells['exani hur down'])
 
     elif action == "travel_edron":
         client.npc_say(['edron', 'yes'])
@@ -158,3 +166,6 @@ def waypoint_action(client, action):
 
     elif action == "end":
         client.logout()
+
+    else:
+        print('Action:', action, 'does not exist')
