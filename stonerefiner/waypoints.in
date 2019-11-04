@@ -6,6 +6,7 @@ action bank
 stand (33020, 32059, 6)
 stand (33017, 32053, 7)
 action deposit
+action refill
 node (33018, 32053, 7)
 stand (33020, 32059, 7)
 node (33007, 32053, 6)
@@ -116,3 +117,38 @@ door (32999,32096,6)
 node (32998, 32087, 6)
 node (32998, 32073, 6)
 node (33016, 32055, 6)
+action check_time
+label train
+action end
+node (32990,32053,6)
+node (32959,32053,6)
+node (32953,32070,6)
+stand (32935,32075,6)
+stand (32931,32077,7)
+stand (32932,32079,8)
+stand (32933,32077,9)
+stand (32932,32077,10)
+node (32940,32078,11)
+action check_train
+label sword
+ladder (32939,32075,11)
+action wait
+label club
+ladder (32944,32077,11)
+action wait
+label axe
+ladder (32942,32075,11)
+action wait
+label distance
+ladder (32939,32080,11)
+action wait
+label start trainer
+node (32933,32078,11)
+ladder (32932,32077,11)
+ladder (32933,32077,10)
+stand (32932,32079,9)
+stand (32931,32077,8)
+stand (32935,32075,7)
+node (32959,32074,6)
+node (32999,32073,6)
+node (33015,32054,6)
