@@ -42,6 +42,14 @@ def waypoint_action(client, action):
         if check_imbuements(client):
             client.jump_label('skip_imbuement')
 
+    elif action == "check_sell_gems":
+        if not client.script_options.get('sell_gems', False):
+            client.jump_label('skip_sell_gems')
+
+    elif action == "check_sell_loot":
+        if not client.script_options.get('sell_loot', False):
+            client.jump_label('skip_sell_loot')
+
     elif action == "use_imbuing_shrine":
         use_imbuing_shrine(client)
 
