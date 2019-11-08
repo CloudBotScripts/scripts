@@ -156,6 +156,12 @@ def waypoint_action(client, action):
     elif action == "travel_center":
         client.npc_say(['center', 'yes'])
 
+    elif action == "travel_cemetery":
+        client.npc_say(['cemetery', 'yes'])
+
+    elif action == "travel_magician":
+        client.npc_say(['magician', 'yes'])
+
     elif action == "buy_potions":
         npc_refill(client, mana=True, health='health_name' in client.hunt_config.keys())
 
