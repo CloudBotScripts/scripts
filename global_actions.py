@@ -20,6 +20,10 @@ def waypoint_action(client, action):
             if 'arrow' not in ammo_name and 'bolt' not in ammo_name:
                 client.jump_label('skip_ammo')
 
+    elif action == "check_runes":
+        if 'rune_name' not in client.hunt_config.keys():
+            client.jump_label('skip_runes')
+
     elif action == "bank":
         client.npc_say(['deposit all', 'yes'])
 
@@ -28,6 +32,12 @@ def waypoint_action(client, action):
 
     elif action == "wait_ten_min":
         sleep(10 * 60)
+
+    elif action == "target_off":
+        client.target_on = False
+
+    elif action == "target_on":
+        client.target_on = True
 
     elif action == "communication_task":
         client.npc_say(['communication', 'yes'])
@@ -58,11 +68,14 @@ def waypoint_action(client, action):
         deposit_all_from_backpack_to_depot(client, client.container_conf['loot_bp'], 2)
 
     elif action == "refill":
-        health_name, take_health = client.hunt_config['health_name'], client.hunt_config['take_health']
-        if not withdraw_item_from_stash(client, health_name, take_health, client.items[health_name]): 
-            print('Not enough potions')
+        if 'health_name' in client.hunt_config.keys():
+            health_name, take_health = client.hunt_config['health_name'], client.hunt_config['take_health']
+            if not withdraw_item_from_stash(client, health_name, take_health, client.items[health_name]): 
+                print('Not enough potions')
+
         if not withdraw_item_from_stash(client, 'brown mushroom', 50, client.items['brown mushroom']): 
             print('Not enough mushrooms')
+
         if 'health_name2' in client.hunt_config.keys():
             health_name2, take_health2 = client.hunt_config['health_name2'], client.hunt_config['take_health2']
             if not withdraw_item_from_stash(client, health_name2, take_health2, client.items[health_name2]): 
@@ -157,6 +170,7 @@ def waypoint_action(client, action):
                 mana='mana_name' in client.hunt_config.keys(),
                 health='health_name' in client.hunt_config.keys(),
                 ammo='ammo_name' in client.hunt_config.keys(), 
+                rune='rune_name' in client.hunt_config.keys(), 
                 logout_fail=True)
 
     elif action == "summon":
@@ -169,6 +183,7 @@ def waypoint_action(client, action):
                 mana='mana_name' in client.hunt_config.keys(),
                 health='health_name' in client.hunt_config.keys(),
                 ammo='ammo_name' in client.hunt_config.keys(), 
+                rune='rune_name' in client.hunt_config.keys(), 
                 time=True)
 
     elif action == "check2":
