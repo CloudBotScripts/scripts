@@ -144,16 +144,20 @@ def waypoint_action(client, action):
         client.npc_say(['center', 'yes'])
 
     elif action == "buy_potions":
-        npc_refill(client, mana=True, health=True)
+        npc_refill(client, mana=True, health='health_name' in client.hunt_config.keys())
 
     elif action == "buy_runes":
-        npc_refill(client, mana=False, health=False, rune=True)
+        npc_refill(client, mana=False, health=False, rune='rune_name' in client.hunt_config.keys())
 
     elif action == "buy_ammo":
         npc_refill(client, ammo='ammo_name' in client.hunt_config.keys())
 
     elif action == "check_supplies":
-        check_supplies(client, ammo='ammo_name' in client.hunt_config.keys(), logout_fail=True)
+        check_supplies(client, 
+                mana='mana_name' in client.hunt_config.keys(),
+                health='health_name' in client.hunt_config.keys(),
+                ammo='ammo_name' in client.hunt_config.keys(), 
+                logout_fail=True)
 
     elif action == "summon":
         hotkey = client.script_options.get('summon', False)
@@ -161,10 +165,18 @@ def waypoint_action(client, action):
             client.hotkey(hotkey)
 
     elif action == "check":
-        check_hunt(client, 'hunt', 'leave', ammo='ammo_name' in client.hunt_config.keys(), time=True)
+        check_hunt(client, 'hunt', 'leave', 
+                mana='mana_name' in client.hunt_config.keys(),
+                health='health_name' in client.hunt_config.keys(),
+                ammo='ammo_name' in client.hunt_config.keys(), 
+                time=True)
 
     elif action == "check2":
-        check_hunt(client, 'hunt2', 'leave2', ammo='ammo_name' in client.hunt_config.keys(), time=True)
+        check_hunt(client, 'hunt2', 'leave2', 
+                mana='mana_name' in client.hunt_config.keys(),
+                health='health_name' in client.hunt_config.keys(),
+                ammo='ammo_name' in client.hunt_config.keys(), 
+                time=True)
 
     elif action == "check_time":
         check_time(client, 'train', 'start')

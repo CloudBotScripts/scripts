@@ -30,7 +30,6 @@
 },
 "spells":
 {
-	"utani gran hur": "v",
 	"exura vita":"f",
 	"exura gran":"r",
 	"exevo flam hur":"1"
@@ -45,14 +44,14 @@
 "hunt_config": {
 	"cap_leave": 100,
 	"mana_name": "great mana potion",
-	"take_mana": 400,
-	"mana_leave": 100,
-	"health_name": "ultimate healing rune",
-	"take_health": 40,
-	"health_leave": 10,
+	"take_mana": 250,
+	"mana_leave": 50,
 	"rune_name": "great fireball rune",
 	"take_rune": 300,
-	"rune_leave": 120
+	"rune_leave": 80,
+	"rune_name2": "ultimate healing rune",
+	"take_rune2": 30,
+	"rune_leave2": 10
 },
 "persistent_actions": [
 	{"action":"drop_vials", "interval":60},

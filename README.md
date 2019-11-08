@@ -14,9 +14,9 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 8+    | [Swamp Trolls](swamp_troll/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
 | 20+   | Amazon Camp Venore              | :star: :star:                           | :star: :star:                           |
 | 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
-| 60+   | Dark Cathedral -2               | :star:                                  | :star: :star: :star:                    |
+| 60+   | [Dark Cathedral -2](dark_cathedral/setup.json)   | :star:                                  | :star: :star: :star:                    |
 | 75+   | Corym Venore North -1           | :star: :star:                           | :star: :star: :star:                    |
-| 80+   | Stonerefiner                    | :star: :star: :star:                    | :star: :star: :star:                    |
+| 80+   | [Stonerefiner](stonerefiner/setup_ek.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ### Paladin (8-100)
 Soon
@@ -24,7 +24,7 @@ Soon
 ### Mage (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 60+   | [Stonerefiner Venore](stonerefiner/setup.json)  | :star: :star: :star:    | :star: :star: :star:                    |
+| 60+   | [Stonerefiner Venore](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 
 ## Premium Account
 
