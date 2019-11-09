@@ -113,7 +113,7 @@ Soon
 ### Master Sorcerer/Elder Druid (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 160+  | Vampire Crypt Edron             | :star: :star: :star:                    | :star: :star: :star:                    |
+| 160+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ## Quests/Other
 | Level | Name                            | 

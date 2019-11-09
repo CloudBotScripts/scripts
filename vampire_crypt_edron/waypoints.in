@@ -7,6 +7,7 @@ node (33165,31799,8)
 stand (33165,31799,8)
 action deposit
 action refill
+action refill_avalanche
 node (33166,31800,8)
 stand (33168,31812,8)
 node (33190,31819,7)
