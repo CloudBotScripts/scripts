@@ -20,6 +20,17 @@ action use_imbuing_shrine
 stand (33211,31814,8)
 node (33191,31823,7)
 label skip_imbuement
+action check_ammo
+node (33205,31820,7)
+stand (33210,31818,7)
+node (33209,31805,6)
+stand (33213,31796,6)
+action buy_ammo
+node (33208,31807,6)
+stand (33209,31818,6)
+label skip_ammo
+node (33191,31819,7)
+node (33194,31836,7)
 node (33206,31844,7)
 node (33224,31839,7)
 stand (33247,31841,7)
