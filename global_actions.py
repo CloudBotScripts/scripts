@@ -85,6 +85,12 @@ def waypoint_action(client, action):
             if not withdraw_item_from_stash(client, ammo_name, take_ammo, client.items[ammo_name]): 
                 print('Not enough ammo')
 
+    elif action == "refill_gem":
+        gem_name, take_gem = client.hunt_config['gem_name'], client.hunt_config['take_gem']
+        if not withdraw_item_from_stash(client, gem_name, take_gem, client.items[gem_name]): 
+            print('Not enough small amethysts')
+            client.logout()
+
     elif action == "levitate_down":
         levitate(client, 'south', levitate_down)
     elif action == "levitate_up":
@@ -157,10 +163,24 @@ def waypoint_action(client, action):
         client.npc_say(['center', 'yes'])
 
     elif action == "travel_cemetery":
-        client.npc_say(['cemetery', 'yes'])
+        client.npc_say(['pass', 'cemetery', 'yes'])
 
     elif action == "travel_magician":
-        client.npc_say(['magician', 'yes'])
+        client.npc_say(['pass', 'magician', 'yes'])
+
+    elif action == "use_gem_north":
+        x, y = client.gameboard.sqm_to_coordinate(0, 1)
+        gem_name = client.hunt_config['gem_name']
+        client.hotkey(client.item_hotkeys[gem_name])
+        sleep(0.3)
+        client.click(x, y, button='left')
+        sleep(1)
+
+    elif action == "skip_portal":
+        client.jump_label('after_portal')
+
+    elif action == "skip_portal_2":
+        client.jump_label('after_portal_2')
 
     elif action == "buy_potions":
         npc_refill(client, mana=True, health='health_name' in client.hunt_config.keys())
