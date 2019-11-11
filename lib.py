@@ -34,6 +34,10 @@ def recover_full_mana(client, hotkey='e'):
     if monster_count < 1 and mp_percentage < 95:
         client.hotkey(hotkey)
 
+# Use hotkey
+def use_hotkey(client, hotkey='f11'):
+    client.hotkey(hotkey)
+
 # Call eat food
 def eat_food(client, hotkey='f11'):
     food_hotkey = hotkey
@@ -47,12 +51,24 @@ def haste(client, hotkey='v'):
     if monster_count < 1 and 'haste' not in conditions:
         client.hotkey(spell_hotkey)
 
-# Cast utana vid
-def invisibility(client):
-    spell_hotkey = '8'
-    client.hotkey(spell_hotkey)
+# Equip item
+def equip_item(client, hotkey='f10', selected_monsters='all', amount=1, slot='ring'):
+    monster_list = client.battle_list.get_monster_list()
+    if selected_monsters != 'all':
+        monster_list = [m for m in monster_list if m in selected_monsters]
+    monster_count = len(monster_list)
+    
+    item_name = client.equips.get_item_in_slot(slot)
+    print(item_name)
 
-# Use stealth ring
+    if monster_count >= amount and item_name == 'none':
+        print('Equip item')
+        client.hotkey(hotkey)
+    elif monster_count < amount and item_name != 'none':
+        print('Unequip item')
+        client.hotkey(hotkey)
+
+
 def stealth_ring(client, monster_count, monster_list=False):
     ring_hotkey_slot = 8 
     ring_hotkey = 'f8'
@@ -77,17 +93,17 @@ def cast_spell(client):
         client.hotkey(spell_hotkey)
 
 # Refill ammo using hotkey
-def refill_ammo(client, ammo_name="arrow"):
+def refill_ammo(client, ammo_name="arrow", equip_slot="ammunition", min_amount=80):
     refill_hotkey_slot = client.items[ammo_name]
     refill_hotkey = client.item_hotkeys[ammo_name]
 
     # Stars
     #ammo_count = client.equips.get_count_item_in_slot('weapon')
     # Arrow
-    ammo_count = client.equips.get_count_item_in_slot('ammunition')
+    ammo_count = client.equips.get_count_item_in_slot(equip_slot)
 
     print('Ammo count', ammo_count)
-    if ammo_count is None or ammo_count < 80:
+    if ammo_count is None or ammo_count < min_amount:
         client.hotkey(refill_hotkey)
 
 # Call refill of ammo
@@ -170,7 +186,7 @@ def equip_ring(client, hotkey='f10', selected_monsters='all', amount=1):
     print(monster_list)
     
     item_name = client.equips.get_item_in_slot('ring')
-    print(item_name)
+    print('Equipped ring:', item_name)
 
     if monster_count >= amount and item_name == 'none':
         print('Equip ring')
@@ -315,6 +331,12 @@ def npc_refill(client, mana=False, health=False, ammo=False, rune=False):
         rune_count = client.get_hotkey_item_count(client.items[rune_name])
         buy_list_names.append(rune_name)
         buy_list_count.append(take_rune - rune_count)
+
+        if 'rune_name2' in client.hunt_config.keys():
+            rune_name2, take_rune2 = client.hunt_config['rune_name2'], client.hunt_config['take_rune2']
+            rune_count2 = client.get_hotkey_item_count(client.items[rune_name2])
+            buy_list_names.append(rune_name2)
+            buy_list_count.append(take_rune2 - rune_count2)
     if ammo:
         ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
         ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
@@ -345,6 +367,11 @@ def check_hunt(client, success, fail, mana=True, health=True, cap=True, rune=Fal
         rune_name, take_rune = client.hunt_config['rune_name'], client.hunt_config['take_rune']
         rune_count = client.get_hotkey_item_count(client.items[rune_name])
         rune_check = rune_count > client.hunt_config['rune_leave']
+        if 'rune_name2' in client.hunt_config.keys():
+            rune_name2, take_rune2 = client.hunt_config['rune_name2'], client.hunt_config['take_rune2']
+            rune_count2 = client.get_hotkey_item_count(client.items[rune_name2])
+            rune_check2 = rune_count2 > client.hunt_config['rune_leave2']
+            rune_check = rune_check and rune_check2
     if ammo:
         ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
         ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
@@ -413,6 +440,12 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
         rune_count = client.get_hotkey_item_count(client.items[rune_name])
         rune_check = rune_count >= 0.9 * take_rune
         print('Rune:', rune_check, rune_count, '/', take_rune)
+        if 'rune_name2' in client.hunt_config.keys():
+            rune_name2, take_rune2 = client.hunt_config['rune_name2'], client.hunt_config['take_rune2']
+            rune_count2 = client.get_hotkey_item_count(client.items[rune_name2])
+            rune_check2 = rune_count2 >=  0.9 * take_rune2
+            rune_check = rune_check and rune_check2
+            print('Rune2:', rune_check2, rune_count2, '/', take_rune2)
     if cap:
         cap_check = client.get_cap() > 1.1 * client.hunt_config['cap_leave']
         print('Cap:', cap_check, client.get_cap(), '/', client.hunt_config['cap_leave'])
