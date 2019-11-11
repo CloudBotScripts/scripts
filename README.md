@@ -59,7 +59,7 @@ Soon
 | 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Feyrist Nightmare cave](feyrist_nightmare_cave/setup.json)| :star: :star: :star:             | :star: :star: :star:       
 | 200+  | [Feyrist Underground by DvScripts](feyrist_underground_dvscripts/setup.json)| :star: :star: :star:             | :star: :star: :star:     |      
-| 250+  | Cults Edron Full                | :star: :star:                           | :star: :star: :star: :star:             |
+| 250+  | [Cults Edron Full](edron_cults/) | :star: :star:                           | :star: :star: :star: :star:             |
 | 250+  | Wyrm Cave Drefia                | :star:                                  | :star: :star: :star: :star: :star:      |
 | 250+  | Hero Old Fortress -2            | :star: :star:                           | :star: :star: :star: :star: :star:      |   
 | 250+  | [Glooth Bandit East](glooth_bandit_east/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
