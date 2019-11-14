@@ -51,7 +51,6 @@ ladder (32057, 31900, 7)
 node (32063, 31908, 6)
 stand (32064, 31906, 6)
 stand (32064, 31905, 6)
-label firstPartDone
 stand (32073, 31895, 5)
 stand (32072, 31898, 4)
 action doneLogBook
@@ -129,6 +128,7 @@ node (32078, 31875, 6)
 node (32066, 31874, 6)
 stand (32064, 31875, 6)
 stand (32064, 31876, 6)
+label firstPartDone
 node (32065, 31888, 5)
 action check_level_8
 label end
