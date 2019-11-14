@@ -1,0 +1,137 @@
+label stand (32075, 31899, 6)
+label action escape
+label start
+action debug
+stand (32074, 31895, 5)
+stand (32072, 31899, 4)
+action takeMissions
+stand (32073, 31895, 4)
+label takeFriStuff
+node (32070, 31892, 5)
+stand (32073, 31890, 5)
+stand (32075, 31890, 5)
+action escape
+node (32060, 31890, 5)
+stand (32057, 31890, 5)
+stand (32055, 31890, 5)
+action escape
+node (32065, 31882, 5)
+label goMissionFirst
+stand (32064, 31878, 5)
+action escape
+action dropAmmo
+stand (32064, 31876, 5)
+node (32077, 31874, 6)
+node (32081, 31889, 6)
+node (32082, 31896, 6)
+stand (32074, 31894, 6)
+stand (32073, 31892, 7)
+stand (32074, 31897, 8)
+stand (32076, 31896, 9)
+node (32067, 31888, 10)
+node (32051, 31881, 10)
+node (32038, 31874, 10)
+node (32038, 31863, 10)
+node (32044, 31837, 10)
+node (32047, 31833, 10)
+node (32044, 31817, 10)
+node (32043, 31808, 10)
+node (32052, 31800, 10)
+stand (32058, 31800, 10)
+action openChest
+node (32048, 31807, 10)
+node (32044, 31819, 10)
+node (32040, 31844, 10)
+node (32038, 31872, 10)
+node (32046, 31882, 10)
+node (32055, 31895, 10)
+ladder (32055, 31898, 10)
+ladder (32057, 31900, 9)
+ladder (32058, 31902, 8)
+ladder (32057, 31900, 7)
+node (32063, 31908, 6)
+stand (32064, 31906, 6)
+stand (32064, 31905, 6)
+label firstPartDone
+stand (32073, 31895, 5)
+stand (32072, 31898, 4)
+action doneLogBook
+stand (32073, 31895, 4)
+node (32069, 31891, 5)
+stand (32072, 31883, 5)
+label sellGear
+label betterEQ
+action buyEquips
+label debug
+label continue_dawnport
+node (32071, 31891, 5)
+stand (32073, 31895, 5)
+node (32066, 31896, 4)
+stand (32057, 31897, 4)
+action bank
+node (32065, 31896, 4)
+stand (32073, 31895, 4)
+node (32065, 31886, 5)
+stand (32064, 31876, 5)
+action checkEQ
+label easyMonsters
+node (32073, 31872, 6)
+node (32082, 31884, 6)
+node (32088, 31896, 6)
+node (32082, 31907, 6)
+node (32071, 31910, 6)
+node (32055, 31910, 6)
+stand (32057, 31900, 6)
+stand (32058, 31902, 7)
+stand (32057, 31900, 8)
+stand (32055, 31898, 9)
+node (32062, 31891, 10)
+node (32076, 31887, 10)
+node (32089, 31876, 10)
+node (32062, 31890, 10)
+node (32050, 31886, 10)
+node (32042, 31878, 10)
+node (32022, 31884, 10)
+node (32010, 31881, 10)
+node (32024, 31880, 10)
+node (32040, 31877, 10)
+node (32052, 31887, 10)
+ladder (32055, 31898, 10)
+ladder (32057, 31900, 9)
+ladder (32058, 31902, 8)
+ladder (32057, 31900, 7)
+node (32058, 31909, 6)
+stand (32064, 31906, 6)
+stand (32064, 31905, 6)
+action gotoPartDone
+label normalMonsters
+node (32073, 31874, 6)
+stand (32085, 31875, 6)
+stand (32085, 31876, 6)
+label atNormalM
+node (32090, 31874, 7)
+node (32086, 31867, 7)
+node (32075, 31861, 7)
+node (32076, 31853, 7)
+node (32086, 31864, 7)
+node (32094, 31863, 7)
+node (32094, 31863, 7)
+node (32090, 31873, 7)
+node (32099, 31874, 7)
+node (32110, 31872, 7)
+node (32099, 31882, 7)
+node (32109, 31901, 7)
+node (32097, 31885, 7)
+node (32089, 31876, 7)
+action checkerNormal
+label leaveNormal
+stand (32085, 31877, 7)
+node (32078, 31875, 6)
+node (32066, 31874, 6)
+stand (32064, 31875, 6)
+stand (32064, 31876, 6)
+node (32065, 31888, 5)
+action check_level_8
+label end
+stand (32065, 31889, 5)
+action end

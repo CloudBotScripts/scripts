@@ -1,0 +1,52 @@
+{
+"general": 
+{
+	"loot_type":"manual"
+},
+"script_options": {},
+"containers": 
+{
+	"gold_bp":"Backpack"
+},
+"tools":
+{
+	"rope": {"name":"rope", "id": 3003},
+	"shovel": {"name":"shovel", "id": 3457}
+},
+"items":
+{
+	"mana potion": {"hotkey":"f1", "id":268, "use":"self"},
+	"health potion": {"hotkey":"f2", "id":266, "use":"self"}
+},
+"spells":
+{
+	"exura infir ico":"f3"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":60, "use_item":"health potion", "priority":3},
+	{"type":"hp", "below_percent":85, "use_spell":"exura infir ico", "min_mana_percent":20, "priority":2},
+	{"type":"mp", "below_percent":30, "use_item":"mana potion", "priority":1}
+],
+"hunt_config": {},
+"persistent_actions": [
+	{"action":"drop_items", "interval":400, "args":{"names":["torch", "light stone shower rune", "lightest missile rune", "empty potion flask", "simple arrows"]}}
+],
+"target_monsters": 
+[
+	{"name":"Mountain Troll", "action":"follow", "loot":true},
+	{"name":"Trolltrained Salamander", "action":"follow", "loot":true},
+	{"name":"Woodling", "action":"follow", "loot":true},
+	{"name":"Meadow Strider", "action":"follow", "loot":true},
+	{"name":"Bear", "action":"follow", "loot":true},
+	{"name":"Dawnfly", "action":"follow", "loot":true}
+],
+"target_spells": [],
+"loot": 
+[
+	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+	{"name":"meat", "action":"use"},
+	{"name":"ham", "action":"use"},
+	{"name":"fish", "action":"use"}
+]
+}

@@ -118,7 +118,7 @@ Soon
 ## Quests/Other
 | Level | Name                            | 
 | ----- | ------------------------------- |
-| 8+    | [Buy Blessing](buy_blessing/)                    |
+| 8+    | [Buy Blessing](CloudBotScripts/scripts/tree/master/buy_blessing)                    |
 | 10+   | Ice Fishing Svargrond           |
 | 10+   | Barbarian Test Quest            |
 | 20+   | Meriana Access Quest            |
