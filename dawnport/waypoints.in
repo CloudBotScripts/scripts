@@ -1,7 +1,6 @@
 label stand (32075, 31899, 6)
 label action escape
 label start
-action debug
 stand (32074, 31895, 5)
 stand (32072, 31899, 4)
 action takeMissions
@@ -62,7 +61,6 @@ stand (32072, 31883, 5)
 label sellGear
 label betterEQ
 action buyEquips
-label debug
 label continue_dawnport
 node (32071, 31891, 5)
 stand (32073, 31895, 5)
@@ -88,6 +86,7 @@ stand (32055, 31898, 9)
 node (32062, 31891, 10)
 node (32076, 31887, 10)
 node (32089, 31876, 10)
+node (32078,31888,10)
 node (32062, 31890, 10)
 node (32050, 31886, 10)
 node (32042, 31878, 10)

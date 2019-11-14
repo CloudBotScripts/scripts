@@ -1,7 +1,10 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*__pycache__/
 *.py[cod]
 *$py.class
+update_script.sh
+
 
 *.swp
 # C extensions
