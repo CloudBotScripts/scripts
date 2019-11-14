@@ -16,6 +16,25 @@ def anti_paralyze(client, hotkey='f2'):
         print('Cast anti paralyze')
         client.hotkey(hotkey)
 
+# Warning: Do not use with same interval of other persistents like equip_item, refill_ammo...
+def drop_items(client, names=[]):
+    print('Call drop items', names)
+    monster_count = client.battle_list.get_monster_count()
+    if monster_count < 1:
+        containers = client.get_opened_containers()
+        for container in containers:
+            num_slots = container.get_num_slots()
+            for slot in reversed(range(num_slots)):
+                item_in_slot = container.get_item_in_slot(slot) 
+                for name in names:
+                    if name in item_in_slot:
+                        print('Dropping', name)
+                        client.drop_item_from_container(container, slot)
+                        client.sleep(0.1, 0.12)
+
+def wait(client, tmin=1, tmax=1.2):
+    client.sleep(0.1, 0.2)
+
 def drop_vials(client):
     monster_count = client.battle_list.get_monster_count()
     if monster_count < 1:
@@ -38,7 +57,7 @@ def recover_full_mana(client, hotkey='e'):
 def use_hotkey(client, hotkey='f11'):
     client.hotkey(hotkey)
 
-# Call eat food
+# Deprecated, use function use_hotkey
 def eat_food(client, hotkey='f11'):
     food_hotkey = hotkey
     client.hotkey(food_hotkey)
@@ -69,6 +88,7 @@ def equip_item(client, hotkey='f10', selected_monsters='all', amount=1, slot='ri
         client.hotkey(hotkey)
 
 
+## Deprecated, use equip_item
 def stealth_ring(client, monster_count, monster_list=False):
     ring_hotkey_slot = 8 
     ring_hotkey = 'f8'

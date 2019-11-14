@@ -7,6 +7,11 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 
 ## Free Account
 
+### No Vocation (0-8)
+| Level | Name                            | Profit                                  | XP                                      |
+| ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 1+    | [Dawnport 0-8](dawnport/setup.json)             | :star: :star:                           | :star: :star:                           |
+
 ### Knight (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |

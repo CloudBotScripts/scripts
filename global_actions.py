@@ -228,6 +228,12 @@ def waypoint_action(client, action):
     elif action == "check_train":
         check_skill(client)
 
+    elif action == "check_level_8":
+        if client.get_level() >= 8:
+            client.jump_label('end')
+        else:
+            client.jump_label('continue_dawnport')
+
     elif action == "end":
         client.logout()
 
