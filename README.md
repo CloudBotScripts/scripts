@@ -29,6 +29,7 @@ Soon
 ### Mage (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 30+   | [Forest Fury](forest_fury/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 60+   | [Stonerefiner Venore](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 
 ## Premium Account

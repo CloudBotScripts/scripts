@@ -5,6 +5,7 @@ action bank
 stand (32332,31781,7)
 node (32335,31781,8)
 action deposit
+label withdraw_ring
 stand (32332,31781,8)
 node (32341,31780,7)
 node (32341,31784,7)
@@ -14,6 +15,7 @@ node (32349,31827,7)
 stand (32345,31828,7)
 action sell
 action buy_potions
+action buy_runes
 node (32350,31819,7)
 node (32341,31808,7)
 node (32342,31796,7)

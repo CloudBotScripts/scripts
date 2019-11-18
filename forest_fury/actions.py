@@ -9,9 +9,6 @@ def waypoint_action(client, action):
         # No stash for free acc
         pass
 
-    elif action == "buy_potions":
-        npc_refill(client, mana=True, health=True)
-
     elif action == "check_time":
         check_time(client, 'exit', 'start')
 
