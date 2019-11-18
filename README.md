@@ -119,6 +119,7 @@ Soon
 ### Master Sorcerer/Elder Druid (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 130+  | [Mother Of Scarab Lair](mother_of_scarab/setup_mage.json) | :star:                    | :star: :star: :star: :star:             |
 | 160+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ## Quests/Other
