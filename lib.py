@@ -9,6 +9,17 @@ from pytz import timezone
 import json
 import os, sys
 
+# Add barriers if char is inside area defined by top_left, bottom_right
+def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_count=2):
+    m_count = client.battle_list.get_monster_count()
+    cur_coord = client.minimap.get_current_coord()
+    if cur_coord not in ('Unreachable', 'Out of range'):
+        x,y,z = cur_coord
+        if z == top_left[2] and (top_left[0] < x < bottom_right[0]) and (top_left[1] < y < bottom_right[1]) and m_count >= monster_count:
+            client.minimap.add_barrier_coords(coords_barrier)
+        else:
+            client.minimap.remove_barrier_coords(coords_barrier)
+
 # Anti paralyze
 def anti_paralyze(client, hotkey='f2'):
     conditions = client.condition_bar.get_condition_list()
@@ -33,7 +44,7 @@ def drop_items(client, names=[]):
                         client.sleep(0.1, 0.12)
 
 def wait(client, tmin=1, tmax=1.2):
-    client.sleep(0.1, 0.2)
+    client.sleep(tmin, tmax)
 
 def drop_vials(client):
     monster_count = client.battle_list.get_monster_count()
@@ -72,9 +83,12 @@ def haste(client, hotkey='v'):
 
 # Equip item
 def equip_item(client, hotkey='f10', selected_monsters='all', amount=1, slot='ring'):
+    selected_monsters = [m.replace(' ', '') for m in selected_monsters]
     monster_list = client.battle_list.get_monster_list()
+    print(monster_list)
     if selected_monsters != 'all':
         monster_list = [m for m in monster_list if m in selected_monsters]
+    print(monster_list)
     monster_count = len(monster_list)
     
     item_name = client.equips.get_item_in_slot(slot)
@@ -198,6 +212,7 @@ def lure_monsters(client, count=3, min_count=1, wait=False):
                 client.hotkey('esc')
                 sleep(0.6)
 
+## Deprecated use equip_item
 def equip_ring(client, hotkey='f10', selected_monsters='all', amount=1):
     monster_list = client.battle_list.get_monster_list()
     if selected_monsters != 'all':
@@ -231,7 +246,7 @@ def withdraw_item_from_stash(client, item_name, amount, hotkey_item):
     print('Could not withdraw', amount, 'x', item_name, 'from stash')
     return False
 
-def withdraw_item_from_depot_to_backpack(client, item_name, depot_num, backpack_name, amount, hotkey_item, stack=True):
+def withdraw_item_from_depot_to_backpack(client, item_name, depot_num, backpack_name, amount, stack=True):
     src = client.open_depot(depot_num)
     if not src:
         print('Could not open depot to withdraw')
@@ -248,7 +263,7 @@ def withdraw_item_from_depot_to_backpack(client, item_name, depot_num, backpack_
 
     # Try 5 times to withdraw item
     for i in range(5):
-        item_count = client.get_hotkey_item_count(hotkey_item)
+        item_count = client.get_hotkey_item_count(client.items[item_name])
         if item_count >= amount:
             client.return_container(src)
             return True

@@ -171,6 +171,9 @@ def waypoint_action(client, action):
     elif action == "travel_magician":
         client.npc_say(['pass', 'magician', 'yes'])
 
+    elif action == "buy_ticket":
+        client.npc_say(['ticket', 'yes'])
+
     elif action == "use_gem_north":
         x, y = client.gameboard.sqm_to_coordinate(0, 1)
         gem_name = client.hunt_config['gem_name']
@@ -189,7 +192,8 @@ def waypoint_action(client, action):
         npc_refill(client, mana=True, health='health_name' in client.hunt_config.keys())
 
     elif action == "buy_runes":
-        npc_refill(client, mana=False, health=False, rune='rune_name' in client.hunt_config.keys())
+        if 'rune_name' in client.hunt_config.keys():
+            npc_refill(client, mana=False, health=False, rune=True)
 
     elif action == "buy_ammo":
         npc_refill(client, ammo='ammo_name' in client.hunt_config.keys())
@@ -219,6 +223,7 @@ def waypoint_action(client, action):
         check_hunt(client, 'hunt2', 'leave2', 
                 mana='mana_name' in client.hunt_config.keys(),
                 health='health_name' in client.hunt_config.keys(),
+                rune='rune_name' in client.hunt_config.keys(), 
                 ammo='ammo_name' in client.hunt_config.keys(), 
                 time=True)
 
