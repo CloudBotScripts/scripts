@@ -1,0 +1,63 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"loot_priority":"first"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"sword"
+},
+"containers": 
+{
+	"loot_bp":"Red Backpack"
+},
+"tools": {},
+"items":
+{
+	"mana potion": {"hotkey":"f1", "id":268, "use":"self"},
+	"health potion": {"hotkey":"f2", "id":266, "use":"self"},
+	"brown mushroom": {"hotkey":"f3", "id":3725, "use":"use"}
+},
+"spells":
+{
+    "exori ico":"f6",
+	"exura ico":"f7",
+	"exori":"f8"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":50, "use_item":"health potion",  "priority":4},
+	{"type":"hp", "below_percent":80, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
+	{"type":"mp", "below_percent":50, "use_item":"mana potion", "priority":2}
+],
+"hunt_config": {
+	"cap_leave": 100,
+	"mana_name": "mana potion",
+	"take_mana": 120,
+	"mana_leave": 70,
+	"health_name": "health potion",
+	"take_health": 20,
+	"health_leave": 10
+},
+"persistent_actions": [
+	{"action":"drop_vials", "interval":300},
+	{"action":"eat_food", "interval":60, "args":{"hotkey":"f3"}}
+],
+"target_monsters": 
+[
+	{"name":"Mutated Human", "action":"follow", "loot":true},
+	{"name":"Mutated Rat", "action":"follow", "loot":true},
+	{"name":"Mercury Blob", "action":"follow", "loot":true},
+	{"name":"Slime", "action":"follow", "loot":false}
+],
+"target_spells":
+[ 
+    {"name":"exori ico", "min_mana_percent":30, "priority":1, "cooldown":6,
+		"monsters":["Mutated Rat"]},
+	{"name":"exori", "min_mana_percent":30, "priority":2, "min_monster_count":3, 
+	    "monsters":["Mutated Human", "Mercury Blob"]}
+],
+"loot": []
+}
+
