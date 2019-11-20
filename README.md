@@ -94,6 +94,7 @@ Soon
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 200+  | [Minotaur Cults](minotaur_cults/setup_rp.json)          | :star: :star: :star: :star:             | :star: :star:                           |
+| 200+  | [Demon Hero Cave](demon_hero_cave/setup_rp.json)          | :star:        | :star: :star:                           |
 | 200+  | Cults Edron First Floor         | :star: :star:                           | :star: :star: :star:                    |        
 | 200+  | Feyrist Nightmare cave          | :star: :star: :star:                    | :star: :star: :star:                    |      
 | 250+  | Cults Edron Full                | :star: :star:                           | :star: :star: :star: :star:             |
