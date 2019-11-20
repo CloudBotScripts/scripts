@@ -1,0 +1,69 @@
+{
+"general": 
+{
+    "loot_type":"auto",
+    "loot_priority":"first"
+},
+"script_options": {
+    "hours_leave": [9],
+    "hunt_mino_mage": false
+},
+"containers": 
+{
+    "gold_bp":"Golden Backpack",
+    "loot_bp":"Red Backpack"
+},
+"tools": {},
+"items":
+{
+    "mana potion": {"hotkey":"e", "id":268, "use":"self"},
+    "stealth ring": {"hotkey":"V", "id":3049, "use":"equip"},
+    "great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
+    "obsidian knife": {"hotkey":"y", "id":5908, "use":"crosshair"},
+    "brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+    "exura":"r",
+    "exori vis":"1"
+},
+"healing":
+[
+    {"type":"hp", "below_percent":75, "use_spell":"exura", "min_mana_percent":5,  "priority":3},
+    {"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2}
+],
+"hunt_config": {
+    "cap_leave": 40,
+    "mana_name": "mana potion",
+    "take_mana": 50,
+    "mana_leave": 30,
+    "rune_name": "great fireball rune",
+    "take_rune": 0,
+    "rune_leave": 0
+},
+"label_actions": 
+[
+    {"label":"withdraw_ring", "action":"withdraw_item_from_depot_to_backpack", "args": {
+	    "item_name":"stealth ring", "depot_num":3, "backpack_name":"Backpack", "amount":3, "stack":false}},
+    {"label":"check_go_down", "action":"conditional_jump_script_options", "args": {
+	    "var_name":"hunt_mino_mage", "label_jump":"hunt_down", "label_skip":"skip_down"}}
+],
+"persistent_actions": 
+[
+    {"action":"drop_vials", "interval":60},
+    {"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
+    {"action":"equip_item", "interval":2, "use_in_battle":true, "args":{"hotkey":"V", "amount":1, "selected_monsters":["Minotaur Guard", "Minotaur Archer"], "slot":"ring"}}
+],
+"target_monsters": 
+[
+    {"name":"Minotaur", "action":"follow", "loot":true, "use_item":"obsidian knife"},
+    {"name":"Minotaur Mage", "action":"follow", "loot":true, "use_item":"obsidian knife"},
+    {"name":"Minotaur Archer", "action":"follow", "loot":true, "use_item":"obsidian knife"},
+    {"name":"Minotaur Guard", "action":"follow", "loot":true, "use_item":"obsidian knife"}
+],
+"target_spells":
+[ 
+    {"name":"exori vis", "min_mana_percent":10, "priority":1, "cooldown":1, "monsters":["Minotaur", "Minotaur Guard", "Minotaur Mage", "Minotaur Archer"]}
+],
+"loot": []
+}
