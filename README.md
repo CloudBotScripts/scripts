@@ -131,4 +131,4 @@ Soon
 | 10+   | Barbarian Test Quest            |
 | 20+   | Meriana Access Quest            |
 | 20+   | Yalahar Access Quest            |
-| 20+   | Sea Serpent Access Quest        |
+| 20+   | [Sea Serpent Access Quest](CloudBotScripts/scripts/tree/master/quests/sea_serpent)        |
