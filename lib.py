@@ -20,6 +20,21 @@ def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_coun
         else:
             client.minimap.remove_barrier_coords(coords_barrier)
 
+# Stop looting
+def stop_looting(client, selected_monsters='all', cap=0):
+    print('[Action] stop_looting')
+
+    if selected_monsters != 'all':
+        selected_monsters = [m.replace(' ', '') for m in selected_monsters]
+
+    for monster in client.target_conf:
+        if selected_monsters == 'all' or monster in selected_monsters:
+            print('[Action] {} in selected_monsters list'.format(monster))
+            if client.get_cap() > cap:
+                client.target_conf[monster]['loot'] = True
+            else:
+                client.target_conf[monster]['loot'] = False
+
 # Anti paralyze
 def anti_paralyze(client, hotkey='f2'):
     conditions = client.condition_bar.get_condition_list()
@@ -83,12 +98,10 @@ def haste(client, hotkey='v'):
 
 # Equip item
 def equip_item(client, hotkey='f10', selected_monsters='all', amount=1, slot='ring'):
-    selected_monsters = [m.replace(' ', '') for m in selected_monsters]
     monster_list = client.battle_list.get_monster_list()
-    print(monster_list)
     if selected_monsters != 'all':
+        selected_monsters = [m.replace(' ', '') for m in selected_monsters]
         monster_list = [m for m in monster_list if m in selected_monsters]
-    print(monster_list)
     monster_count = len(monster_list)
     
     item_name = client.equips.get_item_in_slot(slot)
@@ -504,6 +517,27 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
     if not all((mana_check, health_check, cap_check, ammo_check, imbuement_check, rune_check)):
         print('Log out')
         client.logout()
+
+# Conditional jump using script_options variable
+def conditional_jump_script_options(client, var_name, label_jump, label_skip=None):
+    if client.script_options.get(var_name, False):
+        print('[Action] true condition jump to ', label_jump)
+        client.jump_label(label_jump)
+    elif label_skip:
+        print('[Action] false condition jump to ', label_skip)
+        client.jump_label(label_skip)
+    # else, just continues to next waypoint
+
+# Conditional jump if character pos is in coords list 
+def conditional_jump_position(client, coords, label_jump, label_skip=None):
+    cur_coord = client.minimap.get_current_coord()
+    if cur_coord not in ('Unreachable', 'Out of range'):
+        if cur_coord in coords:
+            print('[Action] current coord is in list')
+            client.jump_label(label_jump)
+        elif label_skip:
+            print('[Action] current coord is not in list')
+            client.jump_label(label_skip)
 
 # Function to levitate
 def levitate(client, direction, hotkey):
