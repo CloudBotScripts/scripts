@@ -48,13 +48,13 @@ Soon
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 100+  | Giant Spider Port Hope          | :star: :star:                           | :star: :star:                           |         
-| 120+  | Sea Serpent north               | :star: :star: :star:                    | :star: :star: :star:                    | 
+| 120+  | [Sea Serpent north](sea_serpent/setup_ek.json) | :star: :star: :star:                    | :star: :star: :star:                    | 
 | 130+  | Wyrm Cave Liberty Bay           | :star:                                  | :star: :star: :star:                    |    
 | 150+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
 | 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup.json)             | :star: :star: :star:                    | :star: :star: :star:                    |
 | 160+  | [Krailos Nightmare](krailos_nightmare/setup_ek.json) | :star:                                  | :star: :star: :star:                    |
 | 160+  | Hero Old Fortress -1            | :star:                                  | :star: :star: :star: :star:             |  
-| 180+  | Sea Serpent South               | :star: :star:                           | :star: :star: :star:                    |
+| 180+  | [Sea Serpent South](sea_serpent/setup_ek.json) | :star: :star:                           | :star: :star: :star:                    |
 | 180+  | Putrid Mummy                    | :star: :star: :star:                    | :star: :star:                           |
 | 180+  | [Feyrist Mountain](feyrist_mountain/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |    
 
