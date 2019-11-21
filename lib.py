@@ -39,12 +39,12 @@ def stop_looting(client, selected_monsters='all', cap=0):
 def anti_paralyze(client, hotkey='f2'):
     conditions = client.condition_bar.get_condition_list()
     if 'paralyzed' in conditions:
-        print('Cast anti paralyze')
+        print('[Action] Cast anti paralyze')
         client.hotkey(hotkey)
 
 # Warning: Do not use with same interval of other persistents like equip_item, refill_ammo...
 def drop_items(client, names=[]):
-    print('Call drop items', names)
+    print('[Action] Call drop items', names)
     monster_count = client.battle_list.get_monster_count()
     if monster_count < 1:
         containers = client.get_opened_containers()
@@ -54,7 +54,7 @@ def drop_items(client, names=[]):
                 item_in_slot = container.get_item_in_slot(slot) 
                 for name in names:
                     if name in item_in_slot:
-                        print('Dropping', name)
+                        print('[Action] Dropping', name)
                         client.drop_item_from_container(container, slot)
                         client.sleep(0.1, 0.12)
 
@@ -69,7 +69,7 @@ def drop_vials(client):
             num_slots = container.get_num_slots()
             for slot in reversed(range(num_slots)):
                 if 'empty potion flask' in container.get_item_in_slot(slot):
-                    print('Dropping vial')
+                    print('[Action] Dropping vial')
                     client.drop_item_from_container(container, slot)
                     sleep(0.2)
 
@@ -105,13 +105,12 @@ def equip_item(client, hotkey='f10', selected_monsters='all', amount=1, slot='ri
     monster_count = len(monster_list)
     
     item_name = client.equips.get_item_in_slot(slot)
-    print(item_name)
 
     if monster_count >= amount and item_name == 'none':
-        print('Equip item')
+        print('[Action] Equip item')
         client.hotkey(hotkey)
     elif monster_count < amount and item_name != 'none':
-        print('Unequip item')
+        print('[Action] Unequip item')
         client.hotkey(hotkey)
 
 
@@ -126,10 +125,10 @@ def stealth_ring(client, monster_count, monster_list=False):
 
     print(equipped_ring)
     if monster_count > 4 and equipped_ring != 'stealth ring':
-        print('Equip ring')
+        print('[Action] Equip ring')
         client.hotkey(ring_hotkey)
     elif monster_count < 2 and equipped_ring == 'stealth ring':
-        print('Unequip ring')
+        print('[Action] Unequip ring')
         client.hotkey(ring_hotkey)
 
 # Cast spell if mana full
@@ -149,7 +148,7 @@ def refill_ammo(client, ammo_name="arrow", equip_slot="ammunition", min_amount=8
     # Arrow
     ammo_count = client.equips.get_count_item_in_slot(equip_slot)
 
-    print('Ammo count', ammo_count)
+    print('[Action] Ammo count', ammo_count)
     if ammo_count is None or ammo_count < min_amount:
         client.hotkey(refill_hotkey)
 
@@ -187,7 +186,7 @@ def refill_diamond_ammo(client, save_single_target=False):
 def conjure_diamond_arrows(client):
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
     if mp_percentage > 30:
-        print('Conjure Diamond Arrows')
+        print('[Action] Conjure Diamond Arrows')
         client.hotkey('f4')
 
 def lure_monsters_diamond_arrow(client, count=3, min_count=1, wait=False):
@@ -212,16 +211,16 @@ def lure_monsters(client, count=3, min_count=1, wait=False):
     monster_count = len(monster_list)
     if not client.target_on and monster_count >= count:
         client.target_on = True
-        print('Target on')
+        print('[Action] Target on')
     elif client.target_on and monster_count < min_count:
         client.target_on = False
-        print('Target off')
+        print('[Action] Target off')
     elif wait and (not client.target_on and 0 < monster_count < count):
         creatures_sqm = client.gameboard.get_sqm_monsters()
         if len(creatures_sqm) > 0:
             x, y = zip(*creatures_sqm)
             if any(abs(l) >= 6 for l in x) or any(abs(l) >= 4 for l in y):
-                print('Wait lure')
+                print('[Action] Wait lure')
                 client.hotkey('esc')
                 sleep(0.6)
 
@@ -234,40 +233,40 @@ def equip_ring(client, hotkey='f10', selected_monsters='all', amount=1):
     print(monster_list)
     
     item_name = client.equips.get_item_in_slot('ring')
-    print('Equipped ring:', item_name)
+    print('[Action] Equipped ring:', item_name)
 
     if monster_count >= amount and item_name == 'none':
-        print('Equip ring')
+        print('[Action] Equip ring')
         client.hotkey(hotkey)
     elif monster_count < amount and item_name != 'none':
-        print('Unequip ring')
+        print('[Action] Unequip ring')
         client.hotkey(hotkey)
 
 def withdraw_item_from_stash(client, item_name, amount, hotkey_item):
     item_count = client.get_hotkey_item_count(hotkey_item)
     print(item_name, ':', item_count)
     if item_count >= amount:
-        print('Already has enough', item_name)
+        print('[Action] Already has enough', item_name)
         return True
     client.withdraw_item_from_stash(item_name, amount=amount - item_count)
     # Check if withdraw was succesfull
     item_count = client.get_hotkey_item_count(hotkey_item)
     print(item_name, ':', item_count)
     if item_count >= amount:
-        print('Already has enough', item_name)
+        print('[Action] Already has enough', item_name)
         return True
-    print('Could not withdraw', amount, 'x', item_name, 'from stash')
+    print('[Action] Could not withdraw', amount, 'x', item_name, 'from stash')
     return False
 
 def withdraw_item_from_depot_to_backpack(client, item_name, depot_num, backpack_name, amount, stack=True):
     src = client.open_depot(depot_num)
     if not src:
-        print('Could not open depot to withdraw')
+        print('[Action] Could not open depot to withdraw')
         return False
 
     dest = client.get_container(backpack_name)
     if not dest:
-        print('Could not find backpack to hold items')
+        print('[Action] Could not find backpack to hold items')
         return False
 
     # Open depot num
@@ -294,14 +293,14 @@ def withdraw_item_from_depot_to_backpack(client, item_name, depot_num, backpack_
 
     client.return_container(src)
 
-    print('Could not withdraw', item_name, '. Make sure this item is in the depot and that the character can hold that amount')
+    print('[Action] Could not withdraw', item_name, '. Make sure this item is in the depot and that the character can hold that amount')
     return False
 
 # Move item or container to stash
 def stash_item_from_slot(client, src, src_slot):
     dest = client.open_locker()
     if not dest:
-        print('Could not find locker')
+        print('[Action] Could not find locker')
         return False
 
     client.take_item_from_slot(src, src_slot, dest, dest_slot=1)
@@ -321,12 +320,12 @@ def deposit_all_from_backpack_to_depot(client, backpack_name, depot_num):
 
     src = client.get_container(backpack_name)
     if not src:
-        print('Could not find backpack', backpack_name, 'with items')
+        print('[Action] Could not find backpack', backpack_name, 'with items')
         return False
 
     dest = client.open_depot(max([depot_num, *sort_deposit.values()]))
     if not dest:
-        print('Could not open depot to deposit')
+        print('[Action] Could not open depot to deposit')
         return False
 
     enter = 0
@@ -391,10 +390,67 @@ def npc_refill(client, mana=False, health=False, ammo=False, rune=False):
         buy_list_names.append(ammo_name)
         buy_list_count.append(take_ammo - ammo_count)
 
-    print('Buying', list(zip(buy_list_names, buy_list_count)))
+    print('[Action] Buying', list(zip(buy_list_names, buy_list_count)))
     success = client.buy_items_from_npc(buy_list_names, buy_list_count)
     if not success:
-        print('Failed to buy one or more items')
+        print('[Action] Failed to buy one or more items')
+
+def check(client, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
+    mana_check = health_check = cap_check = ammo_check = rune_check = time_check = True
+    if mana:
+        mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
+        mana_count = client.get_hotkey_item_count(client.items[mana_name])
+        mana_check = mana_count > client.hunt_config['mana_leave']
+    if health:
+        health_name, take_health = client.hunt_config['health_name'], client.hunt_config['take_health']
+        health_count = client.get_hotkey_item_count(client.items[health_name])
+        health_check = health_count > client.hunt_config['health_leave']
+        if 'health_name2' in client.hunt_config.keys():
+            health_name2, take_health2 = client.hunt_config['health_name2'], client.hunt_config['take_health2']
+            health_count2 = client.get_hotkey_item_count(client.items[health_name2])
+            health_check2 = health_count2 > client.hunt_config['health_leave2']
+            health_check = health_check and health_check2
+    if rune:
+        rune_name, take_rune = client.hunt_config['rune_name'], client.hunt_config['take_rune']
+        rune_count = client.get_hotkey_item_count(client.items[rune_name])
+        rune_check = rune_count > client.hunt_config['rune_leave']
+        if 'rune_name2' in client.hunt_config.keys():
+            rune_name2, take_rune2 = client.hunt_config['rune_name2'], client.hunt_config['take_rune2']
+            rune_count2 = client.get_hotkey_item_count(client.items[rune_name2])
+            rune_check2 = rune_count2 > client.hunt_config['rune_leave2']
+            rune_check = rune_check and rune_check2
+    if ammo:
+        ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
+        ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
+        ammo_check = ammo_count > client.hunt_config['ammo_leave']
+    if cap:
+        cap_check = client.get_cap() > client.hunt_config['cap_leave']
+    if time:
+        cest = timezone('Europe/Berlin')
+        time_check = datetime.now(cest).hour not in client.script_options['hours_leave']
+
+    print('[Action] Check results:')
+    print('Mana:', mana_check)
+    print('Health:', health_check)
+    print('Ammo:', ammo_check)
+    print('Rune:', rune_check)
+    print('Cap:', cap_check)
+    print('Time:', time_check)
+    if all((mana_check, health_check, cap_check, ammo_check, rune_check, time_check, other)):
+        return True
+    return False
+
+def stop_target_no_supplies(client, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
+    if check(client, mana, health, cap, rune, ammo, time, other):
+        print('[Action] Start target supplies ok')
+        client.target_on = True
+    else:
+        print('[Action] Stop target no supplies')
+        client.target_on = False
+
+# Will reach npc and say 'hi' already. So don't put 'hi' in list of words.
+def talk_npc(client, list_words):
+    client.npc_say(list_words)
 
 def check_hunt(client, success, fail, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
     mana_check = health_check = cap_check = ammo_check = rune_check = time_check = True
@@ -430,7 +486,7 @@ def check_hunt(client, success, fail, mana=True, health=True, cap=True, rune=Fal
         cest = timezone('Europe/Berlin')
         time_check = datetime.now(cest).hour not in client.script_options['hours_leave']
 
-    print('Check Hunt results:')
+    print('[Action] Check Hunt results:')
     print('Mana:', mana_check)
     print('Health:', health_check)
     print('Ammo:', ammo_check)
@@ -466,7 +522,7 @@ def check_skill(client):
 
 def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, rune=False, ammo=False, logout_fail=True):
     mana_check = health_check = cap_check = ammo_check = rune_check = imbuement_check = True
-    print('Check Supplies results:')
+    print('[Action] Check Supplies results:')
     if mana:
         mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
         mana_count = client.get_hotkey_item_count(client.items[mana_name])
@@ -590,7 +646,7 @@ def check_imbuements(client):
 def use_imbuing_shrine(client, sqm=(0,1)):
     imbuements = client.script_options['imbuements']
     for imbuement in imbuements:
-        print('Checking', imbuement)
+        print('[Action] Checking', imbuement)
         active_imbuements = client.get_imbuements_equip(imbuement['equip_slot'])
         print('Active', active_imbuements)
         if active_imbuements:
