@@ -42,24 +42,24 @@
 },
 "healing":
 [
-	{"type":"mp", "below_percent":20, "use_item":"ultimate spirit potion",      "priority":5},
-	{"type":"hp", "below_percent":75, "use_spell":"exura gran san", "min_mana_percent":10,  "priority":4},
-	{"type":"hp", "below_percent":50, "use_item":"ultimate spirit potion",      "priority":3},
+	{"type":"mp", "below_percent":30, "use_item":"ultimate spirit potion",      "priority":5},
+	{"type":"hp", "below_percent":85, "use_spell":"exura gran san", "min_mana_percent":10,  "priority":4},
+	{"type":"hp", "below_percent":65, "use_item":"ultimate spirit potion",      "priority":3},
 	{"type":"mp", "below_percent":80, "use_item":"strong mana potion", "priority":3},
 	{"type":"hp", "below_percent":98, "use_spell":"utura gran", "min_mana_percent":50, "priority":1, "cooldown":60},
 	{"type":"hp", "below_percent":101, "use_spell":"exevo gran con hur", "min_mana_percent":70, "priority":1, "cooldown":301}
 ],
 "hunt_config": {
-	"cap_leave": 200,
+	"cap_leave": 150,
 	"mana_name": "strong mana potion",
-	"take_mana": 1000,
-	"mana_leave": 300,
+	"take_mana": 650,
+	"mana_leave": 150,
 	"health_name": "ultimate spirit potion",
-	"take_health": 200,
-	"health_leave": 80,
+	"take_health": 50,
+	"health_leave": 20,
 	"ammo_name": "crystalline arrow",
-	"take_ammo": 600,
-	"ammo_leave": 300
+	"take_ammo": 280,
+	"ammo_leave": 100
 },
 "persistent_actions": [
 	{"action":"drop_vials", "interval":200},
