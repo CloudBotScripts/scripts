@@ -13,10 +13,20 @@ def waypoint_action(client, action):
         check_time(client, 'exit', 'start')
 
     elif action == "check_floor":
-        check_hunt(client, 'upper', 'skip_floor', other=client.script_options['upper_level'])
+        check_hunt(client, 'upper', 'skip_floor', 
+                mana='mana_name' in client.hunt_config.keys(),
+                health='health_name' in client.hunt_config.keys(),
+                rune='rune_name' in client.hunt_config.keys(), 
+                ammo='ammo_name' in client.hunt_config.keys(), 
+                other=client.script_options['upper_level'])
 
     elif action == "check_lower":
-        check_hunt(client, 'lower', 'skip_lower', other=client.script_options['lower_level'])
+        check_hunt(client, 'lower', 'skip_lower', 
+                mana='mana_name' in client.hunt_config.keys(),
+                health='health_name' in client.hunt_config.keys(),
+                rune='rune_name' in client.hunt_config.keys(), 
+                ammo='ammo_name' in client.hunt_config.keys(), 
+                other=client.script_options['lower_level'])
 
     else:
         global_actions.waypoint_action(client, action)

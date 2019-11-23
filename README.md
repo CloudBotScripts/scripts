@@ -15,7 +15,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 ### Knight (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 8+    | [Salamander Cave](salamander_cave/setup.json)             | :star: :star:                           | :star: :star:                           |
+| 8+    | [Salamander Cave](salamander_cave/setup.json)             | :star: :star: :star:                          | :star: :star:                           |
 | 8+    | [Swamp Trolls](swamp_troll/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup.json)   | :star: :star:                           | :star: :star:                           |
 | 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
@@ -29,6 +29,7 @@ Soon
 ### Mage (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 8+    | [Salamander Cave](salamander_cave/setup_mage.json)  | :star: :star:                          | :star: :star:                           |
 | 30+   | [Forest Fury](forest_fury/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 60+   | [Stonerefiner Venore](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 
@@ -51,7 +52,7 @@ Soon
 | 120+  | [Sea Serpent North](sea_serpent/setup_ek_north.json) | :star: :star: :star:                    | :star: :star: :star:                    | 
 | 130+  | Wyrm Cave Liberty Bay           | :star:                                  | :star: :star: :star:                    |    
 | 150+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
-| 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup.json)             | :star: :star: :star:                    | :star: :star: :star:                    |
+| 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_ek.json)             | :star: :star: :star:                    | :star: :star: :star:                    |
 | 160+  | [Krailos Nightmare](krailos_nightmare/setup_ek.json) | :star:                                  | :star: :star: :star:                    |
 | 160+  | [Sea Serpent South](sea_serpent/setup_ek_south.json) | :star: :star:                           | :star: :star: :star:                    |
 | 160+  | Hero Old Fortress -1            | :star:                                  | :star: :star: :star: :star:             |  
@@ -88,6 +89,7 @@ Soon
 ### Royal Paladin (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 160+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup_rp.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
 | 180+  | [Krailos Nightmare](krailos_nightmare/setup_rp.json) | :star:                                  | :star: :star: :star:                    |
 | 180+  | [Hero Old Fortress -1](hero_fortress/setup_rp.json)            | :star:                                  | :star: :star: :star: :star:             |  
 

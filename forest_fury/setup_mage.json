@@ -23,7 +23,8 @@
 },
 "spells":
 {
-    "exura gran":"r"
+    "exura gran":"r",
+    "exori infir tera":"1"
 },
 "healing":
 [
@@ -36,86 +37,34 @@
     "take_mana": 50,
     "mana_leave": 30,
     "rune_name": "great fireball rune",
-    "take_rune": 100,
-    "rune_leave": 50
+    "take_rune": 0,
+    "rune_leave": 0
 },
 "label_actions": 
 [
     {"label":"withdraw_ring", "action":"withdraw_item_from_depot_to_backpack", "args": {
-	    "item_name":"stealth ring", "depot_num":3, "backpack_name":"Backpack", "amount":3, "stack":false}}
+	    "item_name":"stealth ring", "depot_num":3, "backpack_name":"Backpack", "amount":4, "stack":false}}
 ],
 "persistent_actions": 
 [
     {"action":"drop_vials", "interval":60},
     {"action":"anti_paralyze", "interval":1, "args":["r"]},
     {"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-    {"action":"equip_item", "interval":3, "args":{"hotkey":"V", "selected_monsters":["Forest Fury"], "amount":1, "slot":"ring"}},
-    {"action":"recover_full_mana", "interval":3, "args":["e"]},
-    {"action":"dynamic_barrier", "interval":1, "args":{
-        "top_left": [32418,31699,6],
-        "bottom_right": [32431,31741,6],
-        "monster_count":1, 
-        "coords_barrier": [
-            [32431,31732,6], [32431,31733,6],
-            [32431,31703,6], [32431,31704,6]
-        ]}
-    },
-    {"action":"dynamic_barrier", "interval":1, "args":{
-        "top_left": [32432,31698,6],
-        "bottom_right": [32462,31710,6],
-        "monster_count":1, 
-        "coords_barrier": [
-            [32457,31709,6], [32458,31709,6],
-            [32432,31703,6], [32432,31704,6]
-        ]}
-    },
-    {"action":"dynamic_barrier", "interval":1, "args":{
-        "top_left":[32449,31712,6],
-        "bottom_right": [32477,31735,6],
-        "monster_count":1, 
-        "coords_barrier": [
-            [32457,31710,6], [32458,31710,6],
-            [32452,31731,6], [32452,31732,6]
-        ]}
-    },
-    {"action":"dynamic_barrier", "interval":1, "args":{
-        "top_left":[32436,31726,6],
-        "bottom_right": [32448,31735,6],
-        "monster_count":1, 
-        "coords_barrier": [
-            [32436,31732,6], [32436,31733,6],
-            [32448,31731,6], [32448,31732,6]
-        ]}
-    },
-    {"action":"dynamic_barrier", "interval":1, "args":{
-        "top_left":[32468,31710,5],
-        "bottom_right": [32475,31735,5],
-        "monster_count":1, 
-        "coords_barrier": [
-            [32467,31731,5], [32467,31732,5]
-        ]}
-    },
-    {"action":"dynamic_barrier", "interval":1, "args":{
-        "top_left":[32436,31726,5],
-        "bottom_right": [32465,31735,5],
-        "monster_count":1, 
-        "coords_barrier": [
-            [32466,31731,5], [32466,31732,5]
-        ]}
-    }
+    {"action":"equip_item", "interval":2, "use_in_battle":true, "args":{"hotkey":"V", "amount":1, "selected_monsters":["Forest Fury", "Wilting Leaf Golem"], "slot":"ring"}}
 ],
 "target_monsters": 
 [
-    {"name":"Leaf Golem", "action":"distance", "distance":3, "loot":true},
-    {"name":"Wilting Leaf Golem", "action":"distance", "distance":3, "loot":true},
-    {"name":"Forest Fury", "action":"distance", "distance":3, "loot":true},
-    {"name":"Poacher", "action":"distance", "loot":true},
+    {"name":"Leaf Golem", "action":"follow", "loot":true},
+    {"name":"Wilting Leaf Golem", "action":"follow", "loot":true},
+    {"name":"Forest Fury", "action":"follow", "loot":true},
+    {"name":"Poacher", "action":"follow", "loot":true},
     {"name":"Dryad", "action":"follow", "loot":true},
     {"name":"Goblin", "action":"follow", "loot":true}
 ],
 "target_spells":
 [ 
-    {"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3}
+    {"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3},
+    {"name":"exori infir tera", "min_mana_percent":10, "priority":1, "cooldown":2, "monsters":["Forest Fury", "Poacher", "Wilting Leaf Golem"]}
 ],
 "loot": 
 [

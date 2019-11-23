@@ -24,7 +24,8 @@
 {
 	"great mana potion": {"hotkey":"e", "id":238, "use":"self"},
 	"ultimate healing rune": {"hotkey":"f2", "id":3160, "use":"self"},
-	"great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
+	"avalanche rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
+	"blessed wooden stake": {"hotkey":"3", "id":5942, "use":"crosshair"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
 "spells":
@@ -46,14 +47,14 @@
 "hunt_config": {
 	"cap_leave": 100,
 	"mana_name": "great mana potion",
-	"take_mana": 300,
+	"take_mana": 400,
 	"mana_leave": 100,
 	"health_name": "ultimate healing rune",
 	"take_health": 40,
 	"health_leave": 10,
 	"rune_name": "great fireball rune",
 	"take_rune": 300,
-	"rune_leave": 150
+	"rune_leave": 120
 },
 "persistent_actions": [
 	{"action":"drop_vials", "interval":60},
@@ -65,12 +66,13 @@
 "target_monsters": 
 [
 	{"name":"Bonebeast", "action":"follow", "loot":true}, 
-	{"name":"Vampire", "action":"distance", "loot":true}, 
-	{"name":"Vampire Viscount", "action":"distance", "loot":true}, 
-	{"name":"Vampire Bride", "action":"distance", "loot":true}
+	{"name":"Vampire", "action":"distance", "use_item":"blessed wooden stake", "loot":true}, 
+	{"name":"Vampire Viscount", "action":"distance", "use_item":"blessed wooden stake", "loot":true}, 
+	{"name":"Vampire Bride", "action":"distance", "use_item":"blessed wooden stake", "loot":true}
 ],
 "target_spells":
 [ 
+	{"name":"exori frigo", "min_mana_percent":10, "priority":6, "cooldown":2, "monsters":["Demon Skeleton"]},
 	{"name":"exori flam", "min_mana_percent":10, "priority":1, "cooldown":2, "monsters":["Vampire", "Vampire Viscount", "Vampire Bride"]},
 	{"name":"exori gran flam", "min_mana_percent":20, "priority":2, "cooldown":8, "monsters":["Vampire", "Vampire Viscount", "Vampire Bride"]},
 	{"name":"exevo flam hur", "min_mana_percent":20, "priority":3, "cooldown": 4,  "min_monster_count":3},
