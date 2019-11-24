@@ -1,0 +1,55 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"walk_type":"mouse"
+},
+"script_options": {
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":70, "use_hotkey":"F3", "hotkey_slot":3,       "priority":4},
+	{"type":"hp", "below_percent":85, "use_hotkey":"F1", "min_mana_percent":30, "priority":3},
+	{"type":"mp", "below_percent":60, "use_hotkey":"F4", "hotkey_slot":4,       "priority":2},
+	{"type":"hp", "below_percent":95, "use_hotkey":"R", "min_mana_percent":20, "priority":1, "cooldown":60}
+],
+"hunt_config": {
+	"cap_leave": 150,
+	"mana_name": "mana potion",
+	"hotkey_mana_potions": 4,
+	"health_name": "great health potion",
+	"hotkey_health_potions": 3
+},
+"persistent_actions": [
+	{"action":"eat_food", "interval":60}
+],
+"target_monsters": 
+[
+	{"name":"Scarab", "action":"follow", "loot":true}, 
+	{"name":"Ancient Scarab", "action":"follow", "loot":true},
+	{"name":"Nomad", "action":"follow", "loot":true},
+	{"name":"Hyaena", "action":"follow", "loot":false},
+	{"name":"Blue Djinn", "action":"follow", "loot":false},
+	{"name":"Marid", "action":"follow", "loot":false},
+	{"name":"Stone Golem", "action":"follow", "loot":false},
+	{"name":"Orc", "action":"follow", "loot":false},
+	{"name":"Orc Berserker", "action":"follow", "loot":true},
+	{"name":"Orc Warlord", "action":"follow", "loot":true},
+	{"name":"Orc Leader", "action":"follow", "loot":true},
+	{"name":"Orc Shaman", "action":"follow", "loot":true},
+	{"name":"Orc Spearman", "action":"follow", "loot":false},
+	{"name":"Dragon", "action":"follow", "loot":false},
+	{"name":"Fire Elemental", "action":"follow", "loot":false}
+],
+"target_spells":
+[ 
+	{"name":"exori", "hotkey":"1", "min_mana_percent":20, "priority":2, "cooldown": 4, "min_monster_count":2},
+	{"name":"exori min", "hotkey":"2", "min_mana_percent":30, "priority":3, "cooldown": 6, "min_monster_count":2}
+],
+"loot": []
+}

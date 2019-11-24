@@ -1,0 +1,5 @@
+Checklist to run script:
+- Start in Svargrond depot
+- Make sure Backpack is the main backpack
+- Have at least 5 honeycombs inside backpack
+- Have 3 mugs of meed setup in hotkey f6 to drink

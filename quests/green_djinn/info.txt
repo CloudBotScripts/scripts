@@ -1,0 +1,4 @@
+Checklist to run script:
+- Start in Ankrahmun depot
+- Started quest: Say "word of greeting" to Melfar in ankrahmun
+- Setup backpack to withdraw item

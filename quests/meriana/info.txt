@@ -1,0 +1,4 @@
+Checklist to run script:
+- Has spell levitate
+- Has levitate up is in hotkey '=' and down in hotkey '-'
+- Main backpack is set up in action 'use_rake'
