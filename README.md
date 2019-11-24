@@ -132,7 +132,7 @@ Soon
 | ----- | ------------------------------- |
 | 8+    | [Buy Blessing](CloudBotScripts/scripts/tree/master/buy_blessing)                    |
 | 10+   | Ice Fishing Svargrond           |
-| 10+   | Barbarian Test Quest            |
-| 20+   | Meriana Access Quest            |
-| 20+   | Yalahar Access Quest            |
+| 10+   | [Barbarian Test Quest](CloudBotScripts/scripts/tree/master/quests/barbarian_test)           |
+| 20+   | [Meriana Access Quest](CloudBotScripts/scripts/tree/master/quests/meriana)           |
+| 20+   | [Yalahar Access Quest](CloudBotScripts/scripts/tree/master/quests/sea_serpent)         |
 | 20+   | [Sea Serpent Access Quest](CloudBotScripts/scripts/tree/master/quests/sea_serpent)        |
