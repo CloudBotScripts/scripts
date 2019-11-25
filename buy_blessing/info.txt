@@ -1,0 +1,25 @@
+Choose a setup.json from the directory
+Select if you want to buy enhanced blessing or not
+
+Start in Thais Temple to buy all blessing
+Start in Cormaya + enhanced = True to buy only enhanced blessings
+
+Path:
+
+Thais blessing 1
+Travel to carlin
+Carlin blessing 2
+Walk to Ab'dendriel
+Ab'dendriel blessing 3
+Travel to edron
+Eremo blessing 4
+Travel Cormaya
+Travel Kazz
+Kazz blessing 5
+Travel back to Edron
+Continue if enhanced = True
+Travel Edron to Port Hope
+Travel Banuta by Boat (Need quest access)
+Travel Svargrond
+Travel Barbarian Camp by Boat (Need quest access)
+Travel back Edron
