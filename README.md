@@ -16,6 +16,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 8+    | [Salamander Cave](salamander_cave/setup.json)             | :star: :star: :star:                          | :star: :star:                           |
+| 8+    | [Wasp Cave Ab'dendriel](wasp_ab/setup_ek.json)  | :star: :star:                          | :star: :star:                           |
 | 8+    | [Swamp Trolls](swamp_troll/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup.json)   | :star: :star:                           | :star: :star:                           |
 | 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
@@ -30,6 +31,7 @@ Soon
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 8+    | [Salamander Cave](salamander_cave/setup_mage.json)  | :star: :star:                          | :star: :star:                           |
+| 8+    | [Wasp Cave Ab'dendriel](wasp_ab/setup_mage.json)  | :star: :star:                          | :star: :star:                           |
 | 30+   | [Forest Fury](forest_fury/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 60+   | [Stonerefiner Venore](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 
