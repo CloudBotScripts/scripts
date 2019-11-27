@@ -1,0 +1,51 @@
+label start
+label refill
+node (32681, 31686, 6)
+action deposit
+node (32681, 31669, 6)
+node (32670, 31660, 6)
+stand (32670, 31659, 6)
+action sell
+action buy_potions
+stand (32669, 31663, 6)
+action check_supplies
+label go_hunt
+node (32659, 31664, 6)
+node (32656, 31673, 6)
+stand (32656, 31674, 6)
+node (32645, 31693, 7)
+node (32638, 31713, 7)
+node (32616, 31716, 7)
+node (32607, 31702, 7)
+stand (32603,31704,7)
+label hunt
+node (32612, 31703, 8)
+stand (32616, 31700, 8)
+stand (32612, 31683, 9)
+node (32618, 31706, 10)
+node (32634, 31700, 10)
+node (32623, 31688, 10)
+rope (32612, 31683, 10)
+node (32604, 31707, 9)
+node (32627, 31709, 9)
+node (32642, 31709, 9)
+node (32639, 31692, 9)
+node (32631, 31677, 9)
+rope (32622, 31691, 9)
+node (32607, 31697, 8)
+stand (32605, 31701, 8)
+label count
+action check
+label leave
+stand (32603, 31703, 8)
+rope (32603, 31704, 8)
+node (32616, 31714, 7)
+node (32610, 31712, 7)
+node (32630, 31713, 7)
+node (32640, 31709, 7)
+node (32649, 31684, 7)
+ladder (32656, 31674, 7)
+node (32666, 31686, 6)
+node (32681, 31687, 6)
+action check_time
+action end
