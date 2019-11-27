@@ -22,8 +22,8 @@
 {
 	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
 	"ultimate health potion": {"hotkey":"F", "id":7643, "use":"self"},
-	"avalanche rune": {"info": "Rune for Ghost trap", "hotkey":"2", "id": 3161, "use":"target"},
-	"blessed wooden stake": {"hotkey":"3", "id":5942, "use":"crosshair"},
+	"avalanche rune": {"info": "Rune for Ghost trap", "hotkey":"7", "id": 3161, "use":"target"},
+	"blessed wooden stake": {"hotkey":"8", "id":5942, "use":"crosshair"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
 "spells":

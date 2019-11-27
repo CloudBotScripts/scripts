@@ -5,42 +5,56 @@
 	"walk_type":"mouse"
 },
 "script_options": {
+	"hours_leave": [9],
+	"skill_train":"sword",
+	"task":true,
+	"respawn":"south"
 },
 "containers": 
 {
 	"gold_bp":"Golden Backpack",
 	"loot_bp":"Red Backpack"
 },
-"tools":
-{
-},
-"items":
-{
-	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
-	"ultimate health potion": {"hotkey":"F", "id":7643, "use":"self"},
-	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
-},
-"spells":
-{
-	"exori":"1",
-	"exori ico":"q"
-},
 "healing":
 [
-	{"type":"hp", "below_percent":70, "use_item":"ultimate health potion",  "priority":4},
-	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
-	{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2}
+	{"type":"hp", "below_percent":10, "use_hotkey":"F2", "min_mana_percent":20, "priority":4, "cooldown": 900},
+	{"type":"hp", "below_percent":70, "use_hotkey":"F3", "hotkey_slot":3,       "priority":3},
+	{"type":"hp", "below_percent":85, "use_hotkey":"F1", "min_mana_percent":10, "priority":2},
+	{"type":"mp", "below_percent":50, "use_hotkey":"F4", "hotkey_slot":4,       "priority":1},
+	{"type":"hp", "below_percent":95, "use_hotkey":"R", "min_mana_percent":20, "priority":1, "cooldown":60}
 ],
 "hunt_config": {
+	"cap_leave": 100,
+	"mana_name": "mana potion",
+	"take_mana": 900,
+	"mana_leave": 300,
+	"hotkey_mana_potions": 4,
+	"health_name": "ultimate health potion",
+	"take_health": 100,
+	"health_leave": 30,
+	"hotkey_health_potions": 3
 },
 "persistent_actions": [
-	{"action":"eat_food", "interval":60}
+	{"action":"haste", "interval":40},
+	{"action":"anti_paralyze", "interval":1, "args":["F1"]},
+	{"action":"eat_food", "interval":40},
+	{"action":"recover_full_mana", "interval":3, "args":["f4"]},
+	{"action":"lure_monsters_keep", "interval":1}
 ],
 "target_monsters": 
 [
+	{"name":"Sea Serpent", "action":"follow", "loot":true},
+	{"name":"Young Sea Serpent", "action":"follow", "loot":true},
+	{"name":"Deepsea Blood Crab", "action":"follow", "loot":true}
 ],
 "target_spells":
 [ 
+	{"name":"exori hur", "hotkey":"3", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Sea Serpent", "Young Sea Serpent"]},
+	{"name":"exori ico", "hotkey":"q", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Sea Serpent", "Young Sea Serpent"]},
+	{"name":"exori", "hotkey":"1", "min_mana_percent":20, "priority":2, "cooldown": 4, "min_monster_count":2},
+	{"name":"exeta res", "hotkey":"x", "min_mana_percent":20, "priority":2, "cooldown": 10, "monsters":["Young Sea Serpent"]},
+	{"name":"exori min", "hotkey":"2", "min_mana_percent":30, "priority":3, "cooldown": 6, "min_monster_count":2},
+	{"name":"exori gran", "hotkey":"4", "min_mana_percent":40, "priority":4, "cooldown": 6,  "min_monster_count":3}
 ],
 "loot": []
 }

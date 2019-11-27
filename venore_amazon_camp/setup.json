@@ -44,7 +44,7 @@
 	"health_leave": 5
 },
 "persistent_actions": [
-	{"action":"drop_vials", "interval":60},
+	{"action":"drop_items", "interval":60, "args":{"names":["sabre", "skull", "dagger", "empty potion flask"]}},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]}
 ],
 "target_monsters": 

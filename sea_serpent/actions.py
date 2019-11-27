@@ -25,30 +25,28 @@ def waypoint_action(client, action):
             client.jump_label('go_south_down')
 
     elif action == "check_north":
-        check_hunt(client, 'hunt_north', 'leave_north', ammo=ammo, time=True)
+        check_hunt(client, 'hunt_north', 'leave_north', 
+                mana='mana_name' in client.hunt_config.keys(),
+                health='health_name' in client.hunt_config.keys(),
+                ammo='ammo_name' in client.hunt_config.keys(), 
+                rune='rune_name' in client.hunt_config.keys(), 
+                time=True)
 
     elif action == "check_south":
-        check_hunt(client, 'hunt_south', 'leave_south', ammo=ammo, time=True)
+        check_hunt(client, 'hunt_south', 'leave_south', 
+                mana='mana_name' in client.hunt_config.keys(),
+                health='health_name' in client.hunt_config.keys(),
+                ammo='ammo_name' in client.hunt_config.keys(), 
+                rune='rune_name' in client.hunt_config.keys(), 
+                time=True)
             
     elif action == "check_south_down":
-        check_hunt(client, 'hunt_south_down', 'leave_south_down', ammo=ammo, time=True)
-
-    elif action == "levitate_south_down":
-        levitate(client, 'south', levitate_down)
-    elif action == "levitate_east_down":
-        levitate(client, 'east', levitate_down)
-    elif action == "levitate_west_down":
-        levitate(client, 'west', levitate_down)
-    elif action == "levitate_north_down":
-        levitate(client, 'north', levitate_down)
-    elif action == "levitate_south_up":
-        levitate(client, 'south', levitate_up)
-    elif action == "levitate_east_up":
-        levitate(client, 'east', levitate_up)
-    elif action == "levitate_west_up":
-        levitate(client, 'west', levitate_up)
-    elif action == "levitate_north_up":
-        levitate(client, 'north', levitate_up)
+        check_hunt(client, 'hunt_south_down', 'leave_south_down',
+                mana='mana_name' in client.hunt_config.keys(),
+                health='health_name' in client.hunt_config.keys(),
+                ammo='ammo_name' in client.hunt_config.keys(), 
+                rune='rune_name' in client.hunt_config.keys(), 
+                time=True)
 
     else:
         global_actions.waypoint_action(client, action)
