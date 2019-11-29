@@ -7,9 +7,19 @@ from time import sleep
 from datetime import datetime
 from pytz import timezone
 import json
-import os, sys
+import os, sys, random
+
+# Cast spell if monsters around
+def cast_spell_if_monsters(client, min_mp, spell_hotkey, monsters_count, dist):
+    creatures_sqm = client.gameboard.get_sqm_monsters()
+    hp_percentage, mp_percentage = client.status_bar.get_percentage()
+
+    if client.target_on and mp_percentage > min_mp and sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm) >= monsters_count:
+        print('[Action] Cast Spell')
+        client.hotkey(spell_hotkey)
 
 # Add barriers if char is inside area defined by top_left, bottom_right
+# Careful not to overlap barriers with other calls of this function
 def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_count=2):
     m_count = client.battle_list.get_monster_count()
     cur_coord = client.minimap.get_current_coord()
@@ -19,6 +29,22 @@ def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_coun
             client.minimap.add_barrier_coords(coords_barrier)
         else:
             client.minimap.remove_barrier_coords(coords_barrier)
+
+# Add barriers in the border of the rectangles. rectangles is a list with top left and bottom right of the rectangles.
+def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
+    m_count = client.battle_list.get_monster_count()
+    cur_coord = client.minimap.get_current_coord()
+    coords_barrier = []
+    for top_left, bottom_right in rectangles:
+        z = top_left[2]
+        for x in range(top_left[0], bottom_right[0] + 1):
+            for y in (top_left[1], bottom_right[1]):
+                coords_barrier.append((x,y,z))
+        for x in range(top_left[1], bottom_right[1] + 1):
+            for y in (top_left[0], bottom_right[0]):
+                coords_barrier.append((x,y,z))
+
+    client.minimap.add_barrier_coords(coords_barrier)
 
 # Stop looting
 def stop_looting(client, selected_monsters='all', cap=0):
@@ -60,6 +86,19 @@ def drop_items(client, names=[]):
 
 def wait(client, tmin=1, tmax=1.2):
     client.sleep(tmin, tmax)
+
+# Drop item from backpack to sqm
+# if stack=True drops one item of the stack
+def drop_item_to_sqm(client, item_name, stack=False, dest_sqm=(0,0)):
+    containers = client.get_opened_containers()
+    for container in containers:
+        num_slots = container.get_num_slots()
+        for slot in reversed(range(num_slots)):
+            if item_name in container.get_item_in_slot(slot):
+                print('[Action] Dropping vial')
+                client.drop_item_from_container(container, slot, stack=stack, sqm=dest_sqm)
+                return
+
 
 def drop_vials(client):
     monster_count = client.battle_list.get_monster_count()
@@ -278,6 +317,7 @@ def withdraw_item_from_depot_to_backpack(client, item_name, depot_num, backpack_
         item_count = client.get_hotkey_item_count(client.items[item_name])
         if item_count >= amount:
             client.return_container(src)
+            print('[Action] Withdrawn', item_name)
             return True
 
         # Move item from src to dest
@@ -427,7 +467,7 @@ def check(client, mana=True, health=True, cap=True, rune=False, ammo=False, time
         cap_check = client.get_cap() > client.hunt_config['cap_leave']
     if time:
         cest = timezone('Europe/Berlin')
-        time_check = datetime.now(cest).hour not in client.script_options['hours_leave']
+        time_check = datetime.now(cest).hour not in client.script_options.get('hours_leave', [])
 
     print('[Action] Check results:')
     print('Mana:', mana_check)
@@ -484,7 +524,7 @@ def check_hunt(client, success, fail, mana=True, health=True, cap=True, rune=Fal
         cap_check = client.get_cap() > client.hunt_config['cap_leave']
     if time:
         cest = timezone('Europe/Berlin')
-        time_check = datetime.now(cest).hour not in client.script_options['hours_leave']
+        time_check = datetime.now(cest).hour not in client.script_options.get('hours_leave', [])
 
     print('[Action] Check Hunt results:')
     print('Mana:', mana_check)
@@ -574,6 +614,13 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
         print('Log out')
         client.logout()
 
+# Jump random label
+def jump_to_random_label(client, labels):
+  label = random.choice(labels)
+  print('[Action] Jump to random label:', label)
+
+  client.jump_label(label)
+
 # Conditional jump using script_options variable
 def conditional_jump_script_options(client, var_name, label_jump, label_skip=None):
     if client.script_options.get(var_name, False):
@@ -594,6 +641,26 @@ def conditional_jump_position(client, coords, label_jump, label_skip=None):
         elif label_skip:
             print('[Action] current coord is not in list')
             client.jump_label(label_skip)
+
+# Conditional jump if item count == x
+def conditional_jump_item_count(client, item_name, amount, label_jump, label_skip=None):
+    item_count = client.get_hotkey_item_count(client.items[item_name])
+    if item_count == amount:
+        print('[Action] {} count is {}'.format(item_name, amount))
+        client.jump_label(label_jump)
+    elif label_skip:
+        print('[Action] {} count is not {}'.format(item_name, amount))
+        client.jump_label(label_skip)
+
+# Conditional jump if item count < x
+def conditional_jump_item_count_below(client, item_name, amount, label_jump, label_skip=None):
+    item_count = client.get_hotkey_item_count(client.items[item_name])
+    if item_count < amount:
+        print('[Action] {} count is {}'.format(item_name, amount))
+        client.jump_label(label_jump)
+    elif label_skip:
+        print('[Action] {} count is not {}'.format(item_name, amount))
+        client.jump_label(label_skip)
 
 # Function to levitate
 def levitate(client, direction, hotkey):
