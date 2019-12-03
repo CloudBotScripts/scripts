@@ -32,8 +32,9 @@ Soon
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 8+    | [Salamander Cave](salamander_cave/setup_mage.json)  | :star: :star:                          | :star: :star:                           |
 | 8+    | [Wasp Cave Ab'dendriel](wasp_ab/setup_mage.json)  | :star: :star:                          | :star: :star:                           |
+| 30+   | [Amazon Camp Venore](venore_amazon_camp/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 30+   | [Forest Fury](forest_fury/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
-| 60+   | [Stonerefiner Venore](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
+| 50+   | [Stonerefiner Venore](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 
 ## Premium Account
 
@@ -50,7 +51,7 @@ Soon
 ### Elite Knight (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 100+  | [Giant Spider Port Hope](giant_spider_cave/setup_ek.json)          | :star: :star:                           | :star: :star:                           |         
+| 100+  | [Giant Spider Port Hope](giant_spider_cave/setup_ek.json)          | :star: :star:                           | :star: :star: :star:     |         
 | 120+  | [Sea Serpent North](sea_serpent/setup_ek_north.json) | :star: :star: :star:                    | :star: :star: :star:                    | 
 | 130+  | Wyrm Cave Liberty Bay           | :star:                                  | :star: :star: :star:                    |    
 | 150+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
