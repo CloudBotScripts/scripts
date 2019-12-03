@@ -81,7 +81,7 @@ Soon
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 300+  | [Oramond Sewers](oramond_sewers/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
 | 350+  | Medusa Tower                    | :star: :star:                           | :star: :star: :star: :star: :star:      |
-| 400+  | Oramond Glooth Tower            | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
+| 400+  | [Oramond Glooth Tower](oramond_tower/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
 
 
 ### Royal Paladin (8-100)
@@ -115,7 +115,7 @@ Soon
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 300+  | [Oramond Sewers](oramond_sewers/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
 | 350+  | Medusa Tower                    | :star: :star:                           | :star: :star: :star: :star: :star:      |
-| 400+  | Oramond Glooth Tower            | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
+| 400+  | [Oramond Glooth Tower](oramond_tower/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
 
 ### Master Sorcerer/Elder Druid (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
