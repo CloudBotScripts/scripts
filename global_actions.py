@@ -96,14 +96,23 @@ def waypoint_action(client, action):
     elif action == "levitate_up":
         levitate(client, 'north', levitate_up)
 
-    elif action == "levitate_north_up":
-        levitate(client, 'north', client.spells['exani hur up'])
-    elif action == "levitate_west_up":
-        levitate(client, 'west', client.spells['exani hur up'])
+    elif action == "levitate_south_up":
+        levitate(client, 'south', client.spells['exani hur up'])
     elif action == "levitate_south_down":
         levitate(client, 'south', client.spells['exani hur down'])
+    elif action == "levitate_east_up":
+        levitate(client, 'east', client.spells['exani hur up'])
     elif action == "levitate_east_down":
         levitate(client, 'east', client.spells['exani hur down'])
+    elif action == "levitate_west_up":
+        levitate(client, 'west', client.spells['exani hur up'])
+    elif action == "levitate_west_down":
+        levitate(client, 'west', client.spells['exani hur down'])
+    elif action == "levitate_north_up":
+        levitate(client, 'north', client.spells['exani hur up'])
+    elif action == "levitate_north_down":
+        levitate(client, 'north', client.spells['exani hur down'])
+
 
     elif action == "travel_edron":
         client.npc_say(['edron', 'yes'])
@@ -143,6 +152,9 @@ def waypoint_action(client, action):
 
     elif action == "travel_yalahar":
         client.npc_say(['yalahar', 'yes'])
+
+    elif action == "travel_abdendriel":
+        client.npc_say(['ab\'dendriel', 'yes'])
 
     elif action == "travel_cormaya":
         client.npc_say(['cormaya', 'yes'])

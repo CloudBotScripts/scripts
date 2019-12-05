@@ -9,6 +9,20 @@ from pytz import timezone
 import json
 import os, sys, random
 
+# Use hotkey at sqm
+def use_hotkey_at_sqm(client, hotkey, sqm):
+    print('[Action] Use hotkey', hotkey, 'at', sqm)
+    x, y = client.gameboard.sqm_to_coordinate(*sqm)
+    client.hotkey(hotkey)
+    sleep(0.3)
+    client.click(x, y, button='left')
+    sleep(1)
+
+# Use item at sqm (item must be assigned to a hotkey in setup.json)
+def use_item_at_sqm(client, item_name, sqm):
+    hotkey = client.item_hotkeys[item_name]
+    use_hotkey_at_sqm(client, hotkey, sqm)
+
 # Cast spell if monsters around
 def cast_spell_if_monsters(client, min_mp, spell_hotkey, monsters_count, dist):
     creatures_sqm = client.gameboard.get_sqm_monsters()
