@@ -122,7 +122,7 @@ Soon
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 15+   | [Minotaur Darashia](minotaur_darashia/setup_mage.json)| :star: :star:                           | :star: :star: :star: :star:             |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                                  |
-| 40+   | Meriana Gargoyle Cave           | :star:                                  | :star: :star: :star:                    |
+| 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
 
 ### Master Sorcerer/Elder Druid (100-200)
 | Level | Name                            | Profit                                  | XP                                      |

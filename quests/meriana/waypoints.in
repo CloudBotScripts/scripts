@@ -1,4 +1,4 @@
-label startvenoboat
+label start_venore_boat
 node (32954, 32026, 6)
 node (32954, 32042, 6)
 node (32953, 32060, 6)
@@ -86,9 +86,9 @@ stand (32391, 32802, 6)
 node (32399, 32801, 5)
 node (32408, 32798, 5)
 stand (32410, 32795, 5)
-action levitate_up_north
+action levitate_north_up
 stand (32410, 32790, 4)
-action levitate_up_north
+action levitate_north_up
 node (32421, 32790, 3)
 node (32433, 32787, 3)
 node (32437, 32779, 3)
@@ -96,13 +96,13 @@ stand (32437, 32776, 3)
 node (32427, 32779, 2)
 node (32418, 32779, 2)
 stand (32418, 32778, 2)
-action levitate_up_north
+action levitate_north_up
 node (32422, 32773, 1)
 stand (32421, 32771, 1)
 action use_rake_north
 node (32420, 32775, 1)
 stand (32418, 32777, 1)
-action levitate_down_south
+action levitate_south_down
 node (32426, 32780, 2)
 node (32433, 32775, 2)
 stand (32437, 32776, 2)
@@ -110,9 +110,9 @@ node (32435, 32783, 3)
 node (32420, 32790, 3)
 node (32413, 32789, 3)
 stand (32410, 32789, 3)
-action levitate_down_south
+action levitate_south_down
 stand (32410, 32794, 4)
-action levitate_down_south
+action levitate_south_down
 node (32399, 32799, 5)
 node (32394, 32801, 5)
 stand (32391, 32802, 5)
