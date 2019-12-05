@@ -30,10 +30,10 @@
 	{"type":"mp", "below_percent":30, "use_item":"mana potion", "priority":3}
 ],
 "hunt_config": {
-	"cap_leave": 10,
+	"cap_leave": 30,
 	"mana_name": "mana potion",
 	"take_mana": 50,
-	"mana_leave": 30,
+	"mana_leave": 45,
 	"health_name": "health potion",
 	"take_health": 5,
 	"health_leave": 2
