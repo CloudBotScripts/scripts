@@ -23,10 +23,27 @@ stand (33311, 31997, 14)
 stand (33311, 31988, 15)
 stand (33311, 31988, 15)
 action travel_farmine
+action gohunt_14
+label continue_gohunt_14
 stand (33060, 31530, 14)
 stand (33060, 31530, 14)
 ladder (33060, 31529, 14)
 stand (33061, 31527, 14)
+action jump_elevator_gohunt
+label skip_gohunt_14
+action gohunt_12
+label continue_gohunt_12
+stand (33060, 31530, 12)
+stand (33060, 31530, 12)
+ladder (33060, 31529, 12)
+stand (33061, 31527, 12)
+action jump_elevator_gohunt
+label gohunt_10
+stand (33060, 31530, 10)
+stand (33060, 31530, 10)
+ladder (33060, 31529, 10)
+stand (33061, 31527, 10)
+label elevator_gohunt
 action use_elevator
 stand (33004, 31557, 4)
 rope (33015,31547,5)
@@ -87,12 +104,30 @@ stand (33005, 31557, 5)
 stand (33004, 31557, 5)
 stand (32993, 31547, 4)
 action use_elevator
+action back_14
+label continue_back_14
 stand (33060, 31528, 14)
 ladder (33060, 31529, 14)
 stand (33060, 31531, 14)
 node (33050, 31536, 14)
 stand (33025, 31553, 14)
-stand (33025, 31553, 14)
+action jump_travel_back
+label skip_back_14
+action back_12
+label continue_back_14
+stand (33060, 31528, 12)
+ladder (33060, 31529, 12)
+stand (33060, 31531, 12)
+node (33050, 31536, 12)
+stand (33025, 31553, 12)
+action jump_travel_back
+label back_10
+stand (33060, 31528, 10)
+ladder (33060, 31529, 10)
+stand (33060, 31531, 10)
+node (33050, 31536, 10)
+stand (33025, 31553, 10)
+label travel_back
 action travel_cormaya
 stand (33311, 31997, 15)
 stand (33309, 31996, 14)

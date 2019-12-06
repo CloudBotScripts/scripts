@@ -1,7 +1,8 @@
 {
 "general": 
 {
-	"loot_type":"auto"
+	"loot_type":"auto",
+	"loot_priority":"first"
 },
 "script_options": {
 	"hours_leave": [9],
