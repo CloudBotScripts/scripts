@@ -1,0 +1,92 @@
+{
+"general": 
+{
+	"loot_type":"manual",
+	"loot_priority":"first"
+},
+"script_options": {
+	"hours_leave": [0, 9]
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"tools":
+{
+	"rope": {"name":"elvenhair rope", "id": 646},
+	"shovel": {"name":"light shovel", "id": 5710}
+},
+"items":
+{
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"health potion": {"hotkey":"f2", "id":266, "use":"self"},
+        "gold coin": {"hotkey":"f12", "id":3031, "use":"use"},
+        "brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"exura ico":"r"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":50, "use_item":"health potion", "priority":5},
+	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":10, "priority":4},
+	{"type":"mp", "below_percent":30, "use_item":"mana potion", "priority":3}
+],
+"hunt_config": {
+	"cap_leave": 10,
+	"mana_name": "mana potion",
+	"take_mana": 50,
+	"mana_leave": 10,
+	"health_name": "health potion",
+	"take_health": 10,
+	"health_leave": 5
+},
+"persistent_actions": [
+	{"action":"drop_items", "interval":60, "args":{"names":["sabre", "skull", "dagger", "empty potion flask"]}},
+	{"action":"anti_paralyze", "interval":1, "args":["r"]}
+],
+"target_monsters": 
+[
+	{"name":"Poison Spider", "action":"follow", "loot":false},
+	{"name":"Bat", "action":"follow", "loot":false},
+	{"name":"Amazon", "action":"follow", "loot":true},
+	{"name":"Valkyrie", "action":"follow", "loot":true},
+	{"name":"Bear", "action":"follow", "loot":true},
+	{"name":"Witch", "action":"follow", "loot":true},
+	{"name":"Mummy", "action":"follow", "loot":true},
+	{"name":"Ghoul", "action":"follow", "loot":true},
+	{"name":"Lion", "action":"follow", "loot":true},
+	{"name":"Xenia", "action":"follow", "loot":false}
+],
+"target_spells": [],
+"loot": [
+	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+	{"name":"bear paw", "action":"loot", "dest":"loot_bp"},
+	{"name":"protective charm", "action":"loot", "dest":"loot_bp"},
+	{"name":"mini mummy", "action":"loot", "dest":"loot_bp"},
+	{"name":"stuffed toad", "action":"loot", "dest":"loot_bp"},
+	{"name":"witch hat", "action":"loot", "dest":"loot_bp"},
+	{"name":"brown piece of cloth", "action":"loot", "dest":"loot_bp"},
+	{"name":"gauze bandage", "action":"loot", "dest":"loot_bp"},
+	{"name":"small diamond", "action":"loot", "dest":"loot_bp"},
+	{"name":"silver dagger", "action":"loot", "dest":"loot_bp"},
+	{"name":"yellow piece of cloth", "action":"loot", "dest":"loot_bp"},
+	{"name":"crystal necklace", "action":"loot", "dest":"loot_bp"},
+	{"name":"health potion", "action":"loot", "dest":"loot_bp"},
+	{"name":"rotten piece of cloth", "action":"loot", "dest":"loot_bp"},
+	{"name":"flask of embalming fluid", "action":"loot", "dest":"loot_bp"},
+	{"name":"life ring", "action":"loot", "dest":"loot_bp"},
+	{"name":"necrotic rod", "action":"loot", "dest":"loot_bp"},
+	{"name":"black pearl", "action":"loot", "dest":"loot_bp"},
+	{"name":"witch broom", "action":"loot", "dest":"loot_bp"},
+	{"name":"ghoul snack", "action":"loot", "dest":"loot_bp"},
+	{"name":"girlish hair decoration", "action":"loot", "dest":"loot_bp"},
+	{"name":"bag of apple slices", "action":"loot", "dest":"loot_bp"},
+	{"name":"crystal ring", "action":"loot", "dest":"loot_bp"},
+	{"name":"brown bread", "action":"use"},
+	{"name":"meat", "action":"use"},
+	{"name":"ham", "action":"use"}
+]
+}

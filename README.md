@@ -18,6 +18,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 8+    | [Salamander Cave](salamander_cave/setup.json)             | :star: :star: :star:                          | :star: :star:                           |
 | 8+    | [Wasp Cave Ab'dendriel](wasp_ab/setup_ek.json)  | :star: :star:                          | :star: :star:                           |
 | 8+    | [Swamp Trolls](swamp_troll/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
+| 15+   | [Amazon Tower Carlin](carlin_amazon_tower/setup.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup.json)   | :star: :star:                           | :star: :star:                           |
 | 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
 | 60+   | [Dark Cathedral -2](dark_cathedral/setup.json)   | :star:                                  | :star: :star: :star:                    |
@@ -32,6 +33,7 @@ Soon
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 8+    | [Salamander Cave](salamander_cave/setup_mage.json)  | :star: :star:                          | :star: :star:                           |
 | 8+    | [Wasp Cave Ab'dendriel](wasp_ab/setup_mage.json)  | :star: :star:                          | :star: :star:                           |
+| 20+   | [Amazon Tower Carlin](carlin_amazon_tower/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 30+   | [Amazon Camp Venore](venore_amazon_camp/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 30+   | [Forest Fury](forest_fury/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 50+   | [Stonerefiner Venore](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
