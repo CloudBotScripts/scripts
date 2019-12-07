@@ -125,7 +125,7 @@ label back_10
 stand (33060, 31528, 10)
 ladder (33060, 31529, 10)
 stand (33060, 31531, 10)
-node (33050, 31536, 10)
+node (33042, 31533, 10)
 stand (33025, 31553, 10)
 label travel_back
 action travel_cormaya
