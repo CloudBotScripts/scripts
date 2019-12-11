@@ -60,6 +60,14 @@ def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
 
     client.minimap.add_barrier_coords(coords_barrier)
 
+# Set persistent interval
+## Use 999999 or high number to turn off
+def set_persistent_interval(client, persistent_alias, interval=60):
+    for persistent in client.persistent_actions:
+        if persistent.get('alias', 'none') == persistent_alias:
+            persistent['interval'] = interval
+            break
+
 # Stop looting
 def stop_looting(client, selected_monsters='all', cap=0):
     print('[Action] stop_looting')
@@ -616,14 +624,6 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
         imbuement_check = check_imbuements(client)
         print('Imbuements:', imbuement_check)
 
-    if not all((mana_check, health_check, ammo_check)):
-        import cv2
-        cv2.imwrite('hotkey_fail.png', client.img.screen)
-
-    if not (cap_check):
-        import cv2
-        cv2.imwrite('cap_fail.png', client.img.screen)
-
     if not all((mana_check, health_check, cap_check, ammo_check, imbuement_check, rune_check)):
         print('Log out')
         client.logout()
@@ -655,6 +655,16 @@ def conditional_jump_position(client, coords, label_jump, label_skip=None):
         elif label_skip:
             print('[Action] current coord is not in list')
             client.jump_label(label_skip)
+
+# Conditional jump if character pos is in coords list 
+def conditional_jump_floor(client, floor, label_jump, label_skip=None):
+    cur_floor = client.minimap.get_floor()
+    if cur_floor == floor:
+        print('[Action] current floor is', floor)
+        client.jump_label(label_jump)
+    elif label_skip:
+        print('[Action] current floor is not', floor)
+        client.jump_label(label_skip)
 
 # Conditional jump if item count == x
 def conditional_jump_item_count(client, item_name, amount, label_jump, label_skip=None):
