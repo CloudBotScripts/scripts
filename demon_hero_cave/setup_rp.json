@@ -71,19 +71,15 @@
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
 	{"action":"refill_diamond_ammo", "interval":5, "use_in_battle":true, "args":{"save_single_target":true}},
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
-    {"action":"dynamic_barrier", "interval":1, "use_in_battle":true, "args":{
-	"top_left": [33062,31689,15],
-	"bottom_right": [33148,31730,15],
-	"monster_count":1, 
-	"coords_barrier": [
-	    [33084,31722,15], [33085,31722,15], [33086,31722,15],
-	    [33084,31702,15], [33085,31702,15], [33086,31702,15],
-	    [33106,31696,15], [33106,31697,15], [33106,31698,15],
-	    [33084,31702,15], [33085,31702,15], [33086,31702,15],
-	    [33087,31723,15], [33087,31725,15], [33087,31725,15],
-	    [33117,31723,15], [33117,31725,15], [33117,31725,15]
-	]}
-    }
+	{"action":"dynamic_barrier_rectangles", "interval":1, "use_in_battle":true, "args":{
+		"rectangles":[
+			[[33083,31695,15],[33122,31702,15]],
+			[[33108,31714,15],[33123,31727,15]],
+			[[33083,31722,15],[33103,31726,15]],
+			[[33063,31703,15],[33087,31722,15]]
+		],
+		"monster_count":1
+	}}
 ],
 "target_monsters": 
 [
