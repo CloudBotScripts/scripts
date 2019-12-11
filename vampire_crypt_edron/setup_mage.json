@@ -52,7 +52,7 @@
 	"health_name": "ultimate healing rune",
 	"take_health": 40,
 	"health_leave": 10,
-	"rune_name": "great fireball rune",
+	"rune_name": "avalanche rune",
 	"take_rune": 300,
 	"rune_leave": 120
 },
@@ -76,7 +76,7 @@
 	{"name":"exori flam", "min_mana_percent":10, "priority":1, "cooldown":2, "monsters":["Vampire", "Vampire Viscount", "Vampire Bride"]},
 	{"name":"exori gran flam", "min_mana_percent":20, "priority":2, "cooldown":8, "monsters":["Vampire", "Vampire Viscount", "Vampire Bride"]},
 	{"name":"exevo flam hur", "min_mana_percent":20, "priority":3, "cooldown": 4,  "min_monster_count":3},
-	{"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3},
+	{"name":"avalanche rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3},
 	{"name":"exevo gran mas flam", "min_mana_percent":40, "priority":5, "cooldown": 40,  "min_monster_count":5}
 ],
 "loot": []
