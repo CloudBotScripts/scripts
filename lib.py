@@ -24,11 +24,21 @@ def use_item_at_sqm(client, item_name, sqm):
     use_hotkey_at_sqm(client, hotkey, sqm)
 
 # Cast spell if monsters around
-def cast_spell_if_monsters(client, min_mp, spell_hotkey, monsters_count, dist):
+def cast_spell_if_monsters(client, min_mp, spell_hotkey, monsters_count=3, selected_monsters='all', dist=1, use_with_target_off=False):
+    monster_list = client.battle_list.get_monster_list()
+    if selected_monsters != 'all':
+        selected_monsters = [m.replace(' ', '') for m in selected_monsters]
+        monster_list = [m for m in monster_list if m in selected_monsters]
+
+    if len(monster_list) < monsters_count:
+        return
+    if not use_with_target_off and not client.target_on:
+        return
+
     creatures_sqm = client.gameboard.get_sqm_monsters()
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
 
-    if client.target_on and mp_percentage > min_mp and sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm) >= monsters_count:
+    if mp_percentage > min_mp and sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm) >= monsters_count:
         print('[Action] Cast Spell')
         client.hotkey(spell_hotkey)
 
@@ -121,10 +131,9 @@ def drop_item_to_sqm(client, item_name, stack=False, dest_sqm=(0,0)):
                 client.drop_item_from_container(container, slot, stack=stack, sqm=dest_sqm)
                 return
 
-
-def drop_vials(client):
+def drop_vials(client, cap=100, drop_stacks=4):
     monster_count = client.battle_list.get_monster_count()
-    if monster_count < 1:
+    if monster_count < 1 and client.get_cap() <= cap:
         containers = client.get_opened_containers()
         for container in containers:
             num_slots = container.get_num_slots()
@@ -133,6 +142,9 @@ def drop_vials(client):
                     print('[Action] Dropping vial')
                     client.drop_item_from_container(container, slot)
                     sleep(0.2)
+                    drop_stacks -= 1
+                    if drop_stacks == 0:
+                        break
 
 def recover_full_mana(client, hotkey='e'):
     monster_count = client.battle_list.get_monster_count()
