@@ -47,8 +47,8 @@
 	"take_health": 20,
 	"health_leave": 10,
 	"ammo_name": "royal spear",
-	"take_ammo": 10,
-	"ammo_leave": 6,
+	"take_ammo": 12,
+	"ammo_leave": 8,
 	"hotkey_ammo": 21
 },
 "persistent_actions": [
