@@ -28,7 +28,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 80+   | [Stonerefiner](stonerefiner/setup_ek.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ### Paladin (8-100)
-Soon
+| 30+   | [Stonerefiner](stonerefiner/stonerefiners_35/setup_rp.json) | :star:                   | :star: :star: :star:                    |
 
 ### Mage (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
