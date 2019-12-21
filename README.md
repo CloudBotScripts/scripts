@@ -47,8 +47,10 @@ Soon
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                            |
+| 30+   | [Elves Yalahar](elves_yalahar/elves_30/setup_ek.json)  | :star:                                  | :star:                            |
 | 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |  
 | 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
+| 60+   | Elves/Dragons Yalahar                | :star: :star:                           | :star: :star:                           |
 | 70+   | Ancient Scarab Khazel           | :star: :star:                           | :star: :star:                    |     
 | 90+   | Mother of Scarab                | :star: :star:                           | :star: :star:                    |  
 | 90+   | [Killer Caimans](killer_caimans/setup.json)                  | :star: :star: :star:                    | :star: :star:                           |
@@ -93,6 +95,7 @@ Soon
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                            |
+| 30+   | [Elves Yalahar](elves_yalahar/elves_30/setup_rp.json)           | :star:                                  | :star:                            |
 
 ### Royal Paladin (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
