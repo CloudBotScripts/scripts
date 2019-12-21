@@ -6,7 +6,7 @@ action bank
 stand (33020, 32059, 6)
 stand (33017, 32053, 7)
 action deposit
-action refill
+label withdraw_ring
 node (33018, 32053, 7)
 stand (33020, 32059, 7)
 node (33007, 32053, 6)

@@ -18,46 +18,46 @@
 },
 "tools":
 {
-	"rope": {"name":"elvenhair rope", "id": 646},
-	"shovel": {"name":"shovel", "id": 5710}
+	"rope": {"name":"rope", "id": 3003},
+	"shovel": {"name":"shovel", "id": 3457}
 },
 "items":
 {
-	"great mana potion": {"hotkey":"e", "id":238, "use":"self"},
-	"ultimate healing rune": {"hotkey":"f2", "id":3160, "use":"self"},
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
 	"great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
+	"stealth ring": {"hotkey":"V", "id":3049, "use":"equip"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
 "spells":
 {
-	"exura vita":"f",
 	"exura gran":"r",
-	"exevo flam hur":"1"
+	"exevo frigo hur":"1"
 },
 "healing":
 [
-	{"type":"hp", "below_percent":40, "use_item":"ultimate healing rune", "priority":5},
-	{"type":"hp", "below_percent":60, "use_spell":"exura vita", "min_mana_percent":10, "priority":4},
 	{"type":"hp", "below_percent":75, "use_spell":"exura gran", "min_mana_percent":5,  "priority":3},
-	{"type":"mp", "below_percent":80, "use_item":"great mana potion", "priority":2}
+	{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2}
 ],
 "hunt_config": {
 	"cap_leave": 100,
-	"mana_name": "great mana potion",
-	"take_mana": 250,
+	"mana_name": "mana potion",
+	"take_mana": 100,
 	"mana_leave": 50,
 	"rune_name": "great fireball rune",
-	"take_rune": 300,
-	"rune_leave": 80,
-	"rune_name2": "ultimate healing rune",
-	"take_rune2": 30,
-	"rune_leave2": 10
+	"take_rune": 80,
+	"rune_leave": 20
 },
+"label_actions": 
+[
+    {"label":"withdraw_ring", "action":"withdraw_item_from_depot_to_backpack", "args": {
+	    "item_name":"stealth ring", "depot_num":3, "backpack_name":"Backpack", "amount":6, "stack":false}}
+],
 "persistent_actions": [
 	{"action":"drop_vials", "interval":60},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-	{"action":"recover_full_mana", "interval":3, "args":["e"]}
+	{"action":"recover_full_mana", "interval":3, "args":["e"]},
+	{"action":"equip_item", "interval":2, "use_in_battle":true, "args":{"hotkey":"V", "amount":1, "selected_monsters":["Corym Skirmisher", "Corym Charlatan", "Stonerefiner"], "slot":"ring"}}
 ],
 "target_monsters": 
 [
@@ -65,7 +65,7 @@
 ],
 "target_spells":
 [ 
-	{"name":"exevo flam hur", "min_mana_percent":20, "priority":3, "cooldown": 4,  "min_monster_count":2},
+	{"name":"exevo frigo hur", "min_mana_percent":20, "priority":3, "cooldown": 4,  "min_monster_count":2},
 	{"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3}
 ],
 "loot": 

@@ -1,0 +1,251 @@
+{
+  "general": {
+    "loot_type": "manual",
+    "loot_priority": "first"
+  },
+  "script_options": {
+    "hours_leave": [
+      9
+    ],
+    "skill_train": "magic",
+    "use_soft_boots": false
+  },
+  "containers": {
+    "gold_bp": "Orange Backpack",
+    "loot_bp": "Red Backpack"
+  },
+  "tools": {
+    "rope": {
+      "name": "rope",
+      "id": 3003
+    }
+  },
+  "items": {
+    "mana potion": {
+      "hotkey": "e",
+      "id": 268,
+      "use": "self"
+    },
+    "stealth ring": {
+      "hotkey": "V",
+      "id": 3049,
+      "use": "equip"
+    },
+    "brown mushroom": {
+      "hotkey": "f11",
+      "id": 3725,
+      "use": "use"
+    },
+    "great fireball rune": {
+      "hotkey": "f9",
+      "id": 3191,
+      "use": "crosshair"
+    }
+  },
+  "spells": {
+    "exura gran": "r",
+    "utana vid": "8",
+    "exori infir tera": "1"
+  },
+  "healing": [
+    {
+      "type": "hp",
+      "below_percent": 75,
+      "use_spell": "exura gran",
+      "min_mana_percent": 5,
+      "priority": 3
+    },
+    {
+      "type": "mp",
+      "below_percent": 80,
+      "use_item": "mana potion",
+      "priority": 2
+    }
+  ],
+  "hunt_config": {
+    "cap_leave": 40,
+    "mana_name": "mana potion",
+    "take_mana": 100,
+    "mana_leave": 45,
+    "rune_name": "great fireball rune",
+    "take_rune": 60,
+    "rune_leave": 20
+  },
+  "label_actions": [
+    {
+      "label": "withdraw_mushrooms",
+      "action": "withdraw_item_from_depot_to_backpack",
+      "args": {
+        "item_name": "brown mushroom",
+        "depot_num": 4,
+        "backpack_name": "Backpack",
+        "amount": 20,
+        "stack": true
+      }
+    }
+  ],
+  "persistent_actions": [
+    {
+      "action": "drop_vials",
+      "interval": 60
+    },
+    {
+      "action": "anti_paralyze",
+      "interval": 1,
+      "args": [
+        "r"
+      ]
+    },
+    {
+      "action": "eat_food",
+      "interval": 40,
+      "args": {
+        "hotkey": "f11"
+      }
+    },
+    {
+      "action": "use_hotkey",
+      "interval": 195,
+      "use_in_battle": true,
+      "args": {
+        "hotkey": "8"
+      }
+    },
+    {
+      "action": "recover_full_mana",
+      "interval": 3,
+      "args": [
+        "e"
+      ]
+    }
+  ],
+  "target_monsters": [
+    {
+      "name": "Stonerefiner",
+      "action": "follow",
+      "loot": true
+    }
+  ],
+  "target_spells": [
+    {
+      "name": "exori infir tera",
+      "min_mana_percent": 10,
+      "priority": 1,
+      "cooldown": 2,
+      "monsters": [
+        "Stonerefiner"
+      ]
+    },
+    {
+      "name": "great fireball rune",
+      "min_mana_percent": 20,
+      "priority": 4,
+      "cooldown": 2,
+      "min_monster_count": 3
+    }
+  ],
+  "loot": [
+    {
+      "name": "gold coin",
+      "action": "loot",
+      "dest": "gold_bp"
+    },
+    {
+      "name": "gold coins",
+      "action": "loot",
+      "dest": "gold_bp"
+    },
+    {
+      "name": "health potion",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "small emerald",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "small topaz",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "small amethyst",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "seeds",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "dowser",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "fir cone",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "elven hoof",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "elvish bow",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "venison",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "carrot on a stick",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "coconut_shoes",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "flower dress",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "flower wreath",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "leaf legs",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "mana potion",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "white mushroom",
+      "action": "use"
+    },
+    {
+      "name": "meat",
+      "action": "use"
+    },
+    {
+      "name": "ham",
+      "action": "use"
+    }
+  ]
+}
