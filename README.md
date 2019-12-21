@@ -21,6 +21,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 15+   | [Amazon Tower Carlin](carlin_amazon_tower/setup.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup.json)   | :star: :star:                           | :star: :star:                           |
 | 30+   | [Shadowthorn Venore](elves_venore/setup.json)   | :star: :star:                           | :star: :star:                           |
+| 35+   | [Stonerefiners Venore](stonerefiner/stonerefiners35/setup_ek.json)  | :star:                                  | :star: :star: :star:                            |
 | 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
 | 60+   | [Dark Cathedral -2](dark_cathedral/setup.json)   | :star:                                  | :star: :star: :star:                    |
 | 75+   | Corym Venore North -1           | :star: :star:                           | :star: :star: :star:                    |
@@ -143,5 +144,3 @@ Soon
 | 20+   | [Meriana Access Quest](quests/meriana/info.txt)           |
 | 20+   | [Yalahar Access Quest](quests/yalahar/info.txt)         |
 | 20+   | [Sea Serpent Access Quest](quests/sea_serpent/info.txt)        |
-
-test
