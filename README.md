@@ -45,6 +45,8 @@ Soon
 ### Elite Knight (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 15+   | [Rotworm Darashia North by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
+| 15+   | [Rotworm Darashia North-East by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                            |
 | 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |  
 | 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
