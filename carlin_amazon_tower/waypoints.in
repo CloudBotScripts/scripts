@@ -47,6 +47,8 @@ stand (32353,31643,6)
 node (32354,31638,7)
 node (32355,31651,7)
 node (32342,31652,7)
+label count_charms
+label continue_charms
 action check
 label leave
 node (32338,31672,7)
