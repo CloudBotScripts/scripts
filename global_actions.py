@@ -63,6 +63,9 @@ def waypoint_action(client, action):
     elif action == "use_imbuing_shrine":
         use_imbuing_shrine(client)
 
+    elif action == "use_lever_east":
+        client.use_lever((1, 0))
+
     elif action == "deposit":
         client.reach_locker()
         deposit_all_from_backpack_to_depot(client, client.container_conf['loot_bp'], 2)
