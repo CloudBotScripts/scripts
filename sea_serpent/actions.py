@@ -48,5 +48,8 @@ def waypoint_action(client, action):
                 rune='rune_name' in client.hunt_config.keys(), 
                 time=True)
 
+    elif action == "leave":
+        client.jump_label('leave')
+
     else:
         global_actions.waypoint_action(client, action)
