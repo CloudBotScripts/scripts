@@ -13,6 +13,7 @@
 		{"equip_slot":"weapon", "name":"Intricate Strike", "type":"Critical Hit"}
 	],
 	"summon":"f3",
+	"hunt_down": true,
 	"sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
 },
 "containers": 
@@ -69,8 +70,14 @@
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
 	{"action":"drop_vials", "interval":60},
-	{"action":"refill_diamond_ammo", "interval":5, "use_in_battle":true},
-	{"action":"lure_monsters_diamond_arrow", "interval":1, "args":[5, 2]}
+	{"action":"refill_diamond_ammo", "interval":2, "use_in_battle":true, "args":{"save_single_target":true}},
+	{"action":"recover_full_mana", "interval":3, "args":["e"]},
+	{"action":"lure_monsters_diamond_arrow", "interval":0.5, "args":{"count":5}}
+],
+"label_actions":[
+	{"label": "check_hunt_down", "action":"conditional_jump_script_options", "args":{
+		"var_name":"hunt_down", "label_jump":"continue_down", "label_skip":"skip_down"
+	}}
 ],
 "target_monsters": 
 [

@@ -131,7 +131,7 @@ def drop_item_to_sqm(client, item_name, stack=False, dest_sqm=(0,0)):
                 client.drop_item_from_container(container, slot, stack=stack, sqm=dest_sqm)
                 return
 
-def drop_vials(client, cap=100, drop_stacks=4):
+def drop_vials(client, cap=500, drop_stacks=4):
     monster_count = client.battle_list.get_monster_count()
     if monster_count < 1 and client.get_cap() <= cap:
         containers = client.get_opened_containers()

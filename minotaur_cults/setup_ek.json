@@ -14,6 +14,7 @@
 	],
 	"summon_info": "Put the hotkey of the summon spell if you want to use summon",
 	"summon":false,
+	"hunt_down": false,
 	"sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
 },
 "containers": 
@@ -71,6 +72,11 @@
 	{"action":"lure_monsters", "interval":0.5, "args":[4]},
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
 	{"action":"eat_food", "interval":30, "args":["f11"]}
+],
+"label_actions":[
+	{"label": "check_hunt_down", "action":"conditional_jump_script_options", "args":{
+		"var_name":"hunt_down", "label_jump":"continue_down", "label_skip":"skip_down"
+	}}
 ],
 "target_monsters": 
 [

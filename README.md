@@ -21,14 +21,16 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 15+   | [Amazon Tower Carlin](carlin_amazon_tower/setup.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup.json)   | :star: :star:                           | :star: :star:                           |
 | 30+   | [Shadowthorn Venore](elves_venore/setup.json)   | :star: :star:                           | :star: :star:                           |
-| 35+   | [Stonerefiners Venore](stonerefiner/stonerefiners_35/setup_ek.json)  | :star:                                  | :star: :star: :star:                            |
 | 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
 | 60+   | [Dark Cathedral -2](dark_cathedral/setup.json)   | :star:                                  | :star: :star: :star:                    |
 | 75+   | Corym Venore North -1           | :star: :star:                           | :star: :star: :star:                    |
 | 80+   | [Stonerefiner](stonerefiner/setup_ek.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ### Paladin (8-100)
-| 30+   | [Stonerefiner](scripts_jj/stonerefiners_35/setup_rp.json) | :star:                   | :star: :star: :star:                    |
+
+| Level | Name                            | Profit                                  | XP                                      |
+| ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 30+   | [Stonerefiner @Juanjo](scripts_jj/stonerefiners_35/setup_rp.json) | :star:                   | :star: :star: :star:                    |
 
 ### Mage (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
@@ -46,11 +48,11 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 ### Elite Knight (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 15+   | [Rotworm Darashia North by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
+| 15+   | [Rotworm Darashia North-East by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                            |
-| 30+   | [Elves Yalahar](elves_yalahar/elves_30/setup_ek.json)  | :star:                                  | :star:                            |
 | 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |  
 | 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
-| 60+   | Elves/Dragons Yalahar                | :star: :star:                           | :star: :star:                           |
 | 70+   | Ancient Scarab Khazel           | :star: :star:                           | :star: :star:                    |     
 | 90+   | Mother of Scarab                | :star: :star:                           | :star: :star:                    |  
 | 90+   | [Killer Caimans](killer_caimans/setup.json)                  | :star: :star: :star:                    | :star: :star:                           |
@@ -61,6 +63,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 100+  | [Giant Spider Port Hope](giant_spider_cave/setup_ek.json)          | :star: :star:                           | :star: :star: :star:     |         
 | 120+  | [Sea Serpent North](sea_serpent/setup_ek_north.json) | :star: :star: :star:                    | :star: :star: :star:                    | 
 | 130+  | Wyrm Cave Liberty Bay           | :star:                                  | :star: :star: :star:                    |    
+| 140+  | [Brimstone Bug Keeper Cave by G;P](brimstone_bug_keeper/setup.json) | :star: :star: :star:       | :star: :star: :star:                    |    
 | 150+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
 | 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_ek.json)             | :star: :star: :star:                    | :star: :star: :star:                    |
 | 160+  | [Krailos Nightmare](krailos_nightmare/setup_ek.json) | :star:                                  | :star: :star: :star:                    |
@@ -95,7 +98,6 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                            |
-| 30+   | [Elves Yalahar](elves_yalahar/elves_30/setup_rp.json)           | :star:                                  | :star:                            |
 
 ### Royal Paladin (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
@@ -131,6 +133,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 15+   | [Minotaur Darashia](minotaur_darashia/setup_mage.json)| :star: :star:                           | :star: :star: :star: :star:             |
 | 25+   | [Mad Scientists](scripts_jj/mad_scientist/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                                  |
+| 30+   | [Magician Quarter @Juanjo](magician_quarter/setup_mage.json)     | :star:                                  | :star::star:               |
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
 | 80+   | [Oramond Minos South](scripts_jj/oramond_minos_south/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
 | 80+   | [Water Elementals](scripts_jj/water_elementals/setup_mage.json) | :star: :star:                                 | :star: :star: :star: :star:         |

@@ -16,6 +16,7 @@
 {
 	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
 	"health potion": {"hotkey":"f2", "id":266, "use":"self"},
+	"protective charm": {"hotkey":"f3", "id":11444, "use":"use"},
         "brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
 "spells":
@@ -38,6 +39,10 @@
 	"take_health": 5,
 	"health_leave": 2
 },
+"label_actions": 
+[
+	{"label":"count_charms", "action":"conditional_jump_item_count_below", "args": {"item_name":"protective charm", "amount":10, "label_jump":"continue_charms", "label_skip":"leave"}}
+],
 "persistent_actions": [
 	{"action":"drop_items", "interval":60, "args":{"names":["sabre", "skull", "dagger", "empty potion flask"]}},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]}
@@ -46,10 +51,10 @@
 [
 	{"name":"Poison Spider", "action":"follow", "loot":false},
 	{"name":"Bat", "action":"follow", "loot":false},
-	{"name":"Amazon", "action":"follow", "loot":true},
-	{"name":"Valkyrie", "action":"follow", "loot":true},
+	{"name":"Amazon", "action":"follow", "priority":1, "loot":true},
+	{"name":"Valkyrie", "action":"follow", "priority":2, "loot":true},
 	{"name":"Bear", "action":"follow", "loot":true},
-	{"name":"Witch", "action":"follow", "loot":true},
+	{"name":"Witch", "action":"follow", "priority":3, "loot":true},
 	{"name":"Mummy", "action":"follow", "loot":true},
 	{"name":"Ghoul", "action":"follow", "loot":true},
 	{"name":"Lion", "action":"follow", "loot":true},
