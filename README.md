@@ -28,7 +28,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 80+   | [Stonerefiner](stonerefiner/setup_ek.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ### Paladin (8-100)
-| 30+   | [Stonerefiner](stonerefiner/stonerefiners_35/setup_rp.json) | :star:                   | :star: :star: :star:                    |
+| 30+   | [Stonerefiner](scripts_jj/stonerefiners_35/setup_rp.json) | :star:                   | :star: :star: :star:                    |
 
 ### Mage (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
@@ -129,11 +129,11 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 15+   | [Minotaur Darashia](minotaur_darashia/setup_mage.json)| :star: :star:                           | :star: :star: :star: :star:             |
-| 25+   | [Mad Scientists](scripts/scripts_jj/mad_scientist/setup_mage.json)| :star:                          | :star: :star:          |
+| 25+   | [Mad Scientists](scripts_jj/mad_scientist/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                                  |
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
-| 80+   | [Oramond Minos South](scripts/scripts_jj/oramond_minos_south/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
-| 80+   | [Water Elementals](scripts/scripts_jj/water_elementals/setup_mage.json) | :star: :star:                                 | :star: :star: :star: :star:         |
+| 80+   | [Oramond Minos South](scripts_jj/oramond_minos_south/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
+| 80+   | [Water Elementals](scripts_jj/water_elementals/setup_mage.json) | :star: :star:                                 | :star: :star: :star: :star:         |
 
 ### Master Sorcerer/Elder Druid (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
