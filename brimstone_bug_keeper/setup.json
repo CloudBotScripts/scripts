@@ -62,14 +62,14 @@
 [
 	{"name":"Brimstone Bug", "action":"follow", "loot":true},
 	{"name":"Wailing Widow", "action":"follow", "loot":true},
-	{"name":"Lancer Beetle", "action":"follow", "loot":false}
+	{"name":"Lancer Beetle", "action":"follow", "loot":true}
 ],
 "target_spells":
 [ 
 	{"name":"exori ico", "min_mana_percent":20, "priority":1, "cooldown":6,
-		"monsters":["Brimstone Bug, Wailing Widow, Lancer Beetle"]},
+		"monsters":["Brimstone Bug", "Wailing Widow", "Lancer Beetle"]},
 	{"name":"exori hur", "min_mana_percent":20, "priority":1, "cooldown":6,
-		"monsters":["Brimstone Bug, Wailing Widow, Lancer Beetle"]},
+		"monsters":["Brimstone Bug", "Wailing Widow", "Lancer Beetle"]},
 	{"name":"exori", "min_mana_percent":20, "priority":2, "cooldown": 4, "min_monster_count":2},
 	{"name":"exori gran", "min_mana_percent":40, "priority":4, "cooldown": 6,  "min_monster_count":4},
 	{"name":"exori min", "min_mana_percent":30, "priority":3, "cooldown": 6, "min_monster_count":2}
