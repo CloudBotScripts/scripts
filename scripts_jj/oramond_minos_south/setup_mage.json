@@ -1,0 +1,98 @@
+{
+	"general": {
+		"loot_type":"auto",
+		"loot_priority":"after"
+	},
+	"script_options": {
+		"hours_leave": [9],
+		"skill_train":"magic"
+	},
+	"containers": {
+		"gold_bp":"Blue Backpack",
+		"loot_bp":"Camouflage Backpack"
+	},
+	"tools": {
+        "rope": {"name":"whacking driller of fate", "id": 9598},
+        "shovel": {"name":"whacking driller of fate", "id": 9598}
+	},
+	"items": {
+		"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
+		"ultimate healing rune": {"hotkey":"f2", "id":3160, "use":"self"},
+		"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"},
+		"sudden death rune": {"hotkey":"f9", "id":3155, "use":"target"},
+        "ring of healing": {"hotkey":"f8", "id":3098, "use":"equip"}
+	},
+	"spells": {
+		"utani hur": "v",
+		"exura gran":"f",
+        "utamo vita":"r"
+	},
+	"healing": [
+		{"type":"hp", "below_percent":40, "use_item":"ultimate healing rune", "priority":3},
+		{"type":"hp", "below_percent":80, "use_spell":"exura gran", "min_mana_percent":10, "priority":2},
+		{"type":"mp", "below_percent":85, "use_item":"strong mana potion", "priority":1}
+	],
+	"hunt_config": {
+		"cap_leave": 1,
+		"mana_name": "strong mana potion",
+		"take_mana": 180,
+		"mana_leave": 110,
+		"rune_name": "ultimate healing rune",
+		"take_rune": 20,
+		"rune_leave": 14,
+        "rune_name2": "sudden death rune",
+		"take_rune2": 180,
+		"rune_leave2": 100
+	},
+    "label_actions": 
+    [
+    {"label":"withdraw_ring", "action":"withdraw_item_from_depot_to_backpack", "args": {
+	    "item_name":"ring of healing", "depot_num":8, "backpack_name":"Backpack", "amount":5, "stack":false}}
+    ],
+	"persistent_actions":
+    [
+		{"action":"drop_vials", "interval":60},
+		{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
+		{"action":"haste", "interval":70, "args":{"hotkey":"r"}},
+		{"action":"anti_paralyze", "interval":2, "args":["v"]},
+		{"action":"eat_food", "interval":50, "args":{"hotkey":"f11"}},
+        {"action":"recover_full_mana", "interval":2, "args":["e"]},
+        {"action":"equip_item", "interval":3, "use_in_battle":true, "args":{"hotkey":"f8", "selected_monsters":
+            ["Minotaur Hunter", "Worm Priestess", "Blood Beast", "Mooh'Tah Warrior", "Execowtioner", "Moohtant"], "amount":1}}
+	],
+	"target_monsters": [
+        {"name":"Minotaur Hunter", "action":"distance", "distance":3, "loot":true},
+		{"name":"Worm Priestess", "action":"distance", "distance":3, "loot":false}, 
+		{"name":"Blood Beast", "action":"distance", "distance":3, "loot":true}, 
+		{"name":"Mooh'Tah Warrior", "action":"distance", "distance":3, "loot":false},
+		{"name":"Execowtioner", "action":"distance", "distance":3, "loot":true},
+		{"name":"Moohtant", "action":"distance", "distance":3, "loot":true}
+        
+	],
+	"target_spells":
+	[ 
+        {"name":"sudden death rune", "min_mana_percent":10, "priority":5, "cooldown": 2, "min_monster_count":1},
+        {"name":"utamo vita", "min_mana_percent":5, "priority":1, "cooldown": 60, "min_monster_count":1}
+	],
+	"loot": [
+        {"name":"gold coin", "action":"loot", "dest":"gold_bp"},
+        {"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+        {"name":"platinum coin", "action":"loot", "dest":"gold_bp"},
+        {"name":"platinum coins", "action":"loot", "dest":"gold_bp"},
+        {"name":"red piece of cloth", "action":"loot", "dest":"loot_bp"},
+        {"name":"blue piece of cloth", "action":"loot", "dest":"loot_bp"},
+        {"name":"green piece of cloth", "action":"loot", "dest":"loot_bp"},
+        {"name":"strong mana potion", "action":"loot", "dest":"loot_bp"},
+        {"name":"minotaur leather", "action":"loot", "dest":"loot_bp"},
+        {"name":"small ruby", "action":"loot", "dest":"loot_bp"},
+        {"name":"small diamond", "action":"loot", "dest":"loot_bp"},
+        {"name":"small sapphire", "action":"loot", "dest":"loot_bp"},
+        {"name":"small emerald", "action":"loot", "dest":"loot_bp"},
+        {"name":"small topaz", "action":"loot", "dest":"loot_bp"},
+        {"name":"red gem", "action":"loot", "dest":"loot_bp"},
+        {"name":"yellow gem", "action":"loot", "dest":"loot_bp"},
+        {"name":"small amethyst", "action":"loot", "dest":"loot_bp"},
+        {"name":"white piece of cloth", "action":"loot", "dest":"loot_bp"},
+        {"name":"small diamond", "action":"loot", "dest":"loot_bp"}
+    ]
+}
