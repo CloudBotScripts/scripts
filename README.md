@@ -129,6 +129,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 15+   | [Minotaur Darashia](minotaur_darashia/setup_mage.json)| :star: :star:                           | :star: :star: :star: :star:             |
+| 25+   | [Mad Scientists](scripts/scripts_jj/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                                  |
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
 
