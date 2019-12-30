@@ -49,8 +49,8 @@
 "target_monsters": 
 [
 	{"name":"Elf", "action":"follow", "loot":true},
-	{"name":"Elf Scout", "action":"distance", "loot":true},
-	{"name":"Elf Arcanist", "action":"distance", "loot":true},
+	{"name":"Elf Scout", "action":"follow", "loot":true},
+	{"name":"Elf Arcanist", "action":"follow", "loot":true},
 	{"name":"Firestarter", "action":"follow", "loot":true},
 	{"name":"Bog Frog", "action":"follow", "loot":true},
 	{"name":"Thornfire", "action":"follow", "loot":false},
