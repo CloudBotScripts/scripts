@@ -131,6 +131,20 @@ def drop_item_to_sqm(client, item_name, stack=False, dest_sqm=(0,0)):
                 client.drop_item_from_container(container, slot, stack=stack, sqm=dest_sqm)
                 return
 
+# Use item from backpack to sqm
+# Item must be visible
+def use_item_from_container_to_sqm(client, item_name, sqm=(0,0)):
+    containers = client.get_opened_containers()
+    for container in containers:
+        num_slots = container.get_num_slots()
+        for slot in reversed(range(num_slots)):
+            if item_name in container.get_item_in_slot(slot):
+                print(f'[Action] Use item {item_name} in sqm {sqm}')
+                client.use_slot(container, slot)
+                client.move_mouse_sqm(sqm)
+                client.click_sqm(*sqm)
+                return
+
 def drop_vials(client, cap=500, drop_stacks=4):
     monster_count = client.battle_list.get_monster_count()
     if monster_count < 1 and client.get_cap() <= cap:
@@ -356,13 +370,13 @@ def withdraw_item_from_depot_to_backpack(client, item_name, depot_num, backpack_
 
         # Move item from src to dest
         if stack == False:
-            for i in range(amount):
+            for i in range(max(0, amount - item_count)):
                 client.take_item_from_slot(src, src_slot=0, dest=dest)
         else:
-            while amount > 100:
+            while max(0, amount - item_count) > 100:
                 client.take_item_from_slot(src, src_slot=0, dest=dest)
                 amount -= 100
-            client.take_stack_from_slot(src, src_slot=0, dest=dest, amount=amount)
+            client.take_stack_from_slot(src, src_slot=0, dest=dest, amount=amount - item_count)
         sleep(0.3)
 
     client.return_container(src)
@@ -504,12 +518,12 @@ def check(client, mana=True, health=True, cap=True, rune=False, ammo=False, time
         time_check = datetime.now(cest).hour not in client.script_options.get('hours_leave', [])
 
     print('[Action] Check results:')
-    print('Mana:', mana_check)
-    print('Health:', health_check)
-    print('Ammo:', ammo_check)
-    print('Rune:', rune_check)
-    print('Cap:', cap_check)
-    print('Time:', time_check)
+    print('[Action] Mana:', mana_check)
+    print('[Action] Health:', health_check)
+    print('[Action] Ammo:', ammo_check)
+    print('[Action] Rune:', rune_check)
+    print('[Action] Cap:', cap_check)
+    print('[Action] Time:', time_check)
     if all((mana_check, health_check, cap_check, ammo_check, rune_check, time_check, other)):
         return True
     return False
@@ -561,12 +575,12 @@ def check_hunt(client, success, fail, mana=True, health=True, cap=True, rune=Fal
         time_check = datetime.now(cest).hour not in client.script_options.get('hours_leave', [])
 
     print('[Action] Check Hunt results:')
-    print('Mana:', mana_check)
-    print('Health:', health_check)
-    print('Ammo:', ammo_check)
-    print('Rune:', rune_check)
-    print('Cap:', cap_check)
-    print('Time:', time_check)
+    print('[Action] Mana:', mana_check)
+    print('[Action] Health:', health_check)
+    print('[Action] Ammo:', ammo_check)
+    print('[Action] Rune:', rune_check)
+    print('[Action] Cap:', cap_check)
+    print('[Action] Time:', time_check)
     if all((mana_check, health_check, cap_check, ammo_check, rune_check, time_check, other)):
         client.jump_label(success)
     else:
@@ -577,9 +591,24 @@ def check_time(client, train, repeat):
     hour = datetime.now(cest).hour
 
     if hour in client.script_options['hours_leave']:
+        print('[Action] Go train')
         client.jump_label(train)
     else:
+        print('[Action] Skip train', hour, 'not in', client.script_options['hours_leave'])
         client.jump_label(repeat)
+
+# Add vip members to a group called "Blacklist" and hide offline vips
+# Will jump label if any player in group Blacklist is appearing
+def check_blacklist_player_online(client, label_jump):
+    result = client.get_windows_by_names(['VIP'])
+    if result:
+        vip = result[0]
+        if 'Blacklist' in vip.recognize_text_content():
+            print('[Action] Players in blacklist are online')
+            print('[Action] Jump label:', label_jump)
+            client.jump_label(label_jump)
+    else:
+        print('[Action] Could not find VIP window')
 
 def check_skill(client):
     skill = client.script_options['skill_train']
@@ -601,43 +630,43 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
         mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
         mana_count = client.get_hotkey_item_count(client.items[mana_name])
         mana_check = mana_count >= 0.9 * take_mana
-        print('Mana:', mana_check, mana_count, '/', take_mana)
+        print('[Action] Mana:', mana_check, mana_count, '/', take_mana)
     if health:
         health_name, take_health = client.hunt_config['health_name'], client.hunt_config['take_health']
         health_count = client.get_hotkey_item_count(client.items[health_name])
         health_check = health_count >= 0.9 * take_health
-        print('Health:', health_check, health_count, '/', take_health)
+        print('[Action] Health:', health_check, health_count, '/', take_health)
         if 'health_name2' in client.hunt_config.keys():
             health_name2, take_health2 = client.hunt_config['health_name2'], client.hunt_config['take_health2']
             health_count2 = client.get_hotkey_item_count(client.items[health_name2])
             health_check2 = health_count2 >=  0.9 * take_health2
             health_check = health_check and health_check2
-            print('Health2:', health_check2, health_count2, '/', take_health2)
+            print('[Action] Health2:', health_check2, health_count2, '/', take_health2)
     if rune:
         rune_name, take_rune = client.hunt_config['rune_name'], client.hunt_config['take_rune']
         rune_count = client.get_hotkey_item_count(client.items[rune_name])
         rune_check = rune_count >= 0.9 * take_rune
-        print('Rune:', rune_check, rune_count, '/', take_rune)
+        print('[Action] Rune:', rune_check, rune_count, '/', take_rune)
         if 'rune_name2' in client.hunt_config.keys():
             rune_name2, take_rune2 = client.hunt_config['rune_name2'], client.hunt_config['take_rune2']
             rune_count2 = client.get_hotkey_item_count(client.items[rune_name2])
             rune_check2 = rune_count2 >=  0.9 * take_rune2
             rune_check = rune_check and rune_check2
-            print('Rune2:', rune_check2, rune_count2, '/', take_rune2)
+            print('[Action] Rune2:', rune_check2, rune_count2, '/', take_rune2)
     if cap:
         cap_check = client.get_cap() > 1.1 * client.hunt_config['cap_leave']
-        print('Cap:', cap_check, client.get_cap(), '/', client.hunt_config['cap_leave'])
+        print('[Action] Cap:', cap_check, client.get_cap(), '/', client.hunt_config['cap_leave'])
     if ammo:
         ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
         ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
         ammo_check = ammo_count >= 0.9 * take_ammo
-        print('Ammo:', ammo_check, ammo_count, '/', take_ammo)
+        print('[Action] Ammo:', ammo_check, ammo_count, '/', take_ammo)
     if imbuement:
         imbuement_check = check_imbuements(client)
-        print('Imbuements:', imbuement_check)
+        print('[Action] Imbuements:', imbuement_check)
 
     if not all((mana_check, health_check, cap_check, ammo_check, imbuement_check, rune_check)):
-        print('Log out')
+        print('[Action] Log out, missing supplies')
         client.logout()
 
 # Jump random label
@@ -762,8 +791,5 @@ def use_imbuing_shrine(client, sqm=(0,1)):
                     shrine.imbue_item(imbuement['type'], imbuement['name'].split()[0])
                 else:
                     print('Imbuing shrine not found')
-
-
-
 
 
