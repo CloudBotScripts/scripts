@@ -1,0 +1,138 @@
+label start
+node (33626,31897,6)
+label go_bank
+stand (33625,31891,6)
+node (33625,31892,5)
+action bank
+label go_dp
+stand (33625,31891,5)
+stand (33623,31895,6)
+node (33625,31895,7)
+action deposit
+label withdraw_amulet
+label withdraw_gems
+action refill
+node (33626,31895,7)
+stand (33628,31895,7)
+node (33626,31898,6)
+action check_imbuements
+label imbue_items
+node (33616,31892,6)
+node (33601,31895,6)
+node (33595,31899,6)
+stand (33595,31898,6)
+action use_imbuing_shrine
+node (33603,31895,6)
+node (33615,31893,6)
+label skip_imbuement
+node (33617,31892,6)
+door (33619,31885,6)
+node (33618,31881,6)
+stand (33620,31880,6)
+node (33618,31882,5)
+action buy_runes
+stand (33617,31879,5)
+node (33618,31882,4)
+action sell
+action buy_potions
+stand (33617,31879,4)
+stand (33620,31880,5)
+door (33619,31885,6)
+node (33619,31888,6)
+action check_supplies
+label go_hunt
+node (33620,31900,6)
+node (33621,31913,6)
+node (33631,31922,6)
+node (33637,31933,6)
+node (33635,31942,6)
+stand (33635,31944,6)
+node (33626,31950,7)
+node (33614,31953,7)
+node (33607,31952,7)
+stand (33605,31952,7)
+stand (33600,31952,6)
+stand (33595,31952,6)
+label hunt
+node (33585, 31952, 7)
+node (33570, 31957, 7)
+node (33555, 31955, 7)
+node (33542, 31951, 7)
+node (33534, 31949, 7)
+ladder (33535, 31949, 7)
+node (33534, 31959, 7)
+ladder (33535, 31959, 7)
+node (33534, 31968, 7)
+ladder (33534, 31967, 7)
+node (33529, 31974, 7)
+ladder (33529, 31975, 7)
+node (33533, 31989, 7)
+ladder (33533, 31990, 7)
+node (33523, 31984, 7)
+node (33513, 31972, 7)
+ladder (33511, 31970, 7)
+node (33522, 31966, 7)
+ladder (33523, 31966, 7)
+node (33518, 31958, 7)
+ladder (33521, 31959, 7)
+ladder (33516, 31955, 7)
+node (33518, 31944, 7)
+ladder (33519, 31944, 7)
+node (33526, 31939, 7)
+ladder (33527, 31940, 7)
+node (33521, 31932, 7)
+ladder (33517, 31932, 7)
+ladder (33523, 31930, 7)
+node (33528, 31921, 7)
+ladder (33530, 31921, 7)
+node (33523, 31915, 7)
+ladder (33520, 31915, 7)
+node (33527, 31909, 7)
+ladder (33525, 31909, 7)
+node (33535, 31909, 7)
+ladder (33534, 31908, 7)
+node (33545, 31907, 7)
+ladder (33549, 31908, 7)
+node (33565, 31912, 7)
+node (33570, 31932, 7)
+node (33577, 31948, 7)
+action check
+label leave
+node (33591,31952,7)
+stand (33595,31952,7)
+stand (33600,31952,6)
+stand (33605,31952,6)
+node (33620,31950,7)
+node (33635,31947,7)
+node (33648, 31949, 7)
+label npc_task
+node (33636, 31947, 7)
+stand (33635,31944,7)
+node (33637,31934,6)
+node (33634,31922,6)
+node (33630,31910,6)
+node (33626,31898,6)
+action check_time
+label train
+node (33613,31898,6)
+stand (33610,31898,6)
+node (33602,31898,7)
+action check_train
+label magic
+
+action end
+label distance
+
+action end
+label club
+
+action end
+label sword
+ladder (33600,31896,7)
+action end
+label axe
+
+action end
+label start trainer
+stand (33610,31898,7)
+node (33619,31899,6)
