@@ -101,6 +101,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                            |
+| 30+   | [Meriana Gargoyle @Juanjo](scripts_jj/meriana_gargoyle_rp/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |
 
 ### Royal Paladin (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
