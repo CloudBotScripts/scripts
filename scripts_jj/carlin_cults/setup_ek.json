@@ -1,0 +1,100 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"loot_priority":"first"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"sword",
+    "hunt_down":false
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"tools":{},
+"items":
+{
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"ultimate health potion": {"hotkey":"F", "id":7643, "use":"self"},
+    "protection amulet": {"hotkey":"f8", "id":3084, "use":"equip"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"utura gran": "R",
+	"utito tempo": "X",
+	"exeta res": "x",
+	"exura ico":"r",
+	"exura gran ico":"f",
+	"exori":"1",
+	"exori min":"2",
+	"exori hur":"3",
+	"exori gran":"4",
+	"exori ico":"q"
+},
+"healing":
+[
+    {"type":"hp", "below_percent":70, "use_item":"ultimate health potion",  "priority":4},
+    {"type":"hp", "below_percent":30, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
+	{"type":"hp", "below_percent":70, "use_item":"ultimate health potion",  "priority":4},
+	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":3},
+	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":6, "cooldown":62}
+],
+"hunt_config": {
+	"cap_leave": 50,
+	"mana_name": "mana potion",
+	"take_mana": 900,
+	"mana_leave": 350,
+	"health_name": "ultimate health potion",
+	"take_health": 250,
+	"health_leave": 80
+},
+"label_actions": 
+    [
+    {"label":"withdraw_amulet", "action":"withdraw_item_from_depot_to_backpack", "args": {
+	    "item_name":"protection amulet", "depot_num":9, "backpack_name":"Blue Backpack", "amount":7, "stack":false}
+        },
+    {"label":"use_key_W", "action":"use_item_from_container_to_sqm", "args":{
+        "item_name":"bone key", "sqm":[-1,0]}
+        }, 
+    {"label":"use_key_E", "action":"use_item_from_container_to_sqm", "args":{
+        "item_name":"bone key", "sqm":[1,0]}
+        },
+    {"label":"check_down", "action":"conditional_jump_script_options", "args":
+        {"var_name": "hunt_down", "label_jump":"continue_down", "label_skip":"skip_down"}
+        }
+    ],
+"persistent_actions": [
+	{"action":"haste", "interval":40, "args":["v"]},
+	{"action":"drop_vials", "interval":45},
+    {"action":"equip_item", "interval":1, "use_in_battle":true, "args":{"hotkey":"f8", "selected_monsters":
+        ["Cult Believer", "Vicious Squire", "Renegade Knight", "Vile Grandmaster", "Cult Enforcer", "Cult Scholar"], "amount":0, "slot":"amulet"}},
+	{"action":"lure_monsters", "interval":0.5, "args":[4]},
+	{"action":"recover_full_mana", "interval":3, "args":["e"]},
+	{"action":"eat_food", "interval":30, "args":["f11"]}
+],
+"target_monsters": 
+[
+	{"name":"Cult Believer", "action":"follow", "loot":false}, 
+	{"name":"Vicious Squire", "action":"follow", "loot":true}, 
+	{"name":"Renegade Knight", "action":"follow", "loot":true}, 
+	{"name":"Vile Grandmaster", "action":"follow", "loot":true},
+	{"name":"Cult Enforcer", "action":"follow", "loot":false},
+	{"name":"Cult Scholar", "action":"follow", "loot":false}
+],
+"target_spells":
+[ 
+	{"name":"exori hur", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Cult Believer", "Vicious Squire", "Renegade Knight", "Vile Grandmaster", "Cult Enforcer", "Cult Scholar"]},
+	{"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Cult Believer", "Vicious Squire", "Renegade Knight", "Vile Grandmaster", "Cult Enforcer", "Cult Scholar"]},
+	{"name":"exori", "min_mana_percent":10, "priority":2, "cooldown": 4, "min_monster_count":3},
+	{"name":"exori min", "min_mana_percent":20, "priority":3, "cooldown": 6, "min_monster_count":2},
+	{"name":"exori gran", "min_mana_percent":30, "priority":4, "cooldown": 6,  "min_monster_count":3},
+	{"name":"utito tempo", "min_mana_percent":70, "priority":5, "cooldown": 15,  "min_monster_count":4}
+],
+"loot": []
+}
