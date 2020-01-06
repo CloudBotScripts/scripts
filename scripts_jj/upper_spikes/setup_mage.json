@@ -1,6 +1,6 @@
 {
 	"general": {
-		"loot_type":"manual",
+		"loot_type":"auto",
 		"loot_priority":"after"
 	},
 	"script_options": {
@@ -16,52 +16,51 @@
         "shovel": {"name":"whacking driller of fate", "id": 9598}
 	},
 	"items": {
-		"great mana potion": {"hotkey":"e", "id":238, "use":"self"},
+		"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+		"ultimate healing rune": {"hotkey":"f2", "id":3160, "use":"self"},
 		"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"},
-        "ultimate healing rune": {"hotkey":"8", "id":3160, "use":"target"},
-		"thunderstorm rune": {"hotkey":"9", "id":3202, "use":"crosshair"},
-        "energy ring": {"hotkey":"f7", "id":3051, "use":"equip"}
+		"great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
+        "stealth ring": {"hotkey":"f8", "id":3049, "use":"equip"}
 	},
 	"spells": {
-		"utani hur":"v",
+		"utani hur": "v",
 		"exura gran":"f",
-        "utamo vita":"r",
-        "exori vis":"x"
+		"exori flam":"1",
+        "exori frigo":"x",
+        "exori moe ico":"f12"
 	},
 	"healing": [
-		{"type":"hp", "below_percent":40, "use_item":"ultimate healing rune", "priority":5},
-		{"type":"hp", "below_percent":85, "use_spell":"exura gran", "min_mana_percent":10, "priority":2},
-		{"type":"mp", "below_percent":80, "use_item":"great mana potion", "priority":1},
-        {"type":"hp", "below_percent":101, "use_spell":"utamo vita", "priority":4, "cooldown":125}
+		{"type":"hp", "below_percent":40, "use_item":"ultimate healing rune", "priority":3},
+		{"type":"hp", "below_percent":80, "use_spell":"exura gran", "min_mana_percent":10, "priority":2},
+		{"type":"mp", "below_percent":85, "use_item":"mana potion", "priority":1}
 	],
 	"hunt_config": {
 		"cap_leave": 1,
-		"mana_name": "great mana potion",
-		"take_mana": 175,
-		"mana_leave": 95,
-        "rune_name": "thunderstorm rune",
-		"take_rune": 300,
-		"rune_leave": 50,
-        "rune_name2": "ultimate healing rune",
-		"take_rune2": 20,
-		"rune_leave2": 14
+		"mana_name": "mana potion",
+		"take_mana": 180,
+		"mana_leave": 100,
+		"rune_name": "ultimate healing rune",
+		"take_rune": 20,
+		"rune_leave": 10,
+        "rune_name2": "great fireball rune",
+		"take_rune2": 150,
+		"rune_leave2": 90
 	},
     "label_actions": 
     [
     {"label":"withdraw_ring", "action":"withdraw_item_from_depot_to_backpack", "args": {
-	    "item_name":"energy ring", "depot_num":5, "backpack_name":"Backpack", "amount":5, "stack":false}},
-    {"label":"withdraw_rune", "action":"withdraw_item_from_depot_to_backpack", "args": {
-    "item_name":"thunderstorm rune", "depot_num":9, "backpack_name":"Backpack", "amount":150, "stack":true}}
+	    "item_name":"stealth ring", "depot_num":7, "backpack_name":"Backpack", "amount":4, "stack":false}}
     ],
 	"persistent_actions":
     [
 		{"action":"drop_vials", "interval":60},
 		{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
-		{"action":"anti_paralyze", "interval":3, "args":["v"]},
+		{"action":"anti_paralyze", "interval":2, "args":["v"]},
 		{"action":"eat_food", "interval":50, "args":{"hotkey":"f11"}},
+        {"action":"lure_monsters", "interval":0.5, "args":{"count":3}},
         {"action":"recover_full_mana", "interval":2, "args":["e"]},
-        {"action":"equip_item", "interval":1, "use_in_battle":true, "args":{"hotkey":"f7", "selected_monsters":
-            ["Water Elemental","Quara Mantassin"], "amount":1}},
+        {"action":"equip_item", "interval":3, "use_in_battle":true, "args":{"hotkey":"f8", "selected_monsters":
+            ["Gargoyle", "Mummy", "Ghost", "Crypt Shambler", "Corym Skirmisher", "Corym Charlatan", "Corym Vanguard", "Enraged Soul", "Zombie", "Demon Skeleton"], "amount":3}},
 		{"action":"dynamic_barrier", "interval":1, "use_in_battle":true, "args":{
 			"top_left": [33316,32580,11],
 			"bottom_right": [33383,32644,11],
@@ -98,24 +97,37 @@
 		}
 	],
 	"target_monsters": [
-        {"name":"Water Elemental", "action":"follow", "loot":true},
-        {"name":"Quara Mantassin Scout", "action":"follow", "loot":true}
-        
+        {"name":"Gargoyle", "action":"distance", "distance":3, "loot":true},
+		{"name":"Mummy", "action":"distance", "distance":3, "loot":true}, 
+		{"name":"Ghost", "action":"distance", "distance":3, "loot":true}, 
+		{"name":"Corym Skirmisher", "action":"distance", "distance":3, "loot":true}, 
+		{"name":"Corym Charlatan", "action":"distance", "distance":3, "loot":true}, 
+		{"name":"Corym Vanguard", "action":"distance", "distance":3, "loot":true}, 
+		{"name":"Crypt Shambler", "action":"distance", "distance":3, "loot":true},
+		{"name":"Demon Skeleton", "action":"distance", "distance":3, "loot":true},
+		{"name":"Zombie", "action":"distance", "distance":3, "loot":false},
+		{"name":"Enraged Soul", "action":"distance", "distance":3, "loot":false}
 	],
 	"target_spells":
 	[ 
-        {"name":"thunderstorm rune", "min_mana_percent":10, "priority":3, "cooldown":2, "min_monster_count":2},
-        {"name":"exori vis", "min_mana_percent":10, "priority":2, "cooldown":1, "monsters":["Water Elemental", "Quara Mantassin Scout"]},
+        {"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown":4,  "min_monster_count":3},
+        {"name":"exori flam", "min_mana_percent":10, "priority":1, "cooldown":1, "monsters":["Gargoyle", "Mummy", "Ghost", "Crypt Shambler", "Corym Skirmisher", "Corym Charlatan", "Corym Vanguard", "Enraged Soul"]},
+        {"name":"exori frigo", "min_mana_percent":10, "priority":3, "cooldown":1, "monsters":["Demon Skeleton"]},
+        {"name":"exori moe ico", "min_mana_percent":10, "priority":2, "cooldown":1, "monsters":["Zombie"]}
 	],
 	"loot": [
         {"name":"gold coin", "action":"loot", "dest":"gold_bp"},
         {"name":"gold coins", "action":"loot", "dest":"gold_bp"},
         {"name":"platinum coin", "action":"loot", "dest":"gold_bp"},
         {"name":"platinum coins", "action":"loot", "dest":"gold_bp"},
-        {"name":"rainbow trout", "action":"loot", "dest":"loot_bp"},
+        {"name":"shiny stone", "action":"loot", "dest":"loot_bp"},
+        {"name":"mana potion", "action":"loot", "dest":"loot_bp"},
+        {"name":"black pearl", "action":"loot", "dest":"loot_bp"},
+        {"name":"yellow piece of cloth", "action":"loot", "dest":"loot_bp"},
+        {"name":"white piece of cloth", "action":"loot", "dest":"loot_bp"},
         {"name":"small diamond", "action":"loot", "dest":"loot_bp"},
-        {"name":"small emerald", "action":"loot", "dest":"loot_bp"},
-        {"name":"strong mana potion", "action":"loot", "dest":"loot_bp"},
-        {"name":"green perch", "action":"loot", "dest":"loot_bp"}
+        {"name":"rat god doll", "action":"loot", "dest":"loot_bp"},
+        {"name":"half-eaten brain", "action":"loot", "dest":"loot_bp"},
+        {"name":"mini mummy", "action":"loot", "dest":"loot_bp"}
     ]
 }
