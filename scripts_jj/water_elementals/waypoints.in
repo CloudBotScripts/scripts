@@ -8,8 +8,9 @@ node (32625,32748,6)
 stand (32625,32749,6)
 node (32623,32742,7)
 action deposit
-action refill
 label withdraw_ring
+label withdraw_rune
+action refill
 label go_magic_shop
 node (32623,32749,7)
 stand (32625,32749,7)
@@ -41,19 +42,28 @@ node (32555,32860,9)
 door (32554,32860,9)
 node (32551,32860,9)
 label hunt
-node (32543,32855,9)
-node (32538,32842,9)
-node (32527,32833,9)
-node (32533,32825,9)
-node (32542,32828,9)
+node (32551, 32860, 9)
+node (32542, 32849, 9)
+node (32531, 32840, 9)
+node (32518, 32830, 9)
+node (32508, 32818, 9)
+node (32504, 32808, 9)
+node (32514, 32806, 9)
+node (32530, 32808, 9)
+node (32540, 32811, 9)
 action check2
 label hunt2
-node (32552,32830,9)
-node (32553,32842,9)
-node (32542,32848,9)
-node (32544,32856,9)
+node (32554, 32810, 9)
+node (32563, 32818, 9)
+node (32567, 32835, 9)
+node (32555, 32838, 9)
+node (32543, 32847, 9)
+node (32548, 32855, 9)
 label leave2
-node (32551,32860,9)
+node (32540, 32823, 9)
+node (32541, 32836, 9)
+node (32542, 32851, 9)
+node (32550, 32860, 9)
 action check
 label leave
 door (32554,32860,9)
