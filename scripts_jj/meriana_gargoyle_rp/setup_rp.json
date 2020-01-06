@@ -1,0 +1,118 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"loot_priority":"after",
+    "hunt_down":false
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"distance"
+},
+"containers": 
+{
+	"gold_bp":"Blue Backpack",
+	"loot_bp":"Camouflage Backpack"
+},
+"tools":
+{
+    "rope": {"name":"elvenhair rope", "id": 646},
+	"shovel": {"name":"light shovel", "id": 5710}
+},
+"items":
+{
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"health potion": {"hotkey":"f", "id":266, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"},
+    "burst arrow": {"hotkey":"f10", "id":3449, "use":"equip"},
+    "great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"exura gran": "r",
+	"exori con": "q"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":80, "use_spell":"exura gran", "min_mana_percent":15, "priority":1},
+	{"type":"mp", "below_percent":35, "use_item":"mana potion", "priority":2},
+	{"type":"hp", "below_percent":35, "use_item":"health potion", "priority":3}
+],
+"hunt_config": {
+	"cap_leave": 2,
+	"mana_name": "mana potion",
+	"take_mana": 105,
+	"mana_leave": 60,
+	"health_name": "health potion",
+	"take_health": 20,
+	"health_leave": 14,
+	"ammo_name": "burst arrow",
+	"take_ammo": 250,
+	"ammo_leave": 80,
+	"hotkey_ammo": 21,	
+    "rune_name": "great fireball rune",
+	"take_rune": 200,
+	"rune_leave": 60
+    },
+"label_actions": 
+[
+    {"label":"pegleg", "action":"talk_npc", "args": {"list_words": ["pegleg", "yes"]}},
+    {"label":"check_down", "action":"conditional_jump_script_options", "args": {"var_name": "hunt_down", "label_jump":"continue_down", "label_skip":"skip_down"}}
+],
+"persistent_actions": [
+    {"action":"haste", "interval":40, "args":{"hotkey":"v"}},
+	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
+    {"action":"lure_monsters", "interval":0.5, "args":{"count":4}},
+	{"action":"drop_vials", "interval":60},
+    {"action":"refill_ammo", "interval":3, "use_in_battle":true, "args":{"ammo_name":"burst arrow", "equip_slot":"ammunition", "min_amount":10}},
+    {"action":"dynamic_barrier", "interval":1, "use_in_battle":true, "args":{
+    "top_left": [33316,32580,11],
+    "bottom_right": [33383,32644,11],
+    "monster_count":1, 
+    "coords_barrier": [
+        [33334,32597,11],[33335,32597,11],[33336,32597,11],[33337,32597,11],[33338,32597,11], 
+        [33346,32595,11],[33347,32595,11],[33348,32595,11],[33349,32595,11],[33350,32595,11],[33351,32595,11],[33352,32595,11],[33353,32595,11],[33354,32595,11],
+        [33357,32596,11], [33357,32597,11],[33357,32598,11],[33357,32599,11],[33357,32600,11],[33357,32601,11],
+        [33332,32601,11],[33333,32601,11],[33334,32601,11],[33335,32601,11],[33336,32601,11],[33336,32602,11],[33336,32603,11],
+        [33334,32621,11],[33334,32622,11],[33334,32623,11],[33334,32624,11],[33334,32625,11],[33334,32626,11],[33334,32627,11],
+        [33335,32621,11],[33336,32621,11],[33337,32621,11],[33338,32621,11],[33339,32621,11],[33340,32621,11],[33341,32621,11],[33342,32621,11],[33343,32621,11],[33344,32621,11],[33345,32621,11],
+        [33356,32626,11], [33357,32626,11], [33358,32626,11], [33359,32626,11], [33360,32626,11], [33361,32626,11], 
+        [33353,32618,11], [33353,32619,11],[33353,32620,11],[33353,32621,11],[33353,32622,11],
+        [33353,32607,11],[33353,32608,11],[33353,32609,11],[33353,32610,11]
+    ]}
+},
+    {"action":"dynamic_barrier", "interval":1, "use_in_battle":true, "args":{
+        "top_left": [33316,32580,11],
+        "bottom_right": [33383,32644,11],
+        "monster_count":1, 
+        "coords_barrier": [
+            [33361,32646,12],[33362,32646,12],[33363,32646,12],[33364,32646,12],[33365,32646,12],[33366,32646,12],[33367,32646,12],[33368,32646,12],[33369,32646,12],
+            [33369,32648,12],[33369,32649,12],[33369,32650,12],[33369,32651,12],[33369,32652,12],[33369,32652,12],[33369,32653,12],
+            [33370,32660,12],[33371,32660,12],[33372,32660,12],[33373,32660,12],[33374,32660,12],[33375,32660,12],
+            [33366,32670,12],[33367,32670,12],[33368,32670,12],[33369,32670,12],[33370,32670,12],[33371,32670,12],[33372,32670,12],[33373,32670,12],
+            [33364,32671,12],[33364,32672,12],[33364,32673,12],[33364,32674,12],[33364,32675,12],
+            [33352,32677,12],[33353,32677,12],[33354,32677,12],[33355,32677,12],[33356,32677,12],[33357,32677,12],[33358,32677,12],
+            [33353,32665,12],[33354,32665,12],[33355,32665,12],
+            [33344,32669,12],[33344,32670,12],[33344,32671,12],[33344,32672,12],[33344,32673,12],[33344,32674,12],[33344,32675,12],[33344,32676,12],
+            [33327,32667,12],[33328,32667,12],[33329,32667,12],[33330,32667,12],[33331,32667,12],[33332,32667,12],[33333,32667,12],[33334,32667,12],
+            [33338,32661,12],[33338,32662,12],[33338,32663,12],[33338,32664,12],[33338,32665,12],
+            [33341,32649,12],[33342,32649,12],[33343,32649,12],[33343,32646,12],[33343,32649,12],[33343,32648,12]
+        ]}
+    }
+],
+"target_monsters": 
+[
+	{"name":"Thornback Tortoise", "action":"distance", "distance":3, "loot":true},
+	{"name":"Tarantula", "action":"distance", "distance":3, "loot":true},
+	{"name":"Gargoyle", "action":"distance", "distance":3, "follow_below_hp_percentage":20, "loot":true},
+	{"name":"Stone Golem", "action":"distance", "distance":3, "loot":true},
+	{"name":"Blood Crab", "action":"distance", "distance":3, "loot":true}
+],
+"target_spells":
+[
+	{"name":"exori con", "min_mana_percent":30, "priority":1, "cooldown":2, "monsters":["Thornback Tortoise", "Tarantula", "Blood Crab"]},
+    {"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown":1, "min_monster_count":2}
+],
+"loot": []
+}   
