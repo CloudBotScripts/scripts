@@ -27,7 +27,7 @@ def use_item_at_sqm(client, item_name, sqm):
 def cast_spell_if_monsters(client, min_mp, spell_hotkey, monsters_count=3, selected_monsters='all', dist=1, use_with_target_off=False):
     monster_list = client.battle_list.get_monster_list()
     if selected_monsters != 'all':
-        selected_monsters = [m.replace(' ', '') for m in selected_monsters]
+        selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
         monster_list = [m for m in monster_list if m in selected_monsters]
 
     if len(monster_list) < monsters_count:
@@ -184,12 +184,15 @@ def haste(client, hotkey='v'):
         client.hotkey(spell_hotkey)
 
 # Equip item
-def equip_item(client, hotkey='f10', selected_monsters='all', amount=1, slot='ring'):
+def equip_item(client, hotkey='f10', selected_monsters='all', dist=10, amount=1, slot='ring'):
     monster_list = client.battle_list.get_monster_list()
     if selected_monsters != 'all':
-        selected_monsters = [m.replace(' ', '') for m in selected_monsters]
+        selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
         monster_list = [m for m in monster_list if m in selected_monsters]
-    monster_count = len(monster_list)
+
+
+    creatures_sqm = client.gameboard.get_sqm_monsters()
+    monster_count = sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
     
     item_name = client.equips.get_item_in_slot(slot)
 
@@ -668,6 +671,11 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
     if not all((mana_check, health_check, cap_check, ammo_check, imbuement_check, rune_check)):
         print('[Action] Log out, missing supplies')
         client.logout()
+
+# Jump to label
+def jump_to_label(client, label):
+  print('[Action] Jump to label:', label)
+  client.jump_label(label)
 
 # Jump random label
 def jump_to_random_label(client, labels):
