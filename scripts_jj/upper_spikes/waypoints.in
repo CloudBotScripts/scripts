@@ -6,33 +6,44 @@ action deposit
 action refill
 label withdraw_ring
 label go_magic_shop
-node (32640,31918,8)
-node (32626,31920,8)
-stand (32624,31920,8)
-stand (32626,31920,7)
-node (32609,31925,6)
-stand (32607,31925,6)
-node (32618,31929,5)
-node (32629,31929,5)
+node (32649, 31908, 8)
+stand (32645, 31908, 8)
+node (32641, 31902, 9)
+node (32626, 31901, 9)
+node (32617, 31901, 9)
+ladder (32617, 31899, 9)
+node (32588, 31941, 0)
+label travel_darashia
+stand (33265, 32441, 6)
+node (33252, 32435, 7)
+node (33231, 32419, 7)
+door (33231, 32412, 7)
+door (33230, 32406, 7)
+door (33224, 32398, 7)
+door (33221, 32400, 7)
+stand (33221, 32403, 7)
 action sell
 action buy_potions
 action buy_runes
-node (32633,31917,5)
-stand (32633,31917,5)
-action sell
-action buy_potions
-action buy_runes
-node (32625,31929,5)
-node (32618,31929,5)
-node (32608,31925,5)
+door (33221, 32400, 7)
+door (33224, 32398, 7)
+door (33230, 32406, 7)
+door (33231, 32412, 7)
+node (33231, 32419, 7)
 action check_supplies
 label go_hunt
-stand (32607,31925,5)
-node (32623,31920,6)
-stand (32626,31920,6)
-stand (32624,31920,7)
-node (32614,31922,8)
-stand (32613,31921,8)
+node (33233, 32436, 7)
+node (33248, 32437, 7)
+node (33263, 32441, 7)
+stand (33265, 32441, 7)
+node (33269, 32441, 6)
+label travel_kazordoon
+node (32588, 31941, 0)
+label buy_ticket
+node (32578, 31930, 0)
+ladder (32577, 31928, 0)
+node (32610, 31906, 9)
+node (32609, 31920, 9)
 stand (32605,31920,9)
 node (32612,31925,10)
 stand (32613,31925,10)
