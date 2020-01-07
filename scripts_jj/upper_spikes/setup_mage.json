@@ -8,8 +8,8 @@
 		"skill_train":"magic"
 	},
 	"containers": {
-		"gold_bp":"Blue Backpack",
-		"loot_bp":"Camouflage Backpack"
+		"gold_bp":"Golden Backpack",
+		"loot_bp":"Red Backpack"
 	},
 	"tools": {
         "rope": {"name":"whacking driller of fate", "id": 9598},
@@ -19,8 +19,8 @@
 		"mana potion": {"hotkey":"e", "id":268, "use":"self"},
 		"ultimate healing rune": {"hotkey":"f2", "id":3160, "use":"self"},
 		"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"},
-		"great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
-        "stealth ring": {"hotkey":"f8", "id":3049, "use":"equip"}
+		"great fireball rune": {"hotkey":"9", "id":3191, "use":"crosshair"},
+        "stealth ring": {"hotkey":"f7", "id":3049, "use":"equip"}
 	},
 	"spells": {
 		"utani hur": "v",
@@ -49,7 +49,10 @@
     "label_actions": 
     [
     {"label":"withdraw_ring", "action":"withdraw_item_from_depot_to_backpack", "args": {
-	    "item_name":"stealth ring", "depot_num":7, "backpack_name":"Backpack", "amount":4, "stack":false}}
+	    "item_name":"stealth ring", "depot_num":7, "backpack_name":"Backpack", "amount":4, "stack":false}},
+	{"label":"travel_darashia", "action":"talk_npc", "args": {"list_words": ["darashia", "yes"]}},
+	{"label":"travel_kazordoon", "action":"talk_npc", "args": {"list_words": ["kazordoon", "yes"]}},
+	{"label":"buy_ticket", "action":"talk_npc", "args": {"list_words": ["ticket", "yes"]}}
     ],
 	"persistent_actions":
     [
@@ -59,12 +62,12 @@
 		{"action":"eat_food", "interval":50, "args":{"hotkey":"f11"}},
         {"action":"lure_monsters", "interval":0.5, "args":{"count":3}},
         {"action":"recover_full_mana", "interval":2, "args":["e"]},
-        {"action":"equip_item", "interval":3, "use_in_battle":true, "args":{"hotkey":"f8", "selected_monsters":
+        {"action":"equip_item", "interval":3, "use_in_battle":true, "args":{"hotkey":"f7", "selected_monsters":
             ["Gargoyle", "Mummy", "Ghost", "Crypt Shambler", "Corym Skirmisher", "Corym Charlatan", "Corym Vanguard", "Enraged Soul", "Zombie", "Demon Skeleton"], "amount":3}},
 		{"action":"dynamic_barrier", "interval":1, "use_in_battle":true, "args":{
 			"top_left": [33316,32580,11],
 			"bottom_right": [33383,32644,11],
-			"monster_count":1, 
+			"monster_count":1,
 			"coords_barrier": [
 				[33334,32597,11],[33335,32597,11],[33336,32597,11],[33337,32597,11],[33338,32597,11], 
 				[33346,32595,11],[33347,32595,11],[33348,32595,11],[33349,32595,11],[33350,32595,11],[33351,32595,11],[33352,32595,11],[33353,32595,11],[33354,32595,11],
@@ -97,20 +100,19 @@
 		}
 	],
 	"target_monsters": [
-        {"name":"Gargoyle", "action":"distance", "distance":3, "loot":true},
-		{"name":"Mummy", "action":"distance", "distance":3, "loot":true}, 
-		{"name":"Ghost", "action":"distance", "distance":3, "loot":true}, 
-		{"name":"Corym Skirmisher", "action":"distance", "distance":3, "loot":true}, 
-		{"name":"Corym Charlatan", "action":"distance", "distance":3, "loot":true}, 
-		{"name":"Corym Vanguard", "action":"distance", "distance":3, "loot":true}, 
+        {"name":"Gargoyle", "action":"distance", "distance":3, "follow_below_hp_percentage":20, "loot":true},
+		{"name":"Mummy", "action":"distance", "distance":3, "loot":true},
+		{"name":"Ghost", "action":"distance", "distance":3, "loot":true},
+		{"name":"Corym Skirmisher", "action":"distance", "distance":3, "loot":true},
+		{"name":"Corym Charlatan", "action":"distance", "distance":3, "loot":true},
+		{"name":"Corym Vanguard", "action":"distance", "distance":3, "loot":true},
 		{"name":"Crypt Shambler", "action":"distance", "distance":3, "loot":true},
-		{"name":"Demon Skeleton", "action":"distance", "distance":3, "loot":true},
-		{"name":"Zombie", "action":"distance", "distance":3, "loot":false},
+		{"name":"Demon Skeleton", "action":"distance", "distance":3, "priority":4, "loot":true},
+		{"name":"Zombie", "action":"distance", "distance":3, "priorityy":3, "loot":false},
 		{"name":"Enraged Soul", "action":"distance", "distance":3, "loot":false}
 	],
-	"target_spells":
-	[ 
-        {"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown":4,  "min_monster_count":3},
+	"target_spells":[
+        {"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown":4, "min_monster_count":3},
         {"name":"exori flam", "min_mana_percent":10, "priority":1, "cooldown":1, "monsters":["Gargoyle", "Mummy", "Ghost", "Crypt Shambler", "Corym Skirmisher", "Corym Charlatan", "Corym Vanguard", "Enraged Soul"]},
         {"name":"exori frigo", "min_mana_percent":10, "priority":3, "cooldown":1, "monsters":["Demon Skeleton"]},
         {"name":"exori moe ico", "min_mana_percent":10, "priority":2, "cooldown":1, "monsters":["Zombie"]}
