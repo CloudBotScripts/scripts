@@ -138,8 +138,9 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 15+   | [Minotaur Darashia](minotaur_darashia/setup_mage.json)| :star: :star:                           | :star: :star: :star: :star:             |
 | 30+   | [Mad Scientists @Juanjo](scripts_jj/mad_scientist/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | [Upper Spikes @Juanjo](scripts_jj/upper_spikes/setup_mage.json)| :star:                          | :star: :star:          |
+| 30+   | [Laguna Island @Juanjo](scripts_jj/laguna_island/setup_mage_low.json)| :star:                          | :star: :star:          |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                                  |
-| 30+   | [Magician Quarter @Juanjo](magician_quarter/setup_mage.json)     | :star:                                  | :star::star:               |
+| 30+   | [Magician Quarter @Juanjo](magician_quarter/setup_mage.json)     | :star: :star: :star: :star: :star:                              | :star::star:               |
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
 | 60+   | [Yalahar Cults @Juanjo](scripts_jj/yalahar_cults_mq/setup_mage.json) | :star: :star: :star:                                 | :star: :star: :star:          |
 | 65+   | [Lion Rock @Juanjo](scripts_jj/lion_rock/setup_mage.json) | :star: :star:                                 | :star: :star: :star: :star:          |
