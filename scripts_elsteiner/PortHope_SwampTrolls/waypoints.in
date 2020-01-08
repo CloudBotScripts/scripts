@@ -73,4 +73,27 @@ stand (32631, 32746, 7)
 action deposit
 action check_time
 label train
+node (32618, 32755, 7)
+ladder (32618, 32771, 7)
+node (32629, 32778, 6)
+stand (32629, 32785, 6)
+node (32636, 32795, 7)
+action check_train
+label sword
+ladder (32641, 32793, 7)
 action end
+label club
+ladder (32637, 32800, 7)
+action end
+label axe
+ladder (32633, 32800, 7)
+action end
+label distance
+ladder (32633, 32793, 7)
+action end
+label start trainer
+node (32633, 32786, 7)
+ladder (32629, 32785, 7)
+node (32629, 32777, 6)
+stand (32618, 32771, 6)
+node (32622, 32752, 7)
