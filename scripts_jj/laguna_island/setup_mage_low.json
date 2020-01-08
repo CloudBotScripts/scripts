@@ -63,6 +63,7 @@
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
 	{"action":"recover_full_mana", "interval":2, "args":["e"]},
+	{"action":"stop_target_no_supplies", "interval": 4}
 	],
 "target_monsters":
 [
