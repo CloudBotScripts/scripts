@@ -48,7 +48,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 ### Elite Knight (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 8+    | [Port Hope Swamp Trolls](scripts_elsteiner/PortHope_SwampTrolls/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
+| 8+    | [Port Hope Swamp Trolls](scripts_elsteiner/PortHope_SwampTrolls/setup.json)                | :star: :star: :star:                    | :star:                     |
 | 15+   | [Rotworm Darashia North by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 15+   | [Rotworm Darashia North-East by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                            |
