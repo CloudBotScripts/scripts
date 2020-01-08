@@ -4,7 +4,8 @@
 	"loot_type":"manual"
 },
 "script_options": {
-	"hours_leave": [9]
+	"hours_leave": [9],
+	"skill_train":"sword"
 },
 "containers": 
 {
