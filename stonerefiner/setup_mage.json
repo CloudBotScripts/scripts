@@ -18,8 +18,7 @@
 },
 "tools":
 {
-	"rope": {"name":"rope", "id": 3003},
-	"shovel": {"name":"shovel", "id": 3457}
+	"rope": {"name":"rope", "id": 3003}
 },
 "items":
 {

@@ -7,6 +7,7 @@ stand (33020, 32059, 6)
 stand (33017, 32053, 7)
 action deposit
 label withdraw_ring
+label withdraw_mushroom
 node (33018, 32053, 7)
 stand (33020, 32059, 7)
 node (33007, 32053, 6)
@@ -63,6 +64,7 @@ label hunt
 node (33055,32002,13)
 node (33072,31988,13)
 node (33080,31984,13)
+stand (33062,31977,13)
 node (33058,31977,13)
 node (33037,31978,13)
 node (33068,31982,13)

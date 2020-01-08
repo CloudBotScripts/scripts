@@ -28,10 +28,10 @@ def waypoint_action(client, action):
         client.npc_say(['deposit all', 'yes'])
 
     elif action == "wait":
-        sleep(1)
+        client.sleep(1)
 
     elif action == "wait_ten_min":
-        sleep(10 * 60)
+        client.sleep(10 * 60)
 
     elif action == "target_off":
         client.target_on = False
