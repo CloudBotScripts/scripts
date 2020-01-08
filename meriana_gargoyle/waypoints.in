@@ -143,3 +143,54 @@ action sell
 stand (32344, 32808, 5)
 stand (32347, 32809, 6)
 node (32340, 32826, 7)
+action check_time
+label train
+node (32340,32827,7)
+node (32340,32816,7)
+node (32355,32815,7)
+node (32370,32815,7)
+node (32380,32814,7)
+stand (32383,32815,7)
+node (32390,32803,6)
+stand (32391,32802,6)
+node (32409,32804,5)
+stand (32409,32806,5)
+node (32407,32817,4)
+node (32398,32813,4)
+stand (32398,32811,4)
+stand (32400,32812,3)
+node (32395,32822,2)
+action check_train
+label sword
+ladder (32393,32820,2)
+action end
+label axe
+ladder (32397,32820,2)
+action end
+label club
+ladder (32393,32822,2)
+action end
+label distance
+ladder (32397,32822,2)
+action end
+label magic
+ladder (32393,32824,2)
+action end
+label start trainer
+node (32398,32813,2)
+stand (32400,32812,2)
+stand (32398,32811,3)
+node (32404,32817,4)
+node (32409,32808,4)
+stand (32409,32806,4)
+node (32400,32800,5)
+node (32390,32801,5)
+stand (32390,32802,5)
+node (32387,32811,6)
+node (32382,32816,6)
+stand (32382,32815,6)
+node (32368,32815,7)
+node (32353,32816,7)
+node (32341,32816,7)
+node (32340,32828,7)
+node (32338,32838,7)
