@@ -126,6 +126,8 @@ ladder (32786,31251,5)
 action end
 label distance
 ladder (32788,31251,5)
+label magic
+ladder (32790,31251,5)
 action end
 label start trainer
 stand (32777,31247,5)
