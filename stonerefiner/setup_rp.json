@@ -61,7 +61,8 @@
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
 	{"action":"drop_vials", "interval":60},
     {"action":"equip_item", "interval":2, "use_in_battle":true, "args":{"hotkey":"f8", "selected_monsters":["Stonerefiner"], "amount":1}},
-    {"action":"refill_ammo", "interval":3, "use_in_battle":true, "args":{"ammo_name":"burst arrow", "equip_slot":"ammunition", "min_amount":20}}
+    {"action":"refill_ammo", "interval":3, "use_in_battle":true, "args":{"ammo_name":"burst arrow", "equip_slot":"ammunition", "min_amount":20}},
+	{"action":"stop_target_no_supplies", "interval": 4}
 ],
 "target_monsters": 
 [
