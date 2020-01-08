@@ -117,8 +117,7 @@
       "args": [
         "e"
       ]
-    },
-	{"action":"stop_target_no_supplies", "interval": 4}
+    }
   ],
   "target_monsters": [
     {
