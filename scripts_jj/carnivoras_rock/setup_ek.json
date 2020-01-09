@@ -1,0 +1,102 @@
+{
+"general":
+{
+	"loot_type":"auto",
+	"loot_priority":"first"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"sword",
+	"imbuements":[],
+	"hunt_down":true
+},
+"containers":
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"tools":
+{
+	"rope": {"name":"rope", "id":3003},
+	"shovel": {"name":"shovel", "id":3457}
+},
+"items":
+{
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"supreme health potion": {"hotkey":"F", "id":23375, "use":"self"},
+	"gill necklace": {"hotkey":"8", "id":16108, "use":"equip"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur":"v",
+	"utura gran":"R",
+	"utito tempo":"X",
+	"exeta res":"x",
+	"exura ico":"r",
+	"exura gran ico":"l",
+	"exori":"1",
+	"exori min":"2",
+	"exori hur":"3",
+	"exori gran":"4",
+	"exori ico":"q"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":70, "use_item":"supreme health potion",  "priority":4},
+	{"type":"hp", "below_percent":30, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
+	{"type":"hp", "below_percent":70, "use_item":"supreme health potion",  "priority":4},
+	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":3},
+	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":6, "cooldown":62}
+],
+"hunt_config": {
+	"cap_leave": 50,
+	"mana_name": "mana potion",
+	"take_mana": 1800,
+	"mana_leave": 400,
+	"health_name": "supreme health potion",
+	"take_health": 350,
+	"health_leave": 100
+},
+"label_actions":
+	[
+	{"label":"travel_banuta", "action":"talk_npc", "args":
+		{"list_words": ["banuta", "yes"]}},
+	{"label":"npc_materials", "action":"talk_npc", "args":
+	 	{"list_words":["materials", "yes"]}},
+	{"label":"travel_PH", "action":"talk_npc", "args":
+	 	{"list_words": ["port hope", "yes"]}},
+	{"label":"withdraw_amulet", "action":"withdraw_item_from_depot_to_backpack", "args":
+	 	{"item_name":"gill necklace", "depot_num":10, "backpack_name":"Blue Backpack", "amount":3, "stack":false}},
+	{"label":"check_down", "action":"conditional_jump_script_options", "args":
+		{"var_name": "hunt_down", "label_jump":"continue_down", "label_skip":"skip_down"}},
+	{"label":"wait", "action":"wait", "args": {"tmin": 0.7, "tmax": 1.2}}
+	],
+"persistent_actions": [
+	{"action":"haste", "interval":40, "args":["v"]},
+	{"action":"drop_vials", "interval":30, "args":{"cap":2000, "drop_stacks":4}},
+	{"action":"lure_monsters", "interval":0.5, "args":[3]},
+	{"action":"recover_full_mana", "interval":3, "args":["e"]},
+	{"action":"eat_food", "interval":30, "args":["f11"]},
+	{"action":"equip_item", "interval":5, "use_in_battle":true, "args":{"hotkey":"8", "dist":3, "amount":0, "selected_monsters":
+        ["Lumbering Carnivor", "Spiky Carnivor", "Menacing Carnivor"], "slot":"amulet"}},
+	{"action":"stop_target_no_supplies", "interval": 50}
+	],
+"target_monsters":
+[
+	{"name":"Lumbering Carnivor", "action":"follow", "loot":true},
+	{"name":"Spiky Carnivor", "action":"follow", "loot":true},
+	{"name":"Menacing Carnivor", "action":"follow", "loot":true}
+],
+"target_spells":
+[
+	{"name":"exori hur", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Lumbering Carnivor", "Spiky Carnivor", "Menacing Carnivor"]},
+	{"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Lumbering Carnivor", "Spiky Carnivor", "Menacing Carnivor"]},
+	{"name":"exori", "min_mana_percent":10, "priority":2, "cooldown":4, "min_monster_count":3},
+	{"name":"exori min", "min_mana_percent":20, "priority":3, "cooldown":6, "min_monster_count":2},
+	{"name":"exori gran", "min_mana_percent":30, "priority":4, "cooldown":6,  "min_monster_count":3},
+	{"name":"utito tempo", "min_mana_percent":70, "priority":5, "cooldown":15,  "min_monster_count":4}
+],
+"loot": []
+}
