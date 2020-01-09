@@ -48,7 +48,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 ### Elite Knight (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 8+    | [Port Hope Swamp Trolls](scripts_elsteiner/PortHope_SwampTrolls/setup.json)                | :star: :star: :star:                    | :star:                     |
+| 8+    | [Port Hope Swamp Trolls @elsteiner](scripts_elsteiner/PortHope_SwampTrolls/setup.json)                | :star: :star: :star:                    | :star:                     |
 | 15+   | [Rotworm Darashia North by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 15+   | [Rotworm Darashia North-East by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                            |
@@ -101,6 +101,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 ### Royal Paladin (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 25+   | [Yalahar Cemetery Quarter Right @elsteiner](scripts_elsteiner/Yalahar_CemeteryQuarterRight/setup.json)         | :star:                                  | :star:                            |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                            |
 | 30+   | [Meriana Gargoyle @Juanjo](scripts_jj/meriana_gargoyle_rp/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |
 

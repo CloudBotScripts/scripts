@@ -486,7 +486,7 @@ def deposit_all_from_backpack_to_depot(client, backpack_name, depot_num):
         sleep(0.2)
     return True
 
-def npc_refill(client, mana=False, health=False, ammo=False, rune=False):
+def npc_refill(client, mana=False, health=False, ammo=False, rune=False, food=False):
     buy_list_names = []
     buy_list_count = []
     if mana:
@@ -521,6 +521,12 @@ def npc_refill(client, mana=False, health=False, ammo=False, rune=False):
         ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
         buy_list_names.append(ammo_name)
         buy_list_count.append(take_ammo - ammo_count)
+        
+    if food:
+        food_name, take_food = client.hunt_config['food_name'], client.hunt_config['take_food']
+        food_count = client.get_hotkey_item_count(client.items[food_name])
+        buy_list_names.append(food_name)
+        buy_list_count.append(take_food - food_count)
 
     print('[Action] Buying', list(zip(buy_list_names, buy_list_count)))
     success = client.buy_items_from_npc(buy_list_names, buy_list_count)
