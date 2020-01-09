@@ -533,6 +533,12 @@ def npc_refill(client, mana=False, health=False, ammo=False, rune=False, food=Fa
     if not success:
         print('[Action] Failed to buy one or more items')
 
+def buy_items_npc(client, item_list_name, item_list_count):
+    print('[Action] Buying', list(zip(item_list_names, item_list_count)))
+    success = client.buy_items_from_npc(item_list_names, item_list_count)
+    if not success:
+        print('[Action] Failed to buy one or more items')
+
 def check(client, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
     mana_check = health_check = cap_check = ammo_check = rune_check = time_check = True
     if mana:
