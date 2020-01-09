@@ -215,6 +215,9 @@ def waypoint_action(client, action):
 
     elif action == "buy_ammo":
         npc_refill(client, ammo='ammo_name' in client.hunt_config.keys())
+	
+	elif action == "buy_food":
+        npc_refill(client, food='food_name' in client.hunt_config.keys())
 
     elif action == "check_supplies":
         check_supplies(client, 
