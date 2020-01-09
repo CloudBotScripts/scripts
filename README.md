@@ -82,7 +82,8 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 200+  | [Oramond Western Plains @Juanjo](scripts_jj/oramond_rot_votes/setup_ek.json) | :star:            | :star: :star:                           |
 | 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Feyrist Nightmare cave](feyrist_nightmare_cave/setup.json)| :star: :star: :star:             | :star: :star: :star:       
-| 250+  | [Elder Wyrms Drefia @Juanjo](scripts_jj/elder_wyrms/setup_ek.json)                | :star: :star:                    | :star: :star: :star: :star: :star:                  |    
+| 250+  | [Elder Wyrms Drefia @Juanjo](scripts_jj/elder_wyrms/setup_ek.json)                | :star: :star:                    | :star: :star: :star: :star: :star:                  |
+| 250+  | [Carnivora's Rock @Juanjo](scripts_jj/carnivoras_rock/setup_ek.json)                | :star: :star: :star: :star:                  | :star: :star: :star: :star: :star:                  |
 | 250+  | [Cults Edron Full](edron_cults/) | :star: :star:                           | :star: :star: :star: :star:             |
 | 250+  | Hero Old Fortress -2            | :star: :star:                           | :star: :star: :star: :star: :star:      |   
 | 250+  | [Glooth Bandit East](glooth_bandit_east/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
