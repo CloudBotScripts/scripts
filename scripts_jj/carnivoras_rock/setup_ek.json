@@ -8,7 +8,8 @@
 	"hours_leave": [9],
 	"skill_train":"sword",
 	"imbuements":[],
-	"hunt_down":true
+	"hunt_down":true,
+	"summon":"f3"
 },
 "containers":
 {
@@ -39,7 +40,8 @@
 	"exori min":"2",
 	"exori hur":"3",
 	"exori gran":"4",
-	"exori ico":"q"
+	"exori ico":"q",
+	"utevo gran res eq":"f3"
 },
 "healing":
 [
@@ -54,7 +56,7 @@
 	"cap_leave": 50,
 	"mana_name": "mana potion",
 	"take_mana": 1800,
-	"mana_leave": 400,
+	"mana_leave": 500,
 	"health_name": "supreme health potion",
 	"take_health": 350,
 	"health_leave": 100
@@ -65,13 +67,11 @@
 		{"list_words": ["banuta", "yes"]}},
 	{"label":"npc_materials", "action":"talk_npc", "args":
 	 	{"list_words":["materials", "yes"]}},
-	{"label":"travel_PH", "action":"talk_npc", "args":
-	 	{"list_words": ["port hope", "yes"]}},
 	{"label":"withdraw_amulet", "action":"withdraw_item_from_depot_to_backpack", "args":
 	 	{"item_name":"gill necklace", "depot_num":10, "backpack_name":"Blue Backpack", "amount":3, "stack":false}},
 	{"label":"check_down", "action":"conditional_jump_script_options", "args":
 		{"var_name": "hunt_down", "label_jump":"continue_down", "label_skip":"skip_down"}},
-	{"label":"wait", "action":"wait", "args": {"tmin": 0.7, "tmax": 1.2}}
+	{"label":"wait", "action":"wait", "args": {"tmin": 0.5, "tmax": 0.8}}
 	],
 "persistent_actions": [
 	{"action":"haste", "interval":40, "args":["v"]},
@@ -81,7 +81,7 @@
 	{"action":"eat_food", "interval":30, "args":["f11"]},
 	{"action":"equip_item", "interval":5, "use_in_battle":true, "args":{"hotkey":"8", "dist":3, "amount":0, "selected_monsters":
         ["Lumbering Carnivor", "Spiky Carnivor", "Menacing Carnivor"], "slot":"amulet"}},
-	{"action":"stop_target_no_supplies", "interval": 50}
+	{"action":"stop_target_no_supplies", "interval": 3, "args":{"mana":true, "health":true, "cap":true, "rune":false, "ammo":false, "time":false, "other":true}}
 	],
 "target_monsters":
 [
