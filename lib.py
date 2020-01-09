@@ -521,9 +521,9 @@ def npc_refill(client, mana=False, health=False, ammo=False, rune=False, food=Fa
         ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
         buy_list_names.append(ammo_name)
         buy_list_count.append(take_ammo - ammo_count)
-		
-	if food:
-		food_name, take_food = client.hunt_config['food_name'], client.hunt_config['take_food']
+        
+    if food:
+        food_name, take_food = client.hunt_config['food_name'], client.hunt_config['take_food']
         food_count = client.get_hotkey_item_count(client.items[food_name])
         buy_list_names.append(food_name)
         buy_list_count.append(take_food - food_count)
