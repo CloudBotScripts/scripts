@@ -10,7 +10,7 @@
 },
 "containers":
 {
-	"gold_bp":"Blue Backpack",
+	"gold_bp":"Golden Backpack",
 	"loot_bp":"Camouflage Backpack"
 },
 "tools":
@@ -42,19 +42,18 @@
 "hunt_config": {
 	"cap_leave": 1,
 	"mana_name": "mana potion",
-	"take_mana": 100,
-	"mana_leave": 60,
+	"take_mana": 110,
+	"mana_leave": 40,
 	"rune_name": "ultimate healing rune",
 	"take_rune": 20,
 	"rune_leave": 12,
 	"rune_name2": "great fireball rune",
 	"take_rune2": 250,
-	"rune_leave2": 50
+	"rune_leave2": 40
 },
 "label_actions":
 [
-	{"label":"pegleg", "action":"talk_npc", "args": {"list_words": ["pegleg", "yes"]}},
-	{"label":"wait", "action":"wait", "args": {"tmin": 0.7, "tmax": 0.9}}
+	{"label":"pegleg", "action":"talk_npc", "args": {"list_words": ["pegleg", "yes"]}}
 ],
 "persistent_actions":
 [
@@ -62,12 +61,11 @@
 	{"action":"drop_vials", "interval":60},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-	{"action":"recover_full_mana", "interval":2, "args":["e"]},
-	{"action":"stop_target_no_supplies", "interval": 4}
+	{"action":"stop_target_no_supplies", "interval": 3, "args":{"mana":true, "health":false, "cap":true, "rune":true, "ammo":false, "time":false, "other":true}}
 	],
 "target_monsters":
 [
-	{"name":"Blood Crab", "action":"distance", "distance":3, "loot":true}
+	{"name":"Blood Crab", "action":"distance", "distance":3, "priority":4, "loot":true}
 ],
 "target_spells":
 [
