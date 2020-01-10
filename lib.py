@@ -68,7 +68,10 @@ def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
             for y in (top_left[0], bottom_right[0]):
                 coords_barrier.append((x,y,z))
 
-    client.minimap.add_barrier_coords(coords_barrier)
+    if m_count > monster_count:
+        client.minimap.add_barrier_coords(coords_barrier)
+    else:
+        client.minimap.remove_barrier_coords(coords_barrier)
 
 # Set persistent interval
 ## Use 999999 or high number to turn off
