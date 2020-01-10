@@ -8,8 +8,8 @@
 		"skill_train":"magic"
 	},
 	"containers": {
-		"gold_bp":"Blue Backpack",
-		"loot_bp":"Camouflage Backpack"
+		"gold_bp":"Golden Backpack",
+		"loot_bp":"Red Backpack"
 	},
 	"tools": {},
 	"items": {
@@ -22,25 +22,27 @@
 	"spells": {
 		"utani hur":"v",
 		"exura gran":"f",
-		"utamo vita":"r"
+		"utamo vita":"c",
+		"exura":"x"
 	},
 	"healing": [
 		{"type":"hp", "below_percent":40, "use_item":"ultimate healing rune", "priority":3},
-		{"type":"hp", "below_percent":80, "use_spell":"exura gran", "min_mana_percent":10, "priority":2},
+		{"type":"hp", "below_percent":75, "use_spell":"exura gran", "min_mana_percent":10, "priority":2},
+		{"type":"hp", "below_percent":90, "use_spell":"exura", "min_mana_percent":10, "priority":2},
 		{"type":"mp", "below_percent":85, "use_item":"great mana potion", "priority":1},
 		{"type":"hp", "below_percent":101, "use_spell":"utamo vita", "priority":11, "cooldown":105}
 	],
 	"hunt_config": {
 		"cap_leave": 1,
 		"mana_name": "great mana potion",
-		"take_mana": 170,
+		"take_mana": 320,
 		"mana_leave": 110,
 		"rune_name": "ultimate healing rune",
 		"take_rune": 20,
 		"rune_leave": 14,
 		"rune_name2": "sudden death rune",
 		"take_rune2": 300,
-		"rune_leave2": 100
+		"rune_leave2": 120
 	},
 	"label_actions":
 	[
@@ -49,27 +51,27 @@
 	],
 	"persistent_actions":
 	[
-		{"action":"drop_vials", "interval":30},
+		{"action":"drop_vials", "interval":30, "args":{"cap":1000}},
 		{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
 		{"action":"anti_paralyze", "interval":2, "args":["v"]},
 		{"action":"eat_food", "interval":50, "args":{"hotkey":"f11"}},
 		{"action":"recover_full_mana", "interval":1, "args":["e"]},
-		{"action":"equip_item", "interval":4, "use_in_battle":true, "args":{"hotkey":"f7", "selected_monsters":
-			["Minotaur Hunter", "Worm Priestess", "Blood Beast", "MoohTah Warrior", "Execowtioner", "Moohtant"], "amount":0}
-		}
+		{"action":"equip_item", "interval":1, "use_in_battle":true, "dist":2, "args":{"hotkey":"f7", "dist":5, "amount":2, "selected_monsters":
+			["Minotaur Hunter", "Worm Priestess", "Blood Beast", "Mooh'Tah Warrior", "Execowtioner", "Moohtant"]}},
+		{"action":"stop_target_no_supplies", "interval": 3, "args":{"mana":true, "health":false, "cap":true, "rune":true, "ammo":false, "time":false, "other":true}}
 	],
 	"target_monsters": [
 		{"name":"Minotaur Hunter", "action":"stand", "follow_below_hp_percentage":30, "priority":3, "loot":true},
 		{"name":"Worm Priestess", "action":"stand", "priority":4, "loot":true},
 		{"name":"Blood Beast", "action":"stand", "priority":2, "loot":true},
-		{"name":"MoohTah Warrior", "action":"stand", "priority":2, "loot":true},
+		{"name":"Mooh'Tah Warrior", "action":"stand", "priority":2, "loot":false},
 		{"name":"Execowtioner", "action":"stand", "priority":2, "loot":true},
 		{"name":"Moohtant", "action":"stand", "priority":2, "loot":true}
 	],
 	"target_spells":
 	[
 		{"name":"sudden death rune", "min_mana_percent":5, "priority":9, "cooldown":2,
-			"monsters":["Minotaur Hunter", "Worm Priestess", "Blood Beast", "MoohTah Warrior", "Execowtioner", "Moohtant"]}
+			"monsters":["Minotaur Hunter", "Worm Priestess", "Blood Beast", "Mooh'Tah Warrior", "Execowtioner", "Moohtant"]}
 	],
 	"loot": [
 		{"name":"gold coin", "action":"loot", "dest":"gold_bp"},
