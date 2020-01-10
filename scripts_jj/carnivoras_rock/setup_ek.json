@@ -8,8 +8,7 @@
 	"hours_leave": [9],
 	"skill_train":"sword",
 	"imbuements":[],
-	"hunt_down":true,
-	"summon":"f3"
+	"hunt_down":true
 },
 "containers":
 {
@@ -63,10 +62,10 @@
 },
 "label_actions":
 	[
+	{"label":"travel_east", "action":"talk_npc", "args":
+		{"list_words": ["east", "yes"]}},
 	{"label":"travel_banuta", "action":"talk_npc", "args":
 		{"list_words": ["banuta", "yes"]}},
-	{"label":"npc_materials", "action":"talk_npc", "args":
-	 	{"list_words":["materials", "yes"]}},
 	{"label":"withdraw_amulet", "action":"withdraw_item_from_depot_to_backpack", "args":
 	 	{"item_name":"gill necklace", "depot_num":10, "backpack_name":"Blue Backpack", "amount":3, "stack":false}},
 	{"label":"check_down", "action":"conditional_jump_script_options", "args":
@@ -75,13 +74,12 @@
 	],
 "persistent_actions": [
 	{"action":"haste", "interval":40, "args":["v"]},
-	{"action":"drop_vials", "interval":30, "args":{"cap":2000, "drop_stacks":4}},
-	{"action":"lure_monsters", "interval":0.5, "args":[3]},
+	{"action":"drop_vials", "interval":50, "args":{"cap":2000, "drop_stacks":4}},
+	{"action":"lure_monsters", "interval":0.5, "args":{"count":4, "min_count":1}},
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
 	{"action":"eat_food", "interval":30, "args":["f11"]},
 	{"action":"equip_item", "interval":5, "use_in_battle":true, "args":{"hotkey":"8", "dist":3, "amount":0, "selected_monsters":
-        ["Lumbering Carnivor", "Spiky Carnivor", "Menacing Carnivor"], "slot":"amulet"}},
-	{"action":"stop_target_no_supplies", "interval": 3, "args":{"mana":true, "health":true, "cap":true, "rune":false, "ammo":false, "time":false, "other":true}}
+        ["Lumbering Carnivor", "Spiky Carnivor", "Menacing Carnivor"], "slot":"amulet"}}
 	],
 "target_monsters":
 [
@@ -93,8 +91,8 @@
 [
 	{"name":"exori hur", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Lumbering Carnivor", "Spiky Carnivor", "Menacing Carnivor"]},
 	{"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Lumbering Carnivor", "Spiky Carnivor", "Menacing Carnivor"]},
-	{"name":"exori", "min_mana_percent":10, "priority":2, "cooldown":4, "min_monster_count":3},
-	{"name":"exori min", "min_mana_percent":20, "priority":3, "cooldown":6, "min_monster_count":2},
+	{"name":"exori", "min_mana_percent":10, "priority":3, "cooldown":4, "min_monster_count":3},
+	{"name":"exori min", "min_mana_percent":20, "priority":2, "cooldown":6, "min_monster_count":2},
 	{"name":"exori gran", "min_mana_percent":30, "priority":4, "cooldown":6,  "min_monster_count":3},
 	{"name":"utito tempo", "min_mana_percent":70, "priority":5, "cooldown":15,  "min_monster_count":4},
 	{"name":"exeta res", "min_mana_percent":70, "priority":5, "cooldown":8,  "min_monster_count":4}
