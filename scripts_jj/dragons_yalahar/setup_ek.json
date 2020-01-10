@@ -1,0 +1,94 @@
+{
+"general":
+{
+	"loot_type":"manual",
+	"loot_priority":"after"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"sword",
+	"hunt_down":false
+},
+"containers":
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"tools": {
+    "rope": {"name":"rope", "id":3003},
+	"shovel": {"name":"shovel", "id":3457}
+},
+"items":
+{
+	"mana potion": {"hotkey":"f1", "id":268, "use":"self"},
+	"strong health potion": {"hotkey":"f2", "id":236, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"exeta res": "x",
+    "exori": "1",
+    "utura": "R",
+	"exura ico":"r",
+	"exori ico":"q"
+},
+"healing":
+[
+	
+	{"type":"hp", "below_percent":40, "use_item":"strong health potion", "priority":4},
+	{"type":"hp", "below_percent":95, "use_spell":"utura", "min_mana_percent":40, "priority":1, "cooldown":60},
+	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
+	{"type":"mp", "below_percent":50, "use_item":"mana potion", "priority":2}
+],
+"hunt_config": {
+	"cap_leave": 15,
+	"mana_name": "mana potion",
+	"take_mana": 400,
+	"mana_leave": 125,
+	"health_name": "strong health potion",
+	"take_health": 40,
+	"health_leave": 20
+},
+"label_actions":
+	[
+	{"label":"check_west", "action":"conditional_jump_script_options", "args":
+		{"var_name": "hunt_west", "label_jump":"continue_west", "label_skip":"skip_west"}}
+	],
+"persistent_actions": [
+	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
+	{"action":"drop_vials", "interval":50},
+	{"action":"anti_paralyze", "interval":2, "args":["v"]},
+	{"action":"recover_full_mana", "interval":3, "args":{"hotkey":"f1"}},
+	{"action":"eat_food", "interval":60, "args":{"hotkey":"f11"}}
+],
+"target_monsters": 
+[
+    {"name":"Dragon", "action":"follow", "loot":true},
+    {"name":"Elf Arcanist", "action":"follow", "loot":true}
+
+],
+"target_spells":
+[ 
+	{"name":"exori ico", "min_mana_percent":30, "priority":1, "cooldown":6,
+		"monsters":["Dragon", "Elf Arcanist"]},
+	{"name":"exeta res", "min_mana_percent":20, "priority":2, "cooldown": 10, "min_monster_count":2},
+	{"name":"exori", "min_mana_percent":30, "priority":2, "min_monster_count":2, "cooldown":4}
+],
+"loot": [
+    {"name":"gold coin", "action":"loot", "dest":"gold_bp"},
+	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+	{"name":"platinum coin", "action":"loot", "dest":"gold_bp"},
+    {"name":"holy orchid", "action":"loot", "dest":"loot_bp"},
+	{"name":"green dragon scale", "action":"loot", "dest":"loot_bp"},
+	{"name":"strong health potion", "action":"loot", "dest":"loot_bp"},
+	{"name":"green dragon leather", "action":"loot", "dest":"loot_bp"},
+	{"name":"small diamond", "action":"loot", "dest":"loot_bp"},
+	{"name":"life crystal", "action":"loot", "dest":"loot_bp"},
+	{"name":"dragon shield", "action":"loot", "dest":"loot_bp"},
+	{"name":"health potion", "action":"loot", "dest":"loot_bp"},
+    {"name":"yellow gem", "action":"loot", "dest":"loot_bp"},
+	{"name":"dragon ham", "action":"use"}
+]
+}
+
