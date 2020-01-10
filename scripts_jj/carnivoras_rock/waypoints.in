@@ -36,23 +36,16 @@ node (32621, 32755, 7)
 label skip_imbuement
 action check_supplies
 label go_hunt
-node (32618, 32759, 7)
-node (32619, 32771, 7)
-ladder (32618, 32771, 7)
-node (32629, 32774, 6)
-node (32630, 32784, 6)
-stand (32629, 32785, 6)
-node (32644, 32783, 7)
-node (32660, 32787, 7)
-node (32677, 32785, 7)
-node (32679, 32776, 7)
+node (32628, 32759, 7)
+node (32629, 32771, 7)
+label travel_east
+node (32680, 32776, 7)
 label travel_banuta
 node (32811, 32631, 7)
 node (32796, 32631, 7)
 node (32783, 32628, 7)
 node (32773, 32629, 7)
 node (32760, 32631, 7)
-label npc_materials
 door (32761, 32630, 7)
 shovel (32760, 32628, 7)
 stand (32760, 32628, 7)
@@ -61,11 +54,14 @@ node (32756, 32628, 8)
 action summon
 node (32748, 32640, 8)
 node (32760, 32649, 8)
+label wait
 node (32772, 32645, 8)
 node (32792, 32643, 8)
+label wait
 node (32791, 32633, 8)
 node (32775, 32632, 8)
 node (32782, 32623, 8)
+label wait
 node (32797, 32617, 8)
 node (32804, 32617, 8)
 label check_down
@@ -75,19 +71,25 @@ label hunt2
 stand (32809, 32617, 8)
 node (32797, 32620, 9)
 node (32786, 32611, 9)
+label wait
 node (32771, 32603, 9)
 node (32771, 32617, 9)
+label wait
 node (32783, 32630, 9)
 node (32773, 32637, 9)
 node (32755, 32634, 9)
+label wait
 node (32739, 32628, 9)
 node (32739, 32611, 9)
 node (32754, 32603, 9)
+label wait
 node (32752, 32619, 9)
 node (32763, 32628, 9)
 node (32780, 32635, 9)
+label wait
 node (32795, 32639, 9)
 node (32807, 32631, 9)
+label wait
 node (32812, 32617, 9)
 stand (32809, 32617, 9)
 label skip_down
