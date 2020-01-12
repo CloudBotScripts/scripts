@@ -1,4 +1,3 @@
-action debug
 label start_svargrond_depot
 node (32230,31144,7)
 node (32221,31156,7)
@@ -38,7 +37,6 @@ node (32236,31097,5)
 node (32223,31078,5)
 node (32190,31067,5)
 node (32162,31052,5)
-label debug
 node (32151,31031,5)
 stand (32154,31029,5)
 action mamooth
