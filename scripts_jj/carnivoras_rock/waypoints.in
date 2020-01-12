@@ -48,7 +48,6 @@ node (32773, 32629, 7)
 node (32760, 32631, 7)
 door (32761, 32630, 7)
 shovel (32760, 32628, 7)
-stand (32760, 32628, 7)
 label hunt
 node (32756, 32628, 8)
 action summon
