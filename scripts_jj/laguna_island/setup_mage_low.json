@@ -1,8 +1,8 @@
 {
 "general":
 {
-	"loot_type":"auto",
-	"loot_priority":"first"
+	"loot_type":"manual",
+	"loot_priority":"after"
 },
 "script_options": {
 	"hours_leave": [9],
@@ -42,35 +42,40 @@
 "hunt_config": {
 	"cap_leave": 1,
 	"mana_name": "mana potion",
-	"take_mana": 110,
+	"take_mana": 130,
 	"mana_leave": 40,
 	"rune_name": "ultimate healing rune",
 	"take_rune": 20,
 	"rune_leave": 12,
 	"rune_name2": "great fireball rune",
-	"take_rune2": 250,
+	"take_rune2": 180,
 	"rune_leave2": 40
 },
 "label_actions":
 [
 	{"label":"pegleg", "action":"talk_npc", "args": {"list_words": ["pegleg", "yes"]}}
+	
 ],
 "persistent_actions":
 [
 	{"action":"haste", "interval":45, "args":["v"]},
-	{"action":"drop_vials", "interval":60},
+	{"action":"drop_vials", "interval":40},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-	{"action":"stop_target_no_supplies", "interval": 3, "args":{"mana":true, "health":false, "cap":true, "rune":true, "ammo":false, "time":false, "other":true}}
+	{"action":"stop_target_no_supplies", "interval": 4, "args":{"mana":true, "health":false, "cap":true, "rune":true, "ammo":false, "time":false, "other":true}}
 	],
 "target_monsters":
 [
-	{"name":"Blood Crab", "action":"distance", "distance":3, "priority":4, "loot":true}
+	{"name":"Blood Crab", "action":"follow", "loot":true}
 ],
 "target_spells":
 [
 	{"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown": 2, "min_monster_count":2},
 	{"name":"exori flam", "min_mana_percent":10, "priority":1, "cooldown":1, "monsters":["Blood Crab"]}
 ],
-"loot": []
+"loot": [
+		{"name":"gold coin", "action":"loot", "dest":"gold_bp"},
+		{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+		{"name":"bloody pincers", "action":"loot", "dest":"loot_bp"}
+]
 }
