@@ -148,8 +148,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
 | 60+   | [Yalahar Cults @Juanjo](scripts_jj/yalahar_cults_mq/setup_mage.json) | :star: :star: :star:                                 | :star: :star: :star:          |
 | 65+   | [Lion Rock @Juanjo](scripts_jj/lion_rock/setup_mage.json) | :star: :star:                                 | :star: :star: :star: :star:          |
-| 80+   | [Oramond Minos South @Juanjo](scripts_jj/oramond_minos_south/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
-| 80+   | [Water Elementals @Juanjo](scripts_jj/water_elementals/setup_mage.json) | :star: :star:                                 | :star: :star: :star: :star:         |
+| 90+   | [Water Elementals @Juanjo](scripts_jj/water_elementals/setup_mage.json) | :star: :star:                                 | :star: :star: :star: :star:         |
 
 ### Master Sorcerer/Elder Druid (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
