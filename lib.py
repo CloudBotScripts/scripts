@@ -322,12 +322,6 @@ def wait_lure(client, direction_movement, lure_amount=3, dist=3, max_wait=2):
     def monsters_around(creatures_sqm, dist=2):
         return sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
 
-    def is_reachable(sqm):
-        path = client.minimap.get_path_to_sqm(sqm, visible=True)
-        if path in ('Unreachable', 'Out of range'):
-            return False
-        return (len(path) < 10)
-
     # Indicate how many monsters will be left behind if continue walking. 
     # monsters are left behind if they are opposite to the direction char is going to
     # directions: n, e, s, w
@@ -344,7 +338,7 @@ def wait_lure(client, direction_movement, lure_amount=3, dist=3, max_wait=2):
     waited = 0
     while waited < max_wait:
         creatures_sqm = client.gameboard.get_sqm_monsters()
-        reachable_creatures_sqm = [sqm for sqm in creatures_sqm if is_reachable(sqm)]
+        reachable_creatures_sqm = [sqm for sqm in creatures_sqm if client.minimap.is_reachable(sqm)]
         m_around = monsters_around(reachable_creatures_sqm, dist=dist)
         if m_around < lure_amount:
             m_left_behind = monsters_left_behind(reachable_creatures_sqm, direction_movement=direction_movement)
