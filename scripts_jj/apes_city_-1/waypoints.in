@@ -48,13 +48,13 @@ node (32715, 32635, 7)
 node (32726, 32623, 7)
 node (32734, 32610, 7)
 node (32734, 32593, 7)
-action target off
+action target_off
 node (32751, 32587, 7)
 node (32765, 32584, 7)
 node (32772, 32572, 7)
 node (32772, 32568, 7)
 stand (32772, 32565, 7)
-action target on
+action target_on
 label hunt
 node (32771, 32550, 8)
 node (32777, 32535, 8)
@@ -77,10 +77,12 @@ node (32790, 32571, 8)
 node (32772, 32569, 8)
 action check
 label leave
+action target_off
 stand (32772, 32565, 8)
 node (32767, 32584, 7)
 node (32757, 32598, 7)
 node (32747, 32612, 7)
+action target_on
 node (32734, 32621, 7)
 node (32724, 32634, 7)
 node (32717, 32648, 7)
