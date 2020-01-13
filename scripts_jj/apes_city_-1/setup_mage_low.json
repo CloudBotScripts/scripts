@@ -59,7 +59,7 @@
 	{"action":"drop_vials", "interval":40},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-	{"action":"stop_target_no_supplies", "interval": 4, "args":{"mana":true, "health":false, "cap":true, "rune":true, "ammo":false, "time":false, "other":true}}
+	{"action":"lure_monsters", "interval":0.5, "args":[2]}
 	],
 "target_monsters":
 [
