@@ -2,7 +2,7 @@
 "general":
 {
 	"loot_type":"auto",
-	"loot_priority":"after"
+	"loot_priority":"first"
 },
 "script_options": {
 	"hours_leave": [9],
@@ -63,9 +63,9 @@
 	],
 "target_monsters":
 [
-	{"name":"Sibang", "action":"distance", "distance":3, "loot":true},
-	{"name":"Merlkin", "action":"distance", "distance":3, "loot":true},
-	{"name":"Kongra", "action":"distance", "distance":3, "loot":true}
+	{"name":"Sibang", "action":"follow", "loot":true},
+	{"name":"Merlkin", "action":"follow", "loot":true},
+	{"name":"Kongra", "action":"follow", "loot":true}
 ],
 "target_spells":
 [
