@@ -51,6 +51,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 15+   | [Rotworm Darashia North by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 15+   | [Rotworm Darashia North-East by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                            |
+| 20+   | [Apes City -1 Port Hope @Juanjo](scripts_jj/apes_city_-1/setup_ek.json)  | :star:                                  | :star:                            |
 | 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |  
 | 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
 | 50+   | [Dragons Yalahar @Juanjo](scripts_jj/dragons_yalahar/setup_ek.json)                 | :star: :star:                           | :star: :star:                           |
@@ -141,6 +142,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 30+   | [Mad Scientists @Juanjo](scripts_jj/mad_scientist/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | [Upper Spikes @Juanjo](scripts_jj/upper_spikes/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | [Laguna Island @Juanjo](scripts_jj/laguna_island/setup_mage_low.json)| :star: :star: :star: :star:                          | :star: :star:          |
+| 30+   | [Apes City -1 @Juanjo](scripts_jj/apes_city_-1/setup_mage_low.json)| :star: :star: :star: :star:                          | :star: :star:          |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                                  |
 | 30+   | [Magician Quarter @Juanjo](magician_quarter/setup_mage.json)     | :star: :star:                             | :star::star:               |
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
