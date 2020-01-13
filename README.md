@@ -30,7 +30,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 30+   | [Stonerefiner @Juanjo](scripts_jj/stonerefiners_35/setup_rp.json) | :star:                   | :star: :star: :star:                    |
+| 30+   | [Stonerefiner](stonerefiner/setup_rp.json) | :star: :star:              | :star: :star: :star:                    |
 
 ### Mage (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
