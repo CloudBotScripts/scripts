@@ -193,10 +193,11 @@ def equip_item(client, hotkey='f10', selected_monsters='all', dist=10, amount=1,
         selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
         monster_list = [m for m in monster_list if m in selected_monsters]
 
-
     creatures_sqm = client.gameboard.get_sqm_monsters()
-    monster_count = sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
-    monster_count =  min(len(monster_list), monster_count)
+    monster_count = len(monster_list)
+    if len(creatures_sqm) >= monster_count: # Found all monsters on screen
+        near_monster_count = sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
+        monster_count =  min(monster_count, near_monster_count)
     
     item_name = client.equips.get_item_in_slot(slot)
 
@@ -207,23 +208,31 @@ def equip_item(client, hotkey='f10', selected_monsters='all', dist=10, amount=1,
         print('[Action] Unequip item')
         client.hotkey(hotkey)
 
+# Equip item
+def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=10, amount=1, slot='ring'):
+    monster_list = client.battle_list.get_monster_list()
+    if selected_monsters != 'all':
+        selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
+        monster_list = [m for m in monster_list if m in selected_monsters]
 
-## Deprecated, use equip_item
-def stealth_ring(client, monster_count, monster_list=False):
-    ring_hotkey_slot = 8 
-    ring_hotkey = 'f8'
+    creatures_sqm = client.gameboard.get_sqm_monsters()
+    monster_count = len(monster_list)
+    if len(creatures_sqm) >= monster_count: # Found all monsters on screen
+        near_monster_count = sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
+        monster_count =  min(monster_count, near_monster_count)
+    
+    equip_item_count = client.get_hotkey_item_count(client.items[item_equip])
+    equip_hotkey = client.item_hotkeys[item_equip]
 
-    # ring
-    equipped_ring = client.get_name_item_in_slot(client.equips, 'ring')
-    monster_count = client.battle_list.get_monster_count()
+    unequip_hotkey = client.item_hotkeys[item_unequip]
 
-    print(equipped_ring)
-    if monster_count > 4 and equipped_ring != 'stealth ring':
-        print('[Action] Equip ring')
-        client.hotkey(ring_hotkey)
-    elif monster_count < 2 and equipped_ring == 'stealth ring':
-        print('[Action] Unequip ring')
-        client.hotkey(ring_hotkey)
+    item_name = client.equips.get_item_in_slot(slot)
+    if monster_count >= amount and equip_item_count > 0 and item_name != item_equip:
+        print('[Action] Equip item')
+        client.hotkey(equip_hotkey)
+    elif monster_count < amount and item_name != item_unequip:
+            print('[Action] Unequip item')
+            client.hotkey(unequip_hotkey)
 
 # Cast spell if mana full
 def cast_spell(client):

@@ -63,6 +63,9 @@ def waypoint_action(client, action):
     elif action == "use_imbuing_shrine":
         use_imbuing_shrine(client)
 
+    elif action == "use_imbuing_shrine_north":
+        use_imbuing_shrine(client, sqm=(0,1))
+
     elif action == "use_lever_east":
         client.use_lever((1, 0))
 
