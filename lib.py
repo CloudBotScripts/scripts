@@ -672,6 +672,30 @@ def check_blacklist_player_online(client, label_jump):
     else:
         print('[Action] Could not find VIP window')
 
+def check_kill_count(client, monster_name, label_jump, label_skip):
+    result = client.get_windows_by_names(['Quest Tracker'])
+    if client.get_windows_by_names(['Quest Tracker']):
+        tracker = result[0]
+        tracker_text = tracker.recognize_text_content()
+        if monster_name in tracker_text:
+            print('[Action] Monster found')
+            #test with string before if function and limits are correct
+            print('Tracker_Text:', tracker_text)
+            print('Actual Killcount: ', tracker_text[tracker_text.find(monster_name):tracker_text.find('/')])
+            print('Needed Killcount: ', tracker_text[tracker_text.find('/'):tracker_text.find(monster_name)-tracker_text.find('/')])
+            #actual_killcount = int(tracker_text[tracker_text.find(monster_name):tracker_text.find('/')])
+            #needed_killcount = int(tracker_text[tracker_text.find('/'):tracker_text.find(monster_name)-tracker_text.find('/')])
+            #if needed_killcount > actual_killcount:
+            #    print('[Action] Kill Count reached, Jump label:', label_jump)
+            #    client.jump_label(label_jump)
+            #else 
+            #    print('[Action] Kill Count not reached, Jump label:', label_skip)
+            #    client.jump_label(label_skip)
+        else:
+            print('[Action] Could not find Monster Name')
+    else:
+        print('[Action] Could not find Quest Tracker window')
+
 def check_skill(client):
     skill = client.script_options['skill_train']
     if skill == 'sword':
