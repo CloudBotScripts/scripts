@@ -68,7 +68,10 @@ def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
             for y in (top_left[0], bottom_right[0]):
                 coords_barrier.append((x,y,z))
 
-    client.minimap.add_barrier_coords(coords_barrier)
+    if m_count > monster_count:
+        client.minimap.add_barrier_coords(coords_barrier)
+    else:
+        client.minimap.remove_barrier_coords(coords_barrier)
 
 # Set persistent interval
 ## Use 999999 or high number to turn off
@@ -190,10 +193,11 @@ def equip_item(client, hotkey='f10', selected_monsters='all', dist=10, amount=1,
         selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
         monster_list = [m for m in monster_list if m in selected_monsters]
 
-
     creatures_sqm = client.gameboard.get_sqm_monsters()
-    monster_count = sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
-    monster_count =  min(len(monster_list), monster_count)
+    monster_count = len(monster_list)
+    if len(creatures_sqm) >= monster_count: # Found all monsters on screen
+        near_monster_count = sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
+        monster_count =  min(monster_count, near_monster_count)
     
     item_name = client.equips.get_item_in_slot(slot)
 
@@ -204,23 +208,31 @@ def equip_item(client, hotkey='f10', selected_monsters='all', dist=10, amount=1,
         print('[Action] Unequip item')
         client.hotkey(hotkey)
 
+# Equip item
+def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=10, amount=1, slot='ring'):
+    monster_list = client.battle_list.get_monster_list()
+    if selected_monsters != 'all':
+        selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
+        monster_list = [m for m in monster_list if m in selected_monsters]
 
-## Deprecated, use equip_item
-def stealth_ring(client, monster_count, monster_list=False):
-    ring_hotkey_slot = 8 
-    ring_hotkey = 'f8'
+    creatures_sqm = client.gameboard.get_sqm_monsters()
+    monster_count = len(monster_list)
+    if len(creatures_sqm) >= monster_count: # Found all monsters on screen
+        near_monster_count = sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
+        monster_count =  min(monster_count, near_monster_count)
+    
+    equip_item_count = client.get_hotkey_item_count(client.items[item_equip])
+    equip_hotkey = client.item_hotkeys[item_equip]
 
-    # ring
-    equipped_ring = client.get_name_item_in_slot(client.equips, 'ring')
-    monster_count = client.battle_list.get_monster_count()
+    unequip_hotkey = client.item_hotkeys[item_unequip]
 
-    print(equipped_ring)
-    if monster_count > 4 and equipped_ring != 'stealth ring':
-        print('[Action] Equip ring')
-        client.hotkey(ring_hotkey)
-    elif monster_count < 2 and equipped_ring == 'stealth ring':
-        print('[Action] Unequip ring')
-        client.hotkey(ring_hotkey)
+    item_name = client.equips.get_item_in_slot(slot)
+    if monster_count >= amount and equip_item_count > 0 and item_name != item_equip:
+        print('[Action] Equip item')
+        client.hotkey(equip_hotkey)
+    elif monster_count < amount and item_name != item_unequip:
+            print('[Action] Unequip item')
+            client.hotkey(unequip_hotkey)
 
 # Cast spell if mana full
 def cast_spell(client):
@@ -319,12 +331,6 @@ def wait_lure(client, direction_movement, lure_amount=3, dist=3, max_wait=2):
     def monsters_around(creatures_sqm, dist=2):
         return sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
 
-    def is_reachable(sqm):
-        path = client.minimap.get_path_to_sqm(sqm, visible=True)
-        if path in ('Unreachable', 'Out of range'):
-            return False
-        return (len(path) < 10)
-
     # Indicate how many monsters will be left behind if continue walking. 
     # monsters are left behind if they are opposite to the direction char is going to
     # directions: n, e, s, w
@@ -341,7 +347,7 @@ def wait_lure(client, direction_movement, lure_amount=3, dist=3, max_wait=2):
     waited = 0
     while waited < max_wait:
         creatures_sqm = client.gameboard.get_sqm_monsters()
-        reachable_creatures_sqm = [sqm for sqm in creatures_sqm if is_reachable(sqm)]
+        reachable_creatures_sqm = [sqm for sqm in creatures_sqm if client.minimap.is_reachable(sqm)]
         m_around = monsters_around(reachable_creatures_sqm, dist=dist)
         if m_around < lure_amount:
             m_left_behind = monsters_left_behind(reachable_creatures_sqm, direction_movement=direction_movement)

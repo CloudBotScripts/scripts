@@ -30,7 +30,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 30+   | [Stonerefiner @Juanjo](scripts_jj/stonerefiners_35/setup_rp.json) | :star:                   | :star: :star: :star:                    |
+| 30+   | [Stonerefiner](stonerefiner/setup_rp.json) | :star: :star:              | :star: :star: :star:                    |
 
 ### Mage (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
@@ -51,10 +51,13 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 8+    | [Port Hope Swamp Trolls @elsteiner](scripts_elsteiner/PortHope_SwampTrolls/setup.json)                | :star: :star: :star:                    | :star:                     |
 | 15+   | [Rotworm Darashia North by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 15+   | [Rotworm Darashia North-East by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
-| 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                            |
-| 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |  
+| 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                                  |
+| 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |
+| 50+   | [Apes City -1 Port Hope @Juanjo](scripts_jj/apes_city_-1/setup_ek.json)  | :star: :star: :star: :star:                          | :star:           |
+| 50+   | [Apes City -2 Port Hope @Juanjo](scripts_jj/apes_city_-2/setup_ek.json)  | :star: :star: :star: :star:                          | :star:           |
 | 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
-| 50+   | [Lion Rock @Juanjo](scripts_jj/lion_rock/setup_ek.json)                 | :star: :star:                           | :star: :star:                           |
+| 50+   | [Dragons Yalahar @Juanjo](scripts_jj/dragons_yalahar/setup_ek.json)                 | :star: :star:                           | :star: :star:                           |
+| 50+   | [Lion Rock @Juanjo](scripts_jj/lion_rock/setup_ek70.json)                 | :star: :star:                           | :star: :star: :star:                          |
 | 70+   | Ancient Scarab Khazel           | :star: :star:                           | :star: :star:                    |     
 | 90+   | Mother of Scarab                | :star: :star:                           | :star: :star:                    |  
 | 90+   | [Killer Caimans](killer_caimans/setup.json)                  | :star: :star: :star:                    | :star: :star:                           |
@@ -83,7 +86,8 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 200+  | [Oramond Western Plains @Juanjo](scripts_jj/oramond_rot_votes/setup_ek.json) | :star:            | :star: :star:                           |
 | 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Feyrist Nightmare cave](feyrist_nightmare_cave/setup.json)| :star: :star: :star:             | :star: :star: :star:       
-| 250+  | [Elder Wyrms Drefia @Juanjo](scripts_jj/elder_wyrms/setup_ek.json)                | :star: :star:                    | :star: :star: :star: :star: :star:                  |    
+| 250+  | [Elder Wyrms Drefia @Juanjo](scripts_jj/elder_wyrms/setup_ek.json)                | :star: :star:                    | :star: :star: :star: :star: :star:                  |
+| 250+  | [Carnivora's Rock @Juanjo](scripts_jj/carnivoras_rock/setup_ek.json)                | :star: :star: :star: :star:                  | :star: :star: :star: :star: :star:                  |
 | 250+  | [Cults Edron Full](edron_cults/) | :star: :star:                           | :star: :star: :star: :star:             |
 | 250+  | Hero Old Fortress -2            | :star: :star:                           | :star: :star: :star: :star: :star:      |   
 | 250+  | [Glooth Bandit East](glooth_bandit_east/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
@@ -144,10 +148,11 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                                  |
 | 30+   | [Magician Quarter @Juanjo](magician_quarter/setup_mage.json)     | :star: :star:                             | :star::star:               |
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
+| 50+   | [Apes City -1 @Juanjo](scripts_jj/apes_city_-1/setup_mage.json)| :star: :star: :star: :star:                          | :star:           |
+| 50+   | [Apes City -2 @Juanjo](scripts_jj/apes_city_-2/setup_mage.json)| :star: :star: :star: :star:                          | :star:           |
 | 60+   | [Yalahar Cults @Juanjo](scripts_jj/yalahar_cults_mq/setup_mage.json) | :star: :star: :star:                                 | :star: :star: :star:          |
 | 65+   | [Lion Rock @Juanjo](scripts_jj/lion_rock/setup_mage.json) | :star: :star:                                 | :star: :star: :star: :star:          |
-| 80+   | [Oramond Minos South @Juanjo](scripts_jj/oramond_minos_south/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
-| 80+   | [Water Elementals @Juanjo](scripts_jj/water_elementals/setup_mage.json) | :star: :star:                                 | :star: :star: :star: :star:         |
+| 90+   | [Water Elementals @Juanjo](scripts_jj/water_elementals/setup_mage.json) | :star: :star:                                 | :star: :star: :star: :star:         |
 
 ### Master Sorcerer/Elder Druid (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
