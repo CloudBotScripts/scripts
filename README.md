@@ -141,6 +141,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 ### Master Sorcerer/Elder Druid (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 8+    | [Wasp Darashia](wasp_darashia/setup_mage.json)| :star: :star: :star:      | :star: :star:                           |
 | 15+   | [Minotaur Darashia](minotaur_darashia/setup_mage.json)| :star: :star:                           | :star: :star: :star: :star:             |
 | 30+   | [Mad Scientists @Juanjo](scripts_jj/mad_scientist/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | [Upper Spikes @Juanjo](scripts_jj/upper_spikes/setup_mage.json)| :star:                          | :star: :star:          |

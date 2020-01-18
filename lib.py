@@ -324,8 +324,7 @@ def lure_monsters(client, count=3, min_count=1, wait=False):
             x, y = zip(*creatures_sqm)
             if any(abs(l) >= 6 for l in x) or any(abs(l) >= 4 for l in y):
                 print('[Action] Wait lure')
-                client.hotkey('esc')
-                self.sleep(0.6)
+                self.sleep(0.4)
 
 def wait_lure(client, direction_movement, lure_amount=3, dist=3, max_wait=2):
     def monsters_around(creatures_sqm, dist=2):
@@ -842,7 +841,7 @@ def check_imbuements(client):
                     return False
     return True
 
-def use_imbuing_shrine(client, sqm=(0,1)):
+def use_imbuing_shrine(client, sqm=None):
     imbuements = client.script_options['imbuements']
     for imbuement in imbuements:
         print('[Action] Checking', imbuement)
@@ -853,7 +852,7 @@ def use_imbuing_shrine(client, sqm=(0,1)):
                 print('Imbuement', imbuement['name'], 'active')
             else:
                 print('Equip', imbuement['equip_slot'], 'has no', imbuement['name'], 'active')
-                shrine = client.use_imbuing_shrine(sqm, imbuement['equip_slot'])
+                shrine = client.use_imbuing_shrine(imbuement['equip_slot'], sqm=sqm)
                 if shrine:
                     shrine.imbue_item(imbuement['type'], imbuement['name'].split()[0])
                 else:
