@@ -135,8 +135,8 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 300+  | [Oramond Sewers](oramond_sewers/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
-| 350+  | Medusa Tower                    | :star: :star:                           | :star: :star: :star: :star: :star:      |
-| 400+  | [Oramond Glooth Tower](oramond_tower/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
+| 350+  | [Medusa Tower](medusa_tower/setup_rp.json)     | :star: :star:                           | :star: :star: :star: :star: :star:      |
+| 400+  | [Oramond Glooth Tower](oramond_tower/setup_rp.json) | :star: :star: :star: :star:        | :star: :star: :star: :star: :star:      |       
 
 ### Master Sorcerer/Elder Druid (8-100)
 | Level | Name                            | Profit                                  | XP                                      |

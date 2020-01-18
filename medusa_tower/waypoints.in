@@ -139,11 +139,4 @@ node (32541,32778,6)
 node (32556,32772,6)
 stand (32556,32766,6)
 stand (32556,32780,7)
-action travel_east
-stand (32694,32773,7)
-stand (32694,32772,7)
-stand (32693,32768,6)
-action get_tasks
-stand (32694,32772,6)
-node (32680,32777,7)
-action go_center
+action travel_center
