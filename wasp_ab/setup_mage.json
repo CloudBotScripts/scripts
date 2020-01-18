@@ -9,12 +9,11 @@
 "containers": 
 {
 	"gold_bp":"Red Backpack",
-	"loot_bp":"Red Backpack"
+	"loot_bp":"Backpack"
 },
 "tools":
 {
-	"rope": {"name":"rope", "id": 3003},
-	"shovel": {"name":"shovel", "id": 3457}
+	"rope": {"name":"rope", "id": 3003}
 },
 "items":
 {
@@ -24,12 +23,12 @@
 },
 "spells":
 {
-	"exura":"r"
+	"exura infir":"r"
 },
 "healing":
 [
 	{"type":"hp", "below_percent":60, "use_item":"health potion", "priority":3},
-	{"type":"hp", "below_percent":90, "use_spell":"exura", "min_mana_percent":20, "priority":2},
+	{"type":"hp", "below_percent":90, "use_spell":"exura infir", "min_mana_percent":20, "priority":2},
 	{"type":"mp", "below_percent":20, "use_item":"mana potion", "priority":1}
 ],
 "hunt_config": {
@@ -43,7 +42,7 @@
 },
 "label_actions": 
 [
-	{"label":"count", "action":"conditional_jump_item_count", "args": {"item_name":"honeycomb", "amount":10, "label_jump":"leave"}}
+	{"label":"count", "action":"conditional_jump_item_count_below", "args": {"item_name":"honeycomb", "amount":10, "label_jump":"continue", "label_fail":"leave"}}
 ],
 "persistent_actions": [],
 "target_monsters": 

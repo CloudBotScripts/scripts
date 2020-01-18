@@ -8,12 +8,14 @@
 },
 "containers": 
 {
-	"loot_bp":"Backpack"
+	"loot_bp":"Bag"
 },
 "tools": {},
 "items":
 {
-	"mana potion": {"hotkey":"e", "id":268, "use":"self"}
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"},
+	"honeycomb": {"hotkey":"9", "id":5902, "use":"use"}
 },
 "spells":
 {
@@ -34,7 +36,9 @@
 [
 	{"label":"check_honeycomb", "action":"conditional_jump_item_count_below", "args": {"item_name":"honeycomb", "amount":10, "label_jump":"not_enough_honeycombs", "label_skip":"leave"}}
 ],
-"persistent_actions": [],
+"persistent_actions": [
+	{"action":"eat_food", "interval":30, "args":["f11"]}
+],
 "target_monsters": 
 [
 	{"name":"Wasp", "action":"follow", "loot":true}
