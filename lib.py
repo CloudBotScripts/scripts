@@ -770,11 +770,11 @@ def conditional_jump_script_options(client, var_name, label_jump, label_skip=Non
 def conditional_jump_position(client, coords, label_jump, label_skip=None):
     cur_coord = client.minimap.get_current_coord()
     if cur_coord not in ('Unreachable', 'Out of range'):
-        if cur_coord in coords:
-            print('[Action] current coord is in list')
+        if list(cur_coord) in coords:
+            print(f'[Action] current coord {cur_coord} is in list')
             client.jump_label(label_jump)
         elif label_skip:
-            print('[Action] current coord is not in list')
+            print(f'[Action] current coord {cur_coord} is not in list')
             client.jump_label(label_skip)
 
 # Conditional jump if character pos is in coords list 
