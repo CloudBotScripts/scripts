@@ -324,11 +324,12 @@ def lure_monsters(client, count=3, min_count=1, wait=False):
         print('[Action] Target off')
     elif wait and (not client.target_on and 0 < monster_count < count):
         creatures_sqm = client.gameboard.get_sqm_monsters()
-        if len(creatures_sqm) > 0:
+        if len(monster_list) > 0 and len(creatures_sqm) > 0:
             x, y = zip(*creatures_sqm)
             if any(abs(l) >= 6 for l in x) or any(abs(l) >= 4 for l in y):
                 print('[Action] Wait lure')
-                self.sleep(0.4)
+                client.hotkey('esc')
+                client.sleep(0.4)
 
 def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=2):
     def monsters_around(creatures_sqm, dist=2):
@@ -540,7 +541,14 @@ def npc_refill(client, mana=False, health=False, ammo=False, rune=False, food=Fa
         buy_list_count.append(take_food - food_count)
 
     print('[Action] Buying', list(zip(buy_list_names, buy_list_count)))
-    success = client.buy_items_from_npc(buy_list_names, buy_list_count)
+    say = None
+    if (mana or health) and not rune and not ammo and not food:
+        print('[Action] Buying only potions')
+        say = ['potions']
+    elif rune and not mana and not health and not ammo and not food:
+        print('[Action] Buying only runes')
+        say = ['runes']
+    success = client.buy_items_from_npc(buy_list_names, buy_list_count, say=say)
     if not success:
         print('[Action] Failed to buy one or more items')
 
@@ -721,7 +729,7 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
             rune_check = rune_check and rune_check2
             print('[Action] Rune2:', rune_check2, rune_count2, '/', take_rune2)
     if cap:
-        cap_check = client.get_cap() > 1.1 * client.hunt_config['cap_leave']
+        cap_check = client.get_cap() > client.hunt_config['cap_leave']
         print('[Action] Cap:', cap_check, client.get_cap(), '/', client.hunt_config['cap_leave'])
     if ammo:
         ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
