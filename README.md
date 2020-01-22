@@ -107,7 +107,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 25+   | [Yalahar Cemetery Quarter Right @elsteiner](scripts_elsteiner/Yalahar_CemeteryQuarterRight/setup.json)         | :star:                                  | :star:                            |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                            |
-| 30+   | [Meriana Gargoyle @Juanjo](scripts_jj/meriana_gargoyle_rp/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |
+| 30+   | [Meriana Gargoyle](meriana_gargoyle/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |
 
 ### Royal Paladin (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
