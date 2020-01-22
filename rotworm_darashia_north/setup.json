@@ -12,7 +12,11 @@
     "gold_bp":"Golden Backpack",
     "loot_bp":"Red Backpack"
 },
-"tools": {},
+"tools": 
+{
+	"rope": {"name":"rope", "id": 3003},
+	"shovel": {"name":"rope", "id": 3457}
+},
 "items":
 {
     "mana potion": {"hotkey":"e", "id":268, "use":"self"},

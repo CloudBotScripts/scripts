@@ -1,13 +1,14 @@
 {
 "general": 
 {
-	"loot_type":"manual",
+	"loot_type":"auto",
 	"loot_priority":"after"
 },
 "script_options": {
 	"hours_leave": [9],
 	"skill_train":"magic",
-	"hunt_down":false
+	"hunt_down":false,
+	"hunt_down2":false
 },
 "containers": 
 {
@@ -47,7 +48,8 @@
 },
 "label_actions": 
 [
-	{"label":"check_down", "action":"conditional_jump_script_options", "args": {"var_name":"hunt_down", "label_jump":"continue_down", "label_skip":"skip_down"}}
+	{"label":"check_down", "action":"conditional_jump_script_options", "args": {"var_name":"hunt_down", "label_jump":"continue_down", "label_skip":"skip_down"}},
+	{"label":"check_down2", "action":"conditional_jump_script_options", "args": {"var_name":"hunt_down2", "label_jump":"continue_down2", "label_skip":"skip_down2"}}
 ],
 "persistent_actions": 
 [
@@ -59,10 +61,10 @@
 ],
 "target_monsters": 
 [
-	{"name":"Novice Of The Cult", "action":"stand", "loot":true},
-	{"name":"Acolyte Of The Cult", "action":"stand", "loot":true},
-	{"name":"Adept Of The Cult", "action":"stand", "loot":true},
-	{"name":"Enlightened Of The Cult", "action":"stand", "loot":true}
+	{"name":"Novice Of The Cult", "action":"follow", "loot":true},
+	{"name":"Acolyte Of The Cult", "action":"follow", "loot":true},
+	{"name":"Adept Of The Cult", "action":"follow", "loot":true},
+	{"name":"Enlightened Of The Cult", "action":"follow", "loot":true}
 ],
 "target_spells":
 [ 

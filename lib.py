@@ -45,6 +45,8 @@ def cast_spell_if_monsters(client, min_mp, spell_hotkey, monsters_count=3, selec
 # Add barriers if char is inside area defined by top_left, bottom_right
 # Careful not to overlap barriers with other calls of this function
 def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_count=2):
+    if not client.battle_list.is_targetting():
+        return
     m_count = client.battle_list.get_monster_count()
     cur_coord = client.minimap.get_current_coord()
     if cur_coord not in ('Unreachable', 'Out of range'):
@@ -56,6 +58,8 @@ def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_coun
 
 # Add barriers in the border of the rectangles. rectangles is a list with top left and bottom right of the rectangles.
 def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
+    if not client.battle_list.is_targetting():
+        return
     m_count = client.battle_list.get_monster_count()
     cur_coord = client.minimap.get_current_coord()
     coords_barrier = []
@@ -326,7 +330,7 @@ def lure_monsters(client, count=3, min_count=1, wait=False):
                 print('[Action] Wait lure')
                 self.sleep(0.4)
 
-def wait_lure(client, direction_movement, lure_amount=3, dist=3, max_wait=2):
+def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=2):
     def monsters_around(creatures_sqm, dist=2):
         return sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
 
@@ -342,6 +346,8 @@ def wait_lure(client, direction_movement, lure_amount=3, dist=3, max_wait=2):
             return sum(m[0] < 0 for m in creatures_sqm) 
         elif direction_movement == 'w':
             return sum(m[0] > 0 for m in creatures_sqm) 
+        else:
+            return creatures_sqm
 
     waited = 0
     while waited < max_wait:

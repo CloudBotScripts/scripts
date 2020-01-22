@@ -79,6 +79,8 @@ node (32810, 31104, 9)
 node (32817, 31109, 9)
 node (32803, 31104, 9)
 node (32803, 31114, 9)
+label check_down
+label continue_down
 stand (32802, 31115, 9)
 node (32801, 31102, 10)
 node (32792, 31088, 10)
@@ -86,8 +88,8 @@ node (32783, 31098, 10)
 node (32783, 31115, 10)
 node (32790, 31128, 10)
 node (32801, 31128, 10)
-label check_down
-label continue_down
+label check_down2
+label continue_down2
 action check2
 label hunt2
 stand (32804, 31128, 10)
@@ -100,7 +102,7 @@ node (32807, 31097, 11)
 node (32807, 31114, 11)
 node (32807, 31128, 11)
 stand (32804, 31128, 11)
-label skip_down
+label skip_down2
 label leave2
 node (32801, 31128, 10)
 node (32783, 31128, 10)
@@ -109,6 +111,7 @@ node (32791, 31096, 10)
 node (32801, 31104, 10)
 node (32800, 31115, 10)
 stand (32802, 31115, 10)
+label skip_down
 node (32802, 31101, 9)
 action check
 label leave
