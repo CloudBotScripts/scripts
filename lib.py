@@ -85,6 +85,27 @@ def set_persistent_interval(client, persistent_alias, interval=60):
             persistent['interval'] = interval
             break
 
+# Attack distance until certain amount of monsters on screen, then follow
+def distance_attack_lure(client, selected_monsters='all', count=4):
+    monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
+    monster_count = len(monster_list)
+
+    if selected_monsters != 'all':
+        selected_monsters = [m.replace(' ', '') for m in selected_monsters]
+
+    follow=False
+    for monster in client.target_conf:
+        if selected_monsters == 'all' or monster in selected_monsters:
+            if monster_count >= count:
+                follow=True
+                client.target_conf[monster]['action'] = 'follow'
+            else:
+                client.target_conf[monster]['action'] = 'distance'
+    if follow:
+        print('[Action] Follow monsters')
+    else:
+        print('[Action] Distance attack lure')
+
 # Stop looting
 def stop_looting(client, selected_monsters='all', cap=0):
     print('[Action] stop_looting')
@@ -105,6 +126,13 @@ def anti_paralyze(client, hotkey='f2'):
     conditions = client.condition_bar.get_condition_list()
     if 'paralyzed' in conditions:
         print('[Action] Cast anti paralyze')
+        client.hotkey(hotkey)
+
+# Anti poison
+def anti_poison(client, hotkey='f10'):
+    conditions = client.condition_bar.get_condition_list()
+    if 'poisoned' in conditions:
+        print('[Action] Cast anti poison')
         client.hotkey(hotkey)
 
 # Warning: Do not use with same interval of other persistents like equip_item, refill_ammo...
@@ -338,7 +366,7 @@ def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=
     # Indicate how many monsters will be left behind if continue walking. 
     # monsters are left behind if they are opposite to the direction char is going to
     # directions: n, e, s, w
-    def monsters_left_behind(creatures_sqm, direction_movement='n'):
+    def monsters_left_behind(creatures_sqm, direction_movement='all'):
         if direction_movement == 'n':
             return sum(m[1] < 0 for m in creatures_sqm) 
         elif direction_movement == 's':
