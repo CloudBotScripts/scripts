@@ -146,7 +146,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | 30+   | [Mad Scientists @Juanjo](scripts_jj/mad_scientist/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | [Upper Spikes @Juanjo](scripts_jj/upper_spikes/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | [Laguna Island @Juanjo](scripts_jj/laguna_island/setup_mage_low.json)| :star: :star: :star: :star:                          | :star: :star:          |
-| 30+   | Tarantulas Port Hope            | :star:                                  | :star:                                  |
+| 30+   | [Laguna Island Tortoises](laguna_island_tortoises/setup_mage.json)   | :star: :star: :star:      | :star: :star:          |
 | 30+   | [Magician Quarter @Juanjo](magician_quarter/setup_mage.json)     | :star: :star:                             | :star::star:               |
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
 | 50+   | [Apes City -1 @Juanjo](scripts_jj/apes_city_-1/setup_mage.json)| :star: :star: :star: :star:                          | :star:           |
