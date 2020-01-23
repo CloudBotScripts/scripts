@@ -42,7 +42,7 @@
 },
 "label_actions": 
 [
-	{"label":"count", "action":"conditional_jump_item_count_below", "args": {"item_name":"honeycomb", "amount":10, "label_jump":"continue", "label_fail":"leave"}}
+	{"label":"count", "action":"conditional_jump_item_count_below", "args": {"item_name":"honeycomb", "amount":10, "label_jump":"continue", "label_skip":"leave"}}
 ],
 "persistent_actions": [],
 "target_monsters": 
