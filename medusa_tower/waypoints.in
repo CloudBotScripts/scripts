@@ -20,6 +20,8 @@ stand (32630,32742,5)
 action check_ammo
 stand (32634,32744,6)
 action buy_ammo
+label wait_diamond_arrow
+label count_diamond_arrow
 label skip_ammo
 stand (32629,32749,6)
 node (32623,32751,7)
@@ -36,6 +38,7 @@ label skip_imbuement
 node (32631,32770,7)
 action check_supplies
 label gohunt
+action target_off
 stand (32628,32771,7)
 action travel_east
 node (32684,32783,7)
@@ -56,30 +59,40 @@ stand (32872,32834,7)
 node (32867,32824,6)
 node (32861,32834,6)
 node (32866,32830,6)
+action target_on
 stand (32871,32827,6)
 label hunt
 action summon
 node (32862,32824,5)
 node (32862,32835,5)
 node (32871,32832,5)
+node (32864,32834,5)
 stand (32871,32830,5)
 node (32863,32830,4)
 node (32866,32839,4)
+node (32861, 32832, 4)
+node (32867, 32833, 4)
 stand (32867,32830,4)
-node (32870,32828,3)
-node (32861,32832,3)
-node (32868,32836,3)
+node (32867, 32826, 3)
+node (32861, 32832, 3)
+node (32865, 32837, 3)
+node (32862, 32832, 3)
 stand (32866,32836,3)
 stand (32864,32834,2)
 node (32866,32828,2)
+node (32866, 32827, 2)
 stand (32866,32835,2)
 stand (32868,32830,3)
 node (32863,32830,4)
+node (32860, 32832, 4)
+node (32864, 32826, 4)
 stand (32871,32830,4)
+node (32866, 32836, 5)
 node (32864,32828,5)
 action check
 label leave
 stand (32871,32827,5)
+action target_off
 node (32865,32832,6)
 node (32869,32823,6)
 stand (32872,32833,6)
