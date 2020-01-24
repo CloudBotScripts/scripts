@@ -501,7 +501,7 @@ def deposit_all_from_backpack_to_depot(client, backpack_name, depot_num):
         return False
 
     enter = 0
-    tries = 20
+    tries = 32
     while not src.is_empty() and tries > 0 and enter < 20: 
         tries -= 1
         item_name = client.get_name_item_in_slot(src, 0)
@@ -515,15 +515,16 @@ def deposit_all_from_backpack_to_depot(client, backpack_name, depot_num):
         else:
             enter += 1
             client.use_slot(src, 0)
-            tries = 20
-        sleep(0.5)
+            sleep(0.1)
+            tries = 32
+        sleep(0.4)
 
     if tries < 0 or enter >= 20:
         return False
 
     for i in range(enter):
         client.return_container(src)
-        sleep(0.2)
+        sleep(0.3)
     return True
 
 def npc_refill(client, mana=False, health=False, ammo=False, rune=False, food=False):

@@ -64,6 +64,12 @@ stand (33066,31721,15)
 node (33070,31718,14)
 stand (33066,31719,14)
 node (33069,31720,13)
+label check_infernalist
+label go_infernalist
+stand (33066,31721,13)
+node (33068,31719,12)
+stand (33066,31721,12)
+label skip_infernalist
 stand (33066,31719,13)
 stand (33066,31721,14)
 node (33080,31720,15)

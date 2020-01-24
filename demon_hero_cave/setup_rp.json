@@ -13,6 +13,7 @@
 		{"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"}
 	],
 	"summon":"f3",
+	"infernalist": false,
 	"sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
 },
 "containers": 
@@ -64,6 +65,10 @@
 	"take_ammo": 600,
 	"ammo_leave": 200
 },
+"label_actions": 
+[
+    {"label":"check_infernalist", "action":"conditional_jump_script_options", "args": {"var_name": "infernalist", "label_jump":"go_infernalist", "label_skip":"skip_infernalist"}}
+],
 "persistent_actions": [
 	{"action":"drop_vials", "interval":60},
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
@@ -84,7 +89,7 @@
 "target_monsters": 
 [
 	{"name":"Infernalist", "action":"distance", "distance":4, "loot":true},
-	{"name":"Demon", "action":"distance", "distance":4, "loot":true}
+	{"name":"Demon", "action":"distance", "distance":4, "follow_below_hp_percentage":6, "loot":true}
 ],
 "target_spells":
 [
