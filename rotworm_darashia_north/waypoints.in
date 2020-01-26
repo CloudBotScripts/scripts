@@ -54,7 +54,7 @@ node (33165,32300,9)
 node (33189,32302,9)
 node (33205,32314,9)
 action check
-action leave
+label leave
 rope (33211,32314,9)
 node (33213,32329,8)
 rope (33210,32332,8)

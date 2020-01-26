@@ -18,7 +18,6 @@
 },
 "containers": 
 {
-	"gold_bp":"Golden Backpack",
 	"loot_bp":"Shopping Bag"
 },
 "tools":
@@ -39,10 +38,9 @@
 },
 "spells":
 {
-	"exani hur up":"=",
-	"exani hur down":"-",
 	"utani hur": "v",
 	"utura gran": "R",
+	"exana pox": "f10",
 	"exevo gran con hur": "f4",
 	"utevo gran res sac": "f3",
 	"exura gran san":"r",
@@ -72,38 +70,33 @@
 },
 "label_actions": 
 [
-    {"label":"withdraw_amulet", "action":"withdraw_item_from_depot_to_backpack", "args": {
-	    "item_name":"garlic necklace", "depot_num":4, "backpack_name":"Backpack", "amount":6, "stack":false}}
+	{"label":"withdraw_amulet", "action":"withdraw_item_from_depot_to_backpack", "args": {
+		"item_name":"garlic necklace", "depot_num":4, "backpack_name":"Backpack", "amount":8, "stack":false}},
+	{"label":"count_diamond_arrow", "action":"conditional_jump_item_count_below", "args": {"item_name":"diamond arrow", "amount":300, "label_jump":"wait_diamond_arrow", "label_skip":"skip_ammo"}},
+	{"label":"wait_diamond_arrow", "action":"wait", "args": {"tmin":60, "tmax":100}}
 ],
 "persistent_actions": [
 	{"action":"drop_vials", "interval":60},
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
+	{"action":"anti_poison", "interval":4, "args":["f10"]},
 	{"action":"eat_food", "interval":30, "args":{"hotkey":"f11"}},
 	{"action":"swap_equip", "interval":3, "use_in_battle":true, "args":{
 		"item_equip":"garlic necklace", "item_unequip":"foxtail amulet", "selected_monsters":["Serpent Spawn", "Medusa"], "amount":3, "slot":"amulet"}},
-	{"action":"refill_diamond_ammo", "interval":2, "use_in_battle":true, "args":{"save_single_target":true}},
-	{"action":"recover_full_mana", "interval":3, "args":["e"]},
-	{"action":"lure_monsters_diamond_arrow", "interval":0.5, "args":[6]}
+	{"action":"refill_diamond_ammo", "interval":1, "use_in_battle":true, "args":{"save_single_target":true}},
+	{"action":"recover_full_mana", "interval":4, "args":["e"]},
+	{"action":"lure_monsters_diamond_arrow", "interval":0.7, "args":[5]}
 ],
 "target_monsters": 
 [
 	{"name":"Medusa", "action":"follow", "loot":true},
 	{"name":"Behemoth", "action":"follow", "loot":true, "use_item":"obsidian knife"},
-	{"name":"Serpent Spawn", "action":"follow", "loot":true},
-	{"name":"Clay Guardian", "action":"follow", "loot":false},
-	{"name":"Stone Golem", "action":"follow", "loot":false},
-	{"name":"Gargoyle", "action":"follow", "loot":false},
-	{"name":"Crocodile", "action":"follow", "loot":false},
-	{"name":"Lizard Snakecharmer", "action":"follow", "loot":false},
-	{"name":"Lizard Sentinel", "action":"follow", "loot":false},
-	{"name":"Lizard Templar", "action":"follow", "loot":false},
-	{"name":"Omnivora", "action":"follow", "loot":false}
+	{"name":"Serpent Spawn", "action":"follow", "loot":true}
 ],
 "target_spells":
 [
 	{"name":"exori san", "min_mana_percent":20, "priority":1, "cooldown":2,
-		"monsters":["Medusa", "Behemoth", "Serpent Spawn"]},
+		"monsters":["Medusa", "Behemoth", "Serpent Spawn", "Clay Guardian", "Omnivora", "Stone Golem"]},
 	{"name":"exevo mas san", "min_mana_percent":30, "priority":3, "min_monster_count":3, "cooldown":4}
 ],
 "loot": []

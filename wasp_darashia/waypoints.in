@@ -1,0 +1,63 @@
+label start
+label start_darashia_dp
+node (33211, 32461, 8)
+action deposit
+stand (33214, 32455, 8)
+node (33218, 32442, 7)
+node (33221, 32427, 7)
+node (33231, 32413, 7)
+door (33231, 32412, 7)
+door (33231, 32406, 7)
+node (33227, 32402, 7)
+door (33224, 32398, 7)
+label start
+door (33221, 32400, 7)
+node (33220, 32403, 7)
+action buy_potions
+door (33221, 32400, 7)
+door (33224, 32398, 7)
+node (33228, 32402, 7)
+door (33231, 32406, 7)
+door (33231, 32412, 7)
+node (33216, 32405, 7)
+node (33216, 32391, 7)
+node (33211, 32385, 7)
+stand (33210, 32384, 7)
+label hunt
+node (33206, 32385, 6)
+ladder (33205, 32382, 6)
+node (33205, 32381, 5)
+ladder (33207, 32381, 5)
+node (33204, 32382, 4)
+stand (33207, 32381, 4)
+stand (33205, 32382, 5)
+node (33206, 32388, 6)
+ladder (33206, 32389, 6)
+ladder (33205, 32389, 5)
+node (33207, 32390, 4)
+stand (33205, 32389, 4)
+stand (33206, 32389, 5)
+node (33209, 32387, 6)
+ladder (33214, 32387, 6)
+ladder (33212, 32387, 5)
+node (33214, 32388, 4)
+stand (33212, 32387, 4)
+stand (33214, 32387, 5)
+node (33214, 32382, 6)
+ladder (33214, 32381, 6)
+ladder (33213, 32381, 5)
+node (33215, 32382, 4)
+stand (33213, 32381, 4)
+stand (33214, 32381, 5)
+node (33211, 32384, 6)
+label check_honeycomb
+label not_enough_honeycombs
+action check
+label leave
+stand (33210, 32384, 6)
+node (33216, 32391, 7)
+node (33216, 32405, 7)
+node (33217, 32427, 7)
+node (33215, 32448, 7)
+stand (33214, 32455, 7)
+

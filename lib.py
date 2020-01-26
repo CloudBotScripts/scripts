@@ -45,6 +45,8 @@ def cast_spell_if_monsters(client, min_mp, spell_hotkey, monsters_count=3, selec
 # Add barriers if char is inside area defined by top_left, bottom_right
 # Careful not to overlap barriers with other calls of this function
 def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_count=2):
+    if not client.battle_list.is_targetting():
+        return
     m_count = client.battle_list.get_monster_count()
     cur_coord = client.minimap.get_current_coord()
     if cur_coord not in ('Unreachable', 'Out of range'):
@@ -56,6 +58,8 @@ def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_coun
 
 # Add barriers in the border of the rectangles. rectangles is a list with top left and bottom right of the rectangles.
 def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
+    if not client.battle_list.is_targetting():
+        return
     m_count = client.battle_list.get_monster_count()
     cur_coord = client.minimap.get_current_coord()
     coords_barrier = []
@@ -81,6 +85,27 @@ def set_persistent_interval(client, persistent_alias, interval=60):
             persistent['interval'] = interval
             break
 
+# Attack distance until certain amount of monsters on screen, then follow
+def distance_attack_lure(client, selected_monsters='all', count=4):
+    monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
+    monster_count = len(monster_list)
+
+    if selected_monsters != 'all':
+        selected_monsters = [m.replace(' ', '') for m in selected_monsters]
+
+    follow=False
+    for monster in client.target_conf:
+        if selected_monsters == 'all' or monster in selected_monsters:
+            if monster_count >= count:
+                follow=True
+                client.target_conf[monster]['action'] = 'follow'
+            else:
+                client.target_conf[monster]['action'] = 'distance'
+    if follow:
+        print('[Action] Follow monsters')
+    else:
+        print('[Action] Distance attack lure')
+
 # Stop looting
 def stop_looting(client, selected_monsters='all', cap=0):
     print('[Action] stop_looting')
@@ -101,6 +126,13 @@ def anti_paralyze(client, hotkey='f2'):
     conditions = client.condition_bar.get_condition_list()
     if 'paralyzed' in conditions:
         print('[Action] Cast anti paralyze')
+        client.hotkey(hotkey)
+
+# Anti poison
+def anti_poison(client, hotkey='f10'):
+    conditions = client.condition_bar.get_condition_list()
+    if 'poisoned' in conditions:
+        print('[Action] Cast anti poison')
         client.hotkey(hotkey)
 
 # Warning: Do not use with same interval of other persistents like equip_item, refill_ammo...
@@ -320,21 +352,21 @@ def lure_monsters(client, count=3, min_count=1, wait=False):
         print('[Action] Target off')
     elif wait and (not client.target_on and 0 < monster_count < count):
         creatures_sqm = client.gameboard.get_sqm_monsters()
-        if len(creatures_sqm) > 0:
+        if len(monster_list) > 0 and len(creatures_sqm) > 0:
             x, y = zip(*creatures_sqm)
             if any(abs(l) >= 6 for l in x) or any(abs(l) >= 4 for l in y):
                 print('[Action] Wait lure')
                 client.hotkey('esc')
-                self.sleep(0.6)
+                client.sleep(0.4)
 
-def wait_lure(client, direction_movement, lure_amount=3, dist=3, max_wait=2):
+def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=2):
     def monsters_around(creatures_sqm, dist=2):
         return sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
 
     # Indicate how many monsters will be left behind if continue walking. 
     # monsters are left behind if they are opposite to the direction char is going to
     # directions: n, e, s, w
-    def monsters_left_behind(creatures_sqm, direction_movement='n'):
+    def monsters_left_behind(creatures_sqm, direction_movement='all'):
         if direction_movement == 'n':
             return sum(m[1] < 0 for m in creatures_sqm) 
         elif direction_movement == 's':
@@ -343,6 +375,8 @@ def wait_lure(client, direction_movement, lure_amount=3, dist=3, max_wait=2):
             return sum(m[0] < 0 for m in creatures_sqm) 
         elif direction_movement == 'w':
             return sum(m[0] > 0 for m in creatures_sqm) 
+        else:
+            return creatures_sqm
 
     waited = 0
     while waited < max_wait:
@@ -535,7 +569,14 @@ def npc_refill(client, mana=False, health=False, ammo=False, rune=False, food=Fa
         buy_list_count.append(take_food - food_count)
 
     print('[Action] Buying', list(zip(buy_list_names, buy_list_count)))
-    success = client.buy_items_from_npc(buy_list_names, buy_list_count)
+    say = None
+    if (mana or health) and not rune and not ammo and not food:
+        print('[Action] Buying only potions')
+        say = ['potions']
+    elif rune and not mana and not health and not ammo and not food:
+        print('[Action] Buying only runes')
+        say = ['runes']
+    success = client.buy_items_from_npc(buy_list_names, buy_list_count, say=say)
     if not success:
         print('[Action] Failed to buy one or more items')
 
@@ -740,7 +781,7 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
             rune_check = rune_check and rune_check2
             print('[Action] Rune2:', rune_check2, rune_count2, '/', take_rune2)
     if cap:
-        cap_check = client.get_cap() > 1.1 * client.hunt_config['cap_leave']
+        cap_check = client.get_cap() > client.hunt_config['cap_leave']
         print('[Action] Cap:', cap_check, client.get_cap(), '/', client.hunt_config['cap_leave'])
     if ammo:
         ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
@@ -781,11 +822,11 @@ def conditional_jump_script_options(client, var_name, label_jump, label_skip=Non
 def conditional_jump_position(client, coords, label_jump, label_skip=None):
     cur_coord = client.minimap.get_current_coord()
     if cur_coord not in ('Unreachable', 'Out of range'):
-        if cur_coord in coords:
-            print('[Action] current coord is in list')
+        if list(cur_coord) in coords:
+            print(f'[Action] current coord {cur_coord} is in list')
             client.jump_label(label_jump)
         elif label_skip:
-            print('[Action] current coord is not in list')
+            print(f'[Action] current coord {cur_coord} is not in list')
             client.jump_label(label_skip)
 
 # Conditional jump if character pos is in coords list 
@@ -866,7 +907,7 @@ def check_imbuements(client):
                     return False
     return True
 
-def use_imbuing_shrine(client, sqm=(0,1)):
+def use_imbuing_shrine(client, sqm=None):
     imbuements = client.script_options['imbuements']
     for imbuement in imbuements:
         print('[Action] Checking', imbuement)
@@ -877,7 +918,7 @@ def use_imbuing_shrine(client, sqm=(0,1)):
                 print('Imbuement', imbuement['name'], 'active')
             else:
                 print('Equip', imbuement['equip_slot'], 'has no', imbuement['name'], 'active')
-                shrine = client.use_imbuing_shrine(sqm, imbuement['equip_slot'])
+                shrine = client.use_imbuing_shrine(imbuement['equip_slot'], sqm=sqm)
                 if shrine:
                     shrine.imbue_item(imbuement['type'], imbuement['name'].split()[0])
                 else:

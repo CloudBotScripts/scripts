@@ -35,6 +35,7 @@ rope (32622, 31691, 9)
 node (32607, 31697, 8)
 stand (32605, 31701, 8)
 label count
+label continue
 action check
 label leave
 stand (32603, 31703, 8)

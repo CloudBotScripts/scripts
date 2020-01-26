@@ -107,7 +107,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 25+   | [Yalahar Cemetery Quarter Right @elsteiner](scripts_elsteiner/Yalahar_CemeteryQuarterRight/setup.json)         | :star:                                  | :star:                            |
 | 30+   | Tarantulas Port Hope            | :star:                                  | :star:                            |
-| 30+   | [Meriana Gargoyle @Juanjo](scripts_jj/meriana_gargoyle_rp/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |
+| 30+   | [Meriana Gargoyle](meriana_gargoyle/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |
 
 ### Royal Paladin (100-200)
 | Level | Name                            | Profit                                  | XP                                      |
@@ -135,17 +135,18 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 300+  | [Oramond Sewers](oramond_sewers/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
-| 350+  | Medusa Tower                    | :star: :star:                           | :star: :star: :star: :star: :star:      |
-| 400+  | [Oramond Glooth Tower](oramond_tower/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
+| 350+  | [Medusa Tower](medusa_tower/setup_rp.json)     | :star: :star:                           | :star: :star: :star: :star: :star:      |
+| 400+  | [Oramond Glooth Tower](oramond_tower/setup_rp.json) | :star: :star: :star: :star:        | :star: :star: :star: :star: :star:      |       
 
 ### Master Sorcerer/Elder Druid (8-100)
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 8+    | [Wasp Darashia](wasp_darashia/setup_mage.json)| :star: :star: :star:      | :star: :star:                           |
 | 15+   | [Minotaur Darashia](minotaur_darashia/setup_mage.json)| :star: :star:                           | :star: :star: :star: :star:             |
 | 30+   | [Mad Scientists @Juanjo](scripts_jj/mad_scientist/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | [Upper Spikes @Juanjo](scripts_jj/upper_spikes/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | [Laguna Island @Juanjo](scripts_jj/laguna_island/setup_mage_low.json)| :star: :star: :star: :star:                          | :star: :star:          |
-| 30+   | Tarantulas Port Hope            | :star:                                  | :star:                                  |
+| 30+   | [Laguna Island Tortoises](laguna_island_tortoises/setup_mage.json)   | :star: :star: :star:      | :star: :star:          |
 | 30+   | [Magician Quarter @Juanjo](magician_quarter/setup_mage.json)     | :star: :star:                             | :star::star:               |
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
 | 50+   | [Apes City -1 @Juanjo](scripts_jj/apes_city_-1/setup_mage.json)| :star: :star: :star: :star:                          | :star:           |

@@ -1,0 +1,48 @@
+{
+"general": 
+{
+	"loot_type":"auto"
+},
+"script_options": {
+	"hours_leave": [9]
+},
+"containers": 
+{
+	"loot_bp":"Bag"
+},
+"tools": {},
+"items":
+{
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"},
+	"honeycomb": {"hotkey":"9", "id":5902, "use":"use"}
+},
+"spells":
+{
+	"exura infir":"r"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":90, "use_spell":"exura infir", "min_mana_percent":20, "priority":2},
+	{"type":"mp", "below_percent":20, "use_item":"mana potion", "priority":1}
+],
+"hunt_config": {
+	"cap_leave": 80,
+	"mana_name": "mana potion",
+	"take_mana": 5,
+	"mana_leave": 1
+},
+"label_actions": 
+[
+	{"label":"check_honeycomb", "action":"conditional_jump_item_count_below", "args": {"item_name":"honeycomb", "amount":10, "label_jump":"not_enough_honeycombs", "label_skip":"leave"}}
+],
+"persistent_actions": [
+	{"action":"eat_food", "interval":30, "args":["f11"]}
+],
+"target_monsters": 
+[
+	{"name":"Wasp", "action":"follow", "loot":true}
+],
+"target_spells": [],
+"loot": []
+}
