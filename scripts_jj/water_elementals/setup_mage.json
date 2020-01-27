@@ -105,7 +105,7 @@
 	"target_spells":
 	[ 
         {"name":"thunderstorm rune", "min_mana_percent":10, "priority":3, "cooldown":2, "min_monster_count":2},
-        {"name":"exori vis", "min_mana_percent":10, "priority":2, "cooldown":1, "monsters":["Water Elemental", "Quara Mantassin Scout"]},
+        {"name":"exori vis", "min_mana_percent":10, "priority":2, "cooldown":1, "monsters":["Water Elemental", "Quara Mantassin Scout"]}
 	],
 	"loot": [
         {"name":"gold coin", "action":"loot", "dest":"gold_bp"},
