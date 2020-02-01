@@ -165,7 +165,7 @@ If you want to improve the scripts, or add your own scripts, you have to make a 
 | Level | Name                            | 
 | ----- | ------------------------------- |
 | 8+    | [Buy Blessing](buy_blessing/info.txt)                    |
-| 10+   | Ice Fishing Svargrond           |
+| 10+   | [Ice Fishing Svargrondi](ice_fishing/setup.json)           |
 | 10+   | [Barbarian Test Quest](quests/barbarian_test/info.txt)           |
 | 20+   | [Meriana Access Quest](quests/meriana/info.txt)           |
 | 20+   | [Yalahar Access Quest](quests/yalahar/info.txt)         |
