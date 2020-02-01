@@ -1,0 +1,136 @@
+label start
+node (32265,31141,7)
+action deposit
+action refill
+node (32285,31137,7)
+action check_worms
+node (32287,31136,7)
+node (32305,31128,7)
+node (32317,31120,7)
+door (32323,31114,7)
+stand (32321,31112,7)
+action buy_worms
+door (32323,31114,7)
+node (32309,31127,7)
+node (32286,31137,7)
+node (32269,31141,7)
+label skip_worms
+action check_supplies
+label go_hunt
+node (32241,31140,7)
+node (32219,31144,7)
+node (32224,31159,7)
+node (32209,31166,7)
+node (32196,31162,7)
+label hunt
+stand (32193,31160,7)
+action fish_south
+stand (32193,31169,7)
+action fish_south
+stand (32203,31175,7)
+action fish_south
+stand (32196,31180,7)
+action fish_south
+stand (32206,31186,7)
+action fish_south
+stand (32202,31194,7)
+action fish_south
+stand (32192,31197,7)
+action fish_south
+stand (32203,31199,7)
+action fish_south
+stand (32204,31206,7)
+action fish_south
+stand (32190,31213,7)
+action fish_south
+stand (32201,31212,7)
+action fish_south
+stand (32197,31217,7)
+action fish_south
+node (32195,31205,7)
+node (32197,31189,7)
+stand (32195,31187,7)
+stand (32191,31187,6)
+stand (32188,31186,7)
+action fish_south
+stand (32178,31178,7)
+action fish_south
+stand (32184,31168,7)
+action fish_south
+stand (32179,31157,7)
+action fish_south
+node (32178,31174,7)
+stand (32178,31189,7)
+action fish_south
+stand (32188,31192,7)
+action fish_south
+stand (32173,31195,7)
+action fish_south
+stand (32173,31201,7)
+action fish_south
+stand (32176,31210,7)
+action fish_south
+stand (32177,31219,7)
+action fish_south
+stand (32184,31228,7)
+action fish_south
+stand (32187,31225,7)
+action fish_south
+stand (32192,31221,7)
+action fish_south
+node (32179,31208,7)
+node (32182,31191,7)
+stand (32190,31187,7)
+stand (32191,31187,7)
+stand (32195,31187,6)
+node (32195,31171,7)
+node (32196,31161,7)
+action wait
+action check
+label leave
+node (32222,31161,7)
+node (32236,31140,7)
+node (32261,31141,7)
+action check_time
+label train
+node (32271,31160,7)
+node (32294,31133,7)
+node (32317,31119,7)
+node (32341,31115,7)
+ladder (32341,31112,7)
+stand (32342,31107,6)
+action travel_venore
+action travel_edron
+label go_train_edron
+node (33176, 31771, 6)
+stand (33175, 31775, 6)
+node (33190, 31778, 7)
+node (33191, 31790, 7)
+stand (33179, 31790, 7)
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start trainer
+node (33199, 31792, 7)
+ladder (33175, 31775, 7)
+stand (33176, 31764, 6)
+stand (33176, 31764, 6)
+action travel_venore
+action travel_svargrond
+node (32341,31111,6)
+stand (32341,31112,6)
+node (32316,31121,7)
+node (32294,31132,7)
