@@ -18,6 +18,10 @@ stand (33629, 31895, 7)
 node (33616, 31891, 6)
 node (33619, 31884, 6)
 stand (33620, 31880, 6)
+action check_runes
+stand (33618,31882,5)
+action buy_runes
+label skip_runes
 stand (33617, 31879, 5)
 stand (33618, 31882, 4)
 action sell

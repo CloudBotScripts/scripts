@@ -1,0 +1,47 @@
+label ankrahmun
+node (33125,32843,7)
+action deposit
+action refill
+label go_bank
+stand (33127,32827,7)
+stand (33127,32826,7)
+stand (33132,32821,6)
+action sell
+action bank
+stand (33131,32816,6)
+stand (33131,32813,5)
+action sell
+action buy_potions
+action check_runes
+stand (33128,32819,5)
+action buy_runes
+label skip_runes
+stand (33131,32816,5)
+stand (33127,32826,6)
+node (33126,32837,7)
+action check_ammo
+node (33140, 32828, 7)
+stand (33145, 32819, 7)
+stand (33151, 32809, 6)
+stand (33149, 32809, 5)
+stand (33156, 32812, 4)
+action buy_ammo
+stand (33149, 32809, 4)
+stand (33151, 32809, 5)
+stand (33145, 32817, 6)
+node (33128, 32839, 7)
+label skip_ammo
+action check_imbuements
+label imbue_items
+node (33138, 32846, 7)
+node (33158, 32861, 7)
+node (33174, 32869, 7)
+node (33192, 32853, 7)
+stand (33191, 32852, 7)
+action use_imbuing_shrine_north
+node (33187, 32860, 7)
+node (33175, 32869, 7)
+node (33150, 32857, 7)
+node (33126, 32849, 7)
+label skip_imbuement
+action check_supplies
