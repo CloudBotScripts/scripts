@@ -5,8 +5,6 @@ These scripts are the official scripts for CloudBot.
 
 If you want to improve the scripts, you have to make a Pull request and we need to approve it.
 
-To view user scripts go [User scripts](https://github.com/CloudBotScripts/scripts/blob/master/user_scripts/README.md)
-
 ## Free Account
 
 ### No Vocation (0-8)
