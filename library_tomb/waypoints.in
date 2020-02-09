@@ -30,6 +30,7 @@ stand (33140, 32842, 10)
 node (33150, 32832, 10)
 action check
 label leave
+stand (33157, 32832, 10)
 door (33158, 32837, 7)
 door (33153, 32847, 7)
 node (33142, 32857, 7)

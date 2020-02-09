@@ -15,7 +15,7 @@
 "items": {
 	"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
 	"scarab coin": {"hotkey":"f2", "id":3042, "use":"use"},
-	"great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
+	"great fireball rune": {"hotkey":"f3", "id":3191, "use":"crosshair"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
 "spells": {
