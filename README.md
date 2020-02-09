@@ -1,9 +1,11 @@
 # Tibia Cloudbot scripts
 Scripts for Tibia CloudBot
 
-These scripts are the ones that are seen by CloudBot, and that can be used to hunt.
+These scripts are the official scripts for CloudBot.
 
-If you want to improve the scripts, or add your own scripts, you have to make a Pull request and we need to approve it.
+If you want to improve the scripts, you have to make a Pull request and we need to approve it.
+
+To view user scripts go [User scripts](user_scripts/README.md)
 
 ## Free Account
 
