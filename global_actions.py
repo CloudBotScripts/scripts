@@ -255,6 +255,7 @@ def waypoint_action(client, action):
         check_time(client, 'train', 'start')
 
     elif action == "check_train":
+        client.save_screenshot()
         check_skill(client)
 
     elif action == "check_level_8":

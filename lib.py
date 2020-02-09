@@ -58,21 +58,24 @@ def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_coun
 
 # Add barriers in the border of the rectangles. rectangles is a list with top left and bottom right of the rectangles.
 def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
-    if not client.battle_list.is_targetting():
-        return
-    m_count = client.battle_list.get_monster_count()
     cur_coord = client.minimap.get_current_coord()
+    if cur_coord in ('Unreachable', 'Out of range'):
+        return
+
+    monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
+    m_count = len(monster_list)
+
     coords_barrier = []
     for top_left, bottom_right in rectangles:
         z = top_left[2]
         for x in range(top_left[0], bottom_right[0] + 1):
             for y in (top_left[1], bottom_right[1]):
                 coords_barrier.append((x,y,z))
-        for x in range(top_left[1], bottom_right[1] + 1):
-            for y in (top_left[0], bottom_right[0]):
+        for y in range(top_left[1], bottom_right[1] + 1):
+            for x in (top_left[0], bottom_right[0]):
                 coords_barrier.append((x,y,z))
 
-    if m_count > monster_count:
+    if client.battle_list.is_targetting() and m_count >= monster_count:
         client.minimap.add_barrier_coords(coords_barrier)
     else:
         client.minimap.remove_barrier_coords(coords_barrier)
@@ -266,6 +269,31 @@ def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=1
             print('[Action] Unequip item')
             client.hotkey(unequip_hotkey)
 
+# Equip dwarven ring then unequip it
+def anti_drunk(client, item_equip, item_unequip=None, slot='ring'):
+    conditions = client.condition_bar.get_condition_list()
+
+    equip_item_count = client.get_hotkey_item_count(client.items[item_equip])
+    equip_hotkey = client.item_hotkeys[item_equip]
+
+    unequip_hotkey = client.item_hotkeys[item_unequip]
+
+    item_name = client.equips.get_item_in_slot(slot)
+
+    if 'drunk' in conditions:
+        if item_name != item_equip and equip_item_count > 0:
+            print('[Action] Equip dwarven ring')
+            client.hotkey(equip_hotkey)
+    else:
+        if item_name == item_equip:
+            if item_unequip is None:
+                print('[Action] Unequip dwarven ring')
+                client.hotkey(equip_hotkey)
+
+            else:
+                print('[Action] Equip', item_unequip)
+                client.hotkey(unequip_hotkey)
+
 # Cast spell if mana full
 def cast_spell(client):
     spell_hotkey = 'v'
@@ -413,15 +441,15 @@ def equip_ring(client, hotkey='f10', selected_monsters='all', amount=1):
         print('[Action] Unequip ring')
         client.hotkey(hotkey)
 
-def withdraw_item_from_stash(client, item_name, amount, hotkey_item):
-    item_count = client.get_hotkey_item_count(hotkey_item)
+def withdraw_item_from_stash(client, item_name, amount, hotkey_item=None):
+    item_count = client.get_hotkey_item_count(client.items[item_name])
     print(item_name, ':', item_count)
     if item_count >= amount:
         print('[Action] Already has enough', item_name)
         return True
     client.withdraw_item_from_stash(item_name, amount=amount - item_count)
     # Check if withdraw was succesfull
-    item_count = client.get_hotkey_item_count(hotkey_item)
+    item_count = client.get_hotkey_item_count(client.items[item_name])
     print(item_name, ':', item_count)
     if item_count >= amount:
         print('[Action] Already has enough', item_name)
