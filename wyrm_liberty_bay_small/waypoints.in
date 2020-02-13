@@ -1,0 +1,82 @@
+label start
+node (32337, 32837, 7)
+stand (32338, 32836, 7)
+action bank
+stand (32337, 32836, 7)
+label refill
+stand (32336, 32838, 7)
+stand (32334, 32835, 6)
+action deposit
+action refill
+node (32335, 32835, 6)
+stand (32336, 32837, 6)
+stand (32336, 32838, 6)
+stand (32345,32810,7)
+action sell
+action buy_potions
+action buy_runes
+node (32340, 32826, 7)
+node (32338, 32837, 7)
+action check_supplies
+label go_hunt
+node (32360,32836,7)
+node (32379,32837,7)
+stand (32388,32841,7)
+node (32389,32846,8)
+stand (32388,32848,8)
+label hunt
+node (32388, 32852, 9)
+node (32397, 32856, 9)
+node (32402, 32858, 9)
+node (32413, 32859, 9)
+node (32416, 32855, 9)
+node (32421, 32849, 9)
+node (32418, 32840, 9)
+node (32406, 32838, 9)
+node (32397, 32834, 9)
+node (32398, 32844, 9)
+node (32393, 32851, 9)
+action check
+label leave
+stand (32389,32849,9)
+stand (32389,32848,9)
+stand (32389,32842,8)
+stand (32389,32841,8)
+node (32363,32831,7)
+node (32336,32841,7)
+action check_time
+label train
+node (32340,32823,7)
+node (32355,32815,7)
+stand (32383,32814,7)
+stand (32383,32815,7)
+stand (32391,32802,6)
+stand (32409,32805,5)
+stand (32409,32806,5)
+node (32403,32816,4)
+stand (32398,32811,4)
+stand (32400,32812,3)
+node (32395,32821,2)
+action check_train
+label sword
+ladder (32393,32820,2)
+action end
+label club
+ladder (32393,32822,2)
+action end
+label axe
+ladder (32397,32820,2)
+action end
+label distance
+ladder (32397,32822,2)
+action end
+label magic
+ladder (32393,32824,2)
+action end
+label start trainer
+stand (32400,32812,2)
+stand (32398,32811,3)
+stand (32410,32806,4)
+stand (32391,32802,5)
+stand (32383,32815,6)
+node (32340,32826,7)

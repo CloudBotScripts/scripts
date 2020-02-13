@@ -89,6 +89,13 @@ def set_persistent_interval(client, persistent_alias, interval=60):
             break
 
 # Attack distance until certain amount of monsters on screen, then follow
+def set_target_action(client, selected_monsters='all', action='follow'):
+    for monster in client.target_conf:
+        if selected_monsters == 'all' or monster in selected_monsters:
+            client.target_conf[monster]['action'] = action
+    print(f'[Action] Set target config of monsters {selected_monsters} to {action}')
+
+# Attack distance until certain amount of monsters on screen, then follow
 def distance_attack_lure(client, selected_monsters='all', count=4):
     monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
     monster_count = len(monster_list)
@@ -883,6 +890,16 @@ def conditional_jump_item_count_below(client, item_name, amount, label_jump, lab
         client.jump_label(label_jump)
     elif label_skip:
         print('[Action] {} count is not {}'.format(item_name, amount))
+        client.jump_label(label_skip)
+
+# Conditional jump if level > x
+def conditional_jump_level_above(client, lvl, label_jump, label_skip=None):
+    level = client.get_level()
+    if level > lvl:
+        print('[Action] Level {} reached. Jumping to label {}'.format(lvl, label_jump))
+        client.jump_label(label_jump)
+    elif label_skip:
+        print('[Action] Level {} not reached. Jumping to label {}'.format(lvl, label_skip))
         client.jump_label(label_skip)
 
 # Function to levitate

@@ -6,7 +6,7 @@ action deposit
 label withdraw_scarab_coin
 label check_scarab_coin
 label go_hunt
-action target_off
+label set_target_follow
 node (33138, 32846, 7)
 stand (33142, 32838, 7)
 stand (33149, 32835, 8)
@@ -15,7 +15,7 @@ stand (33162, 32831, 10)
 label drop_scarab_coin
 label hunt
 node (33152, 32831, 10)
-action target_on
+label set_target_distance
 node (33146, 32836, 10)
 node (33140, 32834, 10)
 node (33144, 32845, 10)
