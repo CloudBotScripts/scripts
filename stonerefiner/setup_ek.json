@@ -2,7 +2,8 @@
 "general": 
 {
 	"loot_type":"manual",
-	"loot_priority":"first"
+	"loot_priority":"first",
+	"anti_trap":"weapon"
 },
 "script_options": {
 	"hours_leave": [9],
@@ -49,14 +50,13 @@
 "label_actions": 
 [
     {"label":"withdraw_ring", "action":"withdraw_item_from_depot_to_backpack", "args": {
-	    "item_name":"stealth ring", "depot_num":3, "backpack_name":"Backpack", "amount":4, "stack":false}}
+	    "item_name":"stealth ring", "depot_num":3, "backpack_name":"Backpack", "amount":3, "stack":false}}
 ],
 "persistent_actions": [
 	{"action":"drop_vials", "interval":60},
 	{"action":"equip_item", "interval":3, "use_in_battle":true, "args":{"hotkey":"f8", "selected_monsters":["Stonerefiner"], "amount":3}},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-	{"action":"recover_full_mana", "interval":3, "args":["e"]},
-	{"action":"stop_target_no_supplies", "interval": 4}
+	{"action":"recover_full_mana", "interval":3, "args":["e"]}
 ],
 "target_monsters": 
 [
