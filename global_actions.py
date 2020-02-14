@@ -138,6 +138,9 @@ def waypoint_action(client, action):
     elif action == "travel_venore":
         client.npc_say(['venore', 'yes'])
 
+    elif action == "travel_kazordoon":
+        client.npc_say(['kazordoon', 'yes'])
+
     elif action == "travel_carlin":
         client.npc_say(['carlin', 'yes'])
 
@@ -182,6 +185,9 @@ def waypoint_action(client, action):
 
     elif action == "travel_banuta":
         client.npc_say(['banuta', 'yes'])
+
+    elif action == "travel_fenrock":
+        client.npc_say(['fenrock', 'yes'])
 
     elif action == "travel_alchemist":
         client.npc_say(['pass', 'alchemist'])
