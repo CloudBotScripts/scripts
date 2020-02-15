@@ -30,6 +30,7 @@ If you want to improve the scripts, you have to make a Pull request and we need 
 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 20+   | [Amazon Camp Venore](venore_amazon_camp/setup_rp.json)   | :star: :star:                           | :star: :star:                           |
 | 30+   | [Stonerefiner](stonerefiner/setup_rp.json) | :star: :star:              | :star: :star: :star:                    |
 
 ### Mage (8-100)

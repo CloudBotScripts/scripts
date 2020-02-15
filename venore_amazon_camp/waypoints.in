@@ -12,6 +12,22 @@ node (32982, 32072, 6)
 stand (32971, 32085, 6)
 action sell
 action buy_potions
+node (32967, 32073, 6)
+action check_ammo
+node (32954, 32090, 6)
+node (32942, 32096, 6)
+node (32920, 32096, 6)
+node (32920, 32117, 6)
+node (32909, 32124, 6)
+stand (32903,32115,6)
+action buy_ammo
+node (32920, 32126, 6)
+node (32920, 32111, 6)
+node (32921, 32097, 6)
+node (32935, 32096, 6)
+node (32936, 32079, 6)
+node (32936, 32071, 6)
+label skip_ammo
 stand (32970, 32082, 6)
 action check_supplies
 label go_hunt
