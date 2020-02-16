@@ -1,0 +1,73 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"loot_priority":"first",
+	"anti_trap":"weapon"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"sword"},
+"containers": 
+{
+	"loot_bp":"Brocade Backpack"
+},
+"tools": {},
+"items":
+{
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"health potion": {"hotkey":"f", "id":266, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"exura ico": "r",
+	"exori ico": "q"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":80, "use_spell":"exura ico", "min_mana_percent":10,  "priority":1},
+	{"type":"mp", "below_percent":35, "use_item":"mana potion", "priority":2},
+	{"type":"hp", "below_percent":35, "use_item":"health potion", "priority":3}
+],
+"hunt_config": {
+	"cap_leave": 5,
+	"mana_name": "mana potion",
+	"take_mana": 160,
+	"mana_leave": 40,
+	"health_name": "health potion",
+	"take_health": 25,
+	"health_leave": 8
+},
+"persistent_actions": [
+	{"action":"haste", "interval":50},
+	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
+	{"action":"use_hotkey", "alias":"anti_trap", "interval":30, "args":{"hotkey":"esc"}},
+	{"action":"drop_vials", "interval":60}
+],
+"target_monsters": 
+[
+	{"name":"Elf Arcanist", "action":"follow", "loot":true},
+	{"name":"Elf", "action":"follow", "loot":true},
+	{"name":"Elf Scout", "action":"follow", "loot":true}
+],
+"target_spells":
+[
+	{"name":"exori ico", "min_mana_percent":30, "priority":1, "cooldown":6,
+		"monsters":["Elf", "Elf Scout", "Elf Arcanist"]}
+],
+"loot": [
+	{"name":"holy orchid", "action":"loot", "dest":"loot_bp"},
+	{"name":"wand of cosmic energy", "action":"loot", "dest":"loot_bp"},
+	{"name":"life crystal", "action":"loot", "dest":"loot_bp"},
+	{"name":"health potion", "action":"loot", "dest":"loot_bp"},
+	{"name":"yellow gem", "action":"loot", "dest":"loot_bp"},
+	{"name":"heaven blossom", "action":"loot", "dest":"loot_bp"},
+	{"name":"elvish bow", "action":"loot", "dest":"loot_bp"},
+	{"name":"grapes", "action":"use"},
+	{"name":"plum", "action":"use"},
+	{"name":"melon", "action":"use"},
+	{"name":"bread", "action":"use"}
+]
+}   

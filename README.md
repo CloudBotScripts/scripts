@@ -23,7 +23,6 @@ If you want to improve the scripts, you have to make a Pull request and we need 
 | 30+   | [Shadowthorn Venore](elves_venore/setup.json)   | :star: :star:                           | :star: :star:                           |
 | 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
 | 60+   | [Dark Cathedral -2](dark_cathedral/setup.json)   | :star:                                  | :star: :star: :star:                    |
-| 75+   | Corym Venore North -1           | :star: :star:                           | :star: :star: :star:                    |
 | 80+   | [Stonerefiner](stonerefiner/setup_ek.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ### Paladin (8-100)
@@ -53,6 +52,7 @@ If you want to improve the scripts, you have to make a Pull request and we need 
 | 15+   | [Rotworm Darashia North by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 15+   | [Rotworm Darashia North-East by G;P](rotworm_darashia_north/setup.json)  | :star:                                  | :star:                            |
 | 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                                  |
+| 25+   | [Yalahar Elves](yalahar_elves/setup_ek.json)  | :star::star::star:                                  | :star: :star: :star:                         |
 | 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |
 | 50+   | [Apes City -1 Port Hope @Juanjo](scripts_jj/apes_city_-1/setup_ek.json)  | :star: :star: :star: :star:                          | :star:           |
 | 50+   | [Apes City -2 Port Hope @Juanjo](scripts_jj/apes_city_-2/setup_ek.json)  | :star: :star: :star: :star:                          | :star:           |
@@ -141,6 +141,7 @@ If you want to improve the scripts, you have to make a Pull request and we need 
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 8+    | [Wasp Darashia](wasp_darashia/setup_mage.json)| :star: :star: :star:      | :star: :star:                           |
 | 15+   | [Minotaur Darashia](minotaur_darashia/setup_mage.json)| :star: :star:                           | :star: :star: :star: :star:             |
+| 25+   | [Yalahar Elves](yalahar_elves/setup_mage.json)  | :star::star::star:                                  | :star: :star: :star:                         |
 | 30+   | [Mad Scientists @Juanjo](scripts_jj/mad_scientist/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | [Upper Spikes @Juanjo](scripts_jj/upper_spikes/setup_mage.json)| :star:                          | :star: :star:          |
 | 30+   | [Laguna Island @Juanjo](scripts_jj/laguna_island/setup_mage_low.json)| :star: :star: :star: :star:                          | :star: :star:          |
