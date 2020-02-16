@@ -15,6 +15,7 @@
 	"tools": {},
 	"items":
 	{
+		"energy ring": {"hotkey":"f8", "id":3051, "use":"equip"},
 		"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
 		"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"},
 		"sudden death rune": {"hotkey":"9", "id":3155, "use":"target"}
@@ -41,13 +42,14 @@
 	},
 	"label_actions": 
 	[
-		{"label":"check_down", "action":"conditional_jump_script_options", "args": {"var_name":"hunt_down", "label_jump":"continue_down", "label_skip":"skip_down"}},
-		{"label":"check_down2", "action":"conditional_jump_script_options", "args": {"var_name":"hunt_down2", "label_jump":"continue_down2", "label_skip":"skip_down2"}}
+		{"label":"withdraw_ring", "action":"withdraw_item_from_depot_to_backpack", "args": {
+		    "item_name":"energy ring", "depot_num":3, "backpack_name":"Backpack", "amount":3, "stack":false}}
 	],
 	"persistent_actions": 
 	[
 		{"action":"drop_vials", "interval":60},
 		{"action":"haste", "interval":40},
+		{"action":"equip_item", "interval":1, "use_in_battle":true, "args":{"hotkey":"f8", "selected_monsters":["Wyrm"], "amount":2}},
 		{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
 		{"action":"recover_full_mana", "interval":2, "args":["e"]},
 		{"action":"dynamic_barrier_rectangles", "interval":1, "use_in_battle":true, "args":{
@@ -63,11 +65,10 @@
 	],
 	"target_monsters": 
 	[
-		{"name":"Wyrm", "action":"distance", "distance":4, "loot":true}
+		{"name":"Wyrm", "action":"distance", "min_dist":4, "max_dist":6, "follow_below_hp_percentage":10, "loot":true}
 	],
 	"target_spells":
 	[ 
-		{"name":"exori frigo", "min_mana_percent":10, "priority":1, "cooldown":2, "monsters":["Wyrm"]},
 		{"name":"sudden death rune", "min_mana_percent":10, "priority":2, "cooldown":2, "monsters":["Wyrm"]}
 	],
 	"loot": []

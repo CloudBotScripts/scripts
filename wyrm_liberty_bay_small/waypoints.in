@@ -7,6 +7,7 @@ label refill
 stand (32336, 32838, 7)
 stand (32334, 32835, 6)
 action deposit
+label withdraw_ring
 action refill
 node (32335, 32835, 6)
 stand (32336, 32837, 6)

@@ -1,0 +1,92 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"loot_priority":"first",
+	"anti_trap":"weapon"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"sword",
+	"summon":"F9",
+	"sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"tools": {},
+"items":
+{
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"ultimate health potion": {"hotkey":"F", "id":7643, "use":"self"},
+	"great health potion": {"hotkey":"f7", "id":239, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"utura gran": "R",
+	"utito tempo": "X",
+	"exeta res": "x",
+	"exura ico":"r",
+	"exura gran ico":"f",
+	"exori":"1",
+	"exori min":"2",
+	"exori hur":"3",
+	"exori gran":"4",
+	"exori ico":"q"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":30, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
+	{"type":"hp", "below_percent":70, "use_item":"ultimate health potion",  "priority":4},
+	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
+	{"type":"hp", "below_percent":70, "use_item":"great health potion", "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2},
+	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
+],
+"hunt_config": {
+	"cap_leave": 150,
+	"mana_name": "mana potion",
+	"take_mana": 900,
+	"mana_leave": 250,
+	"health_name": "ultimate health potion",
+	"take_health": 50,
+	"health_leave": 30,
+	"health_name2": "great health potion",
+	"take_health2": 500,
+	"health_leave2": 200
+},
+"persistent_actions": [
+	{"action":"haste", "interval":40, "args":["v"]},
+	{"action":"lure_monsters", "interval":0.5, "args":{"count":5}},
+	{"action":"drop_vials", "interval":200},
+	{"action":"recover_full_mana", "interval":3, "args":["e"]},
+	{"action":"cast_spell_if_monsters", "use_in_battle":true, "interval":11, "args":{"spell_hotkey":"X", "min_mp":70, "monsters_count":4}},
+	{"action":"eat_food", "interval":30, "args":["f11"]}
+],
+"label_actions": [
+],
+"target_monsters": 
+[
+	{"name":"Bonebeast", "action":"follow", "loot":true},
+	{"name":"Necromancer", "action":"follow", "loot":true},
+	{"name":"Vicious Squire", "action":"follow", "loot":true}, 
+	{"name":"Hero", "action":"follow", "loot":true}, 
+	{"name":"Blood Priest", "action":"follow", "loot":true}, 
+	{"name":"Lich", "action":"follow", "loot":true}, 
+	{"name":"Renegade Knight", "action":"follow", "loot":true}, 
+	{"name":"Vile Grandmaster", "action":"follow", "loot":true}
+],
+"target_spells":
+[ 
+	{"name":"exori hur", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Hero", "Vicious Squire", "Blood Priest", "Necromancer", "Lich", "Renegade Knight", "Vile Grandmaster"]},
+	{"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Hero", "Vicious Squire", "Lich", "Renegade Knight", "Vile Grandmaster"]},
+	{"name":"exori", "min_mana_percent":10, "priority":2, "cooldown": 4, "min_monster_count":2},
+	{"name":"exori min", "min_mana_percent":20, "priority":3, "cooldown": 6, "min_monster_count":2},
+	{"name":"exori gran", "min_mana_percent":30, "priority":4, "cooldown": 6,  "min_monster_count":3}
+],
+"loot": []
+}

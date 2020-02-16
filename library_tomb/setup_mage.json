@@ -59,12 +59,12 @@
 ],
 "target_monsters": 
 [
-	{"name":"Cobra", "action":"distance", "distance":4, "loot":true}, 
-	{"name":"Scarab", "action":"distance", "distance":4, "loot":true}, 
-	{"name":"Ghost", "action":"distance", "distance":4, "loot":true}, 
-	{"name":"Vampire", "action":"distance", "distance":4, "loot":true}, 
-	{"name":"Mummy", "action":"distance", "distance":4, "loot":true}, 
-	{"name":"Crypt Shambler", "action":"distance", "distance":4, "loot":false}
+	{"name":"Cobra", "action":"distance", "min_dist":3, "max_dist":4, "loot":true}, 
+	{"name":"Scarab", "action":"distance", "min_dist":3, "max_dist":4, "loot":true}, 
+	{"name":"Ghost", "action":"distance", "min_dist":3, "max_dist":4, "loot":true}, 
+	{"name":"Vampire", "action":"distance", "min_dist":3, "max_dist":4, "loot":true}, 
+	{"name":"Mummy", "action":"distance", "min_dist":3, "max_dist":4, "loot":true}, 
+	{"name":"Crypt Shambler", "action":"distance", "min_dist":3, "max_dist":4, "loot":false}
 ],
 "target_spells":
 [ 
