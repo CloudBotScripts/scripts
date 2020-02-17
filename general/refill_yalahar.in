@@ -1,0 +1,38 @@
+label yalahar
+node (32801, 31247, 7)
+label go_bank
+node (32803, 31233, 7)
+node (32816, 31233, 7)
+node (32827, 31233, 7)
+node (32830, 31246, 7)
+stand (32824, 31249, 7)
+action bank
+node (32820, 31232, 7)
+node (32802, 31233, 7)
+node (32801, 31248, 7)
+node (32787, 31247, 7)
+stand (32786, 31248, 7)
+node (32783, 31247, 6)
+action deposit
+action refill
+stand (32786, 31248, 6)
+node (32801, 31246, 7)
+node (32795, 31233, 7)
+node (32790, 31237, 7)
+stand (32790, 31239, 7)
+stand (32789, 31239, 6)
+stand (32789, 31238, 5)
+action sell
+action buy_potions
+action check_ammo
+stand (32790, 31239, 5)
+stand (32789, 31239, 4)
+stand (32790, 31238, 3)
+action buy_ammo
+stand (32789, 31239, 3)
+stand (32790, 31239, 4)
+label skip_ammo
+stand (32789, 31239, 5)
+stand (32790, 31239, 6)
+node (32780, 31232, 7)
+action check_supplies

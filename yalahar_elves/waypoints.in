@@ -1,16 +1,5 @@
 label start
-node (32788,31248,7)
-action deposit
-action refill
-node (32790, 31233, 7)
-stand (32790, 31239, 7)
-stand (32789, 31239, 6)
-action sell
-action buy_potions
-stand (32789, 31239, 5)
-stand (32790, 31239, 6)
-node (32773,31232,7)
-action check_supplies
+load scripts/general/refill_yalahar.in
 label go_hunt
 node (32765,31250,7)
 stand (32764,31250,7)
@@ -58,13 +47,6 @@ stand (32759,31250,5)
 stand (32759,31248,6)
 node (32781,31247,7)
 node (32801,31234,7)
-node (32815,31232,7)
-node (32832,31246,7)
-stand (32824,31249,7)
-action bank
-node (32831,31235,7)
-node (32802,31234,7)
-node (32797,31248,7)
 action check_time
 label train
 stand (32786,31248,7)
