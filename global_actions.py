@@ -149,7 +149,10 @@ def waypoint_action(client, action):
 
     elif action == "travel_ankrahmun":
         client.npc_say(['ankrahmun', 'yes'])
-
+        
+    elif action == "travel_darashia":
+        client.npc_say(['darashia', 'yes'])
+        
     elif action == "travel_svargrond":
         client.npc_say(['svargrond', 'yes'])
 
@@ -198,9 +201,12 @@ def waypoint_action(client, action):
     elif action == "travel_magician":
         client.npc_say(['pass', 'magician'])
 
+    elif action == "buy_enhanced_bless":
+        client.npc_say(['enhanced', 'yes'])
+        
     elif action == "buy_ticket":
         client.npc_say(['ticket', 'yes'])
-
+        
     elif action == "use_gem_north":
         x, y = client.gameboard.sqm_to_coordinate(0, 1)
         gem_name = client.hunt_config['gem_name']
