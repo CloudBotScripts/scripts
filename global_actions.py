@@ -17,7 +17,7 @@ def waypoint_action(client, action):
             client.jump_label('skip_ammo')
         else:
             ammo_name = client.hunt_config['ammo_name']
-            if 'arrow' not in ammo_name and 'bolt' not in ammo_name:
+            if 'arrow' not in ammo_name and 'bolt' not in ammo_name and 'spear' not in ammo_name:
                 client.jump_label('skip_ammo')
 
     elif action == "check_runes":
@@ -204,9 +204,15 @@ def waypoint_action(client, action):
     elif action == "buy_enhanced_bless":
         client.npc_say(['enhanced', 'yes'])
         
+    elif action == "travel_arena":
+        client.npc_say(['pass', 'arena'])
+
+    elif action == "travel_foreign":
+        client.npc_say(['pass', 'foreign'])
+
     elif action == "buy_ticket":
         client.npc_say(['ticket', 'yes'])
-        
+
     elif action == "use_gem_north":
         x, y = client.gameboard.sqm_to_coordinate(0, 1)
         gem_name = client.hunt_config['gem_name']
