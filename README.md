@@ -150,7 +150,7 @@ If you want to improve the scripts, you have to make a Pull request and we need 
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
 | 50+   | [Apes City -1 @Juanjo](scripts_jj/apes_city_-1/setup_mage.json)| :star: :star: :star: :star:                          | :star:           |
 | 50+   | [Apes City -2 @Juanjo](scripts_jj/apes_city_-2/setup_mage.json)| :star: :star: :star: :star:                          | :star:           |
-| 60+   | [Library Tomb](library_tomb/setup_mage.json)| :star: :star:                          | :star::star::star::star:         |
+| 50+   | [Library Tomb](library_tomb/setup_mage.json)| :star: :star:                          | :star::star::star::star:         |
 | 60+   | [Yalahar Cults @Juanjo](scripts_jj/yalahar_cults_mq/setup_mage.json) | :star: :star: :star:                                 | :star: :star: :star:          |
 | 65+   | [Lion Rock @Juanjo](scripts_jj/lion_rock/setup_mage.json) | :star: :star:                                 | :star: :star: :star:          |
 | 80+   | [Wyrm Liberty Bay Small](wyrm_liberty_bay_small/setup_mage.json)| :star:    | :star::star::star::star::star:         |
