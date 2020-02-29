@@ -750,7 +750,7 @@ def check_blacklist_player_online(client, label_jump):
         print('[Action] Could not find VIP window')
 
 def check_kill_count(client, monster_name, kill_amount, label_jump, label_skip):
-    result = client.get_windows_by_names(['Quest Tracker'])
+    result = client.get_windows_by_names(['QuestTracker'])
     if result:
         tracker = result[0]
         tracker_text = tracker.recognize_text_content()
