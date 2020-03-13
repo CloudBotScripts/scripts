@@ -86,6 +86,7 @@ These scripts are the official scripts for CloudBot.
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
 | 50+   | [Stonerefiner Venore](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 50+   | [Library Tomb](library_tomb/setup_mage.json)| :star: :star:                          | :star::star::star::star:         |
+| 50+   | [Meriana Gargoyle Cave (Lure)](meriana_gargoyle/setup_mage_50.json) | :star:                                  | :star: :star: :star: :star:         |
 | 80+   | [Wyrm Liberty Bay Small](wyrm_liberty_bay_small/setup_mage.json)| :star:    | :star::star::star::star::star:         |
 | 130+  | [Mother Of Scarab Lair](mother_of_scarab/setup_mage.json) | :star:                    | :star: :star: :star: :star:             |
 | 160+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
