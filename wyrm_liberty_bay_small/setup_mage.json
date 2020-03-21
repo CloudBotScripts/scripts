@@ -49,6 +49,7 @@
 	[
 		{"action":"drop_vials", "interval":60},
 		{"action":"haste", "interval":40},
+		{"action":"stop_target_no_supplies", "interval": 4, "args":{"mana":true, "health":false, "cap":false, "rune":true, "ammo":false, "time":false}},
 		{"action":"equip_item", "interval":1, "use_in_battle":true, "args":{"hotkey":"f8", "selected_monsters":["Wyrm"], "amount":2}},
 		{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
 		{"action":"recover_full_mana", "interval":2, "args":["e"]},
@@ -65,7 +66,7 @@
 	],
 	"target_monsters": 
 	[
-		{"name":"Wyrm", "action":"distance", "min_dist":4, "max_dist":6, "follow_below_hp_percentage":10, "loot":true}
+		{"name":"Wyrm", "action":"distance", "min_dist":4, "max_dist":6, "follow_below_hp_percentage":8, "loot":true}
 	],
 	"target_spells":
 	[ 

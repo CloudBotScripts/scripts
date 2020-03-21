@@ -24,13 +24,17 @@ def use_item_at_sqm(client, item_name, sqm):
     use_hotkey_at_sqm(client, hotkey, sqm)
 
 # Cast spell if monsters around
-def cast_spell_if_monsters(client, min_mp, spell_hotkey, monsters_count=3, selected_monsters='all', dist=1, use_with_target_off=False):
+## Monsters_count is deprecated, use monster_count
+def cast_spell_if_monsters(client, min_mp, spell_hotkey, monster_count=3, monsters_count=3, selected_monsters='all', dist=1, use_with_target_off=False):
+    if monster_count == 3:
+        print('[Action] cast_spell_if_monsters monsters_count is deprecated, use monster_count')
+        monster_count = monsters_count
     monster_list = client.battle_list.get_monster_list()
     if selected_monsters != 'all':
         selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
         monster_list = [m for m in monster_list if m in selected_monsters]
 
-    if len(monster_list) < monsters_count:
+    if len(monster_list) < monster_count:
         return
     if not use_with_target_off and not client.target_on:
         return
@@ -38,7 +42,7 @@ def cast_spell_if_monsters(client, min_mp, spell_hotkey, monsters_count=3, selec
     creatures_sqm = client.gameboard.get_sqm_monsters()
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
 
-    if mp_percentage > min_mp and sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm) >= monsters_count:
+    if mp_percentage > min_mp and sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm) >= monster_count:
         print('[Action] Cast Spell')
         client.hotkey(spell_hotkey)
 
@@ -94,6 +98,27 @@ def set_target_action(client, selected_monsters='all', action='follow'):
         if selected_monsters == 'all' or monster in selected_monsters:
             client.target_conf[monster]['action'] = action
     print(f'[Action] Set target config of monsters {selected_monsters} to {action}')
+
+# Attack distance until certain amount of monsters on screen, then follow
+def distance_monster_count_above(client, selected_monsters='all', count=3):
+    monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
+    monster_count = len(monster_list)
+
+    if selected_monsters != 'all':
+        selected_monsters = [m.replace(' ', '') for m in selected_monsters]
+
+    follow=True
+    for monster in client.target_conf:
+        if selected_monsters == 'all' or monster in selected_monsters:
+            if monster_count >= count:
+                follow=False
+                client.target_conf[monster]['action'] = 'distance'
+            else:
+                client.target_conf[monster]['action'] = 'follow'
+    if follow:
+        print('[Action] Follow monsters')
+    else:
+        print('[Action] Distance attack lure')
 
 # Attack distance until certain amount of monsters on screen, then follow
 def distance_attack_lure(client, selected_monsters='all', count=4):
@@ -258,6 +283,7 @@ def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=1
         monster_list = [m for m in monster_list if m in selected_monsters]
 
     creatures_sqm = client.gameboard.get_sqm_monsters()
+    print('Monsters:', monster_list)
     monster_count = len(monster_list)
     if len(creatures_sqm) >= monster_count: # Found all monsters on screen
         near_monster_count = sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
@@ -270,11 +296,11 @@ def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=1
 
     item_name = client.equips.get_item_in_slot(slot)
     if monster_count >= amount and equip_item_count > 0 and item_name != item_equip:
-        print('[Action] Equip item')
+        print(f'[Action] Equip item {item_name}')
         client.hotkey(equip_hotkey)
     elif monster_count < amount and item_name != item_unequip:
-            print('[Action] Unequip item')
-            client.hotkey(unequip_hotkey)
+        print(f'[Action] Unequip item {item_name}')
+        client.hotkey(unequip_hotkey)
 
 # Equip dwarven ring then unequip it
 def anti_drunk(client, item_equip, item_unequip=None, slot='ring'):
@@ -302,8 +328,8 @@ def anti_drunk(client, item_equip, item_unequip=None, slot='ring'):
                 client.hotkey(unequip_hotkey)
 
 # Cast spell if mana full
-def cast_spell(client):
-    spell_hotkey = 'v'
+def cast_spell(client, hotkey='v'):
+    spell_hotkey = hotkey
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
     if mp_percentage > 98:
         client.hotkey(spell_hotkey)
@@ -321,6 +347,26 @@ def refill_ammo(client, ammo_name="arrow", equip_slot="ammunition", min_amount=8
     print('[Action] Ammo count', ammo_count)
     if ammo_count is None or ammo_count < min_amount:
         client.hotkey(refill_hotkey)
+
+# Refill ammo using hotkey
+def refill_priority_ammo(client, priority_ammo_name="spectral bolt", regular_ammo_name="infernal bolt", equip_slot="ammunition", min_amount=20):
+
+    priority_ammo_slot = client.items[priority_ammo_name]
+    priority_ammo_hotkey = client.item_hotkeys[priority_ammo_name]
+
+    ammo_used = client.get_name_item_in_slot(client.equips, equip_slot)
+
+    priority_ammo_count = client.get_hotkey_item_count(priority_ammo_slot)
+    print(f'[Action] {priority_ammo_name} count', priority_ammo_count)
+    if priority_ammo_count > 0: 
+        if not ammo_used.startswith(priority_ammo_name): 
+            client.hotkey(priority_ammo_hotkey)
+    else:
+        # Regular ammo
+        ammo_count = client.equips.get_count_item_in_slot(equip_slot)
+        if ammo_count is None or ammo_count < min_amount:
+            regular_ammo_hotkey = client.item_hotkeys[regular_ammo_name]
+            client.hotkey(regular_ammo_hotkey)
 
 # Call refill of ammo
 def refill_diamond_ammo(client, save_single_target=False):
@@ -521,6 +567,7 @@ def deposit_all_from_backpack_to_depot(client, backpack_name, depot_num):
         content = f.read()
         items = json.loads(content)
     if items is None:
+        print('Failed to load item list')
         return False
 
     sort_deposit = client.script_options.get('sort_deposit', dict()) 

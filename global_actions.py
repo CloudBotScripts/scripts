@@ -33,6 +33,12 @@ def waypoint_action(client, action):
     elif action == "wait_ten_min":
         client.sleep(10 * 60)
 
+    elif action == "walk_keys":
+        client.walk_type = "keys"
+
+    elif action == "walk_mouse":
+        client.walk_type = "mouse"
+
     elif action == "target_off":
         client.target_on = False
 
