@@ -33,7 +33,7 @@ These scripts are the official scripts for CloudBot.
 | 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_ek.json)             | :star: :star: :star:                    | :star: :star: :star:                    |
 | 160+  | [Krailos Nightmare](krailos_nightmare/setup_ek.json) | :star:                                  | :star: :star: :star:                    |
 | 160+  | [Sea Serpent South](sea_serpent/setup_ek_south.json) | :star: :star:                           | :star: :star: :star:                    |
-| 160+  | [Hero Old Fortress -1](hero_fortress/setup_ek.json)   | :star: :star;                          | :star: :star: :star: :star:             |  
+| 160+  | [Hero Old Fortress -1](hero_fortress/setup_ek.json)   | :star: :star:                          | :star: :star: :star: :star:             |  
 | 180+  | [Sea Serpent South -1](sea_serpent/setup_ek_south_down.json) | :star: :star:                           | :star: :star: :star:                    |
 | 180+  | Putrid Mummy                    | :star: :star: :star:                    | :star: :star:                           |
 | 180+  | [Feyrist Mountain](feyrist_mountain/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |    
