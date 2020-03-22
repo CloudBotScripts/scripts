@@ -43,7 +43,7 @@ def cast_spell_if_monsters(client, min_mp, spell_hotkey, monster_count=3, monste
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
 
     if mp_percentage > min_mp and sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm) >= monster_count:
-        print('[Action] Cast Spell')
+        print(f'[Action] Cast spell in hotkey {spell_hotkey}')
         client.hotkey(spell_hotkey)
 
 # Add barriers if char is inside area defined by top_left, bottom_right
@@ -464,6 +464,9 @@ def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=
         creatures_sqm = client.gameboard.get_sqm_monsters()
         reachable_creatures_sqm = [sqm for sqm in creatures_sqm if client.minimap.is_reachable(sqm)]
         m_around = monsters_around(reachable_creatures_sqm, dist=dist)
+        if m_around == 0:
+            print('[Action] No monsters around to lure')
+            break
         if m_around < lure_amount:
             m_left_behind = monsters_left_behind(reachable_creatures_sqm, direction_movement=direction_movement)
             print('[Action] Monsters left behind', m_left_behind)

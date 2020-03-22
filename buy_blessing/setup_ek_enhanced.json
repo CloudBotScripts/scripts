@@ -1,0 +1,65 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"walk_type":"mouse"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"sword",
+	"enhanced":true
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"tools":
+{
+	"rope": {"name":"rope", "id": 3003},
+	"shovel": {"name":"shovel", "id": 3457}
+},
+"items":
+{
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"great health potion": {"hotkey":"F", "id":239, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"utura gran": "R",
+	"utito tempo": "X",
+	"exeta res": "x",
+	"exura ico":"r",
+	"exura gran ico":"f",
+	"exori":"1",
+	"exori min":"2",
+	"exori hur":"3",
+	"exori gran":"4",
+	"exani hur up":"=",
+	"exani hur down":"-",
+	"exori ico":"q"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":20, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
+	{"type":"hp", "below_percent":70, "use_item":"great health potion",  "priority":4},
+	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2},
+	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
+],
+"hunt_config": {
+},
+"persistent_actions": [
+	{"action":"haste", "interval":40},
+	{"action":"eat_food", "interval":60}
+],
+"target_monsters": [],
+"target_spells":
+[ 
+	{"name":"exori", "min_mana_percent":20, "priority":2, "cooldown": 4, "min_monster_count":2}
+],
+"loot": []
+}
+
