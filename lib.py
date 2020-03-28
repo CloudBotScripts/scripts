@@ -60,6 +60,18 @@ def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_coun
         else:
             client.minimap.remove_barrier_coords(coords_barrier)
 
+# Add barriers if char is inside area defined by top_left, bottom_right
+# Careful not to overlap barriers with other calls of this function
+def dynamic_barrier_coords(client, coords_barrier, monster_count=2):
+    if not client.battle_list.is_targetting():
+        return
+    m_count = client.battle_list.get_monster_count()
+    cur_coord = client.minimap.get_current_coord()
+    if m_count >= monster_count:
+        client.minimap.add_barrier_coords(coords_barrier)
+    else:
+        client.minimap.remove_barrier_coords(coords_barrier)
+
 # Add barriers in the border of the rectangles. rectangles is a list with top left and bottom right of the rectangles.
 def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
     cur_coord = client.minimap.get_current_coord()
@@ -275,8 +287,12 @@ def equip_item(client, hotkey='f10', selected_monsters='all', dist=10, amount=1,
         print('[Action] Unequip item')
         client.hotkey(hotkey)
 
-# Equip item
-def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=10, amount=1, slot='ring'):
+# Equip item if conditions, and equip back
+def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=10, amount=1, slot='ring', hp_perc=100):
+    hp_percentage, _ = client.status_bar.get_percentage()
+    if hp_percentage > hp_perc:
+        return
+
     monster_list = client.battle_list.get_monster_list()
     if selected_monsters != 'all':
         selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
@@ -328,10 +344,10 @@ def anti_drunk(client, item_equip, item_unequip=None, slot='ring'):
                 client.hotkey(unequip_hotkey)
 
 # Cast spell if mana full
-def cast_spell(client, hotkey='v'):
+def cast_spell(client, hotkey='v', min_mp=98):
     spell_hotkey = hotkey
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
-    if mp_percentage > 98:
+    if mp_percentage > min_mp:
         client.hotkey(spell_hotkey)
 
 # Refill ammo using hotkey
@@ -432,13 +448,14 @@ def lure_monsters(client, count=3, min_count=1, wait=False):
         client.target_on = False
         print('[Action] Target off')
     elif wait and (not client.target_on and 0 < monster_count < count):
+        client.hotkey('esc')
         creatures_sqm = client.gameboard.get_sqm_monsters()
-        if len(monster_list) > 0 and len(creatures_sqm) > 0:
-            x, y = zip(*creatures_sqm)
-            if any(abs(l) >= 6 for l in x) or any(abs(l) >= 4 for l in y):
+        reachable_creatures_sqm = [sqm for sqm in creatures_sqm if client.minimap.is_reachable(sqm)]
+        if len(monster_list) > 0 and len(reachable_creatures_sqm) > 0:
+            x, y = zip(*reachable_creatures_sqm)
+            if any(abs(l) >= 5 for l in x) or any(abs(l) >= 4 for l in y):
                 print('[Action] Wait lure')
-                client.hotkey('esc')
-                client.sleep(0.4)
+                client.sleep(0.2)
 
 def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=2):
     def monsters_around(creatures_sqm, dist=2):
@@ -471,9 +488,8 @@ def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=
             m_left_behind = monsters_left_behind(reachable_creatures_sqm, direction_movement=direction_movement)
             print('[Action] Monsters left behind', m_left_behind)
             if m_left_behind:
-                print('[Action] Wait 0.2')
-                client.sleep(0.2)
-                waited += 0.2
+                print('[Action] Wait 0.3')
+                waited += 0.3
             else:
                 break
         else:

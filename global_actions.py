@@ -45,6 +45,9 @@ def waypoint_action(client, action):
     elif action == "target_on":
         client.target_on = True
 
+    elif action == "start_battle":
+        client.start_battle()
+
     elif action == "communication_task":
         client.npc_say(['communication', 'yes'])
 
