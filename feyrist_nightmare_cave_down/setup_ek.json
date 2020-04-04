@@ -78,8 +78,8 @@
 	[
 		{"name":"Faun", "action":"follow", "loot":true}, 
 		{"name":"Dark Faun", "action":"follow", "loot":true}, 
-		{"name":"Weakened Frazzlemaw", "action":"stand", "loot":true}, 
-		{"name":"Enfeebled Silencer", "action":"stand", "loot":true}
+		{"name":"Weakened Frazzlemaw", "action":"follow", "loot":true}, 
+		{"name":"Enfeebled Silencer", "action":"follow", "loot":true}
 	],
 	"target_spells":
 	[ 
