@@ -1,0 +1,158 @@
+label start
+load scripts/general/refill_edron.in
+label go_hunt
+stand (33247,31841,7)
+node (33253,31841,6)
+node (33261,31825,6)
+stand (33265,31832,6)
+stand (33271,31832,7)
+stand (33268,31830,8)
+stand (33271,31837,9)
+action skip_portal
+label energy_portal_2
+stand (33090,32338,7)
+action use_gem_north
+action skip_portal
+label energy_portal_2
+stand (33060,32715,5)
+action use_gem_north
+action skip_portal
+label after_portal
+node (33527,32303,4)
+stand (33527,32304,4)
+stand (33524,32306,5)
+stand (33519,32305,6)
+node (33508,32289,7)
+node (33520,32276,7)
+node (33536,32264,7)
+stand (33547,32268,7)
+node (33551, 32276, 8)
+node (33567, 32277, 8)
+node (33581, 32272, 8)
+node (33598, 32281, 8)
+node (33602, 32294, 8)
+node (33606, 32310, 8)
+node (33619, 32301, 8)
+node (33620, 32289, 8)
+node (33616, 32275, 8)
+stand (33610, 32267, 8)
+label hunt
+label wait_lure_3
+node (33600, 32266, 9)
+label wait_lure_3
+node (33589, 32269, 9)
+label wait_lure_3
+node (33578, 32268, 9)
+label wait_lure_3
+node (33572, 32270, 9)
+label wait_lure_3
+node (33565, 32268, 9)
+label wait_lure_3
+node (33548, 32269, 9)
+label wait_lure_3
+node (33561, 32270, 9)
+label wait_lure_3
+node (33572, 32269, 9)
+label wait_lure_3
+node (33576, 32278, 9)
+label wait_lure_3
+node (33577, 32283, 9)
+label wait_lure_3
+node (33570, 32290, 9)
+label wait_lure_3
+node (33560, 32293, 9)
+label wait_lure_3
+node (33549, 32302, 9)
+label wait_lure_3
+node (33556, 32310, 9)
+label wait_lure_3
+node (33569, 32309, 9)
+label wait_lure_3
+node (33578, 32306, 9)
+label wait_lure_3
+node (33589, 32311, 9)
+label wait_lure_3
+node (33598, 32311, 9)
+label wait_lure_3
+node (33604, 32311, 9)
+label wait_lure_3
+node (33613, 32306, 9)
+label wait_lure_3
+node (33607, 32298, 9)
+label wait_lure_3
+node (33597, 32294, 9)
+label wait_lure_3
+stand (33608, 32289, 9)
+label wait_lure_3
+node (33609, 32283, 9)
+label wait_lure_3
+node (33613, 32276, 9)
+label wait_lure_3
+node (33606, 32269, 9)
+label wait_lure_6
+node (33606, 32269, 9)
+label wait_lure_3
+action check
+label leave
+stand (33610, 32267, 9)
+node (33617, 32277, 8)
+node (33619, 32291, 8)
+node (33611, 32310, 8)
+node (33602, 32293, 8)
+node (33592, 32274, 8)
+node (33575, 32278, 8)
+node (33563, 32275, 8)
+rope (33547, 32268, 8)
+stand (33547,32268,8)
+rope (33547,32268,8)
+node (33524,32268,7)
+node (33510,32286,7)
+node (33514,32302,7)
+stand (33519,32305,7)
+stand (33523,32306,6)
+stand (33524,32306,6)
+stand (33527,32304,5)
+stand (33527,32301,4)
+ladder (33527,32300,4)
+action skip_portal_2
+label energy_portal_1
+stand (33095,32338,7)
+action skip_portal_2
+label energy_portal_2
+stand (33063,32716,5)
+action skip_portal_2
+label after_portal_2
+node (33268,31832,9)
+ladder (33268,31830,9)
+stand (33271,31832,8)
+stand (33265,31832,7)
+node (33261,31824,6)
+node (33249,31840,6)
+stand (33247,31841,6)
+node (33221,31840,7)
+node (33192,31834,7)
+node (33191,31819,7)
+action check_time
+label train
+node (33190, 31778, 7)
+node (33191, 31790, 7)
+stand (33179, 31790, 7)
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start trainer
+node (33199, 31792, 7)
+node (33202,31801,7)

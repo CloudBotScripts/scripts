@@ -2,7 +2,7 @@
 "general": 
 {
 	"loot_type":"manual",
-	"loot_priority":"after"
+	"loot_priority":"first"
 },
 "script_options": {
 	"hours_leave": [9],
@@ -13,8 +13,8 @@
 },
 "containers": 
 {
-	"gold_bp":"Golden Backpack",
-	"loot_bp":"Red Backpack"
+	"gold_bp":"Shopping Bag",
+	"loot_bp":"Purple Backpack"
 },
 "tools":
 {
@@ -23,7 +23,7 @@
 "items":
 {
 	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
-	"great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
+	"avalanche rune": {"hotkey":"f9", "id":3161, "use":"crosshair"},
 	"stealth ring": {"hotkey":"V", "id":3049, "use":"equip"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
@@ -42,12 +42,14 @@
 	"mana_name": "mana potion",
 	"take_mana": 100,
 	"mana_leave": 50,
-	"rune_name": "great fireball rune",
+	"rune_name": "avalanche rune",
 	"take_rune": 80,
 	"rune_leave": 20
 },
 "label_actions": 
 [
+    {"label":"check_stealth", "action":"conditional_jump_item_count_below", "args": {"item_name":"stealth ring", "amount":4, "label_jump":"train"}},
+    {"label":"check_low_stealth", "action":"conditional_jump_item_count_below", "args": {"item_name":"stealth ring", "amount":2, "label_jump":"leave"}},
     {"label":"withdraw_ring", "action":"withdraw_item_from_depot_to_backpack", "args": {
 	    "item_name":"stealth ring", "depot_num":3, "backpack_name":"Backpack", "amount":6, "stack":false}}
 ],
@@ -60,18 +62,18 @@
 ],
 "target_monsters": 
 [
-	{"name":"Stonerefiner", "action":"distance", "loot":true}
+	{"name":"Stonerefiner", "action":"distance", "min_dist":1, "max_dist":3, "loot":true}
 ],
 "target_spells":
 [ 
 	{"name":"exevo frigo hur", "min_mana_percent":20, "priority":3, "cooldown": 4,  "min_monster_count":2},
-	{"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3}
+	{"name":"avalanche rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3}
 ],
 "loot": 
 [
 	{"name":"platinum coin", "action":"loot", "dest":"gold_bp"},
 	{"name":"platinum coins", "action":"loot", "dest":"gold_bp"},
-	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+	{"name":"#gold coins", "action":"loot", "dest":"gold_bp"},
 	{"name":"glob of acid slime", "action":"loot", "dest":"loot_bp"},
 	{"name":"rare earth", "action":"loot", "dest":"loot_bp"},
 	{"name":"poisonous slime", "action":"loot", "dest":"loot_bp"},

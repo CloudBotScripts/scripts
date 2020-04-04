@@ -7,12 +7,12 @@
 "script_options": {
     "hours_leave": [9],
     "lower_level": true,
-    "upper_level": false
+    "upper_level": true
 },
 "containers": 
 {
-    "gold_bp":"Shopping Bag",
-    "loot_bp":"Purple Backpack"
+    "gold_bp":"Orange Backpack",
+    "loot_bp":"Red Backpack"
 },
 "tools": {},
 "items":
@@ -25,7 +25,7 @@
 "spells":
 {
     "exura gran":"r",
-    "exevo frigo hur":"2",
+    "utana vid":"8",
     "exori infir tera":"1"
 },
 "healing":
@@ -34,31 +34,29 @@
     {"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2}
 ],
 "hunt_config": {
-    "cap_leave": 30,
+    "cap_leave": 40,
     "mana_name": "mana potion",
-    "take_mana": 80,
-    "mana_leave": 30,
+    "take_mana": 100,
+    "mana_leave": 45,
     "rune_name": "great fireball rune",
-    "take_rune": 0,
-    "rune_leave": -1 
+    "take_rune": 40,
+    "rune_leave": 10 
 },
-"label_actions": 
-[
-    {"label":"withdraw_ring", "action":"withdraw_item_from_depot_to_backpack", "args": {
-	    "item_name":"stealth ring", "depot_num":3, "backpack_name":"Backpack", "amount":4, "stack":false}},
-    {"label":"check_stealth", "action":"conditional_jump_item_count_below", "args": {"item_name":"stealth ring", "amount":4, "label_jump":"train"}},
-    {"label":"check_low_stealth", "action":"conditional_jump_item_count_below", "args": {"item_name":"stealth ring", "amount":2, "label_jump":"leave"}}
+"label_actions": [
+    {"label":"withdraw_mushrooms", "action":"withdraw_item_from_depot_to_backpack", "args": {
+	    "item_name":"brown mushroom", "depot_num":4, "backpack_name":"Backpack", "amount":20, "stack":true}}
 ],
 "persistent_actions": 
 [
     {"action":"drop_vials", "interval":60},
     {"action":"anti_paralyze", "interval":1, "args":["r"]},
     {"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-    {"action":"equip_item", "interval":1, "use_in_battle":true, "args":{"hotkey":"V", "amount":1, "selected_monsters":["Forest Fury", "Wilting Leaf Golem"], "slot":"ring"}}
+    {"action":"use_hotkey", "interval": 195, "use_in_battle":true, "args":{"hotkey":"8"}}
 ],
 "target_monsters": 
 [
     {"name":"Leaf Golem", "action":"follow", "loot":true},
+    {"name":"Wilting Leaf Golem", "action":"follow", "loot":true},
     {"name":"Forest Fury", "action":"follow", "loot":true},
     {"name":"Poacher", "action":"follow", "loot":true},
     {"name":"Dryad", "action":"follow", "loot":true},
@@ -66,8 +64,7 @@
 ],
 "target_spells":
 [ 
-    {"name":"great fireball rune", "min_mana_percent":120, "priority":4, "cooldown": 2,  "min_monster_count":30},
-    {"name":"exevo frigo hur", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":2},
+    {"name":"great fireball rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3},
     {"name":"exori infir tera", "min_mana_percent":10, "priority":1, "cooldown":2, "monsters":["Forest Fury", "Poacher", "Wilting Leaf Golem"]}
 ],
 "loot": 

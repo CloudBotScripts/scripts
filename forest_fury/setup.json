@@ -6,11 +6,12 @@
 "script_options": {
 	"hours_leave": [9],
 	"lower_level": true,
-	"upper_level": false
+	"upper_level": true,
+	"anti_trap":"weapon"
 },
 "containers": 
 {
-	"gold_bp":"Golden Backpack",
+	"gold_bp":"Purple Backpack",
 	"loot_bp":"Red Backpack"
 },
 "tools": {},

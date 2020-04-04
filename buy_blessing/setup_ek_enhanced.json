@@ -16,8 +16,8 @@
 },
 "tools":
 {
-	"rope": {"name":"rope", "id": 3003},
-	"shovel": {"name":"shovel", "id": 3457}
+	"rope": {"name":"elvenhair rope", "id": 646},
+	"shovel": {"name":"light shovel", "id": 5710}
 },
 "items":
 {

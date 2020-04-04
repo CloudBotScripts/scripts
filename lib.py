@@ -23,6 +23,35 @@ def use_item_at_sqm(client, item_name, sqm):
     hotkey = client.item_hotkeys[item_name]
     use_hotkey_at_sqm(client, hotkey, sqm)
 
+# Use rune if monsters hit greater than threshold
+# rune must be in items
+def throw_rune_if_monsters(client, min_mp, rune_name, min_monsters_hit=3, selected_monsters='all', use_with_target_off=True):
+    rune_hotkey = client.item_hotkeys.get(rune_name, 'none')
+    if rune_hotkey == 'none':
+        print(f'[Action] Rune {rune_name} is not configured in items')
+    monster_list = client.battle_list.get_monster_list()
+    if selected_monsters != 'all':
+        selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
+        monster_list = [m for m in monster_list if m in selected_monsters]
+
+    if len(monster_list) < min_monsters_hit:
+        return
+    if not use_with_target_off and not client.target_on:
+        return
+
+    creatures_sqm = client.gameboard.get_sqm_monsters()
+    client.allow_sqms_active_scan(creatures_sqm) 
+    reachable_creatures_sqm = [sqm for sqm in creatures_sqm if client.minimap.is_reachable(sqm)]
+    best_sqm, monsters_hit = client.find_sqm_max_hit(reachable_creatures_sqm)
+    hp_percentage, mp_percentage = client.status_bar.get_percentage()
+    if mp_percentage > min_mp and monsters_hit >= min_monsters_hit:
+        print(f'[Action] Throw rune {rune_name} in sqm {best_sqm}')
+        client.hotkey(rune_hotkey)
+        client.click_sqm(*best_sqm)
+    else:
+        print(f'[Action] Rune will hit {monsters_hit}')
+
+
 # Cast spell if monsters around
 ## Monsters_count is deprecated, use monster_count
 def cast_spell_if_monsters(client, min_mp, spell_hotkey, monster_count=3, monsters_count=3, selected_monsters='all', dist=1, use_with_target_off=False):
@@ -102,6 +131,12 @@ def set_persistent_interval(client, persistent_alias, interval=60):
     for persistent in client.persistent_actions:
         if persistent.get('alias', 'none') == persistent_alias:
             persistent['interval'] = interval
+            break
+
+def set_persistent_args(client, persistent_alias, key, value):
+    for persistent in client.persistent_actions:
+        if persistent.get('alias', 'none') == persistent_alias:
+            persistent['args'][key] = value
             break
 
 # Attack distance until certain amount of monsters on screen, then follow
@@ -237,9 +272,9 @@ def drop_vials(client, cap=500, drop_stacks=4):
                 if 'empty potion flask' in container.get_item_in_slot(slot):
                     print('[Action] Dropping vial')
                     client.drop_item_from_container(container, slot)
-                    sleep(0.2)
+                    sleep(0.3)
                     drop_stacks -= 1
-                    if drop_stacks == 0:
+                    if drop_stacks <= 0:
                         break
 
 def recover_full_mana(client, hotkey='e'):
@@ -457,61 +492,49 @@ def lure_monsters(client, count=3, min_count=1, wait=False):
                 print('[Action] Wait lure')
                 client.sleep(0.2)
 
-def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=2):
+def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=2, min_left_behind=1):
     def monsters_around(creatures_sqm, dist=2):
         return sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
+
+    def dist_sqm(sqm):
+        return max(abs(sqm[0]), abs(sqm[1]))
 
     # Indicate how many monsters will be left behind if continue walking. 
     # monsters are left behind if they are opposite to the direction char is going to
     # directions: n, e, s, w
     def monsters_left_behind(creatures_sqm, direction_movement='all'):
         if direction_movement == 'n':
-            return sum(m[1] < 0 for m in creatures_sqm) 
+            return sum(m[1] < 0 and dist_sqm(m) > dist for m in creatures_sqm) 
         elif direction_movement == 's':
-            return sum(m[1] > 0 for m in creatures_sqm) 
+            return sum(m[1] > 0 and dist_sqm(m) > dist for m in creatures_sqm) 
         elif direction_movement == 'e':
-            return sum(m[0] < 0 for m in creatures_sqm) 
+            return sum(m[0] < 0 and dist_sqm(m) > dist for m in creatures_sqm) 
         elif direction_movement == 'w':
-            return sum(m[0] > 0 for m in creatures_sqm) 
+            return sum(m[0] > 0 and dist_sqm(m) > dist for m in creatures_sqm) 
         else:
-            return creatures_sqm
+            return len(creatures_sqm)
 
     waited = 0
     while waited < max_wait:
+        client.heal()
         creatures_sqm = client.gameboard.get_sqm_monsters()
         reachable_creatures_sqm = [sqm for sqm in creatures_sqm if client.minimap.is_reachable(sqm)]
         m_around = monsters_around(reachable_creatures_sqm, dist=dist)
-        if m_around == 0:
-            print('[Action] No monsters around to lure')
+        if client.battle_list.get_monster_count() < min_left_behind:
+            print('[Action] Not enough monsters around to lure')
             break
+
         if m_around < lure_amount:
             m_left_behind = monsters_left_behind(reachable_creatures_sqm, direction_movement=direction_movement)
             print('[Action] Monsters left behind', m_left_behind)
-            if m_left_behind:
+            if m_left_behind >= min_left_behind:
                 print('[Action] Wait 0.3')
                 waited += 0.3
             else:
                 break
         else:
+            print(f'[Action] Lured {m_around} monsters')
             break
-
-## Deprecated use equip_item
-def equip_ring(client, hotkey='f10', selected_monsters='all', amount=1):
-    monster_list = client.battle_list.get_monster_list()
-    if selected_monsters != 'all':
-        monster_list = [m for m in monster_list if m in selected_monsters]
-    monster_count = len(monster_list)
-    print(monster_list)
-    
-    item_name = client.equips.get_item_in_slot('ring')
-    print('[Action] Equipped ring:', item_name)
-
-    if monster_count >= amount and item_name == 'none':
-        print('[Action] Equip ring')
-        client.hotkey(hotkey)
-    elif monster_count < amount and item_name != 'none':
-        print('[Action] Unequip ring')
-        client.hotkey(hotkey)
 
 def withdraw_item_from_stash(client, item_name, amount, hotkey_item=None):
     item_count = client.get_hotkey_item_count(client.items[item_name])
@@ -745,7 +768,7 @@ def stop_target_no_supplies(client, mana=True, health=True, cap=True, rune=False
 def talk_npc(client, list_words):
     client.npc_say(list_words)
 
-def check_hunt(client, success, fail, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
+def check_hunt(client, success, fail=None, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
     mana_check = health_check = cap_check = ammo_check = rune_check = time_check = True
     if mana:
         mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
@@ -788,7 +811,7 @@ def check_hunt(client, success, fail, mana=True, health=True, cap=True, rune=Fal
     print('[Action] Time:', time_check)
     if all((mana_check, health_check, cap_check, ammo_check, rune_check, time_check, other)):
         client.jump_label(success)
-    else:
+    elif fail is not None:
         client.jump_label(fail)
 
 def check_time(client, train, repeat):
@@ -906,6 +929,22 @@ def jump_to_random_label(client, labels):
   print('[Action] Jump to random label:', label)
 
   client.jump_label(label)
+
+# Conditional jump monsters on screen
+# selected_monsters is 'all' or a list e.g. ['Tarantula', 'Giant Spider']
+def conditional_jump_monsters_on_screen(client, label_jump, label_skip=None, selected_monsters='all', amount=1, turn_target_off=False):
+    monster_list = client.battle_list.get_monster_list()
+    if selected_monsters != 'all':
+        monster_list = [m for m in monster_list if m in selected_monsters]
+    monster_count = len(monster_list)
+    if monster_count > amount:
+        print('[Action] Jump due to monsters on screen ', label_jump)
+        if turn_target_off:
+            client.target_on = False
+        client.jump_label(label_jump)
+    elif label_skip:
+        print('[Action] Skip jump, not enough monsters on screen', label_skip)
+        client.jump_label(label_skip)
 
 # Conditional jump using script_options variable
 def conditional_jump_script_options(client, var_name, label_jump, label_skip=None):

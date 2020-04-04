@@ -1,0 +1,143 @@
+label start
+load scripts/general/refill_edron.in
+label gohunt
+action target_off
+label activate_gfb_thrower
+node (33222,31839,7)
+node (33203,31844,7)
+door (33191,31845,7)
+stand (33185,31840,7)
+door (33177,31842,8)
+ladder (33173,31843,8)
+node (33165,31847,9)
+node (33159,31854,9)
+rope (33159,31854,9)
+node (33151,31849,8)
+rope (33151,31849,8)
+node (33157,31860,7)
+node (33169,31876,7)
+node (33179,31891,7)
+stand (33186,31916,7)
+node (33185,31950,8)
+node (33182,31966,8)
+label hunt
+node (33189, 31921, 8)
+action walk_keys
+action target_off
+label activate_gfb_thrower
+action summon
+node (33194, 31932, 8)
+node (33188, 31940, 8)
+node (33186, 31950, 8)
+label room1
+node (33185, 31959, 8)
+node (33183, 31967, 8)
+node (33190, 31967, 8)
+call conditional_jump_monsters_on_screen("label_jump":"room1", "amount":2)
+action loot_monsters
+node (33188, 31961, 8)
+action loot_monsters
+node (33176, 31964, 8)
+node (33168, 31961, 8)
+label room2
+node (33161, 31962, 8)
+node (33152, 31960, 8)
+node (33153, 31952, 8)
+node (33159, 31950, 8)
+node (33164, 31953, 8)
+node (33166, 31960, 8)
+call conditional_jump_monsters_on_screen("label_jump":"room2", "amount":2)
+action loot_monsters
+node (33164, 31955, 8)
+action loot_monsters
+node (33159, 31952, 8)
+action loot_monsters
+node (33155, 31957, 8)
+action loot_monsters
+node (33158, 31961, 8)
+action loot_monsters
+node (33144, 31959, 8)
+node (33133, 31956, 8)
+node (33128, 31954, 8)
+label room3
+node (33124, 31959, 8)
+node (33115, 31959, 8)
+node (33115, 31952, 8)
+node (33118, 31946, 8)
+node (33124, 31948, 8)
+call conditional_jump_monsters_on_screen("label_jump":"room3", "amount":2)
+action loot_monsters
+node (33120, 31949, 8)
+action loot_monsters
+node (33116, 31956, 8)
+action loot_monsters
+node (33121, 31958, 8)
+action loot_monsters
+node (33123, 31967, 8)
+node (33127, 31973, 8)
+label room4
+node (33125, 31978, 8)
+node (33133, 31978, 8)
+node (33135, 31988, 8)
+node (33129, 31990, 8)
+node (33123, 31985, 8)
+call conditional_jump_monsters_on_screen("label_jump":"room4", "amount":1)
+action loot_monsters
+node (33127, 31981, 8)
+action loot_monsters
+node (33132, 31979, 8)
+action loot_monsters
+node (33131, 31987, 8)
+action loot_monsters
+node (33150, 31993, 8)
+node (33159, 31988, 8)
+label room5
+node (33162, 31979, 8)
+node (33172, 31979, 8)
+node (33168, 31988, 8)
+call conditional_jump_monsters_on_screen("label_jump":"room5", "amount":1)
+action loot_monsters
+node (33169, 31984, 8)
+action loot_monsters
+node (33164, 31980, 8)
+action loot_monsters
+node (33176, 31975, 8)
+node (33181, 31967, 8)
+action check
+label leave
+action walk_mouse
+node (33188, 31953, 8)
+node (33190,31937,8)
+node (33189,31919,8)
+rope (33186,31916,8)
+node (33180,31894,7)
+node (33175,31883,7)
+node (33159,31862,7)
+node (33149,31850,7)
+shovel (33151,31849,7)
+stand (33159,31854,8)
+node (33173,31843,9)
+rope (33173,31843,9)
+door (33177,31842,8)
+ladder (33185,31840,8)
+door (33191,31845,7)
+node (33193,31819,7)
+node (33202,31796,7)
+action check_time
+label train
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end

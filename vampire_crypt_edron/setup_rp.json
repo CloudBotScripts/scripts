@@ -1,0 +1,97 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"loot_priority":"after"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"distance",
+	"imbuements":[
+		{"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"}
+	],
+	"summon":false,
+	"sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Shopping Bag"
+},
+"tools": {},
+"items":
+{
+	"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
+	"ultimate spirit potion": {"hotkey":"f", "id":23374, "use":"self"},
+	"crystalline arrow": {"hotkey":"j", "id":15793, "use":"equip"},
+	"blessed wooden stake": {"hotkey":"8", "id":5942, "use":"crosshair"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"utura gran": "R",
+	"utevo gran res sac": "f3",
+	"exura gran san":"r",
+	"exevo mas san":"1",
+	"exori san":"q"
+},
+"healing":
+[
+	{"type":"mp", "below_percent":20, "use_item":"ultimate spirit potion",      "priority":5},
+	{"type":"hp", "below_percent":75, "use_spell":"exura gran san", "min_mana_percent":10,  "priority":4},
+	{"type":"hp", "below_percent":50, "use_item":"ultimate spirit potion",      "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"strong mana potion", "priority":3},
+	{"type":"hp", "below_percent":98, "use_spell":"utura gran", "min_mana_percent":50, "priority":1, "cooldown":60}
+],
+"hunt_config": {
+	"cap_leave": 200,
+	"mana_name": "strong mana potion",
+	"take_mana": 1000,
+	"mana_leave": 300,
+	"health_name": "ultimate spirit potion",
+	"take_health": 200,
+	"health_leave": 80,
+	"ammo_name": "crystalline arrow",
+	"take_ammo": 600,
+	"ammo_leave": 300
+},
+"persistent_actions": [
+	{"action":"drop_vials", "interval":60},
+	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
+	{"action":"anti_paralyze", "interval":1, "use_in_battle":true, "args":["r"]},
+	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
+	{"action":"refill_ammo", "interval":5, "use_in_battle":true, "args":{"ammo_name":"crystalline arrow"}},
+	{"action":"recover_full_mana", "interval":3, "args":["e"]},
+	{"action":"dynamic_barrier_rectangles", "interval":0.4, "use_in_battle":true, "args":{
+		"rectangles":[
+			[[33030,31590,11],[33046,31601,11]],
+			[[33028,31609,11],[33048,31623,11]],
+			[[33028,31628,11],[33047,31641,11]],
+			[[33006,31626,11],[33023,31641,11]],
+			[[32987,31628,11],[33002,31641,11]],
+			[[32967,31628,11],[32984,31641,11]],
+			[[32967,31601,11],[32983,31622,11]],
+			[[32991,31601,11],[33009,31621,11]],
+			[[32995,31609,12],[33010,31623,12]],
+			[[32980,31609,12],[32994,31624,12]],
+			[[32997,31621,12],[33011,31635,12]]
+		],
+		"monster_count":1
+	}}
+],
+"target_monsters": 
+[
+	{"name":"Necromancer", "action":"stand", "loot":true}, 
+	{"name":"Vampire", "action":"distance", "use_item":"blessed wooden stake", "loot":true}, 
+	{"name":"Vampire Viscount", "action":"distance", "use_item":"blessed wooden stake", "loot":true}, 
+	{"name":"Vampire Bride", "action":"distance", "use_item":"blessed wooden stake","loot":true}
+],
+"target_spells":
+[
+	{"name":"exori san", "min_mana_percent":30, "priority":1, "cooldown":2,
+		"monsters":["Vampire", "Vampire Viscount", "Vampire Bride", "Necromancer", "Ghost"]},
+	{"name":"exevo mas san", "min_mana_percent":50, "priority":3, "min_monster_count":3, "cooldown":4}
+],
+"loot": []
+}

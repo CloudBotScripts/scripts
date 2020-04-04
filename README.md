@@ -13,11 +13,14 @@ These scripts are the official scripts for CloudBot.
 | 8+    | [Salamander Cave](salamander_cave/setup.json)             | :star: :star: :star:                          | :star: :star:                           |
 | 8+    | [Wasp Cave Ab'dendriel](wasp_ab/setup_ek.json)  | :star: :star:                          | :star: :star:                           |
 | 8+    | [Swamp Trolls](swamp_troll/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
+| 10+   | [Rotworm Venore Southeast](rotworm_venore_southeast/setup.json)                | :star: :star:                    | :star: :star:                    |
 | 15+   | [Amazon Tower Carlin](carlin_amazon_tower/setup.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup.json)   | :star: :star:                           | :star: :star:                           |
 | 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                                  |
+| 25+   | [Elvenbane Ab'Dendriel](elvenbane/setup_ek.json)  | :star:                                  | :star: :star:                         |
 | 25+   | [Yalahar Elves](yalahar_elves/setup_ek.json)  | :star::star::star:                                  | :star: :star: :star:                         |
 | 30+   | [Shadowthorn Venore](elves_venore/setup.json)   | :star: :star:                           | :star: :star:                           |
+| 40+   | [Mount Sternum Thais](mount_sternum/setup_ek.json) | :star:                                  | :star: :star:             |
 | 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |
 | 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
 | 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
@@ -40,6 +43,7 @@ These scripts are the official scripts for CloudBot.
 | 200+  | Hydra Oramond                   | :star:                                  | :star: :star:                           |
 | 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Feyrist Nightmare cave](feyrist_nightmare_cave/setup.json)| :star: :star: :star:             | :star: :star: :star:       
+| 220+  | [Feyrist Nightmare cave -2](feyrist_nightmare_cave_down/setup_ek.json)| :star: :star: :star:             | :star: :star: :star:       
 | 250+  | [Cults Edron Full](edron_cults/) | :star: :star:                           | :star: :star: :star: :star:             |
 | 250+  | [Hero Old Fortress -2](hero_fortress_down/setup_ek.json)    | :star: :star:                           | :star: :star: :star: :star: :star:      |   
 | 250+  | [Glooth Bandit East](glooth_bandit_east/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
@@ -62,12 +66,14 @@ These scripts are the official scripts for CloudBot.
 | 200+  | [Minotaur Cults](minotaur_cults/setup_rp.json)          | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Demon Hero Cave](demon_hero_cave/setup_rp.json)          | :star:        | :star: :star:                           |
 | 200+  | Feyrist Nightmare cave          | :star: :star: :star:                    | :star: :star: :star:                    |      
+| 220+  | [Feyrist Nightmare cave -2](feyrist_nightmare_cave_down/setup_ek.json)| :star: :star: :star:             | :star: :star: :star:       
 | 250+  | [Hero Old Fortress -2](hero_fortress_down/setup_rp.json)    | :star: :star:                           | :star: :star: :star: :star: :star:      |   
 | 250+  | [Glooth Bandit East](glooth_bandit_east/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit West](glooth_bandit_west/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit South](glooth_bandit_south/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 300+  | [Oramond Sewers](oramond_sewers/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
-| 350+  | [Medusa Tower](medusa_tower/setup_rp.json)     | :star: :star:                           | :star: :star: :star: :star: :star:      |
+| 350+  | [Drefia Wyrms](drefia_wyrms/setup_rp.json) | :star: :star:        | :star: :star: :star: :star:      |       
+| 350+  | [Medusa Tower](medusa_tower/setup_rp.json)     | :star: :star: :star:              | :star: :star: :star: :star: :star:      |
 | 400+  | [Oramond Glooth Tower](oramond_tower/setup_rp.json) | :star: :star: :star: :star:        | :star: :star: :star: :star: :star:      |       
 
 ### Mage
@@ -84,13 +90,15 @@ These scripts are the official scripts for CloudBot.
 | 30+   | [Forest Fury](forest_fury/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 30+   | [Laguna Island Tortoises](laguna_island_tortoises/setup_mage.json)   | :star: :star: :star:      | :star: :star:          |
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
-| 50+   | [Stonerefiner Venore](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
+| 40+   | [Stonerefiner Venore (Stealth Ring)](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
+| 40+   | [Stonerefiner Venore (Utana Vid)](stonerefiner/setup_mage_utana_vid.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 50+   | [Library Tomb](library_tomb/setup_mage.json)| :star: :star:                          | :star::star::star::star:         |
 | 50+   | [Meriana Gargoyle Cave Lure](meriana_gargoyle/setup_mage_50.json) | :star:                                  | :star: :star: :star: :star:         |
 | 60+   | [Yalahar Cults -1](yalahar_cults/setup_mage.json) | :star: :star:            | :star: :star: :star: :star:         |
 | 80+   | [Wyrm Liberty Bay Small](wyrm_liberty_bay_small/setup_mage.json)| :star:    | :star::star::star::star::star:         |
 | 130+  | [Mother Of Scarab Lair](mother_of_scarab/setup_mage.json) | :star:                    | :star: :star: :star: :star:             |
 | 160+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
+| 180+  | [(Experimental) Edron Werecave](edron_werecave/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ## Quests/Other
 | Level | Name                            | 

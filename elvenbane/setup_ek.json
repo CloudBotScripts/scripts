@@ -1,0 +1,87 @@
+{
+"general": 
+{
+	"loot_type":"manual",
+	"anti_trap":"weapon"
+},
+"script_options": {
+	"hours_leave": [9]
+},
+"containers": 
+{
+	"gold_bp":"Shopping Bag",
+	"loot_bp":"Red Backpack"
+},
+"tools":
+{
+	"rope": {"name":"rope", "id": 3003},
+	"shovel": {"name":"shovel", "id": 3457}
+},
+"items":
+{
+	"mana potion": {"hotkey":"f1", "id":268, "use":"self"},
+	"health potion": {"hotkey":"f2", "id":266, "use":"self"}
+},
+"spells":
+{
+	"exura ico":"r"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":60, "use_item":"health potion", "priority":3},
+	{"type":"hp", "below_percent":90, "use_spell":"exura ico", "min_mana_percent":20, "priority":2},
+	{"type":"mp", "below_percent":20, "use_item":"mana potion", "priority":1}
+],
+"hunt_config": {
+	"cap_leave": 80,
+	"mana_name": "mana potion",
+	"take_mana": 60,
+	"mana_leave": 20,
+	"health_name": "health potion",
+	"take_health": 15,
+	"health_leave": 8
+},
+"label_actions": [],
+"persistent_actions": [],
+"target_monsters": 
+[
+	{"name":"Minotaur", "action":"follow", "loot":true},
+	{"name":"Minotaur Archer", "action":"follow", "loot":true},
+	{"name":"Minotaur Guard", "action":"follow", "loot":true},
+	{"name":"Elf", "action":"follow", "loot":true},
+	{"name":"Hunter", "action":"follow", "loot":true},
+	{"name":"Elf Scout", "action":"follow", "loot":true},
+	{"name":"Orc", "action":"follow", "loot":true},
+	{"name":"Orc Warrior", "action":"follow", "loot":true},
+	{"name":"Orc Spearman", "action":"follow", "loot":true},
+	{"name":"Orc Berserker", "action":"follow", "loot":true},
+	{"name":"Wasp", "action":"follow", "loot":true},
+	{"name":"Troll", "action":"follow", "loot":true},
+	{"name":"Dwarf", "action":"follow", "loot":true},
+	{"name":"Poacher", "action":"follow", "loot":false}
+],
+"target_spells": [],
+"loot": 
+[
+	{"name":"gold coin", "action":"loot", "dest":"gold_bp"},
+	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+	{"name":"broken helmet", "action":"loot", "dest":"loot_bp"},
+	{"name":"minotaur horn", "action":"loot", "dest":"loot_bp"},
+	{"name":"minotaur leather", "action":"loot", "dest":"loot_bp"},
+	{"name":"heavy old tome", "action":"loot", "dest":"loot_bp"},
+	{"name":"orc leather", "action":"loot", "dest":"loot_bp"},
+	{"name":"orc tooth", "action":"loot", "dest":"loot_bp"},
+	{"name":"skull belt", "action":"loot", "dest":"loot_bp"},
+	{"name":"minotaur trophy", "action":"loot", "dest":"loot_bp"},
+	{"name":"double axe", "action":"loot", "dest":"loot_bp"},
+	{"name":"health potion", "action":"loot", "dest":"loot_bp"},
+	{"name":"piece of warrior armor", "action":"loot", "dest":"loot_bp"},
+	{"name":"halberd", "action":"loot", "dest":"loot_bp"},
+	{"name":"orcish gear", "action":"loot", "dest":"loot_bp"},
+	{"name":"deer trophy", "action":"loot", "dest":"loot_bp"},
+	{"name":"hunters quiver", "action":"loot", "dest":"loot_bp"},
+	{"name":"elvish talisman", "action":"loot", "dest":"loot_bp"},
+	{"name":"heaven blossom", "action":"loot", "dest":"loot_bp"},
+	{"name":"meat", "action":"use"}
+]
+}

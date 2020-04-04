@@ -17,14 +17,14 @@
 },
 "tools":
 {
-	"rope": {"name":"rope", "id": 646},
-	"shovel": {"name":"shovel", "id": 5710}
+	"rope": {"name":"elvenhair rope", "id": 646},
+	"shovel": {"name":"light shovel", "id": 5710}
 },
 "items":
 {
 	"great mana potion": {"hotkey":"e", "id":238, "use":"self"},
 	"ultimate healing rune": {"hotkey":"f2", "id":3160, "use":"self"},
-	"avalanche rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
+	"avalanche rune": {"hotkey":"f9", "id":3161, "use":"crosshair"},
 	"blessed wooden stake": {"hotkey":"3", "id":5942, "use":"crosshair"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
@@ -75,7 +75,6 @@
 	{"name":"exori frigo", "min_mana_percent":10, "priority":6, "cooldown":2, "monsters":["Demon Skeleton"]},
 	{"name":"exori flam", "min_mana_percent":10, "priority":1, "cooldown":2, "monsters":["Vampire", "Vampire Viscount", "Vampire Bride"]},
 	{"name":"exori gran flam", "min_mana_percent":20, "priority":2, "cooldown":8, "monsters":["Vampire", "Vampire Viscount", "Vampire Bride"]},
-	{"name":"exevo flam hur", "min_mana_percent":20, "priority":3, "cooldown": 4,  "min_monster_count":3},
 	{"name":"avalanche rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3},
 	{"name":"exevo gran mas flam", "min_mana_percent":40, "priority":5, "cooldown": 40,  "min_monster_count":5}
 ],

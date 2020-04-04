@@ -25,6 +25,7 @@ stand (32954, 32108, 6)
 action fix_soft
 label skip_soft
 action check_supplies
+label check_stealth
 label go_hunt
 node (32977, 32073, 6)
 node (32998, 32073, 6)
@@ -83,6 +84,7 @@ node (33032,32054,13)
 node (33064,32048,13)
 node (33064,32033,13)
 node (33061,32004,13)
+label check_low_stealth
 action check
 label leave
 node (33039,32003,13)

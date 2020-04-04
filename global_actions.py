@@ -48,6 +48,10 @@ def waypoint_action(client, action):
     elif action == "start_battle":
         client.start_battle()
 
+    elif action == "loot_monsters":
+        client.mark_bodies_near_sqm((0,0), dist=5)
+        client.loot_monsters()
+
     elif action == "communication_task":
         client.npc_say(['communication', 'yes'])
 
@@ -127,7 +131,6 @@ def waypoint_action(client, action):
         levitate(client, 'north', client.spells['exani hur up'])
     elif action == "levitate_north_down":
         levitate(client, 'north', client.spells['exani hur down'])
-
 
     elif action == "travel_edron":
         client.npc_say(['edron', 'yes'])

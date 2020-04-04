@@ -6,6 +6,7 @@ stand (32332,31781,7)
 node (32335,31781,8)
 action deposit
 label withdraw_ring
+label withdraw_mushrooms
 stand (32332,31781,8)
 node (32341,31780,7)
 node (32341,31784,7)
@@ -21,6 +22,7 @@ node (32341,31808,7)
 node (32342,31796,7)
 node (32337,31785,7)
 action check_supplies
+label check_stealth
 label go_hunt
 node (32341,31769,7)
 node (32341,31760,7)
@@ -42,9 +44,6 @@ stand (32428,31716,5)
 node (32427,31703,6)
 node (32442,31703,6)
 node (32455,31704,6)
-stand (32454,31705,6)
-node (32459,31706,7)
-stand (32454,31705,7)
 node (32458,31707,6)
 stand (32457,31703,6)
 node (32455,31705,5)
@@ -53,9 +52,6 @@ node (32457,31701,4)
 stand (32457,31706,4)
 stand (32457,31703,5)
 node (32458,31716,6)
-stand (32471,31711,6)
-node (32473,31715,7)
-stand (32471,31711,7)
 stand (32472,31715,6)
 node (32470,31712,5)
 node (32471,31731,5)
@@ -73,10 +69,10 @@ label skip_floor
 node (32443,31730,5)
 stand (32444,31732,5)
 node (32441,31730,6)
-stand (32438,31729,6)
-node (32442,31730,7)
 action check_lower
 label lower
+stand (32438,31729,6)
+node (32442,31730,7)
 stand (32443,31732,7)
 node (32451,31737,8)
 node (32458,31745,8)
@@ -87,6 +83,7 @@ label skip_lower
 stand (32438,31729,7)
 node (32426,31733,6)
 node (32425,31717,6)
+label check_low_stealth
 action check
 label leave
 stand (32424,31715,6)
@@ -97,5 +94,7 @@ node (32375,31748,7)
 node (32341,31743,7)
 node (32341,31769,7)
 action check_time
+label train
+node (32341,31769,7)
 label exit
 action end
