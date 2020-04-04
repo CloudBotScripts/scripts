@@ -66,7 +66,7 @@ These scripts are the official scripts for CloudBot.
 | 200+  | [Minotaur Cults](minotaur_cults/setup_rp.json)          | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Demon Hero Cave](demon_hero_cave/setup_rp.json)          | :star:        | :star: :star:                           |
 | 200+  | Feyrist Nightmare cave          | :star: :star: :star:                    | :star: :star: :star:                    |      
-| 220+  | [Feyrist Nightmare cave -2](feyrist_nightmare_cave_down/setup_ek.json)| :star: :star: :star:             | :star: :star: :star:       
+| 220+  | [Feyrist Nightmare cave -2](feyrist_nightmare_cave_down/setup_rp.json)| :star: :star: :star:             | :star: :star: :star:       
 | 250+  | [Hero Old Fortress -2](hero_fortress_down/setup_rp.json)    | :star: :star:                           | :star: :star: :star: :star: :star:      |   
 | 250+  | [Glooth Bandit East](glooth_bandit_east/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit West](glooth_bandit_west/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
