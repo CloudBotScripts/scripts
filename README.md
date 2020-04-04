@@ -90,8 +90,8 @@ These scripts are the official scripts for CloudBot.
 | 30+   | [Forest Fury](forest_fury/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 30+   | [Laguna Island Tortoises](laguna_island_tortoises/setup_mage.json)   | :star: :star: :star:      | :star: :star:          |
 | 40+   | [Meriana Gargoyle Cave](meriana_gargoyle/setup_mage.json) | :star:                                  | :star: :star: :star: :star:         |
-| 40+   | [Stonerefiner Venore (Stealth Ring)](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
-| 40+   | [Stonerefiner Venore (Utana Vid)](stonerefiner/setup_mage_utana_vid.json)  | :star: :star: :star:    | :star: :star: :star:                    |
+| 40+   | [Stonerefiner Venore Stealth Ring](stonerefiner/setup_mage.json)  | :star: :star: :star:    | :star: :star: :star:                    |
+| 40+   | [Stonerefiner Venore Utana Vid](stonerefiner/setup_mage_utana_vid.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 50+   | [Library Tomb](library_tomb/setup_mage.json)| :star: :star:                          | :star::star::star::star:         |
 | 50+   | [Meriana Gargoyle Cave Lure](meriana_gargoyle/setup_mage_50.json) | :star:                                  | :star: :star: :star: :star:         |
 | 60+   | [Yalahar Cults -1](yalahar_cults/setup_mage.json) | :star: :star:            | :star: :star: :star: :star:         |
