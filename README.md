@@ -98,7 +98,7 @@ These scripts are the official scripts for CloudBot.
 | 80+   | [Wyrm Liberty Bay Small](wyrm_liberty_bay_small/setup_mage.json)| :star:    | :star::star::star::star::star:         |
 | 130+  | [Mother Of Scarab Lair](mother_of_scarab/setup_mage.json) | :star:                    | :star: :star: :star: :star:             |
 | 160+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
-| 180+  | [(Experimental) Edron Werecave](edron_werecave/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
+| 180+  | [Experimental Edron Werecave](edron_werecave/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ## Quests/Other
 | Level | Name                            | 
