@@ -635,6 +635,7 @@ def deposit_all_from_backpack_to_depot(client, backpack_name, depot_num):
                 if item_name in items[npc]:
                     depot_dest = sort_deposit.get(npc, depot_num)
                     break
+            print(f'[Action] Deposit item {item_name} to depot {depot_num}')
             client.take_item_from_slot(src, 0, dest, dest_slot=depot_dest - 1)
         else:
             enter += 1
@@ -706,8 +707,8 @@ def npc_refill(client, mana=False, health=False, ammo=False, rune=False, food=Fa
         print('[Action] Failed to buy one or more items')
 
 def buy_items_npc(client, item_list_name, item_list_count):
-    print('[Action] Buying', list(zip(item_list_names, item_list_count)))
-    success = client.buy_items_from_npc(item_list_names, item_list_count)
+    print('[Action] Buying', list(zip(item_list_name, item_list_count)))
+    success = client.buy_items_from_npc(item_list_name, item_list_count)
     if not success:
         print('[Action] Failed to buy one or more items')
 
@@ -959,6 +960,7 @@ def conditional_jump_script_options(client, var_name, label_jump, label_skip=Non
 # Conditional jump if character pos is in coords list 
 def conditional_jump_position(client, coords, label_jump, label_skip=None):
     cur_coord = client.minimap.get_current_coord()
+    print(f'[Action] current coord {cur_coord}')
     if cur_coord not in ('Unreachable', 'Out of range'):
         if list(cur_coord) in coords:
             print(f'[Action] current coord {cur_coord} is in list')
@@ -1039,12 +1041,15 @@ def levitate(client, direction, hotkey):
 def check_imbuements(client):
     if 'imbuements' in client.script_options.keys():
         imbuements = client.script_options['imbuements']
+        if len(imbuements) < 1:
+            return True
         equip_slots = list(set([imbuement['equip_slot'] for imbuement in imbuements]))
         print('Equip slots:', equip_slots)
         active_imbuements = client.get_imbuements_equips(equip_slots)
         print('Active imbuements:', active_imbuements)
 
         for imbuement in imbuements:
+            client.sleep(0.3, 0.4)
             equip_slot = imbuement['equip_slot']
             equip_imbuements = active_imbuements[equip_slot]
             if equip_imbuements:

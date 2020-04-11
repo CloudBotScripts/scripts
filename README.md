@@ -20,6 +20,7 @@ These scripts are the official scripts for CloudBot.
 | 25+   | [Elvenbane Ab'Dendriel](elvenbane/setup_ek.json)  | :star:                                  | :star: :star:                         |
 | 25+   | [Yalahar Elves](yalahar_elves/setup_ek.json)  | :star::star::star:                                  | :star: :star: :star:                         |
 | 30+   | [Shadowthorn Venore](elves_venore/setup.json)   | :star: :star:                           | :star: :star:                           |
+| 35+   | [Thais Cyclops South](thais_cyclops_south/setup_ek.json)   | :star: :star:                           | :star: :star:                           |
 | 40+   | [Mount Sternum Thais](mount_sternum/setup_ek.json) | :star:                                  | :star: :star:             |
 | 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |
 | 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
@@ -110,3 +111,4 @@ These scripts are the official scripts for CloudBot.
 | 20+   | [Yalahar Access Quest](quests/yalahar/info.txt)         |
 | 20+   | [Sea Serpent Access Quest](quests/sea_serpent/info.txt)        |
 | 20+   | [Sell Items NPC](sell_npc/setup.json)                    |
+| 60+   | [Ape City Quest](quests/apes/setup_ek.json)        |
