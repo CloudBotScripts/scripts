@@ -1,6 +1,8 @@
 label start
 load scripts/general/refill_oramond.in
 label gohunt
+label deactivate_lure
+action target_off
 node (33626, 31897, 6)
 node (33621, 31914, 6)
 node (33637, 31926, 6)
@@ -14,6 +16,8 @@ node (33549, 31969, 12)
 door (33551, 31973, 12)
 door (33549, 31977, 12)
 node (33533, 31988, 12)
+action target_on
+label activate_lure
 label hunt
 node (33515, 32018, 12)
 rope (33514, 32025, 12)
@@ -53,6 +57,8 @@ stand (33514, 32025, 11)
 node (33515, 32018, 12)
 action check
 label leave
+label deactivate_lure
+action target_off
 node (33523, 31997, 12)
 node (33544, 31983, 12)
 door (33549, 31977, 12)

@@ -2,17 +2,14 @@
 "general": 
 {
 	"loot_type":"auto",
-	"loot_priority":"first"
+	"loot_priority":"first",
+	"anti_trap":"weapon"
 },
 "script_options": {
 	"hours_leave": [9],
 	"skill_train":"sword",
 	"imbuements":[
-		{"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
-		{"equip_slot":"weapon", "name":"Intricate Vampirism", "type":"Life Leech"},
-		{"equip_slot":"weapon", "name":"Intricate Strike", "type":"Critical Hit"},
-		{"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"},
-		{"equip_slot":"armor", "name":"Intricate Vampirism", "type":"Life Leech"}
+		{"equip_slot":"weapon", "name":"Intricate Strike", "type":"Critical Hit"}
 	],
 	"summon":"F9",
 	"sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
@@ -58,23 +55,27 @@
 	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
 ],
 "hunt_config": {
-	"cap_leave": 150,
+	"cap_leave": 100,
 	"mana_name": "mana potion",
-	"take_mana": 1100,
-	"mana_leave": 450,
+	"take_mana": 1400,
+	"mana_leave": 400,
 	"health_name": "ultimate health potion",
-	"take_health": 150,
-	"health_leave": 80,
+	"take_health": 100,
+	"health_leave": 40,
 	"health_name2": "great health potion",
-	"take_health2": 500,
-	"health_leave2": 200
+	"take_health2": 300,
+	"health_leave2": 100
 },
 "persistent_actions": [
 	{"action":"haste", "interval":40, "args":["v"]},
-	{"action":"lure_monsters", "interval":0.5, "args":{"count":4, "min_count":2}},
+	{"alias":"lure_mode", "action":"lure_monsters", "interval":0.5, "args":{"count":4, "min_count":2}},
 	{"action":"drop_vials", "interval":200},
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
 	{"action":"eat_food", "interval":30, "args":["f11"]}
+],
+"label_actions": [
+	{"label":"activate_lure", "action":"set_persistent_interval", "args": {"persistent_alias":"lure_mode", "interval":0.5}},
+	{"label":"deactivate_lure", "action":"set_persistent_interval", "args": {"persistent_alias":"lure_mode", "interval":9999}}
 ],
 "target_monsters": 
 [
