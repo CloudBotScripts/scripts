@@ -1,0 +1,54 @@
+label start
+load scripts/general/refill_kazz.in
+label go_hunt
+use (32656,31901,8)
+action wait
+label after_portal
+node (32611,31902,9)
+use (32619,31899,9)
+action wait
+node (32631,31949,7)
+node (32644,31950,7)
+stand (32646,31946,7)
+ladder (32651, 31937, 8)
+node (32651, 31928, 7)
+node (32647, 31913, 7)
+node (32642, 31903, 7)
+label hunt
+node (32653, 31897, 7)
+node (32659, 31882, 7)
+node (32659, 31903, 7)
+stand (32659, 31907, 7)
+node (32656, 31909, 6)
+node (32663, 31927, 6)
+node (32659, 31915, 6)
+call conditional_jump_script_options("var_name":"skip_upper", "label_jump":"skip_upper_floor")
+stand (32656, 31914, 6)
+node (32662, 31916, 5)
+node (32658, 31906, 5)
+node (32661, 31895, 5)
+node (32656, 31880, 5)
+node (32661, 31902, 5)
+stand (32656, 31914, 5)
+label skip_upper_floor
+stand (32659, 31907, 6)
+node (32655, 31896, 7)
+action check
+label leave
+node (32644, 31904, 7)
+node (32649, 31917, 7)
+node (32649, 31933, 7)
+shovel (32651, 31937, 7)
+ladder (32646,31946,8)
+node (32628,31951,7)
+label wagon
+use (32618,31944,7)
+action wait
+node (32610,31904,9)
+label wagon
+use (32604,31904,9)
+action wait
+action check_time
+label exit
+action exit
+action end

@@ -759,11 +759,13 @@ def check(client, mana=True, health=True, cap=True, rune=False, ammo=False, time
 
 def stop_target_no_supplies(client, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
     if check(client, mana, health, cap, rune, ammo, time, other):
-        print('[Action] Start target supplies ok')
-        client.target_on = True
+        if not client.target_on:
+            print('[Action] Start target supplies ok')
+            client.target_on = True
     else:
-        print('[Action] Stop target no supplies')
-        client.target_on = False
+        if client.target_on:
+            print('[Action] Stop target no supplies')
+            client.target_on = False
 
 # Will reach npc and say 'hi' already. So don't put 'hi' in list of words.
 def talk_npc(client, list_words):
@@ -938,7 +940,7 @@ def conditional_jump_monsters_on_screen(client, label_jump, label_skip=None, sel
     if selected_monsters != 'all':
         monster_list = [m for m in monster_list if m in selected_monsters]
     monster_count = len(monster_list)
-    if monster_count > amount:
+    if monster_count >= amount:
         print('[Action] Jump due to monsters on screen ', label_jump)
         if turn_target_off:
             client.target_on = False

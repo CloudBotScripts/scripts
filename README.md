@@ -25,8 +25,10 @@ These scripts are the official scripts for CloudBot.
 | 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |
 | 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
 | 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
-| 60+   | [Dark Cathedral -2](dark_cathedral/setup.json)   | :star:                                  | :star: :star: :star:                    |
+| 60+   | [Dark Cathedral -2](dark_cathedral/setup.json)   | :star: :star:                                  | :star: :star: :star:                    |
+| 65+   | [Kazordoon Mountain Dragons](kazz_dragon/setup_ek.json)   | :star: :star:              | :star: :star: :star:                    |
 | 70+   | Ancient Scarab Khazel           | :star: :star:                           | :star: :star:                    |     
+| 70+   | [Outside Orc Fortress](outside_orc_fortress/setup_ek.json)   | :star: :star:              | :star: :star: :star:                    |
 | 80+   | [Stonerefiner](stonerefiner/setup_ek.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 | 90+   | Mother of Scarab                | :star: :star:                           | :star: :star:                    |  
 | 90+   | [Killer Caimans](killer_caimans/setup.json)                  | :star: :star: :star:                    | :star: :star:                           |
@@ -45,11 +47,11 @@ These scripts are the official scripts for CloudBot.
 | 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Feyrist Nightmare cave](feyrist_nightmare_cave/setup.json)| :star: :star: :star:             | :star: :star: :star:       
 | 220+  | [Feyrist Nightmare cave -2](feyrist_nightmare_cave_down/setup_ek.json)| :star: :star: :star:             | :star: :star: :star:       
-| 250+  | [Cults Edron Full](edron_cults/) | :star: :star:                           | :star: :star: :star: :star:             |
 | 250+  | [Hero Old Fortress -2](hero_fortress_down/setup_ek.json)    | :star: :star:                           | :star: :star: :star: :star: :star:      |   
 | 250+  | [Glooth Bandit East](glooth_bandit_east/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit West](glooth_bandit_west/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit South](glooth_bandit_south/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
+| 300+  | [Cults Edron Full](edron_cults/setup_ek.json) | :star: :star:                           | :star: :star: :star: :star:             |
 | 300+  | [Oramond Sewers](oramond_sewers/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
 | 350+  | Medusa Tower                    | :star: :star:                           | :star: :star: :star: :star: :star:      |
 | 400+  | [Oramond Glooth Tower](oramond_tower/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
@@ -72,8 +74,10 @@ These scripts are the official scripts for CloudBot.
 | 250+  | [Glooth Bandit East](glooth_bandit_east/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit West](glooth_bandit_west/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit South](glooth_bandit_south/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
+| 300+  | [Cults Edron Full](edron_cults/setup_rp.json) | :star: :star:                           | :star: :star: :star: :star:             |
 | 300+  | [Oramond Sewers](oramond_sewers/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
 | 350+  | [Drefia Wyrms](drefia_wyrms/setup_rp.json) | :star: :star:        | :star: :star: :star: :star:      |       
+| 350+  | [Oramond Demon Sewers Entrance](oramond_demon_sewers/setup_rp.json) | :star: :star: :star: :star:        | :star: :star: :star:      |       
 | 350+  | [Medusa Tower](medusa_tower/setup_rp.json)     | :star: :star: :star:              | :star: :star: :star: :star: :star:      |
 | 400+  | [Oramond Glooth Tower](oramond_tower/setup_rp.json) | :star: :star: :star: :star:        | :star: :star: :star: :star: :star:      |       
 

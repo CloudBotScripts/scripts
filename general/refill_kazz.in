@@ -45,7 +45,4 @@ label purchase_ticket
 stand (32648,31907,8)
 action buy_ticket
 node (32655,31903,8)
-ladder (32656,31901,8)
-action wait
-label after_portal
 action check_supplies

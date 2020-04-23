@@ -19,9 +19,12 @@ label skip_ammo
 stand (32299,31134,7)
 action bank
 stand (32308,31132,7)
-label buy_potions
 action sell
 action buy_potions
+action check_runes
+node (32308,31132,7)
+action buy_runes
+label skip_runes
 action check_imbuements
 label imbue_items
 node (32280,31139,7)
