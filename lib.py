@@ -236,6 +236,16 @@ def drop_items(client, names=[]):
 def wait(client, tmin=1, tmax=1.2):
     client.sleep(tmin, tmax)
 
+# Wait until mana is above mana_perc
+# If hotkey is none, will not refill mana and some other way to refill mana should be active.
+def wait_mana_percentage_below(client, mana_perc, hotkey=None):
+    monster_count = client.battle_list.get_monster_count()
+    hp_percentage, mp_percentage = client.status_bar.get_percentage()
+    while monster_count < 1 and mp_percentage < mana_perc:
+        if hotkey:
+            client.hotkey(hotkey)
+        client.sleep(0.2, 0.3)
+
 # Drop item from backpack to sqm
 # if stack=True drops one item of the stack
 def drop_item_to_sqm(client, item_name, stack=False, dest_sqm=(0,0)):

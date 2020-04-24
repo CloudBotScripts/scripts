@@ -16,13 +16,34 @@ def waypoint_action(client, action):
         if 'ammo_name' not in client.hunt_config.keys():
             client.jump_label('skip_ammo')
         else:
-            ammo_name = client.hunt_config['ammo_name']
+            ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
             if 'arrow' not in ammo_name and 'bolt' not in ammo_name and 'spear' not in ammo_name:
+                client.jump_label('skip_ammo')
+            ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
+            ammo_check = (ammo_count >=  0.9 * take_ammo)
+            print('[Action] Ammo:', ammo_check, ammo_count, '/', take_ammo)
+            if ammo_check == True:
                 client.jump_label('skip_ammo')
 
     elif action == "check_runes":
         if 'rune_name' not in client.hunt_config.keys():
             client.jump_label('skip_runes')
+
+        else:
+            rune_name, take_rune = client.hunt_config['rune_name'], client.hunt_config['take_rune']
+            rune_count = client.get_hotkey_item_count(client.items[rune_name])
+            rune_check = rune_count >= 0.9 * take_rune
+            print('[Action] Rune:', rune_check, rune_count, '/', take_rune)
+
+            if 'rune_name2' in client.hunt_config.keys():
+                rune_name2, take_rune2 = client.hunt_config['rune_name2'], client.hunt_config['take_rune2']
+                rune_count2 = client.get_hotkey_item_count(client.items[rune_name2])
+                rune_check2 = rune_count2 >=  0.9 * take_rune2
+                rune_check = rune_check and rune_check2
+                print('[Action] Rune2:', rune_check2, rune_count2, '/', take_rune2)
+            
+            if rune_check == True:
+                client.jump_label('skip_runes')
 
     elif action == "bank":
         client.npc_say(['deposit all', 'yes'])
@@ -99,10 +120,21 @@ def waypoint_action(client, action):
             health_name2, take_health2 = client.hunt_config['health_name2'], client.hunt_config['take_health2']
             if not withdraw_item_from_stash(client, health_name2, take_health2, client.items[health_name2]): 
                 print('Not enough potions')
+
         if 'ammo_name' in client.hunt_config.keys():
             ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
             if not withdraw_item_from_stash(client, ammo_name, take_ammo, client.items[ammo_name]): 
                 print('Not enough ammo')
+
+        if 'rune_name' in client.hunt_config.keys():
+            rune_name, take_rune = client.hunt_config['rune_name'], client.hunt_config['take_rune']
+            if not withdraw_item_from_stash(client, rune_name, take_rune, client.items[rune_name]):
+                print('Not enough runes')
+
+        if 'rune_name2' in client.hunt_config.keys():
+            rune_name2, take_rune2 = client.hunt_config['rune_name2'], client.hunt_config['take_rune2']
+            if not withdraw_item_from_stash(client, rune_name2, take_rune2, client.items[rune_name2]):
+                print('Not enough runes')
 
     elif action == "refill_gem":
         gem_name, take_gem = client.hunt_config['gem_name'], client.hunt_config['take_gem']
