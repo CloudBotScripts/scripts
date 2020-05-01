@@ -1,0 +1,89 @@
+{
+	"general": {
+		"loot_type":"auto",
+		"follow_mode":"bot",
+		"fast_target":true,
+		"loot_priority":"after"
+	},
+	"script_options": {
+		"hours_leave": [9],
+		"skill_train": "magic",
+		"sort_deposit": {"alexander":6, "lailene":6, "tamoril":8, "rashid": 9, "green_djinn": 10},
+		"hunt_down": true
+	},
+	"containers": {
+		"loot_bp": "Red Backpack"
+	},
+	"tools": {
+		"rope": { "name": "elvenhair rope", "id": 646 },
+		"shovel": { "name": "light shovel", "id": 5710 }
+	},
+	"items": {
+		"great mana potion": { "hotkey": "e", "id": 238, "use": "self" },
+		"brown mushroom": { "hotkey": "6", "id": 3725, "use": "use" },
+		"thunderstorm rune": { "hotkey": "9", "id": 3202, "use": "crosshair"}
+	},
+	"spells": {
+		"utani gran hur": "v",
+		"exura gran": "f",
+		"exevo gran mas vis": "8",
+		"exura vita": "r",
+		"exori gran vis": "f12",
+		"exori amp vis": "f3",
+		"exori vis": "x"
+	},
+	"healing": [
+		{"type": "hp", "below_percent": 85, "use_spell": "exura gran", "min_mana_percent": 10, "priority": 2 },
+		{"type": "hp", "below_percent": 70, "use_spell": "exura vita", "min_mana_percent": 10, "priority": 3 },
+		{"type": "mp", "below_percent": 65, "use_item": "great mana potion", "priority": 1 }
+	],
+	"hunt_config": {
+		"cap_leave": 1,
+		"mana_name": "great mana potion",
+		"take_mana": 350,
+		"mana_leave": 100,
+		"rune_name": "thunderstorm rune",
+		"take_rune": 450,
+		"rune_leave": 100
+	},
+	"label_actions": [		
+		{"label": "check_down", "action": "conditional_jump_script_options", "args": { "var_name": "hunt_down", "label_jump": "go_down", "label_skip": "stay" }}
+	],
+	"persistent_actions": [
+		{"action": "drop_vials", "interval": 30},
+		{"action": "lure_monsters", "interval": 1, "args": { "count": 3 } },
+		{"action": "haste", "interval": 10, "args": { "hotkey": "v" } },
+		{"action": "anti_paralyze", "interval": 3, "use_in_battle":true, "args": ["v"] },
+		{"action": "eat_food", "interval": 50, "args": { "hotkey": "6" } },
+		{"action": "recover_full_mana", "interval": 20, "args": ["e"] },
+		{"alias": "rune_thrower", "action": "throw_rune_if_monsters", "interval": 2, "args": {"min_mp":20, "rune_name":"thunderstorm rune"}},
+		{"action":"dynamic_barrier_rectangles", "interval":1, "use_in_battle":true, "args":{
+		"rectangles":[
+			[[31911,31359,9],[31920,31369,9]],
+			[[31918,31372,9],[31926,31380,9]],
+			[[31929,31367,9],[31941,31374,9]],
+			[[31944,31369,9],[31956,31379,9]],
+			[[31960,31384,9],[31971,31392,9]],
+			[[31911,31406,9],[31921,31416,9]],
+			[[31931,31390,9],[31941,31402,9]],
+			[[31944,31391,9],[31956,31402,9]],
+			[[31964,31407,9],[31974,31417,9]]
+		],
+		"monster_count":1,
+		"allow_in":true
+		}}
+	],
+	"target_monsters": [
+		{"name": "Ice Golem", "action": "distance", "min_dist": 2, "max_dist": 3, "priority": 2, "loot": true},
+		{"name": "Ice Witch", "action": "follow", "priority": 1, "loot": true},
+		{"name": "Crystal Spider", "action": "distance", "min_dist": 2, "max_dist": 3, "priority": 3, "loot": true}
+	],
+	"target_spells": [
+		{"name": "exevo gran mas vis", "min_mana_percent": 30, "priority": 4, "min_monster_count": 50, "cooldown": 40},
+		{"name": "thunderstorm rune", "min_mana_percent": 8, "priority": 3, "cooldown": 2, "min_monster_count": 2},
+		{"name": "exori gran vis", "min_mana_percent": 101, "priority": 2, "cooldown": 8, "distance": 3, "monsters": ["Crystal Spider", "Ice Witch"]},
+		{"name": "exori amp vis", "min_mana_percent": 10, "priority": 2, "cooldown": 8, "distance": 6, "monsters": ["Crystal Spider", "Ice Witch"] },
+		{"name": "exori vis", "min_mana_percent": 2, "priority": 1, "cooldown": 3, "distance": 3, "monsters": ["Crystal Spider", "Ice Witch", "Ice Golem"]}
+	],
+	"loot": []
+}

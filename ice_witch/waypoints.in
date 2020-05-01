@@ -1,0 +1,197 @@
+label start
+load scripts/general/refill_svargrond.in
+label go_hunt
+node (32252, 31141, 7)
+node (32239, 31139, 7)
+node (32223, 31147, 7)
+node (32224, 31160, 7)
+node (32231, 31172, 7)
+node (32233, 31186, 7)
+node (32219, 31187, 7)
+node (32203, 31186, 7)
+node (32197, 31186, 7)
+stand (32195, 31186, 7)
+node (32193, 31186, 6)
+stand (32191, 31186, 6)
+node (32187, 31187, 7)
+node (32181, 31193, 7)
+node (32179, 31202, 7)
+node (32178, 31210, 7)
+node (32179, 31222, 7)
+node (32181, 31230, 7)
+stand (32180, 31230, 7)
+stand (32179, 31230, 7)
+node (32172, 31236, 6)
+node (32169, 31245, 6)
+node (32165, 31250, 6)
+node (32159, 31253, 6)
+node (32152, 31251, 6)
+node (32138, 31251, 6)
+node (32124, 31254, 6)
+node (32113, 31240, 6)
+stand (32108, 31240, 6)
+stand (32107, 31240, 6)
+node (32092, 31249, 7)
+node (32085, 31257, 7)
+node (32072, 31262, 7)
+node (32063, 31270, 7)
+node (32053, 31280, 7)
+node (32043, 31286, 7)
+node (32039, 31279, 7)
+node (32042, 31272, 7)
+node (32043, 31266, 7)
+node (32041, 31257, 7)
+node (32017, 31263, 7)
+node (31995, 31264, 7)
+node (31972, 31256, 7)
+node (31969, 31239, 7)
+node (31976, 31257, 7)
+node (31978, 31275, 7)
+node (31962,31282,7)
+node (31951,31304,7)
+node (31934,31299,7)
+node (31927, 31319, 7)
+node (31926, 31336, 7)
+node (31925, 31348, 7)
+shovel (31924, 31355, 7)
+label hunt
+label check_down
+label stay
+node (31910, 31345, 8)
+node (31911, 31364, 8)
+action loot_monsters
+node (31901, 31380, 8)
+node (31920, 31377, 8)
+node (31918, 31390, 8)
+action loot_monsters
+node (31931, 31391, 8)
+node (31941, 31400, 8)
+action loot_monsters
+node (31953, 31391, 8)
+node (31968, 31387, 8)
+node (31981, 31388, 8)
+node (31985, 31372, 8)
+action loot_monsters
+node (31978, 31366, 8)
+node (31969, 31356, 8)
+node (31956, 31371, 8)
+action loot_monsters
+node (31946, 31361, 8)
+action loot_monsters
+node (31952, 31351, 8)
+action check
+label go_down
+stand (31923, 31377, 8)
+node (31916, 31366, 9)
+action loot_monsters
+node (31932, 31372, 9)
+node (31941, 31366, 9)
+node (31944, 31353, 9)
+action loot_monsters
+node (31953, 31371, 9)
+node (31969, 31366, 9)
+action loot_monsters
+node (31957, 31386, 9)
+node (31965, 31391, 9)
+node (31969, 31411, 9)
+action loot_monsters
+node (31954, 31398, 9)
+node (31941, 31425, 9)
+action loot_monsters
+node (31933, 31399, 9)
+action loot_monsters
+node (31918, 31412, 9)
+node (31918, 31388, 9)
+action loot_monsters
+rope (31923, 31377, 9)
+action check
+label leave
+rope (31924, 31355, 8)
+node (31922, 31329, 7)
+node (31926, 31311, 7)
+node (31931, 31305, 7)
+node (31955, 31290, 7)
+node (31971, 31275, 7)
+node (31969, 31266, 7)
+node (31983, 31261, 7)
+node (32003, 31267, 7)
+node (32025, 31261, 7)
+node (32041, 31257, 7)
+node (32043, 31263, 7)
+node (32038, 31276, 7)
+node (32048, 31293, 7)
+node (32060, 31283, 7)
+node (32066, 31270, 7)
+node (32071, 31261, 7)
+node (32078, 31263, 7)
+node (32086, 31259, 7)
+node (32094, 31246, 7)
+node (32103, 31242, 7)
+stand (32106, 31240, 7)
+stand (32107, 31240, 7)
+node (32124, 31253, 6)
+node (32143, 31252, 6)
+node (32162, 31252, 6)
+node (32170, 31238, 6)
+node (32177, 31231, 6)
+stand (32179, 31231, 6)
+node (32187, 31226, 7)
+node (32176, 31214, 7)
+node (32180, 31200, 7)
+node (32184, 31189, 7)
+stand (32190, 31187, 7)
+stand (32191, 31187, 7)
+node (32194, 31187, 6)
+stand (32195, 31187, 6)
+node (32201, 31185, 7)
+stand (32215, 31177, 7)
+node (32224, 31177, 7)
+node (32230, 31173, 7)
+node (32224, 31162, 7)
+node (32224, 31148, 7)
+node (32231, 31142, 7)
+node (32241, 31139, 7)
+node (32265, 31141, 7)
+action check_time
+label train
+node (32271,31160,7)
+node (32294,31133,7)
+node (32317,31119,7)
+node (32341,31115,7)
+ladder (32341,31112,7)
+stand (32342,31107,6)
+action travel_venore
+node (32954,32021,6)
+action travel_edron
+label go_train_edron
+node (33176, 31771, 6)
+stand (33175, 31775, 6)
+node (33190, 31778, 7)
+node (33191, 31790, 7)
+stand (33179, 31790, 7)
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start_train
+node (33180,31777,7)
+ladder (33175,31775,7)
+node (33176,31764,6)
+action travel_venore
+action travel_svargrond
+node (32341,31111,6)
+stand (32341,31112,6)
+node (32316,31121,7)
+node (32294,31132,7)

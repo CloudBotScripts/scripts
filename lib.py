@@ -89,7 +89,7 @@ def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_coun
         else:
             client.minimap.remove_barrier_coords(coords_barrier)
 
-# Add barriers if char is inside area defined by top_left, bottom_right
+# Add barriers that activate given monster count
 # Careful not to overlap barriers with other calls of this function
 def dynamic_barrier_coords(client, coords_barrier, monster_count=2):
     if not client.battle_list.is_targetting():
@@ -102,7 +102,7 @@ def dynamic_barrier_coords(client, coords_barrier, monster_count=2):
         client.minimap.remove_barrier_coords(coords_barrier)
 
 # Add barriers in the border of the rectangles. rectangles is a list with top left and bottom right of the rectangles.
-def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
+def dynamic_barrier_rectangles(client, rectangles, monster_count=2, allow_in=False):
     cur_coord = client.minimap.get_current_coord()
     if cur_coord in ('Unreachable', 'Out of range'):
         return
@@ -110,8 +110,18 @@ def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
     monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
     m_count = len(monster_list)
 
+    def inside_barrier():
+        return (cur_coord[0] > top_left[0] and cur_coord[0] < bottom_right[0] and cur_coord[1] > top_left[1] and cur_coord[1] < bottom_right[1])
+
+    activate = False
     coords_barrier = []
     for top_left, bottom_right in rectangles:
+        if cur_coord[2] != top_left[2]:
+            continue
+
+        # Activate barrier if allow_in is disabled
+        if inside_barrier() or not allow_in:
+            activate = True
         z = top_left[2]
         for x in range(top_left[0], bottom_right[0] + 1):
             for y in (top_left[1], bottom_right[1]):
@@ -120,7 +130,7 @@ def dynamic_barrier_rectangles(client, rectangles, monster_count=2):
             for x in (top_left[0], bottom_right[0]):
                 coords_barrier.append((x,y,z))
 
-    if client.battle_list.is_targetting() and m_count >= monster_count:
+    if client.battle_list.is_targetting() and m_count >= monster_count and activate:
         client.minimap.add_barrier_coords(coords_barrier)
     else:
         client.minimap.remove_barrier_coords(coords_barrier)
@@ -238,10 +248,12 @@ def wait(client, tmin=1, tmax=1.2):
 
 # Wait until mana is above mana_perc
 # If hotkey is none, will not refill mana and some other way to refill mana should be active.
-def wait_mana_percentage_below(client, mana_perc, hotkey=None):
+def wait_mana_percentage_below(client, mana_perc, hotkey=None, monster_count_below=1):
     monster_count = client.battle_list.get_monster_count()
-    hp_percentage, mp_percentage = client.status_bar.get_percentage()
-    while monster_count < 1 and mp_percentage < mana_perc:
+    while monster_count < monster_count_below:
+        _, mp_percentage = client.status_bar.get_percentage()
+        if mp_percentage > mana_perc:
+            return
         if hotkey:
             client.hotkey(hotkey)
         client.sleep(0.2, 0.3)
@@ -370,21 +382,20 @@ def anti_drunk(client, item_equip, item_unequip=None, slot='ring'):
     equip_item_count = client.get_hotkey_item_count(client.items[item_equip])
     equip_hotkey = client.item_hotkeys[item_equip]
 
-    unequip_hotkey = client.item_hotkeys[item_unequip]
-
-    item_name = client.equips.get_item_in_slot(slot)
+    item_name = client.get_name_item_in_slot(client.equips, slot)
 
     if 'drunk' in conditions:
         if item_name != item_equip and equip_item_count > 0:
             print('[Action] Equip dwarven ring')
             client.hotkey(equip_hotkey)
     else:
+        print('[Action] Item equipped', item_name)
         if item_name == item_equip:
             if item_unequip is None:
                 print('[Action] Unequip dwarven ring')
                 client.hotkey(equip_hotkey)
-
             else:
+                unequip_hotkey = client.item_hotkeys[item_unequip]
                 print('[Action] Equip', item_unequip)
                 client.hotkey(unequip_hotkey)
 

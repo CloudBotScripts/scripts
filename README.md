@@ -68,6 +68,7 @@ These scripts are the official scripts for CloudBot.
 | 180+  | [Hero Old Fortress -1](hero_fortress/setup_rp.json)            | :star:                                  | :star: :star: :star: :star:             |  
 | 200+  | [Minotaur Cults](minotaur_cults/setup_rp.json)          | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Demon Hero Cave](demon_hero_cave/setup_rp.json)          | :star:        | :star: :star:                           |
+| 200+  | [Cormaya Werecave](cormaya_werecave/setup_rp.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 | 200+  | Feyrist Nightmare cave          | :star: :star: :star:                    | :star: :star: :star:                    |      
 | 220+  | [Feyrist Nightmare cave -2](feyrist_nightmare_cave_down/setup_rp.json)| :star: :star: :star:             | :star: :star: :star:       
 | 250+  | [Hero Old Fortress -2](hero_fortress_down/setup_rp.json)    | :star: :star:                           | :star: :star: :star: :star: :star:      |   
@@ -102,8 +103,10 @@ These scripts are the official scripts for CloudBot.
 | 60+   | [Yalahar Cults -1](yalahar_cults/setup_mage.json) | :star: :star:            | :star: :star: :star: :star:         |
 | 80+   | [Wyrm Liberty Bay Small](wyrm_liberty_bay_small/setup_mage.json)| :star:    | :star::star::star::star::star:         |
 | 130+  | [Mother Of Scarab Lair](mother_of_scarab/setup_mage.json) | :star:                    | :star: :star: :star: :star:             |
+| 150+  | [Ice Witch Svargrond](ice_witch/setup_ms.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 | 160+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 | 180+  | [Experimental Edron Werecave](edron_werecave/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
+| 200+  | [Cormaya Werecave](cormaya_werecave/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ## Quests/Other
 | Level | Name                            | 
@@ -111,6 +114,8 @@ These scripts are the official scripts for CloudBot.
 | 8+    | [Buy Blessing](buy_blessing/info.txt)                    |
 | 10+   | [Ice Fishing Svargrondi](ice_fishing/setup.json)           |
 | 10+   | [Barbarian Test Quest](quests/barbarian_test/info.txt)           |
+| 15+   | [Train Rotworm Venore North](train_venore_rotworm_north/setup_ek.json)           |
+| 15+   | [Train Slime Venore](train_slime/setup_ek.json)           |
 | 20+   | [Meriana Access Quest](quests/meriana/info.txt)           |
 | 20+   | [Yalahar Access Quest](quests/yalahar/info.txt)         |
 | 20+   | [Sea Serpent Access Quest](quests/sea_serpent/info.txt)        |

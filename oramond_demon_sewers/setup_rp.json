@@ -3,6 +3,7 @@
 {
 	"loot_type":"auto",
 	"anti_trap":"knife",
+	"fast_target":true,
 	"loot_priority":"after"
 },
 "script_options": {
@@ -24,7 +25,6 @@
 "items":
 {
 	"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
-	"avalanche rune": {"hotkey":"9", "id":3161, "use":"crosshair"},
 	"ultimate spirit potion": {"hotkey":"f", "id":23374, "use":"self"},
 	"spectral bolt": {"hotkey":"k", "id":25758, "use":"equip"},
 	"infernal bolt": {"hotkey":"j", "id":6528, "use":"equip"},
@@ -56,17 +56,14 @@
 "hunt_config": {
 	"cap_leave": 200,
 	"mana_name": "strong mana potion",
-	"take_mana": 1000,
+	"take_mana": 1200,
 	"mana_leave": 300,
 	"health_name": "ultimate spirit potion",
 	"take_health": 200,
 	"health_leave": 80,
 	"ammo_name": "infernal bolt",
-	"take_ammo": 500,
-	"ammo_leave": 200,
-	"rune_name": "avalanche rune",
-	"take_rune": 500,
-	"rune_leave": 150
+	"take_ammo": 800,
+	"ammo_leave": 200
 },
 "label_actions": [
 	{"label": "check_down", "action": "conditional_jump_position", "args": { "coords": [[33564,31992,7]], "label_jump":"open_hole", "label_skip":"went_down"}}
@@ -80,11 +77,18 @@
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
 	{"action":"dynamic_barrier_rectangles", "interval":1, "use_in_battle":true, "args":{
 		"rectangles": [
+			[[33498,31988,10],[33511,32001,10]],
+			[[33515,32047,10],[33521,32053,10]]
+		],
+		"monster_count":0
+	}},
+	{"action":"dynamic_barrier_rectangles", "interval":1, "use_in_battle":true, "args":{
+		"rectangles": [
 			[[33500,32021,10],[33523,32028,10]],
-			[[33498,31988,10],[33511,32002,10]],
 			[[33513,31998,10],[33526,32012,10]],
 			[[33482,31990,10],[33493,31990,10]]
 		],
+		"allow_in": true,
 		"monster_count":1
 	}}
 ],
@@ -98,8 +102,7 @@
 [
 	{"name":"exori san", "min_mana_percent":10, "priority":1, "cooldown":2,
 		"monsters":["Demon", "Grim Reaper", "Metal Gargoyle"]},
-	{"name":"exevo mas san", "min_mana_percent":30, "priority":2, "min_monster_count":4, "cooldown":4},
-	{"name":"avalanche rune", "min_mana_percent":20, "priority":2, "min_monster_count":3, "cooldown":2}
+	{"name":"exevo mas san", "min_mana_percent":30, "priority":2, "min_monster_count":4, "cooldown":4}
 ],
 "loot": []
 }

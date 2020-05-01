@@ -1,0 +1,66 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"walk_type":"mouse"
+},
+"script_options": {
+	"skill_train":"magic",
+	"rashid": true,
+	"green_djinn":false,
+	"flint":false,
+	"lailene":true,
+	"alexander":true,
+	"telas":false,
+	"tamoril":false,
+	"esrik":false
+},
+"containers": 
+{
+	"gold_bp":"Red Backpack",
+	"loot_bp":"Red Backpack"
+},
+"tools":
+{
+	"rope": {"name":"elvenhair rope", "id": 646},
+	"shovel": {"name":"shovel", "id": 3457}
+},
+"items":
+{
+	"great mana potion": {"hotkey":"e", "id":238, "use":"self"},
+	"great fireball rune": {"hotkey":"f9", "id":3191, "use":"target"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani gran hur": "v",
+	"exura vita":"f",
+	"exura gran":"r",
+	"exori flam":"1",
+	"exevo gran mas flam":"3"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":60, "use_spell":"exura vita", "min_mana_percent":10, "priority":4},
+	{"type":"hp", "below_percent":75, "use_spell":"exura gran", "min_mana_percent":5,  "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"great mana potion", "priority":2}
+],
+"hunt_config": {
+	"cap_leave": 0,
+	"mana_name": "great mana potion",
+	"take_mana": 100
+},
+"label_actions": [
+	{"label":"start", "action":"jump_to_label", "args": {"label":"start_rashid_liberty_bay"}}
+],
+"persistent_actions": [
+],
+"target_monsters": 
+[
+],
+"target_spells":
+[ 
+],
+"loot": []
+}
+

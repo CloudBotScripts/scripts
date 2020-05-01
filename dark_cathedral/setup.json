@@ -2,6 +2,7 @@
 "general": 
 {
 	"loot_type":"manual",
+	"anti_trap":"weapon",
 	"loot_priority":"first"
 },
 "script_options": {
@@ -10,33 +11,29 @@
 },
 "containers": 
 {
-	"gold_bp":"Purple Backpack",
-	"loot_bp":"Shopping Bag"
+	"gold_bp":"Shopping Bag",
+	"loot_bp":"Red Backpack"
 },
 "tools":
 {
-	"rope": {"name":"rope", "id": 3003},
-	"shovel": {"name":"light shovel", "id": 5710}
+	"rope": {"name":"rope", "id": 3003}
 },
 "items":
 {
 	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
 	"strong health potion": {"hotkey":"f2", "id":236, "use":"self"},
-	"heavy magic missile rune": {"hotkey":"f7", "id":3198, "use":"use"},
-	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+        "gold coin": {"hotkey":"f12", "id":3031, "use":"use"},
+	"heavy magic missile rune": {"hotkey":"9", "id":3198, "use":"target"},
+        "brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
 "spells":
 {
-	"exura ico":"r",
-	"utura": "1",
-	"exori": "2",
-	"exori ico": "3"
+	"exura ico":"r"
 },
 "healing":
 [
 	{"type":"hp", "below_percent":50, "use_item":"strong health potion", "priority":5},
 	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":10, "priority":4},
-	{"type":"hp", "below_percent":95, "use_spell":"utura", "min_mana_percent":20, "priority":6, "cooldown":62},
 	{"type":"mp", "below_percent":30, "use_item":"mana potion", "priority":3}
 ],
 "hunt_config": {
@@ -76,10 +73,7 @@
 	{"name":"Wasp", "action":"follow", "loot":true}
 ],
 "target_spells": [
-	{"name":"heavy magic missile rune", "hotkey":"f7", "min_mana_percent":10, "priority":5, "cooldown":2, "monsters":["Ghost"]},
-	{"name":"exori", "min_mana_percent":50, "priority":3, "min_monster_count":4, "cooldown":4},
-	{"name":"exori ico", "min_mana_percent":90, "priority":1, "cooldown":5, "monsters":["Witch", "Dark Apprentice", "Dark Monk", "Monk", "Assassin", "Mummy", "Bandit", "Stone Golem", "Bonelord", "Dark Magician", "Demon Skeleton", "Vampire", "Giant Spider"]}
-
+	    {"name":"heavy magic missile rune", "min_mana_percent":20, "priority":4, "cooldown": 2, "monsters":["Ghost"]}
 ],
 "loot": 
 [
@@ -127,3 +121,4 @@
 	{"name":"meat", "action":"use"}
 ]
 }
+

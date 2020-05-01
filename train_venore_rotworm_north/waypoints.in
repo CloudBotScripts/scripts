@@ -1,0 +1,94 @@
+label start
+label equip_strong_weapon
+label deactivate_stop_target_low
+stand (33019,32053,6)
+action bank
+stand (33020, 32059, 6)
+node (33018, 32053, 7)
+action deposit
+stand (33020, 32059, 7)
+node (33007, 32053, 6)
+node (32982, 32054, 6)
+node (32982, 32072, 6)
+stand (32971, 32085, 6)
+action sell
+action buy_potions
+stand (32970, 32082, 6)
+action check_supplies
+label go_hunt
+node (32977, 32073, 6)
+node (32998, 32073, 6)
+label door1
+stand (32998, 32096, 6)
+door (32999,32096,6)
+stand (33004, 32095, 6)
+label door2
+node (33008, 32095, 7)
+node (33010, 32077, 7)
+ladder (33012, 32079, 7)
+node (33019, 32072, 6)
+stand (33019, 32064, 6)
+node (33025, 32050, 7)
+ladder (33034, 32047, 7)
+node (33018, 32040, 6)
+node (33018, 32023, 6)
+stand (33027, 32022, 6)
+node (33022, 32012, 7)
+label equip_weak_weapon
+label activate_stop_target_low
+stand (33015, 32014, 7)
+label hunt
+node (33011, 32010, 8)
+stand (33010, 32005, 8)
+node (33011,31994,9)
+rope (33010, 32005, 9)
+node (33010, 32010, 8)
+stand (33007, 32011, 8)
+node (33004, 32013, 9)
+rope (33007, 32011, 9)
+node (33013, 32012, 8)
+node (33019, 32011, 8)
+stand (33025, 32009, 8)
+node (33029, 32006, 9)
+rope (33025, 32009, 9)
+node (33016, 32018, 8)
+stand (33016, 32021, 8)
+node (33015,32028,9)
+rope (33016, 32021, 9)
+node (33015, 32014, 8)
+action check
+label leave
+label deactivate_stop_target_low
+label equip_strong_weapon
+rope (33015, 32014, 8)
+node (33021, 32012, 7)
+node (33028, 32021, 7)
+stand (33027, 32022, 7)
+node (33017, 32029, 6)
+node (33024, 32041, 6)
+stand (33034, 32047, 6)
+node (33023, 32063, 7)
+ladder (33019, 32064, 7)
+node (33019, 32075, 6)
+stand (33012, 32079, 6)
+node (33008, 32091, 7)
+node (33004, 32101, 7)
+door (33004,32099,7)
+ladder (33004, 32095, 7)
+node (33001,32096,6)
+door (32999,32096,6)
+node (32998,32092,6)
+node (32998,32079,6)
+node (32998,32073,6)
+node (32976,32078,6)
+stand (32970,32085,6)
+action sell
+node (32976,32074,6)
+node (32998,32073,6)
+node (33007,32067,6)
+node (33006, 32064, 6)
+action check_time
+node (33006, 32064, 6)
+label train
+action end
+label end

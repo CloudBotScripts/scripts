@@ -1,0 +1,115 @@
+label start
+load scripts/general/refill_edron.in
+label go_hunt
+node (33227, 31841, 7)
+node (33210, 31846, 7)
+node (33193, 31836, 7)
+node (33200, 31817, 7)
+node (33202, 31799, 7)
+node (33191, 31790, 7)
+node (33181, 31776, 7)
+ladder (33175, 31775, 7)
+node (33175, 31764, 6)
+action travel_cormaya
+stand (33293, 31960, 6)
+node (33301, 31965, 7)
+node (33303, 31980, 7)
+node (33292, 31984, 7)
+node (33288, 31999, 7)
+node (33301, 32004, 7)
+node (33320, 32002, 7)
+node (33335, 32002, 7)
+node (33346, 32002, 7)
+stand (33351, 32004, 7)
+node (33360, 32007, 8)
+stand (33364, 32008, 8)
+node (33373, 32015, 9)
+node (33383, 32024, 9)
+node (33393, 32029, 9)
+label hunt
+stand (33399, 32025, 9)
+label hunt2
+node (33414, 32020, 9)
+node (33409, 32029, 9)
+node (33408, 32026, 9)
+label refill_mana
+node (33406, 32039, 9)
+node (33411, 32044, 9)
+node (33406, 32053, 9)
+label refill_mana
+node (33385, 32049, 9)
+node (33388, 32061, 9)
+label refill_mana
+node (33394, 32077, 9)
+node (33389, 32083, 9)
+node (33389, 32067, 9)
+label refill_mana
+node (33390, 32051, 9)
+node (33406, 32057, 9)
+label refill_mana
+node (33414, 32071, 9)
+node (33411, 32085, 9)
+label refill_mana
+node (33410, 32097, 9)
+node (33411, 32081, 9)
+node (33415, 32069, 9)
+node (33405, 32060, 9)
+label refill_mana
+node (33410, 32045, 9)
+node (33421, 32042, 9)
+node (33427, 32052, 9)
+label refill_mana
+node (33441, 32059, 9)
+node (33424, 32050, 9)
+node (33429, 32037, 9)
+node (33431, 32028, 9)
+label refill_mana
+node (33419, 32018, 9)
+action check2
+label leave2
+stand (33405, 32020, 9)
+node (33392, 32028, 9)
+action check
+label leave
+node (33380, 32021, 9)
+node (33367, 32011, 9)
+rope (33364, 32008, 9)
+node (33354, 32007, 8)
+rope (33351, 32004, 8)
+node (33340, 32004, 7)
+node (33324, 31997, 7)
+node (33313, 32004, 7)
+node (33297, 32004, 7)
+node (33288, 31992, 7)
+node (33298, 31984, 7)
+node (33304, 31970, 7)
+node (33295, 31962, 7)
+ladder (33293, 31960, 7)
+node (33288, 31956, 6)
+action travel_edron
+action travel_edron
+node (33176,31771,6)
+stand (33175,31775,6)
+node (33192,31791,7)
+node (33202,31796,7)
+action check_time
+label train
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start trainer
+node (33199, 31792, 7)
+node (33202,31801,7)

@@ -1,0 +1,103 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"loot_priority":"after",
+	"fast_target":true,
+	"follow_mode":"bot",
+	"anti_trap":"knife"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"magic",
+	"imbuements":[],
+	"summon":false,
+	"sort_deposit": {"alexander":6, "lailene":6, "tamoril":8, "rashid": 9, "green_djinn": 10}
+},
+"containers": 
+{
+	"loot_bp":"Red Backpack"
+},
+"tools":
+{
+	"rope": {"name":"elvenhair rope", "id": 646}
+},
+"items":
+{
+	"knife": {"hotkey":"u", "id":3291, "use":"crosshair"},
+	"great mana potion": {"hotkey":"e", "id":238, "use":"self"},
+	"great fireball rune": {"hotkey":"9", "id":3191, "use":"crosshair"},
+	"energy ring": {"hotkey": "7", "id": 3051, "use": "equip"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani gran hur": "v",
+	"exura vita":"f",
+	"exura gran":"r",
+	"exori flam":"1",
+	"exori gran flam":"2",
+	"exevo gran mas flam":"3"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":60, "use_spell":"exura vita", "min_mana_percent":10, "priority":4},
+	{"type":"hp", "below_percent":75, "use_spell":"exura gran", "min_mana_percent":5,  "priority":3},
+	{"type":"mp", "below_percent":40, "use_item":"great mana potion", "priority":2}
+],
+"hunt_config": {
+	"cap_leave": 0,
+	"mana_name": "great mana potion",
+	"take_mana": 400,
+	"mana_leave": 130,
+	"rune_name": "great fireball rune",
+	"take_rune": 650,
+	"rune_leave": 220
+},
+"label_actions": [
+	{"label":"refill_mana", "action":"wait_mana_percentage_below", "args": {"mana_perc":95, "hotkey":"e"}}
+],
+"persistent_actions": [
+	{"action":"anti_paralyze", "interval":1, "args":["r"]},
+	{"action":"recover_full_mana", "interval":2, "args":["e"]},
+	{"action":"lure_monsters", "interval":1, "args":{"count":3}},
+	{"action":"haste", "interval":40},
+	{"action":"eat_food", "interval":40},
+	{"alias": "gfb_thrower", "action": "throw_rune_if_monsters", "interval": 2, "args": {"min_mp":20, "rune_name":"great fireball rune"}},
+	{"action":"dynamic_barrier_rectangles", "interval":1, "use_in_battle":true, "args":{
+		"rectangles":[
+			[[33403,32019,9],[33406,32022,9]]
+		],
+		"monster_count":0
+	}},
+	{"action":"dynamic_barrier_rectangles", "interval":1, "use_in_battle":true, "args":{
+		"rectangles":[
+			[[33405,32014,9],[33421,32026,9]],
+			[[33400,32034,9],[33414,32044,9]],
+			[[33379,32045,9],[33394,32056,9]],
+			[[33387,32076,9],[33396,32086,9]],
+			[[33405,32061,9],[33419,32074,9]],
+			[[33434,32050,9],[33445,32064,9]]
+		],
+		"monster_count":1,
+		"allow_in":true
+	}}
+],
+"target_monsters": 
+[
+	{"name":"Werebadger", "action":"distance", "min_dist":3, "max_dist":4, "loot":true}, 
+	{"name":"Werefox", "action":"distance", "min_dist":2, "max_dist":3, "loot":true}, 
+	{"name":"Wereboar", "action":"distance", "priority":3, "min_dist":4, "max_dist":6, "loot":true}, 
+	{"name":"Werebear", "action":"distance", "priority":3, "min_dist":4, "max_dist":6, "loot":true}, 
+	{"name":"Werewolf", "action":"distance", "priority":3, "min_dist":4, "max_dist":6, "loot":true}
+],
+"target_spells":
+[
+	{"name":"great fireball rune", "min_mana_percent":10, "priority":4, "cooldown": 2,  "min_monster_count":1},
+	{"name":"exori gran flam", "min_mana_percent":20, "distance":3, "priority":2, "cooldown":8, "monsters":["Werebadger", "Wereboar", "Werebear", "Werefox", "Werewolf"]},
+	{"name":"exori flam", "min_mana_percent":10, "distance":3, "priority":1, "cooldown":2, "monsters":["Werebadger", "Wereboar", "Werebear", "Werefox", "Werewolf"]},
+	{"name":"exevo gran mas flam", "min_mana_percent":40, "priority":5, "cooldown": 40,  "min_monster_count":5}
+],
+"loot": []
+}
+

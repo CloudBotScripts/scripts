@@ -1,0 +1,77 @@
+label start
+label equip_strong_weapon
+label deactivate_stop_target_low
+stand (33019,32053,6)
+action bank
+stand (33020, 32059, 6)
+node (33018, 32053, 7)
+action deposit
+label withdraw_brown_mushroom
+stand (33020, 32059, 7)
+node (33007, 32053, 6)
+node (32982, 32054, 6)
+node (32982, 32072, 6)
+stand (32971, 32085, 6)
+action sell
+action buy_potions
+node (32967, 32073, 6)
+label check_brown_mushroom
+action check_supplies
+label go_hunt
+node (32958,32074,6)
+node (32953,32062,6)
+node (32943,32053,6)
+node (32926,32052,6)
+node (32918,32038,6)
+node (32890,32032,6)
+node (32870,32032,6)
+stand (32867,32032,6)
+node (32849,32028,7)
+node (32835,32013,7)
+node (32835,32001,7)
+node (32829, 31998, 7)
+node (32818, 31995, 7)
+stand (32814, 31990, 7)
+node (32806, 31986, 8)
+node (32799, 31986, 8)
+action target_off
+stand (32800, 31987, 8)
+call jump_to_label("label":"skip_wait")
+label hunt2
+label wait_new_slime
+label skip_wait
+stand (32799, 31987, 7)
+label equip_weak_weapon
+action target_on
+label activate_stop_target_low
+label hunt
+stand (32799, 31987, 7)
+label check_slime_exists
+label slime_ok
+stand (32799, 31987, 7)
+label check_low_brown_mushroom
+action check
+label leave
+label deactivate_stop_target_low
+label equip_strong_weapon
+stand (32800, 31987, 7)
+action check2
+action leave2
+node (32801, 31984, 8)
+node (32808, 31987, 8)
+stand (32814, 31990, 8)
+node (32821, 31998, 7)
+node (32832, 32000, 7)
+node (32835,32012,7)
+node (32849,32023,7)
+node (32865,32031,7)
+stand (32867,32032,7)
+node (32897,32033,6)
+node (32919,32052,6)
+node (32954,32054,6)
+node (32983,32052,6)
+node (33009,32053,6)
+node (33017,32055,6)
+action check_time
+label exit
+action exit
