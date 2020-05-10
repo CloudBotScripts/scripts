@@ -6,7 +6,7 @@ import global_actions
 
 def waypoint_action(client, action):
     if action == "get_mission":
-        client.npc_say(["test"])
+        client.npc_say(["test", "yes", "yes"])
 
     elif action == "mead":
         prev_cap = client.get_cap()

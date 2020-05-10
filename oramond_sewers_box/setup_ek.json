@@ -1,0 +1,111 @@
+{
+"general": 
+{
+        "loot_type":"auto",
+	"loot_priority":"after",
+	"anti_trap": "weapon"
+},
+"script_options": {
+        "hours_leave": [9.6, 3.3],
+        "skill_train":"sword",
+        "imbuements":[
+                {"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
+                {"equip_slot":"weapon", "name":"Intricate Vampirism", "type":"Life Leech"},
+                {"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"},
+                {"equip_slot":"armor", "name":"Intricate Vampirism", "type":"Life Leech"}
+        ],
+        "summon":false,
+        "sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
+},
+"containers": 
+{
+        "loot_bp":"Red Backpack"
+},
+"tools": {},
+"items":
+{
+        "mana potion": {"hotkey":"e", "id":268, "use":"self"},
+        "ultimate health potion": {"hotkey":"f7", "id":7643, "use":"self"},
+	"supreme health potion": {"hotkey":"F", "id":23375, "use":"self"},
+        "brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+        "utani hur": "v",
+        "utura gran": "R",
+        "utito tempo": "X",
+        "exeta res": "x",
+        "exura ico":"r",
+        "exura gran ico":"f",
+        "exori":"1",
+        "exori min":"2",
+        "exori hur":"3",
+        "exori gran":"4",
+        "exori ico":"q"
+},
+"healing":
+[
+        {"type":"hp", "below_percent":30, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
+        {"type":"hp", "below_percent":40, "use_item":"supreme health potion",  "priority":4},
+        {"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":5, "priority":3},
+        {"type":"hp", "below_percent":70, "use_item":"ultimate health potion",  "priority":2},
+        {"type":"mp", "below_percent":90, "use_item":"mana potion", "priority":2},
+        {"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":60, "priority":1, "cooldown":60}
+],
+"hunt_config": {
+        "cap_leave": 150,
+        "mana_name": "mana potion",
+        "take_mana": 1300,
+        "mana_leave": 300,
+        "health_name": "ultimate health potion",
+        "take_health": 600,
+        "health_leave": 100,
+        "health_name2": "supreme health potion",
+        "take_health2": 100,
+        "health_leave2": 50
+},
+"label_actions": [
+	{"label":"refill_mana", "action":"wait_mana_percentage_below", "args": {"mana_perc":50, "hotkey":"e", "monster_count_below":2}}
+],
+"persistent_actions": [
+        {"action":"drop_vials", "interval":200},
+        {"action":"haste", "interval":40, "args":["v"]},
+	{"action":"anti_paralyze", "interval":1, "args":["v"]},
+        {"action":"lure_monsters", "interval":0.5, "use_in_battle":true, "args":{"count":7}},
+        {"action":"eat_food", "interval":30, "args":["f11"]},
+	{"action":"dynamic_barrier_coords", "interval":1, "use_in_battle":true, "args":{
+		"coords_barrier":[
+			[33624,31976,7],
+			[33633,31976,7],
+			[33640,31963,7],
+			[33647,31947,7],
+			[33640,31945,7]
+		],
+		"monster_count":1
+	}}
+],
+"target_monsters": 
+[
+        {"name":"Metal Gargoyle", "action":"follow", "loot":true},
+        {"name":"Rustheap Golem", "action":"follow", "loot":true},
+        {"name":"Glooth Anemone", "action":"follow", "loot":true},
+        {"name":"Blood Beast", "action":"follow", "loot":true},
+        {"name":"Walker", "action":"follow", "loot":true},
+        {"name":"Glooth Golem", "action":"follow", "loot":true},
+        {"name":"Rot Elemental", "action":"follow", "loot":true},
+        {"name":"Glooth Blob", "action":"follow", "loot":true},
+        {"name":"Devourer", "action":"follow", "loot":true}
+],
+"target_spells":
+[ 
+        {"name":"exori hur", "min_mana_percent":10, "priority":1, "cooldown":5, 
+                "monsters":["Metal Gargoyle", "Rustheap Golem", "Glooth Golem", "Rot Elemental", "Glooth Blob", "Devourer", "Glooth Anemone"]},
+        {"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, 
+                "monsters":["Metal Gargoyle", "Rustheap Golem", "Glooth Golem", "Rot Elemental", "Glooth Blob", "Devourer", "Glooth Anemone"]},
+        {"name":"exori", "min_mana_percent":7, "priority":2, "cooldown": 4, "min_monster_count":1},
+        {"name":"exori min", "min_mana_percent":10, "priority":3, "cooldown": 6, "min_monster_count":2},
+        {"name":"exori gran", "min_mana_percent":20, "priority":4, "cooldown": 6,  "min_monster_count":2},
+	{"name":"utito tempo", "min_mana_percent":70, "priority":4, "cooldown": 15, "min_monster_count":3, "group":"support"}
+],
+"loot": []
+}

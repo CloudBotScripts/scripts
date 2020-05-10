@@ -37,7 +37,7 @@ These scripts are the official scripts for CloudBot.
 | 130+  | Wyrm Cave Liberty Bay           | :star:                                  | :star: :star: :star:                    |    
 | 150+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
 | 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_ek.json)             | :star: :star: :star:                    | :star: :star: :star:                    |
-| 160+  | [Krailos Nightmare](krailos_nightmare/setup_ek.json) | :star:                                  | :star: :star: :star:                    |
+| 160+  | [Krailos Nightmare Advanced Lure](krailos_nightmare_box/setup_ek.json) | :star:                                  | :star: :star: :star:                    |
 | 160+  | [Sea Serpent South](sea_serpent/setup_ek_south.json) | :star: :star:                           | :star: :star: :star:                    |
 | 160+  | [Hero Old Fortress -1](hero_fortress/setup_ek.json)   | :star: :star:                          | :star: :star: :star: :star:             |  
 | 180+  | [Sea Serpent South -1](sea_serpent/setup_ek_south_down.json) | :star: :star:                           | :star: :star: :star:                    |
@@ -52,7 +52,7 @@ These scripts are the official scripts for CloudBot.
 | 250+  | [Glooth Bandit West](glooth_bandit_west/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit South](glooth_bandit_south/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 300+  | [Cults Edron Full](edron_cults/setup_ek.json) | :star: :star:                           | :star: :star: :star: :star:             |
-| 300+  | [Oramond Sewers](oramond_sewers/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
+| 300+  | [Oramond Sewers Advanced Lure](oramond_sewers_box/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
 | 350+  | Medusa Tower                    | :star: :star:                           | :star: :star: :star: :star: :star:      |
 | 400+  | [Oramond Glooth Tower](oramond_tower/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
 

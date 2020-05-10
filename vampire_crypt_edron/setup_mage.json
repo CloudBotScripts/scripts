@@ -2,6 +2,7 @@
 "general": 
 {
 	"loot_type":"auto",
+	"keep_dist":"closest",
 	"loot_priority":"after"
 },
 "script_options": {
@@ -23,8 +24,7 @@
 "items":
 {
 	"great mana potion": {"hotkey":"e", "id":238, "use":"self"},
-	"ultimate healing rune": {"hotkey":"f2", "id":3160, "use":"self"},
-	"avalanche rune": {"hotkey":"f9", "id":3161, "use":"crosshair"},
+	"great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"},
 	"blessed wooden stake": {"hotkey":"3", "id":5942, "use":"crosshair"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
@@ -34,34 +34,48 @@
 	"exura vita":"f",
 	"exura gran":"r",
 	"exori flam":"1",
+	"exori frigo":"4",
 	"exori gran flam":"2",
 	"exevo gran mas flam":"3"
 },
 "healing":
 [
-	{"type":"hp", "below_percent":40, "use_item":"ultimate healing rune", "priority":5},
 	{"type":"hp", "below_percent":60, "use_spell":"exura vita", "min_mana_percent":10, "priority":4},
 	{"type":"hp", "below_percent":75, "use_spell":"exura gran", "min_mana_percent":5,  "priority":3},
 	{"type":"mp", "below_percent":80, "use_item":"great mana potion", "priority":2}
 ],
 "hunt_config": {
-	"cap_leave": 100,
+	"cap_leave": 0,
 	"mana_name": "great mana potion",
 	"take_mana": 400,
 	"mana_leave": 100,
-	"health_name": "ultimate healing rune",
-	"take_health": 40,
-	"health_leave": 10,
-	"rune_name": "avalanche rune",
-	"take_rune": 300,
-	"rune_leave": 120
+	"rune_name": "great fireball rune",
+	"take_rune": 600,
+	"rune_leave": 250
 },
 "persistent_actions": [
 	{"action":"drop_vials", "interval":60},
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
 	{"action":"anti_paralyze", "interval":1, "args":["v"]},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-	{"action":"recover_full_mana", "interval":3, "args":["e"]}
+	{"action":"recover_full_mana", "interval":2, "args":["e"]},
+	{"action":"lure_monsters", "interval":1, "args":{"count":3}},
+	{"action":"dynamic_barrier_rectangles", "interval":0.5, "use_in_battle":true, "args":{
+		"rectangles":[
+			[[33030,31590,11],[33046,31601,11]],
+			[[33028,31609,11],[33048,31623,11]],
+			[[33028,31628,11],[33047,31641,11]],
+			[[33006,31626,11],[33023,31641,11]],
+			[[32987,31628,11],[33002,31641,11]],
+			[[32967,31628,11],[32984,31641,11]],
+			[[32967,31601,11],[32983,31622,11]],
+			[[32991,31601,11],[33009,31621,11]],
+			[[32995,31609,12],[33010,31623,12]],
+			[[32980,31609,12],[32994,31624,12]],
+			[[32997,31621,12],[33011,31635,12]]
+		],
+		"monster_count":1
+	}}
 ],
 "target_monsters": 
 [
@@ -75,7 +89,7 @@
 	{"name":"exori frigo", "min_mana_percent":10, "priority":6, "cooldown":2, "monsters":["Demon Skeleton"]},
 	{"name":"exori flam", "min_mana_percent":10, "priority":1, "cooldown":2, "monsters":["Vampire", "Vampire Viscount", "Vampire Bride"]},
 	{"name":"exori gran flam", "min_mana_percent":20, "priority":2, "cooldown":8, "monsters":["Vampire", "Vampire Viscount", "Vampire Bride"]},
-	{"name":"avalanche rune", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":3},
+	{"name":"great fireball rune", "min_mana_percent":13, "priority":4, "cooldown": 2, "min_monster_count":2},
 	{"name":"exevo gran mas flam", "min_mana_percent":40, "priority":5, "cooldown": 40,  "min_monster_count":5}
 ],
 "loot": []
