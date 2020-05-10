@@ -3,6 +3,7 @@
 User defined functions 
 These functions can be used in the waypoint actions (actions.py) or during regular intervals (persistent_actions).
 '''
+import time
 from time import sleep
 from datetime import datetime
 from pytz import timezone
@@ -111,7 +112,12 @@ def dynamic_barrier_rectangles(client, rectangles, monster_count=2, allow_in=Fal
     m_count = len(monster_list)
 
     def inside_barrier():
-        return (cur_coord[0] > top_left[0] and cur_coord[0] < bottom_right[0] and cur_coord[1] > top_left[1] and cur_coord[1] < bottom_right[1])
+        target_inside = True
+        target_coord = client.gameboard.get_target_coordinate()
+        if target_coord:
+            target_inside = (target_coord[0] > top_left[0] and target_coord[0] < bottom_right[0] and target_coord[1] > top_left[1] and target_coord[1] < bottom_right[1])
+        char_inside = (cur_coord[0] > top_left[0] and cur_coord[0] < bottom_right[0] and cur_coord[1] > top_left[1] and cur_coord[1] < bottom_right[1])
+        return (char_inside and target_inside)
 
     activate = False
     coords_barrier = []
@@ -238,13 +244,14 @@ def drop_items(client, names=[]):
             for slot in reversed(range(num_slots)):
                 item_in_slot = container.get_item_in_slot(slot) 
                 for name in names:
+                    client.heal()
                     if name in item_in_slot:
                         print('[Action] Dropping', name)
                         client.drop_item_from_container(container, slot)
                         client.sleep(0.1, 0.12)
 
 def wait(client, tmin=1, tmax=1.2):
-    client.sleep(tmin, tmax)
+    client.sleep(tmin, tmax, heal=True)
 
 # Wait until mana is above mana_perc
 # If hotkey is none, will not refill mana and some other way to refill mana should be active.
@@ -252,10 +259,12 @@ def wait_mana_percentage_below(client, mana_perc, hotkey=None, monster_count_bel
     monster_count = client.battle_list.get_monster_count()
     while monster_count < monster_count_below:
         _, mp_percentage = client.status_bar.get_percentage()
+        client.heal()
         if mp_percentage > mana_perc:
             return
         if hotkey:
             client.hotkey(hotkey)
+            client.sleep(0.5, 0.7)
         client.sleep(0.2, 0.3)
 
 # Drop item from backpack to sqm
@@ -299,10 +308,10 @@ def drop_vials(client, cap=500, drop_stacks=4):
                     if drop_stacks <= 0:
                         break
 
-def recover_full_mana(client, hotkey='e'):
+def recover_full_mana(client, hotkey='e', monster_count_below=1):
     monster_count = client.battle_list.get_monster_count()
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
-    if monster_count < 1 and mp_percentage < 95:
+    if monster_count < monster_count_below and mp_percentage < 95:
         client.hotkey(hotkey)
 
 # Use hotkey
@@ -347,8 +356,6 @@ def equip_item(client, hotkey='f10', selected_monsters='all', dist=10, amount=1,
 # Equip item if conditions, and equip back
 def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=10, amount=1, slot='ring', hp_perc=100):
     hp_percentage, _ = client.status_bar.get_percentage()
-    if hp_percentage > hp_perc:
-        return
 
     monster_list = client.battle_list.get_monster_list()
     if selected_monsters != 'all':
@@ -368,7 +375,7 @@ def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=1
     unequip_hotkey = client.item_hotkeys[item_unequip]
 
     item_name = client.equips.get_item_in_slot(slot)
-    if monster_count >= amount and equip_item_count > 0 and item_name != item_equip:
+    if monster_count >= amount and equip_item_count > 0 and hp_percentage < hp_perc and item_name != item_equip:
         print(f'[Action] Equip item {item_name}')
         client.hotkey(equip_hotkey)
     elif monster_count < amount and item_name != item_unequip:
@@ -511,6 +518,7 @@ def lure_monsters(client, count=3, min_count=1, wait=False):
             x, y = zip(*reachable_creatures_sqm)
             if any(abs(l) >= 5 for l in x) or any(abs(l) >= 4 for l in y):
                 print('[Action] Wait lure')
+                client.heal()
                 client.sleep(0.2)
 
 def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=2, min_left_behind=1):
@@ -535,8 +543,8 @@ def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=
         else:
             return len(creatures_sqm)
 
-    waited = 0
-    while waited < max_wait:
+    wait_start = time.time()
+    while time.time() < wait_start + max_wait:
         client.heal()
         creatures_sqm = client.gameboard.get_sqm_monsters()
         reachable_creatures_sqm = [sqm for sqm in creatures_sqm if client.minimap.is_reachable(sqm)]
@@ -549,8 +557,7 @@ def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=
             m_left_behind = monsters_left_behind(reachable_creatures_sqm, direction_movement=direction_movement)
             print('[Action] Monsters left behind', m_left_behind)
             if m_left_behind >= min_left_behind:
-                print('[Action] Wait 0.3')
-                waited += 0.3
+                print('[Action] Waiting lure')
             else:
                 break
         else:
@@ -840,13 +847,19 @@ def check_hunt(client, success, fail=None, mana=True, health=True, cap=True, run
 
 def check_time(client, train, repeat):
     cest = timezone('Europe/Berlin')
-    hour = datetime.now(cest).hour
+    hour_full = datetime.now(cest).hour
+    hour_frac = datetime.now(cest).minute/60
 
-    if hour in client.script_options['hours_leave']:
-        print('[Action] Go train')
-        client.jump_label(train)
+    for h in client.script_options['hours_leave']:
+        h_full = round(h)
+        h_frac = h % 1
+        if hour_full == h_full:
+            if hour_frac > h_frac:
+                print('[Action] Go train')
+                client.jump_label(train)
+                break
     else:
-        print('[Action] Skip train', hour, 'not in', client.script_options['hours_leave'])
+        print('[Action] Skip train', datetime.now(cest), 'not in hours_leave:', client.script_options['hours_leave'])
         client.jump_label(repeat)
 
 # Add vip members to a group called "Blacklist" and hide offline vips
@@ -1072,9 +1085,10 @@ def check_imbuements(client):
         print('Active imbuements:', active_imbuements)
 
         for imbuement in imbuements:
+            client.heal()
             client.sleep(0.3, 0.4)
             equip_slot = imbuement['equip_slot']
-            equip_imbuements = active_imbuements[equip_slot]
+            equip_imbuements = active_imbuements.get(equip_slot, None)
             if equip_imbuements:
                 if imbuement['name'] in equip_imbuements:
                     print(equip_slot, ': imbuement', imbuement['name'], 'active')
