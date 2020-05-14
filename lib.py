@@ -111,13 +111,11 @@ def dynamic_barrier_rectangles(client, rectangles, monster_count=2, allow_in=Fal
     monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
     m_count = len(monster_list)
 
-    def inside_barrier():
-        target_inside = True
-        target_coord = client.gameboard.get_target_coordinate()
-        if target_coord:
-            target_inside = (target_coord[0] > top_left[0] and target_coord[0] < bottom_right[0] and target_coord[1] > top_left[1] and target_coord[1] < bottom_right[1])
+    def inside_barrier(top_left, bottom_right):
         char_inside = (cur_coord[0] > top_left[0] and cur_coord[0] < bottom_right[0] and cur_coord[1] > top_left[1] and cur_coord[1] < bottom_right[1])
-        return (char_inside and target_inside)
+        if char_inside:
+            print('Character inside', top_left, bottom_right)
+        return char_inside
 
     activate = False
     coords_barrier = []
@@ -126,7 +124,7 @@ def dynamic_barrier_rectangles(client, rectangles, monster_count=2, allow_in=Fal
             continue
 
         # Activate barrier if allow_in is disabled
-        if inside_barrier() or not allow_in:
+        if inside_barrier(top_left, bottom_right) or not allow_in:
             activate = True
         z = top_left[2]
         for x in range(top_left[0], bottom_right[0] + 1):
@@ -137,6 +135,8 @@ def dynamic_barrier_rectangles(client, rectangles, monster_count=2, allow_in=Fal
                 coords_barrier.append((x,y,z))
 
     if client.battle_list.is_targetting() and m_count >= monster_count and activate:
+        if activate:
+            print('Activate barriers')
         client.minimap.add_barrier_coords(coords_barrier)
     else:
         client.minimap.remove_barrier_coords(coords_barrier)
@@ -677,7 +677,7 @@ def deposit_all_from_backpack_to_depot(client, backpack_name, depot_num):
 
     for i in range(enter):
         client.return_container(src)
-        sleep(0.3)
+        sleep(0.4)
     return True
 
 def npc_refill(client, mana=False, health=False, ammo=False, rune=False, food=False):
@@ -740,6 +740,18 @@ def buy_items_npc(client, item_list_name, item_list_count):
     if not success:
         print('[Action] Failed to buy one or more items')
 
+def time_leave(client):
+    cest = timezone('Europe/Berlin')
+    now = datetime.now(cest)
+    print('Current time', now)
+    for h in client.script_options.get('hours_leave', []):
+        hour_leave = datetime(now.year, now.month, now.day, round(h - (h%1)), round(60 * (h % 1)), 0, tzinfo=now.tzinfo)
+        delta_mins = (now - hour_leave).total_seconds() / 60
+        if 0 < delta_mins < 60:
+            print('Now:', now, 'Leave check:', hour_leave)
+            return True
+    return False
+
 def check(client, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
     mana_check = health_check = cap_check = ammo_check = rune_check = time_check = True
     if mana:
@@ -771,8 +783,7 @@ def check(client, mana=True, health=True, cap=True, rune=False, ammo=False, time
     if cap:
         cap_check = client.get_cap() > client.hunt_config['cap_leave']
     if time:
-        cest = timezone('Europe/Berlin')
-        time_check = datetime.now(cest).hour not in client.script_options.get('hours_leave', [])
+        time_check = not time_leave(client)
 
     print('[Action] Check results:')
     print('[Action] Mana:', mana_check)
@@ -798,6 +809,7 @@ def stop_target_no_supplies(client, mana=True, health=True, cap=True, rune=False
 # Will reach npc and say 'hi' already. So don't put 'hi' in list of words.
 def talk_npc(client, list_words):
     client.npc_say(list_words)
+
 
 def check_hunt(client, success, fail=None, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
     mana_check = health_check = cap_check = ammo_check = rune_check = time_check = True
@@ -830,8 +842,7 @@ def check_hunt(client, success, fail=None, mana=True, health=True, cap=True, run
     if cap:
         cap_check = client.get_cap() > client.hunt_config['cap_leave']
     if time:
-        cest = timezone('Europe/Berlin')
-        time_check = datetime.now(cest).hour not in client.script_options.get('hours_leave', [])
+        time_check = not time_leave(client)
 
     print('[Action] Check Hunt results:')
     print('[Action] Mana:', mana_check)
@@ -847,17 +858,9 @@ def check_hunt(client, success, fail=None, mana=True, health=True, cap=True, run
 
 def check_time(client, train, repeat):
     cest = timezone('Europe/Berlin')
-    hour_full = datetime.now(cest).hour
-    hour_frac = datetime.now(cest).minute/60
-
-    for h in client.script_options['hours_leave']:
-        h_full = round(h)
-        h_frac = h % 1
-        if hour_full == h_full:
-            if hour_frac > h_frac:
-                print('[Action] Go train')
-                client.jump_label(train)
-                break
+    if time_leave(client):
+        print('[Action] Go train')
+        client.jump_label(train)
     else:
         print('[Action] Skip train', datetime.now(cest), 'not in hours_leave:', client.script_options['hours_leave'])
         client.jump_label(repeat)
