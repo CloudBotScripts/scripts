@@ -51,8 +51,9 @@ These scripts are the official scripts for CloudBot.
 | 250+  | [Glooth Bandit East](glooth_bandit_east/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit West](glooth_bandit_west/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit South](glooth_bandit_south/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
-| 300+  | [Cults Edron Full](edron_cults/setup_ek.json) | :star: :star:                           | :star: :star: :star: :star:             |
+| 300+  | [Cults Edron Advanced Lure](edron_cults/setup_ek.json) | :star: :star:                           | :star: :star: :star: :star:             |
 | 300+  | [Oramond Sewers Advanced Lure](oramond_sewers_box/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
+| 350+  | [Drefia Wyrms Advanced Lure](drefia_wyrms_box/setup_ek.json) | :star: :star:        | :star: :star: :star: :star: :star:   |       
 | 350+  | Medusa Tower                    | :star: :star:                           | :star: :star: :star: :star: :star:      |
 | 400+  | [Oramond Glooth Tower](oramond_tower/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
 
