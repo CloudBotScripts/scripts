@@ -76,6 +76,10 @@ def cast_spell_if_monsters(client, min_mp, spell_hotkey, monster_count=3, monste
         print(f'[Action] Cast spell in hotkey {spell_hotkey}')
         client.hotkey(spell_hotkey)
 
+# Blacklist coords so that bot think it is a wall.
+def blacklist_coords(client, coords_barrier):
+    client.minimap.add_barrier_coords(coords_barrier)
+
 # Add barriers if char is inside area defined by top_left, bottom_right
 # Careful not to overlap barriers with other calls of this function
 def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_count=2):
@@ -265,7 +269,7 @@ def wait_mana_percentage_below(client, mana_perc, hotkey=None, monster_count_bel
         if hotkey:
             client.hotkey(hotkey)
             client.sleep(0.5, 0.7)
-        client.sleep(0.2, 0.3)
+        client.sleep(0.2, 0.3, heal=True)
 
 # Drop item from backpack to sqm
 # if stack=True drops one item of the stack
@@ -877,6 +881,19 @@ def check_blacklist_player_online(client, label_jump):
             client.jump_label(label_jump)
     else:
         print('[Action] Could not find VIP window')
+
+# Target off if monster on screen
+## Retro safe must be on
+def stop_target_player_on_screen(client):
+    if not client.retro_safe:
+        print('[Action] Retro safe must be set to true')
+        return
+    if client.target_on and client.retro_safe and client.player_battle_list.has_creature():
+        print('[Action] Stop target 2s due to player on screen')
+        if client.battle_list.is_targetting():
+            client.hotkey('esc')
+            sleep(0.1)
+        client.attack_timeout = time.time() + 2
 
 def check_kill_count(client, monster_name, kill_amount, label_jump, label_skip):
     result = client.get_windows_by_names(['QuestTracker'])

@@ -79,6 +79,7 @@ These scripts are the official scripts for CloudBot.
 | 300+  | [Cults Edron Full](edron_cults/setup_rp.json) | :star: :star:                           | :star: :star: :star: :star:             |
 | 300+  | [Oramond Sewers](oramond_sewers/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
 | 350+  | [Drefia Wyrms](drefia_wyrms/setup_rp.json) | :star: :star:        | :star: :star: :star: :star:      |       
+| 350+  | [Drefia Wyrms Advanced Lure](drefia_wyrms_box/setup_rp.json) | :star: :star:        | :star: :star: :star: :star:   |       
 | 350+  | [Oramond Demon Sewers Entrance](oramond_demon_sewers/setup_rp.json) | :star: :star: :star: :star:        | :star: :star: :star:      |       
 | 350+  | [Medusa Tower](medusa_tower/setup_rp.json)     | :star: :star: :star:              | :star: :star: :star: :star: :star:      |
 | 400+  | [Oramond Glooth Tower](oramond_tower/setup_rp.json) | :star: :star: :star: :star:        | :star: :star: :star: :star: :star:      |       

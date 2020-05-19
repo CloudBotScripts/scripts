@@ -34,6 +34,7 @@ stand (33065,32400,11)
 stand (33070,32396,12)
 action walk_keys
 stand (33070, 32409, 13)
+action wait
 label hunt
 action summon
 node (33068, 32402, 14)
