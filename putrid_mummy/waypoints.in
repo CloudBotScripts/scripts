@@ -1,0 +1,177 @@
+label start
+label go_bank
+node (33220,32427,7)
+node (33216,32407,7)
+stand (33221,32387,7)
+action bank
+node (33214,32404,7)
+node (33214,32422,7)
+node (33218,32444,7)
+stand (33214,32455,7)
+node (33206,32460,8)
+action deposit
+action refill
+node (33214,32458,8)
+stand (33214,32455,8)
+action check_imbuements
+label imbue_items
+stand (33215,32453,7)
+action use_imbuing_shrine
+label skip_imbuement
+node (33218,32443,7)
+action check_ammo
+stand (33230,32430,7)
+action buy_ammo
+label skip_ammo
+node (33217,32415,7)
+stand (33217,32403,7)
+action sell
+action buy_potions
+node (33215,32416,7)
+node (33218,32442,7)
+node (33214,32453,7)
+action check_supplies
+label gohunt
+node (33221,32429,7)
+node (33216,32403,7)
+node (33227,32382,7)
+node (33236,32360,7)
+node (33252,32346,7)
+node (33271,32333,7)
+node (33278,32313,7)
+node (33288,32294,7)
+node (33304,32285,7)
+stand (33312,32281,7)
+stand (33300,32290,8)
+stand (33299,32279,9)
+stand (33306,32290,10)
+stand (33293,32291,11)
+action walk_keys
+node (33294,32276,12)
+use (33295,32271,12)
+node (33305,32263,12)
+label hunt
+call drop_vials("drop_stacks":5)
+node (33285, 32260, 12)
+node (33285, 32250, 12)
+call wait_lure("lure_amount":2, "dist":1, "min_left_behind":2)
+node (33288, 32245, 12)
+call wait_lure("lure_amount":2, "dist":1, "min_left_behind":2)
+walk (33297, 32242, 12)
+call wait_lure("lure_amount":2, "dist":1, "min_left_behind":2)
+call lure_monsters("count":2)
+node (33298, 32242, 12)
+node (33305, 32247, 12)
+node (33312, 32254, 12)
+node (33321, 32256, 12)
+node (33328, 32258, 12)
+walk (33329, 32258, 12)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":3)
+node (33329, 32258, 12)
+node (33338, 32265, 12)
+node (33343, 32273, 12)
+node (33350, 32281, 12)
+walk (33356, 32287, 12)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":3)
+node (33356, 32287, 12)
+node (33362, 32303, 12)
+walk (33364, 32304, 12)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":3)
+node (33364, 32304, 12)
+node (33376, 32306, 12)
+node (33385, 32299, 12)
+node (33383, 32287, 12)
+walk (33386, 32279, 12)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":3)
+node (33386, 32279, 12)
+node (33387, 32268, 12)
+node (33385, 32258, 12)
+walk (33374, 32260, 12)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":3)
+node (33374, 32260, 12)
+node (33372, 32261, 12)
+walk (33363, 32264, 12)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":3)
+node (33363, 32264, 12)
+node (33356, 32259, 12)
+walk (33351, 32254, 12)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":3)
+node (33351, 32254, 12)
+node (33344, 32258, 12)
+node (33337, 32261, 12)
+walk (33328, 32258, 12)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":3)
+node (33328, 32258, 12)
+node (33310, 32254, 12)
+node (33303, 32264, 12)
+node (33295, 32267, 12)
+action check
+label leave
+use (33295,32271,12)
+node (33293,32285,12)
+rope (33293,32291,12)
+action walk_mouse
+stand (33306,32290,11)
+stand (33299,32279,10)
+stand (33300,32290,9)
+stand (33312,32281,8)
+node (33295,32292,7)
+node (33284,32306,7)
+node (33274,32323,7)
+node (33265,32343,7)
+node (33250,32363,7)
+node (33236,32380,7)
+node (33216,32392,7)
+node (33215,32412,7)
+node (33221,32431,7)
+action check_time
+label train
+node (33220,32437,7)
+node (33244,32436,7)
+stand (33265,32441,7)
+node (33271,32441,6)
+action travel_edron
+stand (33189,31785,3)
+stand (33191,31781,4)
+stand (33195,31785,5)
+node (33212,31783,6)
+stand (33209,31789,6)
+node (33195,31791,7)
+node (33181,31790,7)
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start_trainer
+node (33195,31790,7)
+ladder (33208,31789,7)
+node (33208,31783,6)
+ladder (33195,31785,6)
+ladder (33192,31781,5)
+ladder (33189,31785,4)
+node (33194,31782,3)
+action travel_darashia
+stand (33265,32441,6)
+node (33243,32437,7)
+node (33224,32437,7)
+node (33214,32451,7)

@@ -48,6 +48,7 @@ def throw_rune_if_monsters(client, min_mp, rune_name, min_monsters_hit=3, select
     if mp_percentage > min_mp and monsters_hit >= min_monsters_hit:
         print(f'[Action] Throw rune {rune_name} in sqm {best_sqm}')
         client.hotkey(rune_hotkey)
+        sleep(0.1)
         client.click_sqm(*best_sqm)
     else:
         print(f'[Action] Rune will hit {monsters_hit}')
@@ -77,8 +78,53 @@ def cast_spell_if_monsters(client, min_mp, spell_hotkey, monster_count=3, monste
         client.hotkey(spell_hotkey)
 
 # Blacklist coords so that bot think it is a wall.
+# coords_barrier is a list of barriers [[x,y,z],[x2,y2,z2],...]
 def blacklist_coords(client, coords_barrier):
     client.minimap.add_barrier_coords(coords_barrier)
+
+# Wall activates only during target for distance hunting. The block_side indicates which side of the barrier blocks.
+# If target crosses barrier, will disable barrier to continue targeting
+# Example: target_wall([x,y,z], 3, 1): wall starting in (x,y,z) with 3 sqm width that blocks from both sides
+#   target_wall([x,y,z], height=3): wall starting in (x,y,z) with default 1sqm wigth and 3 sqm height that blocks from both sides
+#   target_wall([x,y,z], 2, 3): wall starting in (x,y,z) with 2 sqm width and  3 sqm height
+#   target_wall([x,y,z], 1, 3, block_side='east'): wall starting in (x,y,z) with 1 sqm width and  3 sqm height that 
+#      blocks player coming from right (east) to left (west)  | <---
+def target_wall(client, barrier_coord, width=1, height=1, block_side='all'):
+    cur_coord = client.minimap.get_current_coord()
+    if cur_coord in ('Unreachable', 'Out of range'):
+        return
+    if cur_coord[2] != barrier_coord[2]:
+        return
+    target_coord = client.get_target_coord()
+    if not target_coord or target_coord in ('Unreachable', 'Out of range'):
+        return
+
+    def block_west(c): 
+        return c[0] < barrier_coord[0]
+    def block_east(c): 
+        return c[0] >= barrier_coord[0] + width 
+    def block_south(c): 
+        return c[1] > barrier_coord[1]
+    def block_north(c): 
+        return c[1] <= barrier_coord[1] - height
+
+    activate = False
+    if block_side in ('east', 'all'):
+        activate |= (block_east(cur_coord) and block_east(target_coord))
+    if block_side in ('north', 'all'):
+        activate |= (block_north(cur_coord) and block_north(target_coord))
+    if block_side in ('west', 'all'):
+        activate |= (block_west(cur_coord) and block_west(target_coord))
+    if block_side in ('south', 'all'):
+        activate |= (block_south(cur_coord) and block_south(target_coord))
+
+    x,y,z = barrier_coord
+    barriers = [[x+dx,y-dy,z] for dy in range(height) for dx in range(width)]
+    if activate:
+        client.minimap.add_barrier_coords(barriers)
+    else:
+        client.minimap.remove_barrier_coords(barriers)
+
 
 # Add barriers if char is inside area defined by top_left, bottom_right
 # Careful not to overlap barriers with other calls of this function
@@ -316,7 +362,7 @@ def recover_full_mana(client, hotkey='e', monster_count_below=1):
     monster_count = client.battle_list.get_monster_count()
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
     if monster_count < monster_count_below and mp_percentage < 95:
-        client.hotkey(hotkey)
+        client.use_potion(hotkey)
 
 # Use hotkey
 def use_hotkey(client, hotkey='f11'):
@@ -981,6 +1027,7 @@ def jump_to_label(client, label):
   client.jump_label(label)
 
 # Jump random label
+# Ex: call jump_to_random_label("labels":["label1", "label2"])
 def jump_to_random_label(client, labels):
   label = random.choice(labels)
   print('[Action] Jump to random label:', label)

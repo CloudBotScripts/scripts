@@ -24,6 +24,7 @@
 {
 	"stealth ring": {"hotkey":"f8", "id":3049, "use":"equip"},
 	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"strong health potion": {"hotkey":"f2", "id":236, "use":"self"},
 	"health potion": {"hotkey":"f1", "id":266, "use":"self"}
 },
 "spells":
@@ -32,7 +33,7 @@
 },
 "healing":
 [
-	{"type":"hp", "below_percent":60, "use_item":"health potion", "priority":3},
+	{"type":"hp", "below_percent":60, "use_item":"strong health potion", "priority":3},
 	{"type":"hp", "below_percent":90, "use_spell":"exura ico", "min_mana_percent":20, "priority":2},
 	{"type":"mp", "below_percent":20, "use_item":"mana potion", "priority":1}
 ],
@@ -41,7 +42,7 @@
 	"mana_name": "mana potion",
 	"take_mana": 200,
 	"mana_leave": 50,
-	"health_name": "health potion",
+	"health_name": "strong health potion",
 	"take_health": 50,
 	"health_leave": 25
 },

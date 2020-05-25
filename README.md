@@ -40,8 +40,9 @@ These scripts are the official scripts for CloudBot.
 | 160+  | [Krailos Nightmare Advanced Lure](krailos_nightmare_box/setup_ek.json) | :star:                                  | :star: :star: :star:                    |
 | 160+  | [Sea Serpent South](sea_serpent/setup_ek_south.json) | :star: :star:                           | :star: :star: :star:                    |
 | 160+  | [Hero Old Fortress -1](hero_fortress/setup_ek.json)   | :star: :star:                          | :star: :star: :star: :star:             |  
+| 170+  | [Vampire Crypt Edron Advanced Lure](vampire_crypt_edron_box/setup_ek.json)             | :star: :star: :star: :star:      | :star: :star: :star:                    |
 | 180+  | [Sea Serpent South -1](sea_serpent/setup_ek_south_down.json) | :star: :star:                           | :star: :star: :star:                    |
-| 180+  | Putrid Mummy                    | :star: :star: :star:                    | :star: :star:                           |
+| 180+  | [Putrid Mummy Advanced Lure](putrid_mummy/setup_ek.json)    | :star: :star: :star:                    | :star: :star: :star:                       |
 | 180+  | [Feyrist Mountain](feyrist_mountain/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |    
 | 200+  | Hydra Oramond                   | :star:                                  | :star: :star:                           |
 | 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
@@ -107,7 +108,7 @@ These scripts are the official scripts for CloudBot.
 | 130+  | [Mother Of Scarab Lair](mother_of_scarab/setup_mage.json) | :star:                    | :star: :star: :star: :star:             |
 | 150+  | [Ice Witch Svargrond](ice_witch/setup_ms.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 | 160+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
-| 180+  | [Experimental Edron Werecave](edron_werecave/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
+| 180+  | [Edron Werecave](edron_werecave/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 | 200+  | [Cormaya Werecave](cormaya_werecave/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ## Quests/Other

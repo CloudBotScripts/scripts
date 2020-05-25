@@ -1,0 +1,86 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"follow_mode":"bot",
+	"loot_priority":"after"
+},
+"script_options": {
+	"hours_leave": [9],
+	"skill_train":"sword",
+	"sort_deposit": {"alexander":6, "lailene":6, "tamoril":8, "rashid": 9, "green_djinn": 10}
+},
+"containers": 
+{
+	"gold_bp":"Golden Backpack",
+	"loot_bp":"Red Backpack"
+},
+"tools": {},
+"items":
+{
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"ultimate health potion": {"hotkey":"F", "id":7643, "use":"self"},
+	"avalanche rune": {"info": "Rune for Ghost trap", "hotkey":"7", "id": 3161, "use":"target"},
+	"blessed wooden stake": {"hotkey":"8", "id":5942, "use":"crosshair"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"utura gran": "R",
+	"exura ico":"r",
+	"exori":"1",
+	"exori min":"2",
+	"exori hur":"3",
+	"exori gran":"4",
+	"exori ico":"q"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":60, "use_item":"ultimate health potion",  "priority":4},
+	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2},
+	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
+],
+"hunt_config": {
+	"cap_leave": 150,
+	"mana_name": "mana potion",
+	"take_mana": 800,
+	"mana_leave": 200,
+	"health_name": "ultimate health potion",
+	"take_health": 150,
+	"health_leave": 50,
+	"rune_name": "avalanche rune",
+	"take_rune": 30,
+	"rune_leave": 0 
+},
+"persistent_actions": [
+	{"action":"haste", "interval":40, "args":["v"]},
+	{"action":"anti_paralyze", "interval":1, "args":["r"]},
+	{"action":"lure_monsters", "interval":1.5, "args":[6]},
+	{"action":"recover_full_mana", "interval":2, "args":["e"]},
+	{"action":"eat_food", "interval":30, "args":["f11"]}
+],
+"target_monsters": 
+[
+	{"name":"Necromancer", "action":"follow", "loot":true}, 
+	{"name":"Bonebeast", "action":"follow", "loot":true}, 
+	{"name":"Ghoul", "action":"follow", "loot":false}, 
+	{"name":"Demon Skeleton", "action":"follow", "loot":false}, 
+	{"name":"Mummy", "action":"follow", "loot":false}, 
+	{"name":"Vampire", "action":"follow", "use_item":"blessed wooden stake", "loot":true}, 
+	{"name":"Vampire Viscount", "action":"follow", "use_item":"blessed wooden stake", "loot":true}, 
+	{"name":"Vampire Bride", "action":"follow", "use_item":"blessed wooden stake","loot":true}
+],
+"target_spells":
+[ 
+	{"name":"avalanche rune", "min_mana_percent":10, "priority":5, "cooldown": 2,  "monsters":["Ghost", "Ghoul"]},
+	{"name":"exori hur", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Vampire", "Vampire Viscount", "Vampire Bride"]},
+	{"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Vampire", "Vampire Viscount", "Vampire Bride"]},
+	{"name":"exori", "min_mana_percent":20, "priority":2, "cooldown": 4, "min_monster_count":2},
+	{"name":"exori min", "min_mana_percent":30, "priority":3, "cooldown": 6, "min_monster_count":2},
+	{"name":"exori gran", "min_mana_percent":40, "priority":4, "cooldown": 6,  "min_monster_count":3},
+	{"name":"utito tempo", "min_mana_percent":60, "priority":5, "cooldown": 12,  "min_monster_count":4}
+],
+"loot": []
+}

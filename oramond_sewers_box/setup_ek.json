@@ -6,7 +6,7 @@
 	"anti_trap": "weapon"
 },
 "script_options": {
-        "hours_leave": [9.6, 3.3],
+        "hours_leave": [9.6],
         "skill_train":"sword",
         "imbuements":[
                 {"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
@@ -55,10 +55,10 @@
 "hunt_config": {
         "cap_leave": 150,
         "mana_name": "mana potion",
-        "take_mana": 1300,
+        "take_mana": 1500,
         "mana_leave": 300,
         "health_name": "ultimate health potion",
-        "take_health": 600,
+        "take_health": 400,
         "health_leave": 100,
         "health_name2": "supreme health potion",
         "take_health2": 100,
@@ -73,15 +73,15 @@
 	{"action":"anti_paralyze", "interval":1, "args":["v"]},
         {"action":"lure_monsters", "interval":0.5, "use_in_battle":true, "args":{"count":7}},
         {"action":"eat_food", "interval":30, "args":["f11"]},
-	{"action":"dynamic_barrier_coords", "interval":1, "use_in_battle":true, "args":{
+	{"action":"blacklist_coords", "interval":1, "use_in_battle":true, "args":{
 		"coords_barrier":[
 			[33624,31976,7],
 			[33633,31976,7],
+			[33631,31972,7],
 			[33640,31963,7],
 			[33647,31947,7],
 			[33640,31945,7]
-		],
-		"monster_count":1
+		]
 	}}
 ],
 "target_monsters": 
