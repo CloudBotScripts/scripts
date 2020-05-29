@@ -241,14 +241,17 @@ def distance_attack_lure(client, selected_monsters='all', count=4):
     if selected_monsters != 'all':
         selected_monsters = [m.replace(' ', '') for m in selected_monsters]
 
+
     follow=False
     for monster in client.target_conf:
         if selected_monsters == 'all' or monster in selected_monsters:
             if monster_count >= count:
                 follow=True
                 client.target_conf[monster]['action'] = 'follow'
-            else:
+            elif monster_count < 1 and not client.battle_list.is_targetting():
                 client.target_conf[monster]['action'] = 'distance'
+            else:
+                return
     if follow:
         print('[Action] Follow monsters')
     else:
@@ -718,7 +721,7 @@ def deposit_all_from_backpack_to_depot(client, backpack_name, depot_num):
         else:
             enter += 1
             client.use_slot(src, 0)
-            sleep(0.1)
+            sleep(0.4)
             tries = 32
         sleep(0.4)
 
