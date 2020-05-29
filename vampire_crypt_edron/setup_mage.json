@@ -42,7 +42,7 @@
 [
 	{"type":"hp", "below_percent":60, "use_spell":"exura vita", "min_mana_percent":10, "priority":4},
 	{"type":"hp", "below_percent":75, "use_spell":"exura gran", "min_mana_percent":5,  "priority":3},
-	{"type":"mp", "below_percent":80, "use_item":"great mana potion", "priority":2}
+	{"type":"mp", "below_percent":45, "use_item":"great mana potion", "priority":2}
 ],
 "hunt_config": {
 	"cap_leave": 0,
@@ -54,11 +54,11 @@
 	"rune_leave": 250
 },
 "persistent_actions": [
+	{"action":"recover_full_mana", "interval":1, "args":["e"]},
 	{"action":"drop_vials", "interval":60},
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
 	{"action":"anti_paralyze", "interval":1, "args":["v"]},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-	{"action":"recover_full_mana", "interval":2, "args":["e"]},
 	{"action":"lure_monsters", "interval":1, "args":{"count":3}},
 	{"action":"dynamic_barrier_rectangles", "interval":0.5, "use_in_battle":true, "args":{
 		"rectangles":[

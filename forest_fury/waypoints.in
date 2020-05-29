@@ -8,8 +8,8 @@ action deposit
 label withdraw_ring
 label withdraw_mushrooms
 stand (32332,31781,8)
-node (32341,31780,7)
-node (32341,31784,7)
+node (32335, 31785, 7)
+node (32341, 31795, 7)
 node (32341,31799,7)
 node (32341,31816,7)
 node (32349,31827,7)
@@ -24,6 +24,7 @@ node (32337,31785,7)
 action check_supplies
 label check_stealth
 label go_hunt
+node (32341, 31785, 7)
 node (32341,31769,7)
 node (32341,31760,7)
 node (32341,31743,7)
@@ -98,3 +99,5 @@ label train
 node (32341,31769,7)
 label exit
 action end
+label avoid_trap_depot
+stand (32338,31782,6)

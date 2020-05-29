@@ -11,7 +11,7 @@
 },
 "containers": 
 {
-    "gold_bp":"Orange Backpack",
+    "gold_bp":"Purple Backpack",
     "loot_bp":"Red Backpack"
 },
 "tools": {},
@@ -39,8 +39,8 @@
     "take_mana": 100,
     "mana_leave": 45,
     "rune_name": "great fireball rune",
-    "take_rune": 40,
-    "rune_leave": 10 
+    "take_rune": 50,
+    "rune_leave": 20 
 },
 "label_actions": [
     {"label":"withdraw_mushrooms", "action":"withdraw_item_from_depot_to_backpack", "args": {
@@ -55,8 +55,6 @@
 ],
 "target_monsters": 
 [
-    {"name":"Leaf Golem", "action":"follow", "loot":true},
-    {"name":"Wilting Leaf Golem", "action":"follow", "loot":true},
     {"name":"Forest Fury", "action":"follow", "loot":true},
     {"name":"Poacher", "action":"follow", "loot":true},
     {"name":"Dryad", "action":"follow", "loot":true},
