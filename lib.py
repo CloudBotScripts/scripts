@@ -212,7 +212,7 @@ def set_target_action(client, selected_monsters='all', action='follow'):
             client.target_conf[monster]['action'] = action
     print(f'[Action] Set target config of monsters {selected_monsters} to {action}')
 
-# Attack distance until certain amount of monsters on screen, then follow
+# Attack distance if too many monsters on screen
 def distance_monster_count_above(client, selected_monsters='all', count=3):
     monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
     monster_count = len(monster_list)
@@ -277,6 +277,7 @@ def anti_paralyze(client, hotkey='f2'):
     conditions = client.condition_bar.get_condition_list()
     if 'paralyzed' in conditions:
         print('[Action] Cast anti paralyze')
+        print('[Action] Deprecated, use "use_hotkey_if_condition"')
         client.hotkey(hotkey)
 
 # Anti poison
@@ -284,6 +285,15 @@ def anti_poison(client, hotkey='f10'):
     conditions = client.condition_bar.get_condition_list()
     if 'poisoned' in conditions:
         print('[Action] Cast anti poison')
+        print('[Action] Deprecated, use "use_hotkey_if_condition"')
+        client.hotkey(hotkey)
+
+# Use hotkey if condition is active
+# conditions is one of ['poisoned', 'bleeding', 'cursed', 'mana', 'paralyzed', 'electrified', 'battle', 'haste', 'drunk', 'hungry', 'protected']
+def use_hotkey_if_condition(client, hotkey='f10', condition='poisoned'):
+    conditions = client.condition_bar.get_condition_list()
+    if condition in conditions:
+        print(f'[Action] Condition {condition} is active, using hotkey {hotkey}')
         client.hotkey(hotkey)
 
 # Warning: Do not use with same interval of other persistents like equip_item, refill_ammo...
@@ -979,6 +989,7 @@ def check_skill(client):
         client.jump_label('magic')
 
 def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, rune=False, ammo=False, logout_fail=True):
+    client.turn_chat_off()
     mana_check = health_check = cap_check = ammo_check = rune_check = imbuement_check = True
     print('[Action] Check Supplies results:')
     if mana:

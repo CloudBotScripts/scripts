@@ -28,7 +28,7 @@
 "items":
 {
 	"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
-	"avalanche rune": {"hotkey":"9", "id":3161, "use":"crosshair"},
+	"avalanche rune": {"hotkey":"9", "id":3161, "use":"target"},
 	"ultimate spirit potion": {"hotkey":"f", "id":23374, "use":"self"},
 	"crystalline arrow": {"hotkey":"j", "id":15793, "use":"equip"},
 	"diamond arrow": {"hotkey":"k", "id":25757, "use":"equip"},
@@ -62,28 +62,29 @@
 	"take_health": 100,
 	"health_leave": 40,
 	"rune_name": "avalanche rune",
-	"take_rune": 400,
+	"take_rune": 500,
 	"rune_leave": 120,
 	"ammo_name": "crystalline arrow",
 	"take_ammo": 500,
 	"ammo_leave": 200
 },
 "label_actions": [
-	{"label":"refill_mana", "action":"wait_mana_percentage_below", "args": {"mana_perc":75, "hotkey":"e", "monster_count_below":2}}
+	{"label":"refill_mana", "action":"wait_mana_percentage_below", "args": {"mana_perc":45, "hotkey":"e", "monster_count_below":2}}
 ],
 "persistent_actions": [
-	{"action":"drop_vials", "interval":60},
+	{"action":"drop_vials", "interval":20},
+	{"action":"recover_full_mana", "interval":1, "args":["e"]},
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
 	{"action":"refill_diamond_ammo", "interval":5, "use_in_battle":true},
 	{"alias": "rune_thrower", "action": "throw_rune_if_monsters", "interval": 2, "args": { "min_mp": 20, "rune_name": "avalanche rune" } },
-	{"action":"recover_full_mana", "interval":3, "args":["e"]},
 	{"action":"lure_monsters", "interval":2, "args":{"count":8}}
 ],
 "target_monsters": 
 [
 	{"name":"Wyrm", "action":"follow", "loot":true}, 
+	{"name":"Tyrn", "action":"follow", "loot":true}, 
 	{"name":"Elder Wyrm", "action":"follow", "loot":true}
 ],
 "target_spells":
@@ -91,7 +92,7 @@
 	{"name":"exori san", "min_mana_percent":10, "priority":1, "cooldown":2,
 		"monsters":["Wyrm", "Elder Wyrm", "Ghost", "Pirate Skeleton", "Pirate Ghost", "Tarnished Spirit", "White Shade"]},
 	{"name":"exevo mas san", "min_mana_percent":30, "priority":3, "min_monster_count":3, "cooldown":4},
-	{"name":"avalanche rune", "min_mana_percent":20, "priority":2, "min_monster_count":2, "cooldown":2}
+	{"name":"avalanche rune", "min_mana_percent":20, "priority":2, "min_monster_count":3, "cooldown":2}
 ],
 "loot": []
 }

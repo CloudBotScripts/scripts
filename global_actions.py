@@ -103,6 +103,9 @@ def waypoint_action(client, action):
     elif action == "use_lever_east":
         client.use_lever((1, 0))
 
+    elif action == "chat_off":
+        client.turn_chat_off()
+
     elif action == "deposit":
         client.reach_locker()
         deposit_all_from_backpack_to_depot(client, client.container_conf['loot_bp'], 2)

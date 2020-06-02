@@ -45,6 +45,7 @@
 	"exori min":"2",
 	"exori hur":"3",
 	"exori gran":"4",
+	"exori mas":"5",
 	"exori ico":"q"
 },
 "healing":
@@ -95,7 +96,8 @@
 	{"name":"exori min", "min_mana_percent":20, "priority":3, "cooldown": 6, "min_monster_count":1},
 	{"name":"exeta res", "min_mana_percent":30, "priority":5, "cooldown": 5,  "min_monster_count":1, "group":"support"},
 	{"name":"utito tempo", "min_mana_percent":70, "priority":5, "cooldown": 15, "min_monster_count":4, "group":"support"},
-	{"name":"avalanche rune", "min_mana_percent":2, "priority":10, "cooldown":2, "monsters":["Ghost", "Vampire", "Necromancer", "Mummy", "Ghoul", "Skeleton", "Tarnished Spirit"]}
+	{"name":"exori mas", "min_mana_percent":10, "priority":10, "cooldown":2, "monsters":["Vampire", "Necromancer", "Mummy", "Ghoul", "Demon Skeleton", "Skeleton", "Tarnished Spirit"]},
+	{"name":"avalanche rune", "min_mana_percent":2, "priority":10, "cooldown":2, "monsters":["Ghost", "Vampire", "Necromancer", "Mummy", "Ghoul", "Demon Skeleton", "Skeleton", "Tarnished Spirit"]}
 ],
 "loot": []
 }
