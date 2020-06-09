@@ -22,12 +22,13 @@
 },
 "tools":
 {
-	"rope": {"name":"squeezing gear of girlpower", "id": 9596},
-	"shovel": {"name":"squeezing gear of girlpower", "id": 9596}
+	"rope": {"name":"elvenhair rope", "id": 646},
+	"shovel": {"name":"light shovel", "id": 5710}
 },
 "items":
 {
 	"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
+	"avalanche rune": {"hotkey":"g", "id":3161, "use":"target"},
 	"ultimate spirit potion": {"hotkey":"f", "id":23374, "use":"self"},
 	"crystalline arrow": {"hotkey":"j", "id":15793, "use":"equip"},
 	"diamond arrow": {"hotkey":"k", "id":25757, "use":"equip"},
@@ -52,9 +53,9 @@
 	{"type":"mp", "below_percent":20, "use_item":"ultimate spirit potion",      "priority":5},
 	{"type":"hp", "below_percent":75, "use_spell":"exura gran san", "min_mana_percent":10,  "priority":4},
 	{"type":"hp", "below_percent":50, "use_item":"ultimate spirit potion",      "priority":3},
-	{"type":"mp", "below_percent":80, "use_item":"strong mana potion", "priority":2},
+	{"type":"mp", "below_percent":60, "use_item":"strong mana potion", "priority":2},
 	{"type":"hp", "below_percent":98, "use_spell":"utura gran", "min_mana_percent":50, "priority":1, "cooldown":60},
-	{"type":"hp", "below_percent":101, "use_spell":"exevo gran con hur", "min_mana_percent":70, "priority":1, "cooldown":301}
+	{"type":"hp", "below_percent":101, "use_spell":"exevo gran con hur", "min_mana_percent":50, "priority":1, "cooldown":301}
 ],
 "hunt_config": {
 	"cap_leave": 200,
@@ -64,6 +65,9 @@
 	"health_name": "ultimate spirit potion",
 	"take_health": 150,
 	"health_leave": 50,
+	"rune_name": "avalanche rune",
+	"take_rune": 500,
+	"rune_leave": 120,
 	"ammo_name": "crystalline arrow",
 	"take_ammo": 500,
 	"ammo_leave": 250
@@ -72,7 +76,7 @@
 [
 	{"label":"withdraw_amulet", "action":"withdraw_item_from_depot_to_backpack", "args": {
 		"item_name":"garlic necklace", "depot_num":4, "backpack_name":"Backpack", "amount":8, "stack":false}},
-	{"label":"count_diamond_arrow", "action":"conditional_jump_item_count_below", "args": {"item_name":"diamond arrow", "amount":300, "label_jump":"wait_diamond_arrow", "label_skip":"skip_ammo"}},
+	{"label":"count_diamond_arrow", "action":"conditional_jump_item_count_below", "args": {"item_name":"diamond arrow", "amount":200, "label_jump":"wait_diamond_arrow", "label_skip":"skip_ammo"}},
 	{"label":"wait_diamond_arrow", "action":"wait", "args": {"tmin":60, "tmax":100}}
 ],
 "persistent_actions": [
@@ -84,20 +88,23 @@
 	{"action":"swap_equip", "interval":3, "use_in_battle":true, "args":{
 		"item_equip":"garlic necklace", "item_unequip":"foxtail amulet", "selected_monsters":["Serpent Spawn", "Medusa"], "amount":3, "slot":"amulet"}},
 	{"action":"refill_diamond_ammo", "interval":1, "use_in_battle":true, "args":{"save_single_target":true}},
-	{"action":"recover_full_mana", "interval":4, "args":["e"]},
-	{"action":"lure_monsters_diamond_arrow", "interval":0.7, "args":[5]}
+	{"action":"recover_full_mana", "interval":1, "args":["e"]},
+	{"action":"lure_monsters_diamond_arrow", "interval":0.7, "args":[8]}
 ],
 "target_monsters": 
 [
 	{"name":"Medusa", "action":"follow", "loot":true},
 	{"name":"Behemoth", "action":"follow", "loot":true, "use_item":"obsidian knife"},
-	{"name":"Serpent Spawn", "action":"follow", "loot":true}
+	{"name":"Serpent Spawn", "action":"follow", "loot":true},
+	{"name":"Omnivora", "action":"follow", "loot":false},
+	{"name":"Clay Guardian", "action":"follow", "loot":false}
 ],
 "target_spells":
 [
 	{"name":"exori san", "min_mana_percent":20, "priority":1, "cooldown":2,
 		"monsters":["Medusa", "Behemoth", "Serpent Spawn", "Clay Guardian", "Omnivora", "Stone Golem"]},
-	{"name":"exevo mas san", "min_mana_percent":30, "priority":3, "min_monster_count":3, "cooldown":4}
+	{"name":"exevo mas san", "min_mana_percent":30, "priority":3, "min_monster_count":3, "cooldown":4},
+	{"name":"avalanche rune", "min_mana_percent":20, "priority":2, "min_monster_count":3, "cooldown":2}
 ],
 "loot": []
 }

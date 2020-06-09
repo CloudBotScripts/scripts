@@ -1,0 +1,127 @@
+label start
+load scripts/general/refill_oramond.in
+label gohunt
+node (33626, 31897, 6)
+node (33621, 31914, 6)
+node (33603,31915,6)
+node (33584,31914,6)
+stand (33574,31915,6)
+action levitate_down
+node (33568,31917,7)
+stand (33563,31916,7)
+action walk_keys
+stand (33563,31917,7)
+stand (33562,31919,6)
+walk (33561, 31922, 7)
+call wait_lure("lure_amount":4, "dist":1, "min_left_behind":1)
+call lure_monsters("count":4)
+node (33561, 31922, 7)
+door (33560,31924,7)
+node (33558, 31924, 7)
+label hunt
+action summon
+door (33558, 31921, 7)
+stand (33556, 31921, 7)
+stand (33557, 31918, 6)
+stand (33554, 31918, 5)
+node (33550, 31922, 5)
+walk (33550, 31927, 5)
+call wait_lure("lure_amount":4, "dist":1, "min_left_behind":4)
+call lure_monsters("count":4)
+node (33550, 31927, 5)
+label refill_mana
+ladder (33541, 31935, 5)
+node (33544, 31936, 4)
+node (33550, 31936, 4)
+walk (33551, 31928, 4)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":3)
+node (33551, 31928, 4)
+label refill_mana
+ladder (33551, 31922, 4)
+node (33553, 31925, 3)
+walk (33549, 31929, 3)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":4)
+node (33549, 31929, 3)
+stand (33551, 31922, 3)
+node (33551, 31931, 4)
+stand (33541, 31935, 4)
+node (33549, 31926, 5)
+node (33555, 31918, 5)
+stand (33557, 31918, 5)
+node (33558, 31924, 6)
+walk (33552, 31927, 6)
+call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
+call lure_monsters("count":4)
+node (33552, 31927, 6)
+label refill_mana
+node (33544, 31932, 6)
+stand (33541, 31933, 6)
+node (33545, 31930, 7)
+walk (33550, 31926, 7)
+call wait_lure("lure_amount":4, "dist":1, "min_left_behind":4)
+call lure_monsters("count":4)
+node (33550, 31926, 7)
+label refill_mana
+door (33554, 31924, 7)
+action check
+label unreachable_antitrap
+node (33555, 31923, 5)
+door (33556, 31925, 5)
+door (33556, 31931, 5)
+door (33552, 31934, 5)
+node (33550, 31934, 5)
+call jump_to_label("label": "hunt")
+label leave
+door (33560, 31924, 7)
+stand (33562, 31919, 7)
+stand (33562,31919,7)
+action walk_mouse
+stand (33562,31917,6)
+node (33570,31918,7)
+stand (33574,31916,7)
+action levitate_up
+node (33594,31916,6)
+node (33609,31914,6)
+node (33621,31904,6)
+node (33631,31897,6)
+node (33633,31882,6)
+stand (33633, 31883, 6)
+label sell_flint
+action sell
+node (33631, 31897, 6)
+action check_time
+label train
+stand (33637,31891,6)
+stand (33479,31986,7)
+action travel_edron
+node (33176,31771,6)
+stand (33175,31775,6)
+node (33192,31791,7)
+node (33202,31796,7)
+action check_time
+label train
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start_train
+node (33180,31777,7)
+ladder (33175,31775,7)
+node (33176,31764,6)
+action travel_oramond
+node (33486,31985,7)
+stand (33492,31985,7)

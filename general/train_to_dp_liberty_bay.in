@@ -1,0 +1,8 @@
+label trainer_liberty_bay
+stand (32400,32812,2)
+stand (32398,32811,3)
+stand (32410,32806,4)
+stand (32391,32802,5)
+stand (32383,32815,6)
+label depot_liberty_bay
+node (32340,32826,7)

@@ -670,11 +670,14 @@ def withdraw_item_from_depot_to_backpack(client, item_name, depot_num, backpack_
         if stack == False:
             for i in range(max(0, amount - item_count)):
                 client.take_item_from_slot(src, src_slot=0, dest=dest)
+                sleep(0.2)
         else:
             while max(0, amount - item_count) > 100:
                 client.take_item_from_slot(src, src_slot=0, dest=dest)
                 amount -= 100
+                sleep(0.1)
             client.take_stack_from_slot(src, src_slot=0, dest=dest, amount=amount - item_count)
+            sleep(0.2)
         sleep(0.3)
 
     client.return_container(src)

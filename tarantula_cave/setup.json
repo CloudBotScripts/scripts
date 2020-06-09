@@ -1,7 +1,8 @@
 {
 "general": 
 {
-	"loot_type":"auto"
+	"loot_type":"auto",
+	"loot_priority":"after"
 },
 "script_options": {
 	"get_task":false,
@@ -20,10 +21,12 @@
 "items":
 {
 	"mana potion": {"hotkey":"f1", "id":268, "use":"self"},
-	"health potion": {"hotkey":"f2", "id":266, "use":"self"}
+	"health potion": {"hotkey":"f2", "id":266, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
 "spells":
 {
+	"utani hur": "v",
 	"exura ico":"f3",
 	"exori ico":"q"
 },
@@ -44,7 +47,7 @@
 },
 "persistent_actions": [
 	{"action":"haste", "interval":40},
-	{"action":"eat_food", "interval":60}
+	{"action":"eat_food", "interval":20}
 ],
 "target_monsters": 
 [
