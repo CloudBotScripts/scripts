@@ -32,11 +32,11 @@ node (33050,32396,10)
 stand (33063,32400,10)
 stand (33065,32400,11)
 stand (33070,32396,12)
-action walk_keys
 stand (33070, 32409, 13)
 action wait
 label hunt
 action summon
+action walk_keys
 node (33068, 32402, 14)
 node (33064, 32415, 14)
 walk (33066, 32413, 14)
