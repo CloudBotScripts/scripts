@@ -957,6 +957,18 @@ def stop_target_player_on_screen(client):
             sleep(0.1)
         client.attack_timeout = time.time() + 2
 
+# Alert if player on screen (will send max one alert every 5 mins)
+## Retro safe must be on
+def alert_player_on_screen(client):
+    if not client.retro_safe:
+        print('[Action] Retro safe must be set to true')
+        return
+    if client.retro_safe and client.player_battle_list.has_creature():
+        if time.time() > client.last_alert_time + 5:
+            print('[Action] Player on screen, sending alert')
+            players = ', '.join(client.player_battle_list.get_player_list())
+            client.send_alert_message(f"Player on screen: {players}")
+
 def check_kill_count(client, monster_name, kill_amount, label_jump, label_skip):
     result = client.get_windows_by_names(['QuestTracker'])
     if result:

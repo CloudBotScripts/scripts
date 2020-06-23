@@ -5,7 +5,7 @@
 	"loot_priority":"after"
 },
 "script_options": {
-	"hours_leave": [9],
+	"hours_leave": [9.5],
 	"skill_train":"distance",
 	"imbuements":[
 		{"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
@@ -66,9 +66,10 @@
 	"hotkey_ammo": 21
 },
 "persistent_actions": [
+	{"action":"drop_vials", "interval":60},
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-	{"action":"drop_vials", "interval":60},
+	{"action":"recover_full_mana", "interval":2, "args":["e"]},
 	{"action":"refill_diamond_ammo", "interval":5, "use_in_battle":true},
 	{"action":"lure_monsters_diamond_arrow", "interval":1, "args":[5]}
 ],

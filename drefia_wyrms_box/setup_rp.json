@@ -2,7 +2,10 @@
 "general": 
 {
 	"loot_type":"auto",
-	"loot_priority":"after"
+	"loot_priority":"after",
+	"retro_safe":true,
+	"discord_user_id":"11111111111111111",
+	"session_name":"Drefia Wyrms RP"
 },
 "script_options": {
 	"hours_leave": [9.5],
@@ -72,6 +75,7 @@
 	{"label":"refill_mana", "action":"wait_mana_percentage_below", "args": {"mana_perc":45, "hotkey":"e", "monster_count_below":2}}
 ],
 "persistent_actions": [
+	{"action":"alert_player_on_screen", "interval":6},
 	{"action":"drop_vials", "interval":20},
 	{"action":"recover_full_mana", "interval":1, "args":["e"]},
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},
