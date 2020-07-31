@@ -62,9 +62,7 @@
 "persistent_actions": [
 	{"action":"haste", "interval":40, "args":["v"]},
 	{"action":"lure_monsters", "interval":0.5, "args":{"count":5}},
-	{"action":"drop_vials", "interval":200},
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
-	{"action":"cast_spell_if_monsters", "use_in_battle":true, "interval":11, "args":{"spell_hotkey":"X", "min_mp":70, "monsters_count":4}},
 	{"action":"eat_food", "interval":30, "args":["f11"]}
 ],
 "label_actions": [
@@ -86,7 +84,8 @@
 	{"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Hero", "Vicious Squire", "Lich", "Renegade Knight", "Vile Grandmaster"]},
 	{"name":"exori", "min_mana_percent":10, "priority":2, "cooldown": 4, "min_monster_count":2},
 	{"name":"exori min", "min_mana_percent":20, "priority":3, "cooldown": 6, "min_monster_count":2},
-	{"name":"exori gran", "min_mana_percent":30, "priority":4, "cooldown": 6,  "min_monster_count":3}
+	{"name":"exori gran", "min_mana_percent":30, "priority":4, "cooldown": 6,  "min_monster_count":3},
+	{"name":"utito tempo", "min_mana_percent":50, "priority":4, "cooldown": 11, "min_monster_count":4, "group":"support"}
 ],
 "loot": []
 }
