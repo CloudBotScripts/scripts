@@ -12,15 +12,24 @@ node (32982, 32072, 6)
 stand (32971, 32085, 6)
 action sell
 action buy_potions
-stand (32970, 32082, 6)
+node (32976, 32076, 6)
+node (32963, 32073, 6)
+node (32953, 32081, 6)
+node (32947, 32096, 6)
+node (32936, 32101, 6)
+node (32935, 32125, 6)
+action check_ammo
+node (32921, 32126, 6)
+node (32911, 32126, 6)
+node (32904, 32114, 6)
+stand (32903,32115,6)
+action buy_ammo
+node (32909, 32125, 6)
+node (32920, 32125, 6)
+node (32935, 32125, 6)
+label skip_ammo
 action check_supplies
 label go_hunt
-node (33000, 32072, 6)
-node (32977, 32073, 6)
-node (32973, 32073, 6)
-node (32956, 32075, 6)
-node (32949, 32096, 6)
-node (32935, 32113, 6)
 node (32935, 32137, 6)
 node (32936, 32154, 6)
 stand (32936, 32159, 6)
@@ -81,6 +90,8 @@ ladder (32941, 32217, 6)
 stand (32941, 32217, 5)
 stand (32940, 32214, 6)
 stand (32934, 32216, 7)
+label count
+label continue
 action check
 label leave
 ladder (32934, 32216, 8)

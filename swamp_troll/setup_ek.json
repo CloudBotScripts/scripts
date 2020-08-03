@@ -8,7 +8,7 @@
 },
 "containers": 
 {
-	"gold_bp":"Golden Backpack",
+	"gold_bp":"Shopping Bag",
 	"loot_bp":"Red Backpack"
 },
 "tools":
@@ -18,7 +18,8 @@
 "items":
 {
 	"mana potion": {"hotkey":"f1", "id":268, "use":"self"},
-	"health potion": {"hotkey":"f2", "id":266, "use":"self"}
+	"health potion": {"hotkey":"f2", "id":266, "use":"self"},
+	"medicine pouch": {"hotkey":"f3", "id":12517, "use":"use"}
 },
 "spells":
 {
@@ -39,6 +40,10 @@
 	"take_health": 5,
 	"health_leave": 2
 },
+"label_actions": 
+[
+	{"label":"count", "action":"conditional_jump_item_count_below", "args": {"item_name":"medicine pouch", "amount":5, "label_jump":"continue", "label_skip":"leave"}}
+],
 "persistent_actions": [],
 "target_monsters": 
 [
