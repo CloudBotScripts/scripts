@@ -1,3 +1,5 @@
+You can use any setup.json or this script.
+
 Checklist to run script:
 - Dwarven Pickaxe in backpack
 - Character is in Port Hope boat

@@ -1,4 +1,5 @@
-Checklist to run script:
-- Has spell levitate
-- Has rake in setup.json assigned to a hotkey
+You can use any setup for your level/vocation.
+Make sure you add:
+- Spell levitate to spells
+- Rake item to items
 - Start venore boat
