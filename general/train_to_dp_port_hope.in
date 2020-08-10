@@ -1,0 +1,10 @@
+label trainer_port_hope
+node (32636, 32795, 7)
+node (32632, 32785, 7)
+ladder (32629, 32785, 7)
+node (32629, 32773, 6)
+node (32619, 32772, 6)
+stand (32618, 32771, 6)
+node (32621, 32755, 7)
+label depot_port_hope
+node (32623, 32750, 7)

@@ -1,0 +1,25 @@
+label go_train
+node (32631, 32752, 7)
+node (32620, 32762, 7)
+node (32620, 32771, 7)
+ladder (32618, 32771, 7)
+node (32630, 32779, 6)
+stand (32629, 32785, 6)
+label train_port_hope
+node (32636, 32795, 7)
+action check_train
+label magic
+ladder (32641, 32795, 7)
+action end
+label distance
+ladder (32633, 32793, 7)
+action end
+label club
+ladder (32637, 32800, 7)
+action end
+label sword
+ladder (32641, 32793, 7)
+action end
+label axe
+ladder (32633, 32800, 7)
+action end
