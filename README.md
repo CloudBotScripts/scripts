@@ -12,6 +12,7 @@ These scripts are the official scripts for CloudBot.
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
 | 8+    | [Salamander Cave](salamander_cave/setup.json)             | :star: :star: :star:                          | :star: :star:                           |
 | 8+    | [Wasp Cave Ab'dendriel](wasp_ab/setup_ek.json)  | :star: :star:                          | :star: :star:                           |
+| 8+    | [Wasp Cave Thais](wasp_thais/setup_ek.json)  | :star: :star:                          | :star: :star:                           |
 | 8+    | [Swamp Trolls](swamp_troll/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
 | 10+   | [Rotworm Venore Southeast](rotworm_venore_southeast/setup.json)                | :star: :star:                    | :star: :star:                    |
 | 15+   | [Amazon Tower Carlin](carlin_amazon_tower/setup.json)  | :star: :star: :star:    | :star: :star: :star:                    |
@@ -63,6 +64,7 @@ These scripts are the official scripts for CloudBot.
 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
+| 8+    | [Wasp Darashia](wasp_darashia/setup_rp.json)| :star: :star: :star:      | :star: :star:                           |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup_rp.json)   | :star: :star:                           | :star: :star:                           |
 | 30+   | [Stonerefiner](stonerefiner/setup_rp.json) | :star: :star:              | :star: :star: :star:                    |
 | 30+   | [Meriana Gargoyle](meriana_gargoyle/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |

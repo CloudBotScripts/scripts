@@ -1,26 +1,22 @@
 label start
-label start_darashia_dp
+node (33214, 32455, 7)
+stand (33214, 32455, 7)
+label darashia_dp
 node (33211, 32461, 8)
 action deposit
 stand (33214, 32455, 8)
 node (33218, 32442, 7)
 node (33221, 32427, 7)
-node (33231, 32413, 7)
-door (33231, 32412, 7)
-door (33231, 32406, 7)
-node (33227, 32402, 7)
-door (33224, 32398, 7)
-label start
-door (33221, 32400, 7)
-node (33220, 32403, 7)
+action check_ammo
+stand (33230, 32430, 7)
+action buy_ammo
+label skip_ammo
+node (33215, 32413, 7)
+stand (33217, 32403, 7)
+action sell
 action buy_potions
-door (33221, 32400, 7)
-door (33224, 32398, 7)
-node (33228, 32402, 7)
-door (33231, 32406, 7)
-door (33231, 32412, 7)
-node (33216, 32405, 7)
 node (33216, 32391, 7)
+action check_supplies
 node (33211, 32385, 7)
 stand (33210, 32384, 7)
 label hunt
@@ -59,5 +55,46 @@ node (33216, 32391, 7)
 node (33216, 32405, 7)
 node (33217, 32427, 7)
 node (33215, 32448, 7)
-stand (33214, 32455, 7)
-
+action check_time
+label train
+node (33220,32437,7)
+node (33244,32436,7)
+stand (33265,32441,7)
+node (33271,32441,6)
+action travel_edron
+stand (33189,31785,3)
+stand (33191,31781,4)
+stand (33195,31785,5)
+node (33212,31783,6)
+stand (33209,31789,6)
+node (33195,31791,7)
+node (33181,31790,7)
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start_trainer
+node (33195,31790,7)
+ladder (33208,31789,7)
+node (33208,31783,6)
+ladder (33195,31785,6)
+ladder (33192,31781,5)
+ladder (33189,31785,4)
+node (33194,31782,3)
+action travel_darashia
+stand (33265,32441,6)
+node (33243,32437,7)
+node (33224,32437,7)
+node (33214,32451,7)
