@@ -1,0 +1,84 @@
+label start
+load scripts/general/refill_ankrahmun.in
+action check_supplies
+label go_hunt
+node (33142, 32826, 7)
+node (33142, 32804, 7)
+node (33161, 32794, 7)
+node (33162, 32782, 7)
+node (33153, 32767, 7)
+stand (33153, 32766, 7)
+stand (33153, 32762, 6)
+node (33184, 32745, 7)
+node (33206, 32731, 7)
+node (33235, 32724, 7)
+node (33256, 32717, 7)
+node (33268, 32703, 7)
+node (33279, 32689, 7)
+node (33299, 32682, 7)
+node (33310, 32678, 7)
+stand (33314, 32674, 7)
+action target_off
+shovel (33315, 32674, 7)
+node (33318, 32680, 8)
+node (33325, 32686, 8)
+node (33323, 32692, 8)
+stand (33322, 32697, 8)
+node (33322, 32701, 9)
+stand (33322, 32704, 9)
+stand (33323, 32705, 10)
+action target_on
+label hunt
+node (33326, 32699, 10)
+node (33319, 32698, 10)
+node (33320, 32689, 10)
+node (33321, 32672, 10)
+call conditional_jump_script_options("var_name":"hunt_down", "label_jump":"hunt_down", "label_skip":"skip_hunt_down")
+label hunt_down
+stand (33323, 32663, 10)
+node (33319, 32658, 11)
+node (33316, 32649, 11)
+node (33328, 32651, 11)
+node (33335, 32660, 11)
+stand (33328, 32663, 11)
+label skip_hunt_down
+node (33331, 32673, 10)
+node (33331, 32686, 10)
+node (33327, 32697, 10)
+node (33337, 32700, 10)
+node (33339, 32685, 10)
+node (33339, 32693, 10)
+node (33334, 32698, 10)
+node (33327, 32702, 10)
+action check
+label leave
+action target_off
+node (33324, 32706, 10)
+stand (33322, 32704, 10)
+node (33322, 32700, 9)
+stand (33322, 32697, 9)
+node (33322, 32689, 8)
+node (33323, 32682, 8)
+node (33317, 32679, 8)
+rope (33315, 32674, 8)
+node (33300, 32682, 7)
+node (33281, 32691, 7)
+node (33269, 32706, 7)
+node (33254, 32716, 7)
+node (33239, 32730, 7)
+node (33225, 32741, 7)
+node (33211, 32749, 7)
+node (33191, 32751, 7)
+node (33174, 32753, 7)
+node (33154, 32756, 7)
+stand (33154, 32762, 7)
+stand (33154, 32766, 6)
+node (33153, 32776, 7)
+node (33138, 32795, 7)
+node (33141, 32825, 7)
+node (33126, 32836, 7)
+action check_time
+label train
+load scripts/general/dp_to_train_ankrahmun.in
+label start_trainer
+load scripts/general/train_to_dp_ankrahmun.in

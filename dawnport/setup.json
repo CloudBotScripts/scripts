@@ -16,7 +16,7 @@
 "items":
 {
 	"mana potion": {"hotkey":"f1", "id":268, "use":"self"},
-	"health potion": {"hotkey":"f2", "id":266, "use":"self"}
+	"small health potion": {"hotkey":"f2", "id":7876, "use":"self"}
 },
 "spells":
 {
@@ -24,7 +24,7 @@
 },
 "healing":
 [
-	{"type":"hp", "below_percent":60, "use_item":"health potion", "priority":3},
+	{"type":"hp", "below_percent":60, "use_item":"small health potion", "priority":3},
 	{"type":"hp", "below_percent":85, "use_spell":"exura infir ico", "min_mana_percent":20, "priority":2},
 	{"type":"mp", "below_percent":30, "use_item":"mana potion", "priority":1}
 ],
@@ -45,6 +45,7 @@
 "loot": 
 [
 	{"name":"gold coins", "action":"loot", "dest":"gold_bp"},
+	{"name":"gold coin", "action":"loot", "dest":"gold_bp"},
 	{"name":"meat", "action":"use"},
 	{"name":"ham", "action":"use"},
 	{"name":"fish", "action":"use"}

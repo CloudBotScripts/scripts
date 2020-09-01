@@ -1,0 +1,79 @@
+label start
+load scripts/general/refill_yalahar.in
+label go_hunt
+node (32765,31250,7)
+stand (32764,31250,7)
+stand (32763,31250,7)
+stand (32761,31251,6)
+stand (32750,31255,5)
+stand (32748,31255,6)
+node (32732,31279,7)
+node (32734,31302,7)
+stand (32738,31301,7)
+stand (32740,31298,6)
+node (32744, 31295, 7)
+node (32751, 31291, 7)
+stand (32753, 31287, 7)
+stand (32753, 31292, 8)
+node (32747, 31293, 9)
+stand (32745, 31293, 9)
+call conditional_jump_script_options_value("var_name":"hunt", "label_jump_map":{"southwest":"go_hunt_southwest"})
+label go_hunt_southwest
+stand (32741, 31292, 10)
+label hunt_southwest
+node (32730, 31292, 11)
+node (32716, 31283, 11)
+node (32706, 31271, 11)
+node (32699, 31265, 11)
+node (32684, 31271, 11)
+node (32684, 31282, 11)
+node (32690, 31290, 11)
+node (32694, 31298, 11)
+node (32704, 31306, 11)
+node (32707, 31312, 11)
+node (32720, 31309, 11)
+node (32732, 31311, 11)
+node (32741, 31300, 11)
+call check_hunt("success":"hunt_southwest", "fail":"leave_southwest")
+label leave_southwest
+stand (32741, 31292, 11)
+stand (32745, 31292, 10)
+call jump_to_label("label":"leave")
+label go_hunt_northwest
+node (32742, 31287, 10)
+stand (32744, 31284, 10)
+label hunt_northwest
+node (32745, 31272, 11)
+node (32748, 31261, 11)
+node (32748, 31246, 11)
+node (32739, 31236, 11)
+node (32725, 31236, 11)
+node (32721, 31250, 11)
+node (32722, 31263, 11)
+node (32730, 31269, 11)
+node (32745, 31270, 11)
+call check_hunt("success":"hunt_northwest", "fail":"leave_northwest")
+label leave_northwest
+stand (32744, 31284, 11)
+stand (32745, 31292, 10)
+call jump_to_label("label":"leave")
+label leave
+stand (32753, 31292, 9)
+ladder (32753, 31287, 8)
+node (32745, 31296, 7)
+stand (32740, 31298, 7)
+stand (32739, 31301, 6)
+node (32727,31288,7)
+node (32738,31270,7)
+node (32746,31257,7)
+stand (32748,31256,7)
+stand (32750,31255,6)
+stand (32759,31250,5)
+stand (32759,31248,6)
+node (32781,31247,7)
+node (32801,31234,7)
+action check_time
+label train
+load scripts/general/dp_to_train_yalahar.in
+label start trainer
+load scripts/general/train_to_dp_yalahar.in

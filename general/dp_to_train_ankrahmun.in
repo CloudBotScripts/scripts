@@ -1,0 +1,24 @@
+label go_train
+node (33139, 32830, 7)
+stand (33145, 32816, 7)
+stand (33151, 32809, 6)
+stand (33149, 32809, 5)
+node (33158, 32813, 4)
+label train_ankrahmun
+node (33167, 32813, 4)
+action check_train
+label distance
+ladder (33165, 32811, 4)
+action end
+label sword
+ladder (33165, 32809, 4)
+action end
+label axe
+ladder (33167, 32809, 4)
+action end
+label club 
+ladder (33169, 32809, 4)
+action end
+label magic
+ladder (33169, 32811, 4)
+action end

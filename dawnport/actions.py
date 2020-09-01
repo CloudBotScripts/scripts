@@ -9,7 +9,7 @@ def waypoint_action(client, action):
         client.use_sqm(1, 0)
 
     elif action == "takeMissions":
-        client.npc_say(['mission', 'trolls', 'yes', 'goblins', 'yes', 'minotaurs', 'yes', 'herb', 'yes', 'log book', 'yes'])
+        client.npc_say(['mission', 'trolls', 'yes', 'log book', 'yes'])
 	
     elif action == "doneLogBook":
         client.npc_say(['log book', 'yes', 'trolls', 'yes'])

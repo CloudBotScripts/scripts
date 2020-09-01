@@ -492,7 +492,6 @@ def refill_ammo(client, ammo_name="arrow", equip_slot="ammunition", min_amount=8
 
 # Refill ammo using hotkey
 def refill_priority_ammo(client, priority_ammo_name="spectral bolt", regular_ammo_name="infernal bolt", equip_slot="ammunition", min_amount=20):
-
     priority_ammo_slot = client.items[priority_ammo_name]
     priority_ammo_hotkey = client.item_hotkeys[priority_ammo_name]
 
@@ -502,12 +501,15 @@ def refill_priority_ammo(client, priority_ammo_name="spectral bolt", regular_amm
     print(f'[Action] {priority_ammo_name} count', priority_ammo_count)
     if priority_ammo_count > 0: 
         if not ammo_used.startswith(priority_ammo_name): 
+            print(f'[Action] Equip {priority_ammo_name} into {equip_slot}')
             client.hotkey(priority_ammo_hotkey)
     else:
         # Regular ammo
         ammo_count = client.equips.get_count_item_in_slot(equip_slot)
+        print('Regular ammo count', ammo_count)
         if ammo_count is None or ammo_count < min_amount:
             regular_ammo_hotkey = client.item_hotkeys[regular_ammo_name]
+            print(f'[Action] Equip {regular_ammo_name} into {equip_slot}')
             client.hotkey(regular_ammo_hotkey)
 
 # Call refill of ammo
@@ -876,50 +878,14 @@ def stop_target_no_supplies(client, mana=True, health=True, cap=True, rune=False
 def talk_npc(client, list_words):
     client.npc_say(list_words)
 
-
 def check_hunt(client, success, fail=None, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
-    mana_check = health_check = cap_check = ammo_check = rune_check = time_check = True
-    if mana:
-        mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
-        mana_count = client.get_hotkey_item_count(client.items[mana_name])
-        mana_check = mana_count > client.hunt_config['mana_leave']
-    if health:
-        health_name, take_health = client.hunt_config['health_name'], client.hunt_config['take_health']
-        health_count = client.get_hotkey_item_count(client.items[health_name])
-        health_check = health_count > client.hunt_config['health_leave']
-        if 'health_name2' in client.hunt_config.keys():
-            health_name2, take_health2 = client.hunt_config['health_name2'], client.hunt_config['take_health2']
-            health_count2 = client.get_hotkey_item_count(client.items[health_name2])
-            health_check2 = health_count2 > client.hunt_config['health_leave2']
-            health_check = health_check and health_check2
-    if rune:
-        rune_name, take_rune = client.hunt_config['rune_name'], client.hunt_config['take_rune']
-        rune_count = client.get_hotkey_item_count(client.items[rune_name])
-        rune_check = rune_count > client.hunt_config['rune_leave']
-        if 'rune_name2' in client.hunt_config.keys():
-            rune_name2, take_rune2 = client.hunt_config['rune_name2'], client.hunt_config['take_rune2']
-            rune_count2 = client.get_hotkey_item_count(client.items[rune_name2])
-            rune_check2 = rune_count2 > client.hunt_config['rune_leave2']
-            rune_check = rune_check and rune_check2
-    if ammo:
-        ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
-        ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
-        ammo_check = ammo_count > client.hunt_config['ammo_leave']
-    if cap:
-        cap_check = client.get_cap() > client.hunt_config['cap_leave']
-    if time:
-        time_check = not time_leave(client)
-
-    print('[Action] Check Hunt results:')
-    print('[Action] Mana:', mana_check)
-    print('[Action] Health:', health_check)
-    print('[Action] Ammo:', ammo_check)
-    print('[Action] Rune:', rune_check)
-    print('[Action] Cap:', cap_check)
-    print('[Action] Time:', time_check)
-    if all((mana_check, health_check, cap_check, ammo_check, rune_check, time_check, other)):
+    mana=mana and 'mana_name' in client.hunt_config.keys()
+    health=health and 'health_name' in client.hunt_config.keys()
+    ammo=ammo and 'ammo_name' in client.hunt_config.keys()
+    rune=rune and 'rune_name' in client.hunt_config.keys()
+    if check(client, mana, health, cap, rune, ammo, time, other):
         client.jump_label(success)
-    elif fail is not None:
+    elif fail:
         client.jump_label(fail)
 
 def check_time(client, train, repeat):
@@ -1079,7 +1045,18 @@ def conditional_jump_monsters_on_screen(client, label_jump, label_skip=None, sel
         print('[Action] Skip jump, not enough monsters on screen', label_skip)
         client.jump_label(label_skip)
 
-# Conditional jump using script_options variable
+# Conditional jump using script_options variable value
+def conditional_jump_script_options_value(client, var_name, label_jump_map):
+    value = client.script_options.get(var_name, False)
+    if value:
+        print(f'[Action] Value of variable {var_name} is {value}')
+        if value not in label_jump_map:
+            print(f'[Action] Value {value} is not on label_jump_map')
+            client.jump_label(label_jump_map[value])
+    else:
+        print('[Action] Variable {var_name} does not exist')
+
+# Conditional jump using script_options variable true or false
 def conditional_jump_script_options(client, var_name, label_jump, label_skip=None):
     if client.script_options.get(var_name, False):
         print('[Action] true condition jump to ', label_jump)

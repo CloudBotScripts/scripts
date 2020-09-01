@@ -1,0 +1,110 @@
+label start
+stand (32336, 32845, 7)
+action deposit
+action refill
+stand (32339, 32836, 7)
+action bank
+node (32341, 32826, 7)
+node (32345, 32815, 7)
+stand (32345, 32810, 7)
+action sell
+action buy_potions
+node (32351, 32815, 7)
+node (32340, 32818, 7)
+node (32331, 32827, 7)
+node (32320, 32833, 7)
+node (32307, 32827, 7)
+node (32299, 32825, 7)
+stand (32294, 32820, 7)
+label buy_distance
+action buy_ammo
+node (32313, 32832, 7)
+node (32330, 32827, 7)
+node (32347, 32815, 7)
+action check_supplies
+label go_hunt
+node (32340, 32826, 7)
+node (32325, 32827, 7)
+node (32309, 32827, 7)
+node (32289, 32826, 7)
+node (32279, 32814, 7)
+node (32260, 32817, 7)
+node (32242, 32811, 7)
+node (32222, 32793, 7)
+node (32200, 32790, 7)
+node (32182, 32786, 7)
+node (32164, 32783, 7)
+shovel (32158, 32782, 7)
+label hunt
+node (32151, 32784, 8)
+node (32150, 32797, 8)
+node (32147, 32805, 8)
+node (32146, 32814, 8)
+node (32143, 32826, 8)
+node (32130, 32829, 8)
+node (32117, 32824, 8)
+node (32103, 32825, 8)
+node (32089, 32827, 8)
+node (32080, 32823, 8)
+node (32100, 32827, 8)
+node (32113, 32823, 8)
+node (32130, 32829, 8)
+node (32143, 32828, 8)
+node (32146, 32812, 8)
+node (32147, 32800, 8)
+node (32152, 32783, 8)
+node (32137, 32771, 8)
+node (32123, 32778, 8)
+node (32112, 32775, 8)
+node (32093, 32772, 8)
+node (32087, 32785, 8)
+call conditional_jump_script_options("var_name":"hunt_down", "label_jump":"hunt_down", "label_skip":"skip_hunt_down")
+label hunt_down
+action check2
+label hunt2
+stand (32087, 32796, 8)
+node (32080, 32791, 9)
+node (32081, 32782, 9)
+node (32087, 32779, 9)
+node (32097, 32774, 9)
+node (32107, 32783, 9)
+node (32110, 32793, 9)
+node (32108, 32803, 9)
+node (32120, 32805, 9)
+node (32128, 32804, 9)
+node (32111, 32804, 9)
+node (32110, 32794, 9)
+node (32106, 32780, 9)
+node (32092, 32764, 9)
+node (32080, 32760, 9)
+node (32075, 32769, 9)
+node (32076, 32783, 9)
+node (32080, 32791, 9)
+stand (32087, 32796, 9)
+label skip_hunt_down
+label leave2
+node (32089, 32772, 8)
+node (32101, 32774, 8)
+node (32117, 32776, 8)
+node (32128, 32779, 8)
+node (32138, 32771, 8)
+node (32149, 32775, 8)
+node (32151, 32782, 8)
+action check
+label leave
+rope (32158, 32782, 8)
+node (32183, 32786, 7)
+node (32209, 32798, 7)
+node (32239, 32802, 7)
+node (32259, 32817, 7)
+node (32277, 32814, 7)
+node (32297, 32813, 7)
+node (32306, 32827, 7)
+node (32317, 32833, 7)
+node (32327, 32835, 7)
+node (32338, 32838, 7)
+action check_time
+label train
+load scripts/general/dp_to_train_liberty_bay.in
+label start_trainer
+load scripts/general/train_to_dp_liberty_bay.in
