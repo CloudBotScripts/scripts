@@ -20,9 +20,75 @@ def use_hotkey_at_sqm(client, hotkey, sqm):
     sleep(1)
 
 # Use item at sqm (item must be assigned to a hotkey in setup.json)
-def use_item_at_sqm(client, item_name, sqm):
+def use_item_at_sqm(client, item_name='sword', sqm=(0,0)):
     hotkey = client.item_hotkeys[item_name]
     use_hotkey_at_sqm(client, hotkey, sqm)
+
+# Use item from backpack to sqm. Item must be visible.
+def use_item_from_container_to_sqm(client, item_name='sword', sqm=(0,0)):
+    containers = client.get_opened_containers()
+    for container in containers:
+        num_slots = container.get_num_slots()
+        for slot in reversed(range(num_slots)):
+            if item_name in container.get_item_in_slot(slot):
+                print(f'[Action] Use item {item_name} in sqm {sqm}')
+                client.use_slot(container, slot)
+                client.move_mouse_sqm(sqm)
+                client.click_sqm(*sqm)
+                return
+
+# Move item from sqm to backpack.
+def get_item_from_sqm(client, sqm=(0,0), dest_container='Backpack')
+    dest = client.get_container(dest_container)
+    if not dest:
+        print(f'[Action] Could not find backpack {dest_container} to hold items')
+    client.get_item_from_sqm(sqm, dest)
+
+# Drop item from backpack to sqm. Item must be visible.
+# use stack=True to drop a single item of the stack
+def drop_item_to_sqm(client, item_name='empty potion flask', stack=False, dest_sqm=(0,0)):
+    containers = client.get_opened_containers()
+    for container in containers:
+        num_slots = container.get_num_slots()
+        for slot in reversed(range(num_slots)):
+            if item_name in container.get_item_in_slot(slot):
+                print('[Action] Dropping vial')
+                client.drop_item_from_container(container, slot, stack=stack, sqm=dest_sqm)
+                return
+
+# Warning: Do not use with same interval of other persistents like equip_item, refill_ammo...
+def drop_items(client, names=[]):
+    print('[Action] Call drop items', names)
+    monster_count = client.battle_list.get_monster_count()
+    if monster_count < 1:
+        containers = client.get_opened_containers()
+        for container in containers:
+            num_slots = container.get_num_slots()
+            for slot in reversed(range(num_slots)):
+                item_in_slot = container.get_item_in_slot(slot) 
+                for name in names:
+                    client.heal()
+                    if name in item_in_slot:
+                        print('[Action] Dropping', name)
+                        client.drop_item_from_container(container, slot)
+                        client.sleep(0.1, 0.12)
+
+# Drop vials from backpack. Vials must be visible.
+# Will drop only if capacity < cap and if there are no monsters on screen.
+def drop_vials(client, cap=500, drop_stacks=4):
+    monster_count = client.battle_list.get_monster_count()
+    if monster_count < 1 and client.get_cap() <= cap:
+        containers = client.get_opened_containers()
+        for container in containers:
+            num_slots = container.get_num_slots()
+            for slot in reversed(range(num_slots)):
+                if 'empty potion flask' in container.get_item_in_slot(slot):
+                    print('[Action] Dropping vial')
+                    client.drop_item_from_container(container, slot)
+                    sleep(0.3)
+                    drop_stacks -= 1
+                    if drop_stacks <= 0:
+                        break
 
 # Use rune if monsters hit greater than threshold
 # rune must be in items
@@ -52,144 +118,6 @@ def throw_rune_if_monsters(client, min_mp, rune_name, min_monsters_hit=3, select
         client.click_sqm(*best_sqm)
     else:
         print(f'[Action] Rune will hit {monsters_hit}')
-
-
-# Cast spell if monsters around
-## Monsters_count is deprecated, use monster_count
-def cast_spell_if_monsters(client, min_mp, spell_hotkey, monster_count=3, monsters_count=3, selected_monsters='all', dist=1, use_with_target_off=False):
-    if monster_count == 3:
-        print('[Action] cast_spell_if_monsters monsters_count is deprecated, use monster_count')
-        monster_count = monsters_count
-    monster_list = client.battle_list.get_monster_list()
-    if selected_monsters != 'all':
-        selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
-        monster_list = [m for m in monster_list if m in selected_monsters]
-
-    if len(monster_list) < monster_count:
-        return
-    if not use_with_target_off and not client.target_on:
-        return
-
-    creatures_sqm = client.gameboard.get_sqm_monsters()
-    hp_percentage, mp_percentage = client.status_bar.get_percentage()
-
-    if mp_percentage > min_mp and sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm) >= monster_count:
-        print(f'[Action] Cast spell in hotkey {spell_hotkey}')
-        client.hotkey(spell_hotkey)
-
-# Blacklist coords so that bot think it is a wall.
-# coords_barrier is a list of barriers [[x,y,z],[x2,y2,z2],...]
-def blacklist_coords(client, coords_barrier):
-    client.minimap.add_barrier_coords(coords_barrier)
-
-# Wall activates only during target for distance hunting. The block_side indicates which side of the barrier blocks.
-# If target crosses barrier, will disable barrier to continue targeting
-# Example: target_wall([x,y,z], 3, 1): wall starting in (x,y,z) with 3 sqm width that blocks from both sides
-#   target_wall([x,y,z], height=3): wall starting in (x,y,z) with default 1sqm wigth and 3 sqm height that blocks from both sides
-#   target_wall([x,y,z], 2, 3): wall starting in (x,y,z) with 2 sqm width and  3 sqm height
-#   target_wall([x,y,z], 1, 3, block_side='east'): wall starting in (x,y,z) with 1 sqm width and  3 sqm height that 
-#      blocks player coming from right (east) to left (west)  | <---
-def target_wall(client, barrier_coord, width=1, height=1, block_side='all'):
-    cur_coord = client.minimap.get_current_coord()
-    if cur_coord in ('Unreachable', 'Out of range'):
-        return
-    if cur_coord[2] != barrier_coord[2]:
-        return
-    target_coord = client.get_target_coord()
-    if not target_coord or target_coord in ('Unreachable', 'Out of range'):
-        return
-
-    def block_west(c): 
-        return c[0] < barrier_coord[0]
-    def block_east(c): 
-        return c[0] >= barrier_coord[0] + width 
-    def block_south(c): 
-        return c[1] > barrier_coord[1]
-    def block_north(c): 
-        return c[1] <= barrier_coord[1] - height
-
-    activate = False
-    if block_side in ('east', 'all'):
-        activate |= (block_east(cur_coord) and block_east(target_coord))
-    if block_side in ('north', 'all'):
-        activate |= (block_north(cur_coord) and block_north(target_coord))
-    if block_side in ('west', 'all'):
-        activate |= (block_west(cur_coord) and block_west(target_coord))
-    if block_side in ('south', 'all'):
-        activate |= (block_south(cur_coord) and block_south(target_coord))
-
-    x,y,z = barrier_coord
-    barriers = [[x+dx,y-dy,z] for dy in range(height) for dx in range(width)]
-    if activate:
-        client.minimap.add_barrier_coords(barriers)
-    else:
-        client.minimap.remove_barrier_coords(barriers)
-
-
-# Add barriers if char is inside area defined by top_left, bottom_right
-# Careful not to overlap barriers with other calls of this function
-def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_count=2):
-    if not client.battle_list.is_targetting():
-        return
-    m_count = client.battle_list.get_monster_count()
-    cur_coord = client.minimap.get_current_coord()
-    if cur_coord not in ('Unreachable', 'Out of range'):
-        x,y,z = cur_coord
-        if z == top_left[2] and (top_left[0] < x < bottom_right[0]) and (top_left[1] < y < bottom_right[1]) and m_count >= monster_count:
-            client.minimap.add_barrier_coords(coords_barrier)
-        else:
-            client.minimap.remove_barrier_coords(coords_barrier)
-
-# Add barriers that activate given monster count
-# Careful not to overlap barriers with other calls of this function
-def dynamic_barrier_coords(client, coords_barrier, monster_count=2):
-    if not client.battle_list.is_targetting():
-        return
-    m_count = client.battle_list.get_monster_count()
-    cur_coord = client.minimap.get_current_coord()
-    if m_count >= monster_count:
-        client.minimap.add_barrier_coords(coords_barrier)
-    else:
-        client.minimap.remove_barrier_coords(coords_barrier)
-
-# Add barriers in the border of the rectangles. rectangles is a list with top left and bottom right of the rectangles.
-def dynamic_barrier_rectangles(client, rectangles, monster_count=2, allow_in=False):
-    cur_coord = client.minimap.get_current_coord()
-    if cur_coord in ('Unreachable', 'Out of range'):
-        return
-
-    monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
-    m_count = len(monster_list)
-
-    def inside_barrier(top_left, bottom_right):
-        char_inside = (cur_coord[0] > top_left[0] and cur_coord[0] < bottom_right[0] and cur_coord[1] > top_left[1] and cur_coord[1] < bottom_right[1])
-        if char_inside:
-            print('Character inside', top_left, bottom_right)
-        return char_inside
-
-    activate = False
-    coords_barrier = []
-    for top_left, bottom_right in rectangles:
-        if cur_coord[2] != top_left[2]:
-            continue
-
-        # Activate barrier if allow_in is disabled
-        if inside_barrier(top_left, bottom_right) or not allow_in:
-            activate = True
-        z = top_left[2]
-        for x in range(top_left[0], bottom_right[0] + 1):
-            for y in (top_left[1], bottom_right[1]):
-                coords_barrier.append((x,y,z))
-        for y in range(top_left[1], bottom_right[1] + 1):
-            for x in (top_left[0], bottom_right[0]):
-                coords_barrier.append((x,y,z))
-
-    if client.battle_list.is_targetting() and m_count >= monster_count and activate:
-        if activate:
-            print('Activate barriers')
-        client.minimap.add_barrier_coords(coords_barrier)
-    else:
-        client.minimap.remove_barrier_coords(coords_barrier)
 
 # Set persistent interval
 ## Use 999999 or high number to turn off
@@ -257,20 +185,28 @@ def distance_attack_lure(client, selected_monsters='all', count=4):
     else:
         print('[Action] Distance attack lure')
 
-# Stop looting
-def stop_looting(client, selected_monsters='all', cap=0):
-    print('[Action] stop_looting')
-
+# Cast spell if monsters around
+## Monsters_count is deprecated, use monster_count
+def cast_spell_if_monsters(client, min_mp, spell_hotkey, monster_count=3, monsters_count=3, selected_monsters='all', dist=1, use_with_target_off=False):
+    if monster_count == 3:
+        print('[Action] cast_spell_if_monsters monsters_count is deprecated, use monster_count')
+        monster_count = monsters_count
+    monster_list = client.battle_list.get_monster_list()
     if selected_monsters != 'all':
-        selected_monsters = [m.replace(' ', '') for m in selected_monsters]
+        selected_monsters = [''.join([c for c in m if c.isalpha()]) for m in selected_monsters]
+        monster_list = [m for m in monster_list if m in selected_monsters]
 
-    for monster in client.target_conf:
-        if selected_monsters == 'all' or monster in selected_monsters:
-            print('[Action] {} in selected_monsters list'.format(monster))
-            if client.get_cap() > cap:
-                client.target_conf[monster]['loot'] = True
-            else:
-                client.target_conf[monster]['loot'] = False
+    if len(monster_list) < monster_count:
+        return
+    if not use_with_target_off and not client.target_on:
+        return
+
+    creatures_sqm = client.gameboard.get_sqm_monsters()
+    hp_percentage, mp_percentage = client.status_bar.get_percentage()
+
+    if mp_percentage > min_mp and sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm) >= monster_count:
+        print(f'[Action] Cast spell in hotkey {spell_hotkey}')
+        client.hotkey(spell_hotkey)
 
 # Anti paralyze
 def anti_paralyze(client, hotkey='f2'):
@@ -288,6 +224,30 @@ def anti_poison(client, hotkey='f10'):
         print('[Action] Deprecated, use "use_hotkey_if_condition"')
         client.hotkey(hotkey)
 
+# Equip dwarven ring then unequip it
+def anti_drunk(client, item_equip, item_unequip=None, slot='ring'):
+    conditions = client.condition_bar.get_condition_list()
+
+    equip_item_count = client.get_hotkey_item_count(client.items[item_equip])
+    equip_hotkey = client.item_hotkeys[item_equip]
+
+    item_name = client.get_name_item_in_slot(client.equips, slot)
+
+    if 'drunk' in conditions:
+        if item_name != item_equip and equip_item_count > 0:
+            print('[Action] Equip dwarven ring')
+            client.hotkey(equip_hotkey)
+    else:
+        print('[Action] Item equipped', item_name)
+        if item_name == item_equip:
+            if item_unequip is None:
+                print('[Action] Unequip dwarven ring')
+                client.hotkey(equip_hotkey)
+            else:
+                unequip_hotkey = client.item_hotkeys[item_unequip]
+                print('[Action] Equip', item_unequip)
+                client.hotkey(unequip_hotkey)
+
 # Use hotkey if condition is active
 # conditions is one of ['poisoned', 'bleeding', 'cursed', 'mana', 'paralyzed', 'electrified', 'battle', 'haste', 'drunk', 'hungry', 'protected']
 def use_hotkey_if_condition(client, hotkey='f10', condition='poisoned'):
@@ -295,23 +255,6 @@ def use_hotkey_if_condition(client, hotkey='f10', condition='poisoned'):
     if condition in conditions:
         print(f'[Action] Condition {condition} is active, using hotkey {hotkey}')
         client.hotkey(hotkey)
-
-# Warning: Do not use with same interval of other persistents like equip_item, refill_ammo...
-def drop_items(client, names=[]):
-    print('[Action] Call drop items', names)
-    monster_count = client.battle_list.get_monster_count()
-    if monster_count < 1:
-        containers = client.get_opened_containers()
-        for container in containers:
-            num_slots = container.get_num_slots()
-            for slot in reversed(range(num_slots)):
-                item_in_slot = container.get_item_in_slot(slot) 
-                for name in names:
-                    client.heal()
-                    if name in item_in_slot:
-                        print('[Action] Dropping', name)
-                        client.drop_item_from_container(container, slot)
-                        client.sleep(0.1, 0.12)
 
 def wait(client, tmin=1, tmax=1.2):
     client.sleep(tmin, tmax, heal=True)
@@ -329,47 +272,6 @@ def wait_mana_percentage_below(client, mana_perc, hotkey=None, monster_count_bel
             client.hotkey(hotkey)
             client.sleep(0.5, 0.7)
         client.sleep(0.2, 0.3, heal=True)
-
-# Drop item from backpack to sqm
-# if stack=True drops one item of the stack
-def drop_item_to_sqm(client, item_name, stack=False, dest_sqm=(0,0)):
-    containers = client.get_opened_containers()
-    for container in containers:
-        num_slots = container.get_num_slots()
-        for slot in reversed(range(num_slots)):
-            if item_name in container.get_item_in_slot(slot):
-                print('[Action] Dropping vial')
-                client.drop_item_from_container(container, slot, stack=stack, sqm=dest_sqm)
-                return
-
-# Use item from backpack to sqm
-# Item must be visible
-def use_item_from_container_to_sqm(client, item_name, sqm=(0,0)):
-    containers = client.get_opened_containers()
-    for container in containers:
-        num_slots = container.get_num_slots()
-        for slot in reversed(range(num_slots)):
-            if item_name in container.get_item_in_slot(slot):
-                print(f'[Action] Use item {item_name} in sqm {sqm}')
-                client.use_slot(container, slot)
-                client.move_mouse_sqm(sqm)
-                client.click_sqm(*sqm)
-                return
-
-def drop_vials(client, cap=500, drop_stacks=4):
-    monster_count = client.battle_list.get_monster_count()
-    if monster_count < 1 and client.get_cap() <= cap:
-        containers = client.get_opened_containers()
-        for container in containers:
-            num_slots = container.get_num_slots()
-            for slot in reversed(range(num_slots)):
-                if 'empty potion flask' in container.get_item_in_slot(slot):
-                    print('[Action] Dropping vial')
-                    client.drop_item_from_container(container, slot)
-                    sleep(0.3)
-                    drop_stacks -= 1
-                    if drop_stacks <= 0:
-                        break
 
 def recover_full_mana(client, hotkey='e', monster_count_below=1):
     monster_count = client.battle_list.get_monster_count()
@@ -444,30 +346,6 @@ def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=1
     elif monster_count < amount and item_name != item_unequip:
         print(f'[Action] Unequip item {item_name}')
         client.hotkey(unequip_hotkey)
-
-# Equip dwarven ring then unequip it
-def anti_drunk(client, item_equip, item_unequip=None, slot='ring'):
-    conditions = client.condition_bar.get_condition_list()
-
-    equip_item_count = client.get_hotkey_item_count(client.items[item_equip])
-    equip_hotkey = client.item_hotkeys[item_equip]
-
-    item_name = client.get_name_item_in_slot(client.equips, slot)
-
-    if 'drunk' in conditions:
-        if item_name != item_equip and equip_item_count > 0:
-            print('[Action] Equip dwarven ring')
-            client.hotkey(equip_hotkey)
-    else:
-        print('[Action] Item equipped', item_name)
-        if item_name == item_equip:
-            if item_unequip is None:
-                print('[Action] Unequip dwarven ring')
-                client.hotkey(equip_hotkey)
-            else:
-                unequip_hotkey = client.item_hotkeys[item_unequip]
-                print('[Action] Equip', item_unequip)
-                client.hotkey(unequip_hotkey)
 
 # Cast spell if mana full
 def cast_spell(client, hotkey='v', min_mp=98):
@@ -549,21 +427,34 @@ def conjure_diamond_arrows(client):
         print('[Action] Conjure Diamond Arrows')
         client.hotkey('f4')
 
-def lure_monsters_diamond_arrow(client, count=3, min_count=1, wait=False):
-    ammo_used = client.get_name_item_in_slot(client.equips, 'ammunition')
-    if ammo_used in ('diamond arrows', 'burst arrows'):
-        lure_monsters(client, count, min_count, wait)
-    # Regular arrows no lure
-    else:
-        client.target_on = True
+# Function to levitate
+def levitate(client, direction, hotkey):
+    minimap = client.minimap.refresh()
+    if minimap is None:
+        return 
+    map_status = hash(minimap.tostring())
 
-    # Optional hunt distance
-    #if monster_count > 2:
-    #    for monsters in client.target_conf.values():
-    #        monsters['action'] = 'follow'
-    #if ammo_used != 'diamond arrows' and monster_count < 3:
-    #    for monsters in client.target_conf.values():
-    #        monsters['action'] = 'distance'
+    key = {'south':'s', 'north':'w', 'east':'d', 'west':'a'}[direction]
+    sqms = {'south':(0,-1), 'north':(0,1), 'east':(1,0), 'west':(-1,0)}
+    sqm = sqms[direction]
+    if not client.minimap.is_sqm_walkable(sqm):
+        client.press(key)
+        sleep(0.5)
+        new_minimap = client.minimap.refresh()
+        if new_minimap is None:
+            return 
+        new_map_status = hash(new_minimap.tostring())
+
+        if map_status == new_map_status:
+            client.hotkey('ctrl', key)
+            sleep(0.3)
+            client.hotkey(hotkey)
+            sleep(0.3)
+    else:
+        client.hotkey('ctrl', key)
+        sleep(0.3)
+        client.hotkey(hotkey)
+        sleep(0.3)
 
 def lure_monsters(client, count=3, min_count=1, wait=False):
     #monster_count = client.battle_list.get_monster_count()
@@ -585,6 +476,22 @@ def lure_monsters(client, count=3, min_count=1, wait=False):
                 print('[Action] Wait lure')
                 client.heal()
                 client.sleep(0.2)
+
+def lure_monsters_diamond_arrow(client, count=3, min_count=1, wait=False):
+    ammo_used = client.get_name_item_in_slot(client.equips, 'ammunition')
+    if ammo_used in ('diamond arrows', 'burst arrows'):
+        lure_monsters(client, count, min_count, wait)
+    # Regular arrows no lure
+    else:
+        client.target_on = True
+
+    # Optional hunt distance
+    #if monster_count > 2:
+    #    for monsters in client.target_conf.values():
+    #        monsters['action'] = 'follow'
+    #if ammo_used != 'diamond arrows' and monster_count < 3:
+    #    for monsters in client.target_conf.values():
+    #        monsters['action'] = 'distance'
 
 def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=2, min_left_behind=1):
     def monsters_around(creatures_sqm, dist=2):
@@ -748,6 +655,10 @@ def deposit_all_from_backpack_to_depot(client, backpack_name, depot_num):
         sleep(0.4)
     return True
 
+# Will reach npc and say 'hi' already. So don't put 'hi' in list of words.
+def talk_npc(client, list_words):
+    client.npc_say(list_words)
+
 def npc_refill(client, mana=False, health=False, ammo=False, rune=False, food=False):
     buy_list_names = []
     buy_list_count = []
@@ -808,6 +719,23 @@ def buy_items_npc(client, item_list_name, item_list_count):
     if not success:
         print('[Action] Failed to buy one or more items')
 
+def use_imbuing_shrine(client, sqm=None):
+    imbuements = client.script_options['imbuements']
+    for imbuement in imbuements:
+        print('[Action] Checking', imbuement)
+        active_imbuements = client.get_imbuements_equip(imbuement['equip_slot'])
+        print('Active', active_imbuements)
+        if active_imbuements:
+            if imbuement['name'] in active_imbuements:
+                print('Imbuement', imbuement['name'], 'active')
+            else:
+                print('Equip', imbuement['equip_slot'], 'has no', imbuement['name'], 'active')
+                shrine = client.use_imbuing_shrine(imbuement['equip_slot'], sqm=sqm)
+                if shrine:
+                    shrine.imbue_item(imbuement['type'], imbuement['name'].split()[0])
+                else:
+                    print('Imbuing shrine not found')
+
 def time_leave(client):
     cest = timezone('Europe/Berlin')
     now = datetime.now(cest)
@@ -864,20 +792,6 @@ def check(client, mana=True, health=True, cap=True, rune=False, ammo=False, time
         return True
     return False
 
-def stop_target_no_supplies(client, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
-    if check(client, mana, health, cap, rune, ammo, time, other):
-        if not client.target_on:
-            print('[Action] Start target supplies ok')
-            client.target_on = True
-    else:
-        if client.target_on:
-            print('[Action] Stop target no supplies')
-            client.target_on = False
-
-# Will reach npc and say 'hi' already. So don't put 'hi' in list of words.
-def talk_npc(client, list_words):
-    client.npc_say(list_words)
-
 def check_hunt(client, success, fail=None, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
     mana=mana and 'mana_name' in client.hunt_config.keys()
     health=health and 'health_name' in client.hunt_config.keys()
@@ -922,18 +836,6 @@ def stop_target_player_on_screen(client):
             client.hotkey('esc')
             sleep(0.1)
         client.attack_timeout = time.time() + 2
-
-# Alert if player on screen (will send max one alert every 5 mins)
-## Retro safe must be on
-def alert_player_on_screen(client):
-    if not client.retro_safe:
-        print('[Action] Retro safe must be set to true')
-        return
-    if client.retro_safe and client.player_battle_list.has_creature():
-        if time.time() > client.last_alert_time + 5:
-            print('[Action] Player on screen, sending alert')
-            players = ', '.join(client.player_battle_list.get_player_list())
-            client.send_alert_message(f"Player on screen: {players}")
 
 def check_kill_count(client, monster_name, kill_amount, label_jump, label_skip):
     result = client.get_windows_by_names(['QuestTracker'])
@@ -1015,6 +917,54 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
     if not all((mana_check, health_check, cap_check, ammo_check, imbuement_check, rune_check)):
         print('[Action] Log out, missing supplies')
         client.logout()
+
+def check_imbuements(client):
+    if 'imbuements' in client.script_options.keys():
+        imbuements = client.script_options['imbuements']
+        if len(imbuements) < 1:
+            return True
+        equip_slots = list(set([imbuement['equip_slot'] for imbuement in imbuements]))
+        print('Equip slots:', equip_slots)
+        active_imbuements = client.get_imbuements_equips(equip_slots)
+        print('Active imbuements:', active_imbuements)
+
+        for imbuement in imbuements:
+            client.heal()
+            client.sleep(0.3, 0.4)
+            equip_slot = imbuement['equip_slot']
+            equip_imbuements = active_imbuements.get(equip_slot, None)
+            if equip_imbuements:
+                if imbuement['name'] in equip_imbuements:
+                    print(equip_slot, ': imbuement', imbuement['name'], 'active')
+                else:
+                    print('Equip', imbuement['equip_slot'], 'has no', imbuement['name'], 'active')
+                    return False
+    return True
+
+def stop_target_no_supplies(client, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
+    if check(client, mana, health, cap, rune, ammo, time, other):
+        if not client.target_on:
+            print('[Action] Start target supplies ok')
+            client.target_on = True
+    else:
+        if client.target_on:
+            print('[Action] Stop target no supplies')
+            client.target_on = False
+
+# Stop looting
+def stop_looting(client, selected_monsters='all', cap=0):
+    print('[Action] stop_looting')
+
+    if selected_monsters != 'all':
+        selected_monsters = [m.replace(' ', '') for m in selected_monsters]
+
+    for monster in client.target_conf:
+        if selected_monsters == 'all' or monster in selected_monsters:
+            print('[Action] {} in selected_monsters list'.format(monster))
+            if client.get_cap() > cap:
+                client.target_conf[monster]['loot'] = True
+            else:
+                client.target_conf[monster]['loot'] = False
 
 # Jump to label
 def jump_to_label(client, label):
@@ -1118,73 +1068,127 @@ def conditional_jump_level_above(client, lvl, label_jump, label_skip=None):
         print('[Action] Level {} not reached. Jumping to label {}'.format(lvl, label_skip))
         client.jump_label(label_skip)
 
-# Function to levitate
-def levitate(client, direction, hotkey):
-    minimap = client.minimap.refresh()
-    if minimap is None:
-        return 
-    map_status = hash(minimap.tostring())
+# Alert if player on screen (will send max one alert every 5 mins)
+## Retro safe must be on
+def alert_player_on_screen(client):
+    if not client.retro_safe:
+        print('[Action] Retro safe must be set to true')
+        return
+    if client.retro_safe and client.player_battle_list.has_creature():
+        if time.time() > client.last_alert_time + 5:
+            print('[Action] Player on screen, sending alert')
+            players = ', '.join(client.player_battle_list.get_player_list())
+            client.send_alert_message(f"Player on screen: {players}")
 
-    key = {'south':'s', 'north':'w', 'east':'d', 'west':'a'}[direction]
-    sqms = {'south':(0,-1), 'north':(0,1), 'east':(1,0), 'west':(-1,0)}
-    sqm = sqms[direction]
-    if not client.minimap.is_sqm_walkable(sqm):
-        client.press(key)
-        sleep(0.5)
-        new_minimap = client.minimap.refresh()
-        if new_minimap is None:
-            return 
-        new_map_status = hash(new_minimap.tostring())
+# Blacklist coords so that bot think it is a wall.
+# coords_barrier is a list of barriers [[x,y,z],[x2,y2,z2],...]
+def blacklist_coords(client, coords_barrier):
+    client.minimap.add_barrier_coords(coords_barrier)
 
-        if map_status == new_map_status:
-            client.hotkey('ctrl', key)
-            sleep(0.3)
-            client.hotkey(hotkey)
-            sleep(0.3)
+# Wall activates only during target for distance hunting. The block_side indicates which side of the barrier blocks.
+# If target crosses barrier, will disable barrier to continue targeting
+# Example: target_wall([x,y,z], 3, 1): wall starting in (x,y,z) with 3 sqm width that blocks from both sides
+#   target_wall([x,y,z], height=3): wall starting in (x,y,z) with default 1sqm wigth and 3 sqm height that blocks from both sides
+#   target_wall([x,y,z], 2, 3): wall starting in (x,y,z) with 2 sqm width and  3 sqm height
+#   target_wall([x,y,z], 1, 3, block_side='east'): wall starting in (x,y,z) with 1 sqm width and  3 sqm height that 
+#      blocks player coming from right (east) to left (west)  | <---
+def target_wall(client, barrier_coord, width=1, height=1, block_side='all'):
+    cur_coord = client.minimap.get_current_coord()
+    if cur_coord in ('Unreachable', 'Out of range'):
+        return
+    if cur_coord[2] != barrier_coord[2]:
+        return
+    target_coord = client.get_target_coord()
+    if not target_coord or target_coord in ('Unreachable', 'Out of range'):
+        return
+
+    def block_west(c): 
+        return c[0] < barrier_coord[0]
+    def block_east(c): 
+        return c[0] >= barrier_coord[0] + width 
+    def block_south(c): 
+        return c[1] > barrier_coord[1]
+    def block_north(c): 
+        return c[1] <= barrier_coord[1] - height
+
+    activate = False
+    if block_side in ('east', 'all'):
+        activate |= (block_east(cur_coord) and block_east(target_coord))
+    if block_side in ('north', 'all'):
+        activate |= (block_north(cur_coord) and block_north(target_coord))
+    if block_side in ('west', 'all'):
+        activate |= (block_west(cur_coord) and block_west(target_coord))
+    if block_side in ('south', 'all'):
+        activate |= (block_south(cur_coord) and block_south(target_coord))
+
+    x,y,z = barrier_coord
+    barriers = [[x+dx,y-dy,z] for dy in range(height) for dx in range(width)]
+    if activate:
+        client.minimap.add_barrier_coords(barriers)
     else:
-        client.hotkey('ctrl', key)
-        sleep(0.3)
-        client.hotkey(hotkey)
-        sleep(0.3)
+        client.minimap.remove_barrier_coords(barriers)
 
-def check_imbuements(client):
-    if 'imbuements' in client.script_options.keys():
-        imbuements = client.script_options['imbuements']
-        if len(imbuements) < 1:
-            return True
-        equip_slots = list(set([imbuement['equip_slot'] for imbuement in imbuements]))
-        print('Equip slots:', equip_slots)
-        active_imbuements = client.get_imbuements_equips(equip_slots)
-        print('Active imbuements:', active_imbuements)
+# Add barriers if char is inside area defined by top_left, bottom_right
+# Careful not to overlap barriers with other calls of this function
+def dynamic_barrier(client, top_left, bottom_right, coords_barrier, monster_count=2):
+    if not client.battle_list.is_targetting():
+        return
+    m_count = client.battle_list.get_monster_count()
+    cur_coord = client.minimap.get_current_coord()
+    if cur_coord not in ('Unreachable', 'Out of range'):
+        x,y,z = cur_coord
+        if z == top_left[2] and (top_left[0] < x < bottom_right[0]) and (top_left[1] < y < bottom_right[1]) and m_count >= monster_count:
+            client.minimap.add_barrier_coords(coords_barrier)
+        else:
+            client.minimap.remove_barrier_coords(coords_barrier)
 
-        for imbuement in imbuements:
-            client.heal()
-            client.sleep(0.3, 0.4)
-            equip_slot = imbuement['equip_slot']
-            equip_imbuements = active_imbuements.get(equip_slot, None)
-            if equip_imbuements:
-                if imbuement['name'] in equip_imbuements:
-                    print(equip_slot, ': imbuement', imbuement['name'], 'active')
-                else:
-                    print('Equip', imbuement['equip_slot'], 'has no', imbuement['name'], 'active')
-                    return False
-    return True
+# Add barriers that activate given monster count
+# Careful not to overlap barriers with other calls of this function
+def dynamic_barrier_coords(client, coords_barrier, monster_count=2):
+    if not client.battle_list.is_targetting():
+        return
+    m_count = client.battle_list.get_monster_count()
+    cur_coord = client.minimap.get_current_coord()
+    if m_count >= monster_count:
+        client.minimap.add_barrier_coords(coords_barrier)
+    else:
+        client.minimap.remove_barrier_coords(coords_barrier)
 
-def use_imbuing_shrine(client, sqm=None):
-    imbuements = client.script_options['imbuements']
-    for imbuement in imbuements:
-        print('[Action] Checking', imbuement)
-        active_imbuements = client.get_imbuements_equip(imbuement['equip_slot'])
-        print('Active', active_imbuements)
-        if active_imbuements:
-            if imbuement['name'] in active_imbuements:
-                print('Imbuement', imbuement['name'], 'active')
-            else:
-                print('Equip', imbuement['equip_slot'], 'has no', imbuement['name'], 'active')
-                shrine = client.use_imbuing_shrine(imbuement['equip_slot'], sqm=sqm)
-                if shrine:
-                    shrine.imbue_item(imbuement['type'], imbuement['name'].split()[0])
-                else:
-                    print('Imbuing shrine not found')
+# Add barriers in the border of the rectangles. rectangles is a list with top left and bottom right of the rectangles.
+def dynamic_barrier_rectangles(client, rectangles, monster_count=2, allow_in=False):
+    cur_coord = client.minimap.get_current_coord()
+    if cur_coord in ('Unreachable', 'Out of range'):
+        return
 
+    monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
+    m_count = len(monster_list)
 
+    def inside_barrier(top_left, bottom_right):
+        char_inside = (cur_coord[0] > top_left[0] and cur_coord[0] < bottom_right[0] and cur_coord[1] > top_left[1] and cur_coord[1] < bottom_right[1])
+        if char_inside:
+            print('Character inside', top_left, bottom_right)
+        return char_inside
+
+    activate = False
+    coords_barrier = []
+    for top_left, bottom_right in rectangles:
+        if cur_coord[2] != top_left[2]:
+            continue
+
+        # Activate barrier if allow_in is disabled
+        if inside_barrier(top_left, bottom_right) or not allow_in:
+            activate = True
+        z = top_left[2]
+        for x in range(top_left[0], bottom_right[0] + 1):
+            for y in (top_left[1], bottom_right[1]):
+                coords_barrier.append((x,y,z))
+        for y in range(top_left[1], bottom_right[1] + 1):
+            for x in (top_left[0], bottom_right[0]):
+                coords_barrier.append((x,y,z))
+
+    if client.battle_list.is_targetting() and m_count >= monster_count and activate:
+        if activate:
+            print('Activate barriers')
+        client.minimap.add_barrier_coords(coords_barrier)
+    else:
+        client.minimap.remove_barrier_coords(coords_barrier)

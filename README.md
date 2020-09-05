@@ -68,7 +68,7 @@ These scripts are the official scripts for CloudBot.
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup_rp.json)   | :star: :star:                           | :star: :star:                           |
 | 25+   | [Yalahar Elves](yalahar_elves/setup_rp.json)  |  Elvish talisman, Holy orchid, Elvish bow     |  30-50k/h                   |
 | 30+   | [Stonerefiner](stonerefiner/setup_rp.json) | :star: :star:              | :star: :star: :star:                    |
-| 30+   | [Bonelord Liberty Bay](bonelord_liberty_bay/setup_rp.json)            | Bonelord item      | 50-60k/h       |
+| 30+   | [Bonelord Liberty Bay](bonelord_liberty_bay/setup_rp.json)         | Bonelord item      | 50-60k/h       |
 | 30+   | [Meriana Gargoyle](meriana_gargoyle/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |
 | 40+   | [Yalahar Necromancer](yalahar_necromancer/setup_rp.json)            | Reins item (up to 1kk)             | 60-80k/h                         |
 | 50+   | [Yalahar Necromancer 50+](yalahar_necromancer/setup_rp50.json)            | Reins item (up to 1kk)                   | 70-80k/h                          |
