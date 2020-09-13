@@ -333,4 +333,4 @@ def waypoint_action(client, action):
         client.logout()
 
     else:
-        print('Action:', action, 'does not exist')
+        print('[Core] Action:', action, 'does not exist')

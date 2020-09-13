@@ -38,7 +38,7 @@ def use_item_from_container_to_sqm(client, item_name='sword', sqm=(0,0)):
                 return
 
 # Move item from sqm to backpack.
-def get_item_from_sqm(client, sqm=(0,0), dest_container='Backpack')
+def get_item_from_sqm(client, sqm=(0,0), dest_container='Backpack'):
     dest = client.get_container(dest_container)
     if not dest:
         print(f'[Action] Could not find backpack {dest_container} to hold items')
