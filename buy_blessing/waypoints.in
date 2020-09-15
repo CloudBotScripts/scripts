@@ -12,7 +12,7 @@ node (32377, 32360, 7)
 node (32345, 32362, 7)
 stand (32344, 32361, 7)
 stand (32346, 32363, 6)
-action bless_thais
+call talk_npc("list_words":["spiritual", "yes"])
 stand (32344, 32361, 6)
 node (32378, 32359, 7)
 node (32408, 32348, 7)
@@ -42,7 +42,7 @@ node (32358, 31689, 7)
 ladder (32360, 31691, 7)
 node (32358, 31684, 6)
 stand (32358, 31684, 6)
-action bless_carlin
+call talk_npc("list_words":["embrace", "yes"])
 stand (32360, 31691, 6)
 label walk_ab
 node (32367,31694,7)
@@ -74,7 +74,7 @@ ladder (32696, 31716, 4)
 ladder (32695, 31717, 3)
 stand (32699, 31718, 2)
 action wait
-action bless_abdendriel
+call talk_npc("list_words":["suns", "yes"])
 stand (32695, 31717, 2)
 stand (32696, 31716, 3)
 stand (32695, 31717, 4)
@@ -97,7 +97,7 @@ action travel_cormaya
 action travel_eremo
 node (33323, 31883, 7)
 node (33323, 31883, 7)
-action bless_eremo
+call talk_npc("list_words":["solitude", "yes"])
 action travel_passage
 node (33293, 31960, 6)
 stand (33293, 31957, 6)
@@ -135,10 +135,10 @@ stand (32613, 31992, 11)
 node (32624, 31992, 12)
 node (32644, 31985, 12)
 node (32644,31973,12)
-action bless_kaz1
+call talk_npc("list_words":["phoenix", "yes"])
 node (32644, 31968, 12)
 node (32644,31965,12)
-action bless_kaz1
+call talk_npc("list_words":["phoenix", "yes"])
 node (32644, 31977, 12)
 node (32641, 31993, 12)
 node (32620, 31992, 12)
@@ -151,7 +151,7 @@ node (32622, 31877, 11)
 node (32630, 31883, 11)
 node (32637, 31893, 11)
 stand (32653, 31893, 11)
-action bless_kaz2
+call talk_npc("list_words":["phoenix", "yes"])
 node (32633, 31892, 11)
 node (32630, 31878, 11)
 node (32613, 31886, 11)
@@ -186,6 +186,7 @@ node (33286, 31956, 6)
 label cormayatoedron
 action travel_edron
 action check_enhanced
+call conditional_jump_script_options("var_name":"enhanced", "label_jump":"enhanced", "label_skip":"go_train_edron")
 label enhanced
 action travel_port_hope
 node (32546,32787,6)
@@ -201,7 +202,7 @@ node (32879,32548,7)
 node (32901,32525,7)
 shovel (32910,32515,7)
 stand (32910,32514,8)
-action bless_enhanced
+call talk_npc("list_words":["enhanced", "yes"])
 rope (32910,32515,8)
 node (32882,32535,7)
 node (32869,32560,7)
@@ -278,7 +279,7 @@ node (31951,31304,7)
 node (31934,31299,7)
 stand (31940,31307,7)
 action levitate_north_up
-action bless_enhanced
+call talk_npc("list_words":["enhanced", "yes"])
 stand (31940,31306,6)
 action levitate_south_down
 node (31947,31301,7)

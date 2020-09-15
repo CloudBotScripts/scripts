@@ -107,7 +107,7 @@ def throw_rune_if_monsters(client, min_mp, rune_name, min_monsters_hit=3, select
         return
 
     creatures_sqm = client.gameboard.get_sqm_monsters()
-    client.allow_sqms_active_scan(creatures_sqm) 
+    client.mark_allowed_active_scan(creatures_sqm) 
     reachable_creatures_sqm = [sqm for sqm in creatures_sqm if client.minimap.is_reachable(sqm)]
     best_sqm, monsters_hit = client.find_sqm_max_hit(reachable_creatures_sqm)
     hp_percentage, mp_percentage = client.status_bar.get_percentage()

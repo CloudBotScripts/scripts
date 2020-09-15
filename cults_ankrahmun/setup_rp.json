@@ -46,11 +46,11 @@
 "hunt_config": {
 	"cap_leave": 0,
 	"mana_name": "strong mana potion",
-	"take_mana": 150,
+	"take_mana": 190,
 	"mana_leave": 60,
 	"ammo_name": "drill bolt",
-	"take_ammo": 700,
-	"ammo_leave": 240
+	"take_ammo": 600,
+	"ammo_leave": 200
 },
 "label_actions": [],
 "persistent_actions": [
