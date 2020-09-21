@@ -75,6 +75,7 @@ These scripts are the official scripts for CloudBot.
 | 60+   | [Yalahar Dragons](yalahar_dragons/setup_rp.json)            | -5 to 5k/h            | 90-110k/h                          |
 | 75+   | [Ankrahmun Cults](cults_ankrahmun/setup_rp.json)            | 20-40k/h            | 90-120k/h                          |
 | 80+   | [Vampire Crypt Edron Upper](vampire_crypt_edron_upper/setup_rp.json) | -5 to 5k/h                    | 150-200k/h                   |
+| 85+   | [Peninsula Tomb Mas San](peninsula_tomb/setup_rp.json) | 5-30k/h                    | 200-230k/h                   |
 | 160+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup_rp.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
 | 180+  | [Krailos Nightmare](krailos_nightmare/setup_rp.json) | :star:                                  | :star: :star: :star:                    |
 | 180+  | [Hero Old Fortress -1](hero_fortress/setup_rp.json)            | :star:                                  | :star: :star: :star: :star:             |  
