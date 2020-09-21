@@ -1,0 +1,4 @@
+Instructions:
+
+Replace "short sword" with the weapon you are using when there are no small stones left.
+If your skill is below 50, hunt in full attack mode. After that skill, try balance mode and then full def.

@@ -52,9 +52,10 @@ def drop_item_to_sqm(client, item_name='empty potion flask', stack=False, dest_s
         num_slots = container.get_num_slots()
         for slot in reversed(range(num_slots)):
             if item_name in container.get_item_in_slot(slot):
-                print('[Action] Dropping vial')
+                print(f'[Action] Dropping item {item_name} to {dest_sqm}')
                 client.drop_item_from_container(container, slot, stack=stack, sqm=dest_sqm)
                 return
+    print(f'[Action] Could not find {item_name}')
 
 # Warning: Do not use with same interval of other persistents like equip_item, refill_ammo...
 def drop_items(client, names=[]):
@@ -359,9 +360,6 @@ def refill_ammo(client, ammo_name="arrow", equip_slot="ammunition", min_amount=8
     refill_hotkey_slot = client.items[ammo_name]
     refill_hotkey = client.item_hotkeys[ammo_name]
 
-    # Stars
-    #ammo_count = client.equips.get_count_item_in_slot('weapon')
-    # Arrow
     ammo_count = client.equips.get_count_item_in_slot(equip_slot)
 
     print('[Action] Ammo count', ammo_count)
@@ -384,8 +382,10 @@ def refill_priority_ammo(client, priority_ammo_name="spectral bolt", regular_amm
     else:
         # Regular ammo
         ammo_count = client.equips.get_count_item_in_slot(equip_slot)
+        if ammo_count is None:
+            ammo_count = 0
         print('Regular ammo count', ammo_count)
-        if ammo_count is None or ammo_count < min_amount:
+        if ammo_used is None or ammo_count < min_amount:
             regular_ammo_hotkey = client.item_hotkeys[regular_ammo_name]
             print(f'[Action] Equip {regular_ammo_name} into {equip_slot}')
             client.hotkey(regular_ammo_hotkey)
@@ -538,18 +538,16 @@ def wait_lure(client, direction_movement='all', lure_amount=3, dist=3, max_wait=
 
 def withdraw_item_from_stash(client, item_name, amount, hotkey_item=None):
     item_count = client.get_hotkey_item_count(client.items[item_name])
-    print(item_name, ':', item_count)
     if item_count >= amount:
-        print('[Action] Already has enough', item_name)
+        print('[Stash] Already has enough', item_name)
         return True
     client.withdraw_item_from_stash(item_name, amount=amount - item_count)
     # Check if withdraw was succesfull
     item_count = client.get_hotkey_item_count(client.items[item_name])
-    print(item_name, ':', item_count)
     if item_count >= amount:
-        print('[Action] Already has enough', item_name)
+        print(f'[Stash] Count {item_name}: {item_count}')
         return True
-    print('[Action] Could not withdraw', amount, 'x', item_name, 'from stash')
+    print('[Stash] Could not withdraw', amount, 'x', item_name, 'from stash')
     return False
 
 def withdraw_item_from_depot_to_backpack(client, item_name, depot_num, backpack_name, amount, stack=True):
@@ -1019,13 +1017,13 @@ def conditional_jump_script_options(client, var_name, label_jump, label_skip=Non
 # Conditional jump if character pos is in coords list 
 def conditional_jump_position(client, coords, label_jump, label_skip=None):
     cur_coord = client.minimap.get_current_coord()
-    print(f'[Action] current coord {cur_coord}')
+    print(f'[Action] Current coord {cur_coord}')
     if cur_coord not in ('Unreachable', 'Out of range'):
         if list(cur_coord) in coords:
-            print(f'[Action] current coord {cur_coord} is in list')
+            print(f'[Action] Current coord {cur_coord} is in list')
             client.jump_label(label_jump)
         elif label_skip:
-            print(f'[Action] current coord {cur_coord} is not in list')
+            print(f'[Action] Current coord {cur_coord} is not in list')
             client.jump_label(label_skip)
 
 # Conditional jump if character pos is in coords list 

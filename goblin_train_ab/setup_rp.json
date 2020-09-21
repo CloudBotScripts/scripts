@@ -1,0 +1,58 @@
+{
+"general": 
+{
+	"loot_type":"manual"
+},
+"script_options": {
+	"hours_leave": [9.5]
+},
+"containers": 
+{
+	"main_bp":"Bag",
+	"loot_bp":"Green Backpack"
+},
+"tools":
+{
+	"rope": {"name":"rope", "id": 3003}
+},
+"items":
+{
+	"mana potion": {"hotkey":"f1", "id":268, "use":"self"},
+	"small stone": {"hotkey":"f3", "id":1781, "use":"equip"},
+	"short sword": {"hotkey":"f7", "id":3294, "use":"equip"}
+},
+"spells":
+{
+	"exura infir":"r"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":90, "use_spell":"exura infir", "min_mana_percent":20, "priority":2},
+	{"type":"mp", "below_percent":20, "use_item":"mana potion", "priority":1}
+],
+"hunt_config": {
+	"cap_leave": 8,
+	"mana_name": "mana potion",
+	"take_mana": 5,
+	"mana_leave": 1
+},
+"label_actions": 
+[
+    	{"action":"refill_priority_ammo", "interval":5, "use_in_battle":true, "args":{"priority_ammo_name":"small stone", "regular_ammo_name":"short sword", "equip_slot":"weapon", "min_amount":2}}
+],
+"persistent_actions": [],
+"target_monsters": 
+[
+	{"name":"Goblin", "action":"follow", "loot":true},
+	{"name":"Wolf", "action":"follow", "loot":true}
+],
+"target_spells": [],
+"loot": 
+[
+	{"name":"gold coin", "action":"loot", "dest":"loot_bp"},
+	{"name":"gold coins", "action":"loot", "dest":"loot_bp"},
+	{"name":"small stones", "action":"loot", "dest":"main_bp"},
+	{"name":"small stone", "action":"loot", "dest":"main_bp"},
+	{"name":"fish", "action":"use"}
+]
+}

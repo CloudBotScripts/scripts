@@ -64,7 +64,8 @@ These scripts are the official scripts for CloudBot.
 
 | Level | Name                            | Profit                                  | XP                                      |
 | ----- | ------------------------------- | --------------------------------------- | --------------------------------------- |
-| 8+    | [Wasp Darashia](wasp_darashia/setup_rp.json)| Honeycomb item      | 10-20k/h                           |
+| 8+    | [Wasp Darashia](wasp_darashia/setup_rp.json)| 10-50k/h (Honeycomb price)  | 10-20k/h                           |
+| 8+    | [Goblin Distance Train](goblin_train_ab/setup_rp.json)| 1-2k/h            | 4-8k/h                           |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup_rp.json)   | :star: :star:                           | :star: :star:                           |
 | 25+   | [Yalahar Elves](yalahar_elves/setup_rp.json)  |  Elvish talisman, Holy orchid, Elvish bow     |  30-50k/h                   |
 | 30+   | [Stonerefiner](stonerefiner/setup_rp.json) | :star: :star:              | :star: :star: :star:                    |
