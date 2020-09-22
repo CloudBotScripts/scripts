@@ -94,7 +94,7 @@ label abtoedron
 action travel_carlin
 action travel_edron
 action travel_cormaya
-action travel_eremo
+call talk_npc("list_words":["eremo", "yes"])
 node (33323, 31883, 7)
 node (33323, 31883, 7)
 call talk_npc("list_words":["solitude", "yes"])
@@ -202,7 +202,10 @@ node (32879,32548,7)
 node (32901,32525,7)
 shovel (32910,32515,7)
 stand (32910,32514,8)
-call talk_npc("list_words":["enhanced", "yes"])
+call say("sentence":"hi")
+action wait
+call say("sentence":"enhanced")
+call say("sentence":"yes")
 rope (32910,32515,8)
 node (32882,32535,7)
 node (32869,32560,7)
@@ -337,7 +340,7 @@ stand (33175, 31775, 6)
 node (33190, 31778, 7)
 node (33191, 31790, 7)
 stand (33179, 31790, 7)
-action check_skill
+action check_train
 label magic
 ladder (33181, 31793, 7)
 action end

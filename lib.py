@@ -657,6 +657,10 @@ def deposit_all_from_backpack_to_depot(client, backpack_name, depot_num):
 def talk_npc(client, list_words):
     client.npc_say(list_words)
 
+# This will send text in local chat.
+def say(client, sentence):
+    client.say(sentence)
+
 def npc_refill(client, mana=False, health=False, ammo=False, rune=False, food=False):
     buy_list_names = []
     buy_list_count = []
