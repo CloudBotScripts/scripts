@@ -16,7 +16,13 @@ node (33157,31860,7)
 node (33169,31876,7)
 node (33179,31891,7)
 stand (33173,31900,7)
-action lever
+label enter_gate
+walk (33171,31897,8)
+call conditional_jump_position("coords":[[33171, 31897, 8]], "label_jump":"inside")
+stand (33173, 31897, 8)
+ladder (33172, 31896, 8)
+call jump_to_label("label":"enter_gate")
+label inside
 node (33170,31894,8)
 node (33161,31902,8)
 node (33155,31919,8)
@@ -145,7 +151,12 @@ node (33164,31932,9)
 rope (33164,31932,9)
 node (33161,31913,8)
 node (33168,31893,8)
-action lever
+label exit_gate
+walk (33171,31897,8)
+call conditional_jump_position("coords":[[33171, 31897, 8]], "label_jump":"outside")
+ladder (33172, 31896, 8)
+call jump_to_label("label":"exit_gate")
+label outside
 node (33173,31899,8)
 stand (33173,31900,8)
 node (33175,31883,7)

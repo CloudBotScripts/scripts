@@ -6,7 +6,7 @@
 	"loot_priority":"after"
 },
 "script_options": {
-	"hours_leave": [9.4],
+	"hours_leave": [9.5],
 	"skill_train":"sword",
 	"imbuements":[
 		{"equip_slot":"weapon", "name":"Intricate Vampirism", "type":"Life Leech"},
