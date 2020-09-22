@@ -18,6 +18,7 @@ node (33179,31891,7)
 stand (33173,31900,7)
 label enter_gate
 walk (33171,31897,8)
+action wait
 call conditional_jump_position("coords":[[33171, 31897, 8]], "label_jump":"inside")
 stand (33173, 31897, 8)
 ladder (33172, 31896, 8)
@@ -153,6 +154,7 @@ node (33161,31913,8)
 node (33168,31893,8)
 label exit_gate
 walk (33171,31897,8)
+action wait
 call conditional_jump_position("coords":[[33171, 31897, 8]], "label_jump":"outside")
 ladder (33172, 31896, 8)
 call jump_to_label("label":"exit_gate")
