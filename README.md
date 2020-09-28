@@ -44,7 +44,7 @@ These scripts are the official scripts for CloudBot.
 | 170+  | [Vampire Crypt Edron Advanced Lure](vampire_crypt_edron_box/setup_ek.json)             | :star: :star: :star: :star:      | :star: :star: :star:                    |
 | 180+  | [Sea Serpent South -1](sea_serpent/setup_ek_south_down.json) | :star: :star:                           | :star: :star: :star:                    |
 | 180+  | [Putrid Mummy Advanced Lure](putrid_mummy/setup_ek.json)    | :star: :star: :star:                    | :star: :star: :star:                       |
-| 180+  | [Feyrist Mountain](feyrist_mountain/setup.json)                | :star: :star: :star:                    | :star: :star: :star:                    |    
+| 180+  | [Feyrist Mountain](feyrist_mountain/setup.json)                |  100-180k/h                   |  500-700k/h            |    
 | 200+  | Hydra Oramond                   | :star:                                  | :star: :star:                           |
 | 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Feyrist Nightmare cave](feyrist_nightmare_cave/setup.json)| :star: :star: :star:             | :star: :star: :star:       
@@ -54,10 +54,10 @@ These scripts are the official scripts for CloudBot.
 | 250+  | [Glooth Bandit West](glooth_bandit_west/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Glooth Bandit South](glooth_bandit_south/setup_ek.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Oramond West Tasker](oramond_west_tasker/setup_ek.json)    | :star: :star:                           | :star: :star: :star: :star: :star:      |   
-| 300+  | [Cults Edron Advanced Lure](edron_cults/setup_ek.json) | :star: :star:                           | :star: :star: :star: :star:             |
-| 300+  | [Oramond Sewers Advanced Lure](oramond_sewers_box/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
+| 300+  | [Orc Cults Edron Advanced Lure](edron_cults/setup_ek.json) |  50-100k/h   | 500-700k/h      |
+| 300+  | [Oramond Sewers Advanced Lure](oramond_sewers_box/setup_ek.json) | 20-80k/h     | 800-1kk/h  |
 | 350+  | [Drefia Wyrms Advanced Lure](drefia_wyrms_box/setup_ek.json) | :star: :star:        | :star: :star: :star: :star: :star:   |       
-| 350+  | Medusa Tower                    | :star: :star:                           | :star: :star: :star: :star: :star:      |
+| 350+  | [Medusa Tower](medusa_tower/setup_ek.json)     | :star: :star: :star:              | :star: :star: :star: :star: :star:      |
 | 400+  | [Oramond Glooth Tower](oramond_tower_box/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
 
 ### Paladin
@@ -76,7 +76,9 @@ These scripts are the official scripts for CloudBot.
 | 60+   | [Yalahar Dragons](yalahar_dragons/setup_rp.json)            | -5 to 5k/h            | 90-110k/h                          |
 | 75+   | [Ankrahmun Cults](cults_ankrahmun/setup_rp.json)            | 20-40k/h            | 90-120k/h                          |
 | 80+   | [Vampire Crypt Edron Upper](vampire_crypt_edron_upper/setup_rp.json) | -5 to 5k/h                    | 150-200k/h                   |
+| 90+   | [Ankrahmun Cults -2](cults_ankrahmun/setup_rp90.json)            | 20-40k/h            | 160-180k/h                          |
 | 90+   | [Peninsula Tomb Lure](peninsula_tomb/setup_rp.json) | 5-30k/h                    | 200-230k/h                   |
+| 100+  | [Vampire Crypt Edron Upper Lure](vampire_crypt_edron_upper/setup_rp_lure.json) | -5 to 5k/h                    | 230-300k/h                   |
 | 160+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup_rp.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
 | 180+  | [Krailos Nightmare](krailos_nightmare/setup_rp.json) | :star:                                  | :star: :star: :star:                    |
 | 180+  | [Hero Old Fortress -1](hero_fortress/setup_rp.json)            | :star:                                  | :star: :star: :star: :star:             |  
@@ -118,6 +120,7 @@ These scripts are the official scripts for CloudBot.
 | 50+   | [Meriana Gargoyle Cave Lure](meriana_gargoyle/setup_mage_50.json) | :star:                                  | :star: :star: :star: :star:         |
 | 60+   | [Yalahar Cults -1](yalahar_cults/setup_mage.json) | :star: :star:            | :star: :star: :star: :star:         |
 | 80+   | [Wyrm Liberty Bay Small](wyrm_liberty_bay_small/setup_mage.json)| :star:    | :star::star::star::star::star:         |
+| 100+  | [Ankrahmun Cults -2](cults_ankrahmun/setup_mage.json)            | 20-80k/h            | 140-170k/h                          |
 | 130+  | [Mother Of Scarab Lair](mother_of_scarab/setup_mage.json) | :star:                    | :star: :star: :star: :star:             |
 | 150+  | [Ice Witch Svargrond](ice_witch/setup_ms.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 | 160+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |

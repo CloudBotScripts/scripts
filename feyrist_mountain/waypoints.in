@@ -6,6 +6,8 @@ stand (33168,31812,7)
 node (33165,31799,8)
 stand (33165,31799,8)
 action deposit
+label refill_gem
+call withdraw_item_from_stash("item_name":"small ruby", "amount":2)
 action refill
 node (33166,31800,8)
 stand (33168,31812,8)
@@ -50,12 +52,12 @@ stand (33271,31831,9)
 action skip_portal
 label red_portal_1
 stand (32342,32271,11)
-action use_gem_north
-action skip_portal
+label use_gem_north
+call jump_to_label("label":"after_portal")
 label red_portal_2
 stand (32908,32338,15)
-action use_gem_north
-action skip_portal
+label use_gem_north
+call jump_to_label("label":"after_portal")
 label after_portal
 node (33579,32262,7)
 label hunt
@@ -68,7 +70,7 @@ node (33537,32307,7)
 node (33528,32324,7)
 node (33518,32323,7)
 node (33534,32308,7)
-action skip_mountain
+call jump_to_label("label":"after_mountain")
 stand (33534,32306,7)
 stand (33533,32306,7)
 stand (33529,32310,6)
@@ -92,10 +94,10 @@ ladder (33586,32262,7)
 action skip_portal_2
 label red_portal_1
 stand (32905,32340,15)
-action skip_portal_2
+call jump_to_label("label":"after_portal_2")
 label red_portal_2
 stand (32339,32272,11)
-action skip_portal_2
+call jump_to_label("label":"after_portal_2")
 label after_portal_2
 node (33268,31832,9)
 ladder (33268,31830,9)

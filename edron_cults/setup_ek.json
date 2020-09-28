@@ -53,7 +53,7 @@
 	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
 ],
 "hunt_config": {
-	"cap_leave": 150,
+	"cap_leave": 90,
 	"mana_name": "mana potion",
 	"take_mana": 1500,
 	"mana_leave": 500,
@@ -65,7 +65,7 @@
 	{"action":"haste", "interval":40, "args":["v"]},
 	{"action":"lure_monsters", "interval":0.5, "args":[8]},
 	{"action":"recover_full_mana", "interval":2, "args":["e"]},
-	{"action":"blacklist_coords", "interval":30, "args":{"coords_barrier":[[33159, 31902, 8] ,[33159, 31903, 8] ,[33171, 31897, 8] ,[33163, 31913, 8] ,[33163, 31914, 8] ,[33150, 31915, 8] ,[33150, 31916, 8] ,[33150, 31917, 8] ,[33150, 31918, 8] ,[33154, 31932, 8] ,[33154, 31933, 8]]}}, 
+	{"action":"blacklist_coords", "interval":3, "args":{"coords_barrier":[[33159, 31902, 8] ,[33159, 31903, 8] ,[33171, 31897, 8] ,[33163, 31913, 8] ,[33163, 31914, 8] ,[33150, 31915, 8] ,[33150, 31916, 8] ,[33150, 31917, 8] ,[33150, 31918, 8] ,[33154, 31932, 8] ,[33154, 31933, 8]]}}, 
 	{"action":"eat_food", "interval":30, "args":["f11"]}
 ],
 "target_monsters": 

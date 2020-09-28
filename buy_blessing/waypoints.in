@@ -185,7 +185,6 @@ ladder (33293, 31960, 7)
 node (33286, 31956, 6)
 label cormayatoedron
 action travel_edron
-action check_enhanced
 call conditional_jump_script_options("var_name":"enhanced", "label_jump":"enhanced", "label_skip":"go_train_edron")
 label enhanced
 action travel_port_hope
@@ -282,7 +281,10 @@ node (31951,31304,7)
 node (31934,31299,7)
 stand (31940,31307,7)
 action levitate_north_up
-call talk_npc("list_words":["enhanced", "yes"])
+call say("sentence":"hi")
+action wait
+call say("sentence":"enhanced")
+call say("sentence":"yes")
 stand (31940,31306,6)
 action levitate_south_down
 node (31947,31301,7)

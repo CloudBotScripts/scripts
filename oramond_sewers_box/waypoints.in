@@ -9,7 +9,7 @@ stand (33636, 31944, 6)
 node (33635,31957,7)
 node (33635,31971,7)
 door (33633,31976,7)
-action walk_keys
+label action walk_keys
 node (33623,31979,7)
 ladder (33621,31979,7)
 node (33638,31981,9)

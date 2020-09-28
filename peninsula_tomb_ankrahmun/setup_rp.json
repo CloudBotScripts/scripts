@@ -86,7 +86,8 @@
 "target_spells":
 [
 	{"name":"exori san", "min_mana_percent":20, "priority":1, "cooldown":2,
-		"monsters":["Vampire", "Vampire Bride", "Mummy", "Bonebeast", "Demon Skeleton", "Necromancer", "Ghost", "Stalker", "Crypt Shambler", "Green Djinn", "Bonelord", "Ancient Scarab"]},
+		"monsters":["Vampire", "Vampire Bride", "Mummy", "Bonebeast", "Demon Skeleton", "Necromancer", "Ghost", "Crypt Shambler", "Green Djinn", "Bonelord", "Ancient Scarab"]},
+	{"name":"exevo mas san", "min_mana_percent":20, "priority":2, "cooldown":4, "monsters":["Stalker", "Ghost"]},
 	{"name":"exevo mas san", "min_mana_percent":30, "priority":3, "min_monster_count":3, "cooldown":4},
 	{"name":"great fireball rune", "min_mana_percent":20, "priority":2, "min_monster_count":3, "cooldown":2}
 ],

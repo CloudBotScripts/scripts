@@ -136,6 +136,8 @@ call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
 call lure_monsters("count":3)
 node (33111, 31844, 11)
 action check
+label anti_trap_fall_hole
+rope (33153, 31930, 10)
 label leave
 node (33130,31846,11)
 rope (33130,31846,11)

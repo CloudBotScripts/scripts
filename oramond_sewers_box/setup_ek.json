@@ -3,6 +3,7 @@
 {
         "loot_type":"auto",
 	"loot_priority":"after",
+	"track_loot":true,
 	"anti_trap": "weapon"
 },
 "script_options": {
@@ -11,8 +12,7 @@
         "imbuements":[
                 {"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
                 {"equip_slot":"weapon", "name":"Intricate Vampirism", "type":"Life Leech"},
-                {"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"},
-                {"equip_slot":"armor", "name":"Intricate Vampirism", "type":"Life Leech"}
+                {"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"}
         ],
         "summon":false,
         "sort_deposit": {"flint":5, "alexander":6, "lailene":6, "esrik":7, "tamoril":8, "rashid": 9, "green_djinn": 10}
@@ -53,16 +53,16 @@
         {"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":60, "priority":1, "cooldown":60}
 ],
 "hunt_config": {
-        "cap_leave": 150,
+        "cap_leave": -2,
         "mana_name": "mana potion",
-        "take_mana": 1500,
+        "take_mana": 1600,
         "mana_leave": 300,
         "health_name": "ultimate health potion",
-        "take_health": 400,
+        "take_health": 300,
         "health_leave": 100,
         "health_name2": "supreme health potion",
-        "take_health2": 100,
-        "health_leave2": 50
+        "take_health2": 50,
+        "health_leave2": 25
 },
 "label_actions": [
 	{"label":"refill_mana", "action":"wait_mana_percentage_below", "args": {"mana_perc":50, "hotkey":"e", "monster_count_below":2}}
@@ -105,7 +105,7 @@
         {"name":"exori", "min_mana_percent":7, "priority":2, "cooldown": 4, "min_monster_count":1},
         {"name":"exori min", "min_mana_percent":10, "priority":3, "cooldown": 6, "min_monster_count":2},
         {"name":"exori gran", "min_mana_percent":20, "priority":4, "cooldown": 6,  "min_monster_count":2},
-	{"name":"utito tempo", "min_mana_percent":70, "priority":4, "cooldown": 15, "min_monster_count":3, "group":"support"}
+	{"name":"utito tempo", "min_mana_percent":40, "priority":4, "cooldown": 15, "min_monster_count":3, "group":"support"}
 ],
 "loot": []
 }

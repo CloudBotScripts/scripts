@@ -9,7 +9,7 @@
 "containers": 
 {
 	"gold_bp":"Shopping Bag",
-	"loot_bp":"Red Backpack"
+	"loot_bp":"Camouflage Backpack"
 },
 "tools":
 {
@@ -19,7 +19,7 @@
 {
 	"mana potion": {"hotkey":"f1", "id":268, "use":"self"},
 	"spear": {"hotkey":"k", "id":3277, "use":"equip"},
-	"health potion": {"hotkey":"f2", "id":266, "use":"self"},
+	"spike sword": {"hotkey":"j", "id":3271, "use":"equip"},
 	"medicine pouch": {"hotkey":"f3", "id":12517, "use":"use"}
 },
 "spells":
@@ -28,7 +28,6 @@
 },
 "healing":
 [
-	{"type":"hp", "below_percent":60, "use_item":"health potion", "priority":3},
 	{"type":"hp", "below_percent":85, "use_spell":"exura", "min_mana_percent":20, "priority":2},
 	{"type":"mp", "below_percent":30, "use_item":"mana potion", "priority":1}
 ],
@@ -37,19 +36,16 @@
 	"mana_name": "mana potion",
 	"take_mana": 10,
 	"mana_leave": 4,
-	"health_name": "health potion",
-	"take_health": 5,
-	"health_leave": 2,
 	"ammo_name": "spear",
-	"take_ammo": 15,
-	"ammo_leave": 5
+	"take_ammo": 5,
+	"ammo_leave": 0
 },
 "label_actions": 
 [
 	{"label":"count", "action":"conditional_jump_item_count_below", "args": {"item_name":"medicine pouch", "amount":5, "label_jump":"continue", "label_skip":"leave"}}
 ],
 "persistent_actions": [
-	{"action":"refill_ammo", "interval":5, "use_in_battle":true, "args":{"ammo_name":"spear", "equip_slot":"weapon", "min_amount":1}}
+	{"action":"refill_priority_ammo", "interval":5, "use_in_battle":true, "args":{"priority_ammo_name":"spear", "regular_ammo_name":"spike sword", "equip_slot":"weapon", "min_amount":1}}
 ],
 "target_monsters": 
 [

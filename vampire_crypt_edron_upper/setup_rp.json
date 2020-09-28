@@ -41,10 +41,10 @@
 "hunt_config": {
 	"cap_leave": 0,
 	"mana_name": "strong mana potion",
-	"take_mana": 250,
+	"take_mana": 300,
 	"mana_leave": 80,
 	"ammo_name": "assassin star",
-	"take_ammo": 300,
+	"take_ammo": 350,
 	"ammo_leave": 100
 },
 "persistent_actions": [

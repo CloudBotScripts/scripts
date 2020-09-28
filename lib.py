@@ -456,16 +456,18 @@ def levitate(client, direction, hotkey):
         client.hotkey(hotkey)
         sleep(0.3)
 
-def lure_monsters(client, count=3, min_count=1, wait=False):
+def lure_monsters(client, count=3, min_count=1, drop_above_hp_perc=0, wait=False):
     #monster_count = client.battle_list.get_monster_count()
     monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
+    monster_hp_list = client.battle_list.get_monster_hp_list(filter_by=client.target_conf.keys(), above_hp_perc=drop_above_hp_perc)
+    monster_count_above_hp_perc = len(monster_hp_list)
     monster_count = len(monster_list)
     if not client.target_on and monster_count >= count:
         client.target_on = True
         print('[Action] Target on')
-    elif client.target_on and monster_count < min_count:
-        client.target_on = False
-        print('[Action] Target off')
+    elif client.target_on and monster_count < min_count and monster_count_above_hp_perc == monster_count:
+            client.target_on = False
+            print('[Action] Target off')
     elif wait and (not client.target_on and 0 < monster_count < count):
         client.hotkey('esc')
         creatures_sqm = client.gameboard.get_sqm_monsters()
