@@ -33,7 +33,7 @@ label refill_mana
 ladder (33541, 31935, 5)
 node (33544, 31936, 4)
 node (33550, 31936, 4)
-walk (33551, 31928, 4)
+walk (33551, 31936, 4)
 call wait_lure("lure_amount":3, "dist":1, "min_left_behind":3)
 call lure_monsters("count":3)
 node (33551, 31928, 4)

@@ -1056,10 +1056,10 @@ def conditional_jump_item_count(client, item_name, amount, label_jump, label_ski
 def conditional_jump_item_count_below(client, item_name, amount, label_jump, label_skip=None):
     item_count = client.get_hotkey_item_count(client.items[item_name])
     if item_count < amount:
-        print('[Action] {} count is {}'.format(item_name, amount))
+        print('[Action] {} count is below {}'.format(item_name, amount))
         client.jump_label(label_jump)
     elif label_skip:
-        print('[Action] {} count is not {}'.format(item_name, amount))
+        print('[Action] {} count is not below {}'.format(item_name, amount))
         client.jump_label(label_skip)
 
 # Conditional jump if level > x
@@ -1071,6 +1071,19 @@ def conditional_jump_level_above(client, lvl, label_jump, label_skip=None):
     elif label_skip:
         print('[Action] Level {} not reached. Jumping to label {}'.format(lvl, label_skip))
         client.jump_label(label_skip)
+
+# Conditional jump if is night in tibia time
+def conditional_jump_night(client, label_jump_night, label_jump_day=None):
+    cest = timezone('Europe/Berlin')
+    now = datetime.now(cest)
+    minute = now.minute
+    if minute > 45 or minute < 15:
+        print('[Action] Current time is night')
+        client.jump_label(label_jump_night)
+    else:
+        print('[Action] Current time is day')
+        if label_jump_day:
+            client.jump_label(label_jump_day)
 
 # Alert if player on screen (will send max one alert every 5 mins)
 ## Retro safe must be on

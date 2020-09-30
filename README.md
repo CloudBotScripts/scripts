@@ -57,8 +57,8 @@ These scripts are the official scripts for CloudBot.
 | 300+  | [Orc Cults Edron Advanced Lure](edron_cults/setup_ek.json) |  50-100k/h   | 500-700k/h      |
 | 300+  | [Oramond Sewers Advanced Lure](oramond_sewers_box/setup_ek.json) | 20-80k/h     | 800-1kk/h  |
 | 350+  | [Drefia Wyrms Advanced Lure](drefia_wyrms_box/setup_ek.json) | :star: :star:        | :star: :star: :star: :star: :star:   |       
+| 350+  | [Oramond Glooth Tower](oramond_tower_box/setup_ek.json) |  0-50k/h  | 1.1-1.4kk/h|       
 | 350+  | [Medusa Tower](medusa_tower/setup_ek.json)     | :star: :star: :star:              | :star: :star: :star: :star: :star:      |
-| 400+  | [Oramond Glooth Tower](oramond_tower_box/setup_ek.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |       
 
 ### Paladin
 
@@ -140,3 +140,4 @@ These scripts are the official scripts for CloudBot.
 | 20+   | [Sea Serpent Access Quest](quests/sea_serpent/info.txt)        |
 | 20+   | [Sell Items NPC](sell_npc/setup.json)                    |
 | 60+   | [Ape City Quest](quests/apes/setup_ek.json)        |
+| 60+   | [Feyrist Access Quest](quests/feyrist/setup_ek.json)        |

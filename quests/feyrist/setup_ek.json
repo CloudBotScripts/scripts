@@ -1,0 +1,77 @@
+{
+"general": 
+{
+	"loot_type":"auto",
+	"loot_priority":"first",
+	"anti_trap":"weapon",
+	"retro_safe":false
+},
+"script_options": {
+	"hours_leave": [9.5],
+	"skill_train":"sword",
+	"sort_deposit": {"rashid": 4, "green_djinn": 3, "blue_djinn": 5, "esrik": 6}
+},
+"containers": 
+{
+	"loot_bp":"Red Backpack"
+},
+"tools":
+{
+	"rope": {"name":"elvenhair rope", "id": 646},
+	"shovel": {"name":"shovel", "id": 3457}
+},
+"items":
+{
+	"fur of a wolf whelp": {"hotkey":"8", "id":25238, "use":"crosshair"},
+	"book with old legends": {"hotkey":"9", "id":25239, "use":"crosshair"},
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"great health potion": {"hotkey":"f7", "id":239, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"utura gran": "R",
+	"utito tempo": "X",
+	"exeta res": "x",
+	"exura ico":"r",
+	"exura gran ico":"f",
+	"exori":"1",
+	"exori min":"2",
+	"exori hur":"3",
+	"exori gran":"4",
+	"exori ico":"q"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":30, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
+	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
+	{"type":"hp", "below_percent":70, "use_item":"great health potion", "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2},
+	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
+],
+"hunt_config": {
+	"cap_leave": 150,
+	"mana_name": "mana potion",
+	"take_mana": 1100,
+	"mana_leave": 450,
+	"health_name": "great health potion",
+	"take_health": 50,
+	"health_leave": 20
+},
+"persistent_actions": [
+	{"action":"haste", "interval":40, "args":["v"]},
+	{"action":"anti_paralyze", "interval":1, "args":["r"]},
+	{"action":"drop_vials", "interval":200},
+	{"action":"recover_full_mana", "interval":3, "args":["e"]},
+	{"action":"eat_food", "interval":30, "args":["f11"]}
+],
+"target_monsters": [ ],
+"label_actions": 
+[
+],
+"target_spells":
+[
+],
+"loot": []
+}

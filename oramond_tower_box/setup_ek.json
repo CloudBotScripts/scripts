@@ -26,6 +26,7 @@
 {
         "mana potion": {"hotkey":"e", "id":268, "use":"self"},
         "ultimate health potion": {"hotkey":"f7", "id":7643, "use":"self"},
+	"sword ring": {"hotkey":"6", "id":3091, "use":"equip"},
 	"supreme health potion": {"hotkey":"F", "id":23375, "use":"self"},
         "brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
@@ -72,8 +73,9 @@
 ],
 "persistent_actions": [
 	{"action":"haste", "interval":40, "args":["v"]},
-	{"action":"lure_monsters", "interval":0.5, "args":{"count":9, "min_count":2}},
+	{"action":"lure_monsters", "interval":0.5, "args":{"count":9, "min_count":2, "drop_above_hp_perc":80}},
 	{"action":"drop_vials", "interval":200},
+	{"action":"equip_item", "interval":3, "use_in_battle":true, "args":{"hotkey":"6", "amount":0, "slot":"ring"}},
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
 	{"action":"eat_food", "interval":30, "args":["f11"]}
 ],
@@ -95,10 +97,10 @@
 		"monsters":["Metal Gargoyle", "Rustheap Golem", "Glooth Golem", "Rot Elemental", "Glooth Blob", "Devourer", "Glooth Anemone"]},
 	{"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, 
 		"monsters":["Metal Gargoyle", "Rustheap Golem", "Glooth Golem", "Rot Elemental", "Glooth Blob", "Devourer", "Glooth Anemone"]},
-        {"name":"exori", "min_mana_percent":7, "priority":2, "cooldown": 4, "min_monster_count":1},
-        {"name":"exori min", "min_mana_percent":10, "priority":3, "cooldown": 6, "min_monster_count":2},
+        {"name":"exori min", "min_mana_percent":10, "priority":2, "cooldown": 6, "min_monster_count":2},
+        {"name":"exori", "min_mana_percent":7, "priority":3, "cooldown": 4, "min_monster_count":1},
         {"name":"exori gran", "min_mana_percent":20, "priority":4, "cooldown": 6,  "min_monster_count":2},
-	{"name":"utito tempo", "min_mana_percent":70, "priority":4, "cooldown": 15, "min_monster_count":3, "group":"support"}
+	{"name":"utito tempo", "min_mana_percent":70, "priority":5, "cooldown": 10, "min_monster_count":3, "group":"support"}
 ],
 "loot": []
 }
