@@ -77,6 +77,7 @@
 	{"action":"lure_monsters_diamond_arrow", "interval":0.5, "args":{"count":5}}
 ],
 "label_actions": [
+	{"label":"use_gem_north", "action":"use_hotkey_at_sqm", "args": {"hotkey":"f10", "sqm":[0,1]}},
 	{"label":"wait_lure_3", "action":"wait_lure", "args": {"lure_amount": 3, "dist":5, "max_wait": 1}},
 	{"label":"wait_lure_5", "action":"wait_lure", "args": {"lure_amount": 5, "dist":5, "max_wait": 2}}
 ],

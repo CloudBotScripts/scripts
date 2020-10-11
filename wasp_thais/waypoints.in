@@ -4,7 +4,19 @@ node (32349,32225,8)
 action deposit
 stand (32348,32231,8)
 node (32345,32221,7)
-node (32360,32215,7)
+action check_ammo
+node (32337, 32230, 7)
+node (32338, 32241, 7)
+node (32344, 32245, 7)
+stand (32350, 32246, 7)
+walk (32344, 32244, 6)
+action buy_ammo
+stand (32350, 32246, 6)
+node (32338, 32249, 7)
+node (32337, 32232, 7)
+node (32348, 32216, 7)
+node (32367, 32216, 7)
+label skip_ammo
 node (32380,32215,7)
 stand (32400,32215,7)
 door (32400,32217,7)

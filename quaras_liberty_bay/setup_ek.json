@@ -46,7 +46,7 @@
 "healing":
 [
         {"type":"hp", "below_percent":30, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
-        {"type":"hp", "below_percent":50, "use_item":"supreme health potion",  "priority":4},
+        {"type":"hp", "below_percent":40, "use_item":"supreme health potion",  "priority":4},
         {"type":"hp", "below_percent":90, "use_spell":"exura ico", "min_mana_percent":5, "priority":3},
         {"type":"hp", "below_percent":70, "use_item":"great health potion",  "priority":2},
         {"type":"mp", "below_percent":90, "use_item":"mana potion", "priority":2},
@@ -64,44 +64,28 @@
         "take_health2": 50,
         "health_leave2": 25
 },
-"label_actions": [
-	{"label":"refill_mana", "action":"wait_mana_percentage_below", "args": {"mana_perc":50, "hotkey":"e", "monster_count_below":2}}
-],
+"label_actions": [],
 "persistent_actions": [
         {"action":"drop_vials", "interval":200},
         {"action":"haste", "interval":40, "args":["v"]},
 	{"action":"anti_paralyze", "interval":1, "args":["v"]},
         {"action":"lure_monsters", "interval":0.5, "use_in_battle":true, "args":{"count":7, "min_count":2, "drop_above_hp_perc":80}},
-        {"action":"eat_food", "interval":30, "args":["f11"]},
-	{"action":"blacklist_coords", "interval":1, "use_in_battle":true, "args":{
-		"coords_barrier":[
-			[33624,31976,7],
-			[33633,31976,7],
-			[33631,31972,7],
-			[33640,31963,7],
-			[33647,31947,7],
-			[33640,31945,7]
-		]
-	}}
+        {"action":"eat_food", "interval":30, "args":["f11"]}
 ],
 "target_monsters": 
 [
-        {"name":"Metal Gargoyle", "action":"follow", "loot":true},
-        {"name":"Rustheap Golem", "action":"follow", "loot":true},
-        {"name":"Glooth Anemone", "action":"follow", "loot":true},
-        {"name":"Blood Beast", "action":"follow", "loot":true},
-        {"name":"Walker", "action":"follow", "loot":true},
-        {"name":"Glooth Golem", "action":"follow", "loot":true},
-        {"name":"Rot Elemental", "action":"follow", "loot":true},
-        {"name":"Glooth Blob", "action":"follow", "loot":true},
-        {"name":"Devourer", "action":"follow", "loot":true}
+        {"name":"Quara Hydromancer", "action":"follow", "loot":true},
+        {"name":"Quara Mantassin", "action":"follow", "loot":true},
+        {"name":"Quara Pincher", "action":"follow", "loot":true},
+        {"name":"Quara Constrictor", "action":"follow", "loot":true},
+        {"name":"Quara Predator", "action":"follow", "loot":true}
 ],
 "target_spells":
 [ 
         {"name":"exori hur", "min_mana_percent":10, "priority":1, "cooldown":5, 
-                "monsters":["Metal Gargoyle", "Rustheap Golem", "Glooth Golem", "Rot Elemental", "Glooth Blob", "Devourer", "Glooth Anemone"]},
+                "monsters":["Quara Hydromancer", "Quara Mantassin", "Quara Pincher", "Quara Predator", "Quara Constrictor"]},
         {"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, 
-                "monsters":["Metal Gargoyle", "Rustheap Golem", "Glooth Golem", "Rot Elemental", "Glooth Blob", "Devourer", "Glooth Anemone"]},
+                "monsters":["Quara Hydromancer", "Quara Mantassin", "Quara Pincher", "Quara Predator", "Quara Constrictor"]},
         {"name":"exori min", "min_mana_percent":10, "priority":2, "cooldown": 6, "min_monster_count":2},
         {"name":"exori", "min_mana_percent":7, "priority":3, "cooldown": 4, "min_monster_count":1},
         {"name":"exori gran", "min_mana_percent":20, "priority":4, "cooldown": 6,  "min_monster_count":2},

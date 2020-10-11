@@ -69,6 +69,9 @@
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
 	{"action":"eat_food", "interval":30, "args":["f11"]}
 ],
+"label_actions": [
+	{"label":"use_gem_north", "action":"use_hotkey_at_sqm", "args": {"hotkey":"f10", "sqm":[0,1]}}
+],
 "target_monsters": 
 [
 	{"name":"Faun", "action":"follow", "loot":true}, 
@@ -83,7 +86,7 @@
 	{"name":"exori", "min_mana_percent":10, "priority":2, "cooldown": 4, "min_monster_count":3},
 	{"name":"exori min", "min_mana_percent":20, "priority":3, "cooldown": 6, "min_monster_count":2},
 	{"name":"exori gran", "min_mana_percent":30, "priority":4, "cooldown": 6,  "min_monster_count":3},
-	{"name":"utito tempo", "min_mana_percent":70, "priority":5, "cooldown": 15,  "min_monster_count":4}
+	{"name":"utito tempo", "min_mana_percent":70, "priority":5, "cooldown": 15, "min_monster_count":4, "group":"support"}
 ],
 "loot": []
 }

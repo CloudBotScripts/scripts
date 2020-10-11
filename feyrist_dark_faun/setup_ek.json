@@ -2,32 +2,35 @@
 	"general": 
 	{
 		"loot_type":"auto",
-		"loot_priority":"first"
+		"loot_priority":"after",
+		"walk_type":"keys",
+		"track_loot":true
 	},
 	"script_options": {
-		"hours_leave": [9],
-		"skill_train":"sword",
+		"hours_leave": [9.5],
+		"skill_train":"club",
 		"imbuements":[
 			{"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
+			{"equip_slot":"weapon", "name":"Intricate Vampirism", "type":"Life Leech"},
 			{"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"}
 		],
 		"sort_deposit": {"alexander":6, "lailene":6, "tamoril":8, "rashid": 9, "green_djinn": 10}
 	},
 	"containers": 
 	{
-		"gold_bp":"Golden Backpack",
 		"loot_bp":"Red Backpack"
 	},
 	"tools":
 	{
-		"rope": {"name":"elvenhair rope", "id": 646},
+		"rope": {"name":"rope", "id": 3003},
 		"shovel": {"name":"shovel", "id": 3457}
 	},
 	"items":
 	{
 		"mana potion": {"hotkey":"e", "id":268, "use":"self"},
 		"ultimate health potion": {"hotkey":"F", "id":7643, "use":"self"},
-		"small amethyst": {"hotkey":"f10", "id":3033, "use":"crosshair"},
+		"great health potion": {"hotkey":"f7", "id":239, "use":"self"},
+		"small emerald": {"hotkey":"f10", "id":3032, "use":"crosshair"},
 		"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 	},
 	"spells":
@@ -47,49 +50,50 @@
 	"healing":
 	[
 		{"type":"hp", "below_percent":30, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
-		{"type":"hp", "below_percent":70, "use_item":"ultimate health potion",  "priority":4},
+		{"type":"hp", "below_percent":50, "use_item":"ultimate health potion",  "priority":4},
 		{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
-		{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2},
+		{"type":"hp", "below_percent":70, "use_item":"great health potion", "priority":3},
+		{"type":"mp", "below_percent":90, "use_item":"mana potion", "priority":2},
 		{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
 	],
 	"hunt_config": {
-		"cap_leave": 50,
-		"gem_name": "small amethyst",
+		"cap_leave": 1,
+		"gem_name": "small emerald",
 		"take_gem": 2,
 		"mana_name": "mana potion",
-		"take_mana": 900,
+		"take_mana": 1200,
 		"mana_leave": 300,
 		"health_name": "ultimate health potion",
-		"take_health": 250,
-		"health_leave": 80
+		"take_health": 150,
+		"health_leave": 80,
+		"health_name2": "great health potion",
+		"take_health2": 400,
+		"health_leave2": 150
 	},
 	"persistent_actions": [
 		{"action":"haste", "interval":40, "args":["v"]},
-		{"action":"lure_monsters", "interval":0.5, "args":[6]},
+		{"action":"lure_monsters", "interval":0.5, "args":{"count":7, "min_count":1, "drop_above_hp_perc":80}},
 		{"action":"drop_vials", "interval":200},
-		{"action":"recover_full_mana", "interval":3, "args":["e"]},
 		{"action":"eat_food", "interval":30, "args":["f11"]}
 	],
 	"label_actions": [
-		{"label":"use_gem_north", "action":"use_hotkey_at_sqm", "args": {"hotkey":"f10", "sqm":[0,1]}},
-		{"label":"wait_lure_3", "action":"wait_lure", "args": {"lure_amount": 3, "dist":3, "max_wait": 2}},
-		{"label":"wait_lure_6", "action":"wait_lure", "args": {"lure_amount": 6, "dist":5, "max_wait": 2}}
+		{"label":"use_gem_north", "action":"use_hotkey_at_sqm", "args": {"hotkey":"f10", "sqm":[0,1]}}
 	],
 	"target_monsters": 
 	[
 		{"name":"Faun", "action":"follow", "loot":true}, 
 		{"name":"Dark Faun", "action":"follow", "loot":true}, 
-		{"name":"Weakened Frazzlemaw", "action":"follow", "loot":true}, 
-		{"name":"Enfeebled Silencer", "action":"follow", "loot":true}
+		{"name":"Twisted Pooka", "action":"follow", "loot":true}, 
+		{"name":"Boogy", "action":"follow", "loot":true}
 	],
 	"target_spells":
 	[ 
-		{"name":"exori hur", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Faun", "Dark Faun", "Weakened Frazzlemaw", "Enfeebled Silencer"]},
-		{"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Faun", "Dark Faun", "Weakened Frazzlemaw", "Enfeebled Silencer"]},
-		{"name":"exori", "min_mana_percent":10, "priority":2, "cooldown": 4, "min_monster_count":3},
-		{"name":"exori min", "min_mana_percent":20, "priority":3, "cooldown": 6, "min_monster_count":2},
+		{"name":"exori hur", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Faun", "Dark Faun", "Twisted Pooka", "Boogy"]},
+		{"name":"exori ico", "min_mana_percent":10, "priority":1, "cooldown":5, "monsters":["Faun", "Dark Faun", "Twisted Pooka", "Boogy"]},
+		{"name":"exori min", "min_mana_percent":20, "priority":2, "cooldown": 6, "min_monster_count":2},
+		{"name":"exori", "min_mana_percent":10, "priority":3, "cooldown": 4, "min_monster_count":3},
 		{"name":"exori gran", "min_mana_percent":30, "priority":4, "cooldown": 6,  "min_monster_count":3},
-		{"name":"utito tempo", "min_mana_percent":70, "priority":5, "cooldown": 15, "min_monster_count":4, "group":"support"}
+		{"name":"utito tempo", "min_mana_percent":40, "priority":4, "cooldown": 10, "min_monster_count":4, "group":"support"}
 	],
 	"loot": []
 }

@@ -1,0 +1,38 @@
+label liberty_bay
+node (32332, 32835, 7)
+stand (32336, 32838, 7)
+node (32336, 32844, 6)
+action deposit
+stand (32336, 32838, 6)
+walk (32339, 32836, 7)
+action bank
+node (32343, 32834, 7)
+node (32340, 32826, 7)
+node (32343, 32815, 7)
+walk (32345, 32810, 7)
+action sell
+action buy_potions
+action check_runes
+action buy_runes
+label skip_runes
+node (32340, 32815, 7)
+node (32340, 32826, 7)
+action check_ammo
+node (32325, 32827, 7)
+node (32318, 32834, 7)
+node (32308, 32827, 7)
+walk (32291, 32818, 7)
+call talk_npc("list_words":["trade", "distance"])
+action buy_ammo
+node (32300, 32826, 7)
+node (32310, 32827, 7)
+node (32319, 32832, 7)
+label skip_ammo
+action check_imbuements
+label imbue_items
+stand (32313, 32825, 7)
+action use_imbuing_shrine_north
+node (32318, 32833, 7)
+label skip_imbuement
+node (32318, 32833, 7)
+action check_supplies

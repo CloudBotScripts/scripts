@@ -1,0 +1,161 @@
+ {
+  "general": {
+    "loot_type": "auto",
+    "walk_type": "mouse"
+  },
+  "script_options": {
+    "hours_leave": [
+      9.5
+    ]
+  },
+  "containers": {
+    "loot_bp": "Orange Backpack"
+  },
+  "tools": {
+    "rope": {
+      "name": "rope",
+      "id": 3003
+    },
+    "shovel": {
+      "name": "shovel",
+      "id": 3457
+    }
+  },
+  "items": {
+    "mana potion": {
+      "hotkey": "f1",
+      "id": 268,
+      "use": "self"
+    },
+    "spear": {
+      "hotkey": "k",
+      "id": 3277,
+      "use": "equip"
+    },
+    "meat": {
+      "hotkey": "f11",
+      "id": 3577,
+      "use": "use"
+    },
+    "scimitar": {
+      "hotkey": "j",
+      "id": 3307,
+      "use": "equip"
+    },
+    "honeycomb": {
+      "hotkey": "f3",
+      "id": 5902,
+      "use": "use"
+    }
+  },
+  "spells": {
+    "exura infir": "r"
+  },
+  "healing": [
+    {
+      "type": "hp",
+      "below_percent": 90,
+      "use_spell": "exura infir",
+      "min_mana_percent": 20,
+      "priority": 2
+    },
+    {
+      "type": "mp",
+      "below_percent": 20,
+      "use_item": "mana potion",
+      "priority": 1
+    }
+  ],
+  "hunt_config": {
+    "cap_leave": 0,
+    "mana_name": "mana potion",
+    "take_mana": 5,
+    "mana_leave": 1,
+    "ammo_name": "spear",
+    "take_ammo": 10,
+    "ammo_leave": 2
+  },
+  "label_actions": [
+    {
+      "label": "count",
+      "action": "conditional_jump_item_count_below",
+      "args": {
+        "item_name": "honeycomb",
+        "amount": 5,
+        "label_jump": "continue",
+        "label_skip": "leave"
+      }
+    }
+  ],
+  "persistent_actions": [
+    {
+      "action": "refill_priority_ammo",
+      "interval": 5,
+      "use_in_battle": true,
+      "args": {
+        "priority_ammo_name": "spear",
+        "regular_ammo_name": "scimitar",
+        "equip_slot": "weapon",
+        "min_amount": 1
+      }
+    },
+    {
+      "action": "stop_target_no_supplies",
+      "interval": 15,
+      "args": {
+        "mana": false,
+        "health": false,
+        "cap": false,
+        "rune": false,
+        "ammo": true,
+        "time": false
+      }
+    },
+    {
+      "action": "eat_food",
+      "interval": 22,
+      "args": {
+        "hotkey": "f11"
+      }
+    }
+  ],
+  "target_monsters": [
+    {
+      "name": "Wasp",
+      "action": "follow",
+      "loot": true
+    },
+    {
+      "name": "Wolf",
+      "action": "follow",
+      "loot": true
+    },
+    {
+      "name": "Starving Wolf",
+      "action": "follow",
+      "loot": true
+    },
+    {
+      "name": "Poacher",
+      "action": "follow",
+      "loot": false
+    }
+  ],
+  "target_spells": [],
+  "loot": [
+    {
+      "name": "honeycomb",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "honeycombs",
+      "action": "loot",
+      "dest": "loot_bp"
+    },
+    {
+      "name": "meat",
+      "action": "use"
+    }
+  ]
+}

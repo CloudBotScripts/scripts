@@ -726,7 +726,7 @@ def buy_items_npc(client, item_list_name, item_list_count):
 def use_imbuing_shrine(client, sqm=None):
     imbuements = client.script_options['imbuements']
     for imbuement in imbuements:
-        print('[Action] Checking', imbuement)
+        print('[Action] Checking', imbuement['equip_slot'])
         active_imbuements = client.get_imbuements_equip(imbuement['equip_slot'])
         print('Active', active_imbuements)
         if active_imbuements:

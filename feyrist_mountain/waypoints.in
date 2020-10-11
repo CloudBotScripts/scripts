@@ -49,7 +49,7 @@ stand (33265,31832,6)
 stand (33271,31832,7)
 stand (33268,31830,8)
 stand (33271,31831,9)
-action skip_portal
+call jump_to_label("label":"after_portal")
 label red_portal_1
 stand (32342,32271,11)
 label use_gem_north
@@ -57,7 +57,6 @@ call jump_to_label("label":"after_portal")
 label red_portal_2
 stand (32908,32338,15)
 label use_gem_north
-call jump_to_label("label":"after_portal")
 label after_portal
 node (33579,32262,7)
 label hunt
@@ -91,13 +90,12 @@ node (33582,32262,7)
 action check
 label leave
 ladder (33586,32262,7)
-action skip_portal_2
+call jump_to_label("label":"after_portal_2")
 label red_portal_1
 stand (32905,32340,15)
 call jump_to_label("label":"after_portal_2")
 label red_portal_2
 stand (32339,32272,11)
-call jump_to_label("label":"after_portal_2")
 label after_portal_2
 node (33268,31832,9)
 ladder (33268,31830,9)
