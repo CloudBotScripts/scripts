@@ -4,7 +4,7 @@
 	"loot_type":"manual"
 },
 "script_options": {
-	"hours_leave": [9],
+	"hours_leave": [9.5],
 	"lower_level": true,
 	"upper_level": true,
 	"anti_trap":"weapon"

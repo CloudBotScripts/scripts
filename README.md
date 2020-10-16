@@ -68,6 +68,7 @@ These scripts are the official scripts for CloudBot.
 | 15+   | [Wasp Cave Thais Spear](wasp_thais/setup_rp.json)  | 10-50k/h     | 10-20k/h                             |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup_rp.json)   | :star: :star:                           | :star: :star:                           |
 | 25+   | [Yalahar Elves](yalahar_elves/setup_rp.json)  |  Elvish talisman, Holy orchid, Elvish bow     |  30-50k/h                   |
+| 25+   | [Forest Fury Camp](forest_fury/setup_rp.json)               | 10-30k/h | 30-45k/h |
 | 30+   | [Stonerefiner](stonerefiner/setup_rp.json) | :star: :star:              | :star: :star: :star:                    |
 | 30+   | [Bonelord Liberty Bay](bonelord_liberty_bay/setup_rp.json)         | Bonelord item      | 50-60k/h       |
 | 30+   | [Meriana Gargoyle](meriana_gargoyle/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |

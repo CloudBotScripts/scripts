@@ -1,46 +1,43 @@
 {
-"general": 
-{
+"general": {
     "loot_type":"manual",
     "loot_priority":"first"
 },
 "script_options": {
     "hours_leave": [9.5],
     "lower_level": true,
-    "upper_level": false
+    "upper_level": true 
 },
-"containers": 
-{
+"containers": {
     "gold_bp":"Shopping Bag",
     "loot_bp":"Purple Backpack"
 },
 "tools": {},
-"items":
-{
+"items": {
     "mana potion": {"hotkey":"e", "id":268, "use":"self"},
     "stealth ring": {"hotkey":"V", "id":3049, "use":"equip"},
-    "brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"},
-    "great fireball rune": {"hotkey":"f9", "id":3191, "use":"crosshair"}
+    "bolt": {"hotkey":"f1", "id":3446, "use":"equip"},
+    "piercing bolt": {"hotkey":"f2", "id":7363, "use":"equip"},
+    "brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
-"spells":
-{
-    "exura gran":"r",
-    "exevo frigo hur":"2",
-    "exori infir tera":"1"
+"spells": {
+    "exura":"r",
+    "exura gran":"f"
 },
 "healing":
 [
-    {"type":"hp", "below_percent":75, "use_spell":"exura gran", "min_mana_percent":5,  "priority":3},
-    {"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2}
+    {"type":"hp", "below_percent":70, "use_spell":"exura gran", "min_mana_percent":15, "priority":3},
+    {"type":"hp", "below_percent":85, "use_spell":"exura", "min_mana_percent":5, "priority":2},
+    {"type":"mp", "below_percent":60, "use_item":"mana potion", "priority":2}
 ],
 "hunt_config": {
     "cap_leave": 30,
     "mana_name": "mana potion",
-    "take_mana": 80,
-    "mana_leave": 30,
-    "rune_name": "great fireball rune",
-    "take_rune": 0,
-    "rune_leave": -1 
+    "take_mana": 40,
+    "mana_leave": 20,
+    "ammo_name": "bolt",
+    "take_ammo": 400,
+    "ammo_leave": 100
 },
 "label_actions": 
 [
@@ -54,24 +51,23 @@
     {"action":"drop_vials", "interval":60},
     {"action":"anti_paralyze", "interval":1, "args":["r"]},
     {"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
+    {"action":"refill_priority_ammo", "interval":10, "use_in_battle":true, "args":{"priority_ammo_name":"piercing bolt", "regular_ammo_name":"bolt", "equip_slot":"ammunition", "min_amount":10}},
     {"action":"equip_item", "interval":1, "use_in_battle":true, "args":{"hotkey":"V", "amount":1, "selected_monsters":["Forest Fury", "Wilting Leaf Golem"], "slot":"ring"}}
 ],
 "target_monsters": 
 [
-    {"name":"Leaf Golem", "action":"follow", "loot":true},
-    {"name":"Forest Fury", "action":"follow", "loot":true},
-    {"name":"Poacher", "action":"follow", "loot":true},
-    {"name":"Dryad", "action":"follow", "loot":true},
-    {"name":"Goblin", "action":"follow", "loot":true}
+    {"name":"Leaf Golem", "action":"distance", "min_dist":2, "max_dist":5, "loot":true},
+    {"name":"Forest Fury", "action":"distance", "min_dist":2, "max_dist":5,"loot":true},
+    {"name":"Poacher", "action":"distance", "min_dist":2, "max_dist":5,"loot":true},
+    {"name":"Dryad", "action":"distance", "min_dist":2, "max_dist":5,"loot":true},
+    {"name":"Goblin", "action":"distance", "min_dist":2, "max_dist":5,"loot":true}
 ],
-"target_spells":
-[ 
-    {"name":"great fireball rune", "min_mana_percent":120, "priority":4, "cooldown": 2,  "min_monster_count":30},
-    {"name":"exevo frigo hur", "min_mana_percent":20, "priority":4, "cooldown": 2,  "min_monster_count":2},
-    {"name":"exori infir tera", "min_mana_percent":10, "priority":1, "cooldown":2, "monsters":["Forest Fury", "Poacher", "Wilting Leaf Golem"]}
+"target_spells": [
 ],
 "loot": 
 [
+    {"name":"bolts", "action":"loot", "dest":"loot_bp"},
+    {"name":"piercing bolts", "action":"loot", "dest":"loot_bp"},
     {"name":"gold coin", "action":"loot", "dest":"gold_bp"},
     {"name":"gold coins", "action":"loot", "dest":"gold_bp"},
     {"name":"health potion", "action":"loot", "dest":"loot_bp"},
