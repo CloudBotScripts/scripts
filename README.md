@@ -43,7 +43,7 @@ These scripts are the official scripts for CloudBot.
 | 180+  | [Sea Serpent South -1](sea_serpent/setup_ek_south_down.json) | :star: :star:                           | :star: :star: :star:                    |
 | 180+  | [Putrid Mummy Advanced Lure](putrid_mummy/setup_ek.json)    | :star: :star: :star:                    | :star: :star: :star:                       |
 | 180+  | [Feyrist Mountain](feyrist_mountain/setup.json)                |  100-180k/h                   |  500-700k/h            |    
-| 200+  | [Quara Grotto Liberty Bay](quara_liberty_bay/setup_ek.json)| 60-150k/h   |  700-850k/h   |
+| 200+  | [Quara Grotto Liberty Bay](quaras_liberty_bay/setup_ek.json)| 60-150k/h   |  700-850k/h   |
 | 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Feyrist Nightmare cave](feyrist_nightmare_cave/setup.json)| :star: :star: :star:             | :star: :star: :star:       
 | 220+  | [Feyrist Nightmare cave -2](feyrist_nightmare_cave_down/setup_ek.json)| :star: :star: :star:             | :star: :star: :star:     |  
@@ -70,7 +70,7 @@ These scripts are the official scripts for CloudBot.
 | 25+   | [Yalahar Elves](yalahar_elves/setup_rp.json)  |  Elvish talisman, Holy orchid, Elvish bow     |  30-50k/h                   |
 | 25+   | [Forest Fury Camp](forest_fury/setup_rp.json)               | 10-50k/h | 30-45k/h |
 | 30+   | [Stonerefiner](stonerefiner/setup_rp.json) | :star: :star:              | :star: :star: :star:                    |
-| 30+   | [Bonelord Liberty Bay](bonelord_liberty_bay/setup_rp.json)         | Bonelord item      | 50-60k/h       |
+| 30+   | [Bonelord Liberty Bay](bonelord_liberty_bay/setup_rp.json)         | Bonelord eye | 50-60k/h       |
 | 30+   | [Meriana Gargoyle](meriana_gargoyle/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |
 | 40+   | [Yalahar Necromancer](yalahar_necromancer/setup_rp.json)            | Reins item (up to 1kk)             | 60-80k/h                         |
 | 50+   | [Yalahar Necromancer 50+](yalahar_necromancer/setup_rp50.json)            | Reins item (up to 1kk)                   | 70-80k/h                          |
