@@ -4,12 +4,12 @@
 	"loot_type":"auto"
 },
 "script_options": {
-	"hours_leave": [9],
+	"hours_leave": [9.5],
 	"skill_train":"sword"
 },
 "containers": {
-	"main_bp":"Orange Backpack",
-	"loot_bp":"Backpack"
+	"main_bp":"Backpack",
+	"loot_bp":"Red Backpack"
 },
 "tools":
 {
@@ -18,7 +18,7 @@
 "items":
 {
 	"mana potion": {"hotkey":"f1", "id":268, "use":"self"},
-	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"},
+	"fish": {"hotkey":"f11", "id":3578, "use":"use"},
 	"health potion": {"hotkey":"f2", "id":266, "use":"self"},
 	"fishing rod": {"hotkey":"O", "id": 3483, "use":"crosshair"},
 	"pick": {"hotkey":"P", "id": 3456, "use":"crosshair"},
@@ -30,6 +30,7 @@
 },
 "healing":
 [
+	{"type":"hp", "below_percent":101, "use_spell":"exura ico", "min_mana_percent":90, "priority":1},
 	{"type":"hp", "below_percent":60, "use_item":"health potion", "priority":3},
 	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":2},
 	{"type":"mp", "below_percent":30, "use_item":"mana potion", "priority":1}

@@ -42,7 +42,7 @@ These scripts are the official scripts for CloudBot.
 | 170+  | [Vampire Crypt Edron Advanced Lure](vampire_crypt_edron_box/setup_ek.json)             | :star: :star: :star: :star:      | :star: :star: :star:                    |
 | 180+  | [Sea Serpent South -1](sea_serpent/setup_ek_south_down.json) | :star: :star:                           | :star: :star: :star:                    |
 | 180+  | [Putrid Mummy Advanced Lure](putrid_mummy/setup_ek.json)    | :star: :star: :star:                    | :star: :star: :star:                       |
-| 180+  | [Feyrist Mountain](feyrist_mountain/setup.json)                |  100-180k/h                   |  500-700k/h            |    
+| 180+  | [Feyrist Mountain](feyrist_mountain/setup_ek.json)                |  100-180k/h                   |  500-700k/h            |    
 | 200+  | [Quara Grotto Liberty Bay](quaras_liberty_bay/setup_ek.json)| 60-150k/h   |  700-850k/h   |
 | 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Feyrist Nightmare cave](feyrist_nightmare_cave/setup.json)| :star: :star: :star:             | :star: :star: :star:       
@@ -82,6 +82,7 @@ These scripts are the official scripts for CloudBot.
 | 100+  | [Vampire Crypt Edron Upper Lure](vampire_crypt_edron_upper/setup_rp_lure.json) | -5 to 5k/h                    | 230-300k/h                   |
 | 160+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup_rp.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
 | 180+  | [Krailos Nightmare](krailos_nightmare/setup_rp.json) | :star:                                  | :star: :star: :star:                    |
+| 180+  | [Feyrist Mountain](feyrist_mountain/setup_rp.json)                |  100-180k/h                   |  500-700k/h            |    
 | 180+  | [Hero Old Fortress -1](hero_fortress/setup_rp.json)            | :star:                                  | :star: :star: :star: :star:             |  
 | 200+  | [Minotaur Cults](minotaur_cults/setup_rp.json)          | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Demon Hero Cave](demon_hero_cave/setup_rp.json)          | :star:        | :star: :star:                           |
@@ -95,7 +96,7 @@ These scripts are the official scripts for CloudBot.
 | 300+  | [Cults Edron Full](edron_cults/setup_rp.json) | :star: :star:                           | :star: :star: :star: :star:             |
 | 300+  | [Oramond Sewers](oramond_sewers/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
 | 350+  | [Drefia Wyrms](drefia_wyrms/setup_rp.json) | :star: :star:        | :star: :star: :star: :star:      |       
-| 350+  | [Drefia Wyrms Advanced Lure](drefia_wyrms_box/setup_rp.json) | :star: :star:        | :star: :star: :star: :star:   |       
+| 350+  | [Drefia Wyrms Advanced Lure](drefia_wyrms_box/setup_rp.json) | 0-60k/h   | 1.1-1.4kk/h |       
 | 350+  | [Oramond Demon Sewers Entrance](oramond_demon_sewers/setup_rp.json) | :star: :star: :star: :star:        | :star: :star: :star:      |       
 | 350+  | [Medusa Tower](medusa_tower/setup_rp.json)     | :star: :star: :star:              | :star: :star: :star: :star: :star:      |
 | 400+  | [Oramond Glooth Tower](oramond_tower_box/setup_rp.json) | :star: :star: :star: :star:        | :star: :star: :star: :star: :star:      |       
@@ -131,13 +132,14 @@ These scripts are the official scripts for CloudBot.
 | Level | Name                            | 
 | ----- | ------------------------------- |
 | 8+    | [Buy Blessing](buy_blessing/info.txt)                    |
-| 10+   | [Ice Fishing Svargrondi](ice_fishing/setup.json)           |
-| 10+   | [Barbarian Test Quest](quests/barbarian_test/info.txt)           |
+| 8+    | [Market Thais Example](market_thais/setup.json)                    |
+| 20+   | [Sell Items NPC](sell_npc/setup.json)                    |
+| 10+   | [Ice Fishing Svargrond](ice_fishing/setup.json)           |
 | 15+   | [Train Rotworm Venore North](train_venore_rotworm_north/setup_ek.json)           |
 | 15+   | [Train Slime Venore](train_slime/setup_ek.json)           |
+| 10+   | [Barbarian Test Quest](quests/barbarian_test/info.txt)           |
 | 20+   | [Meriana Access Quest](quests/meriana/info.txt)           |
 | 20+   | [Yalahar Access Quest](quests/yalahar/info.txt)         |
 | 20+   | [Sea Serpent Access Quest](quests/sea_serpent/info.txt)        |
-| 20+   | [Sell Items NPC](sell_npc/setup.json)                    |
 | 60+   | [Ape City Quest](quests/apes/setup_ek.json)        |
 | 60+   | [Feyrist Access Quest](quests/feyrist/setup_ek.json)        |

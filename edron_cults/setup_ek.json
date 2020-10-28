@@ -3,6 +3,7 @@
 {
 	"loot_type":"auto",
 	"follow_mode":"bot",
+	"track_loot":true,
 	"loot_priority":"after"
 },
 "script_options": {
@@ -27,6 +28,7 @@
 "items":
 {
 	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"great health potion": {"hotkey":"f7", "id":239, "use":"self"},
 	"ultimate health potion": {"hotkey":"F", "id":7643, "use":"self"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
@@ -47,19 +49,23 @@
 "healing":
 [
 	{"type":"hp", "below_percent":30, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
-	{"type":"hp", "below_percent":70, "use_item":"ultimate health potion",  "priority":4},
-	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
-	{"type":"mp", "below_percent":70, "use_item":"mana potion", "priority":2},
-	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
+	{"type":"hp", "below_percent":50, "use_item":"ultimate health potion",  "priority":4},
+        {"type":"hp", "below_percent":90, "use_spell":"exura ico", "min_mana_percent":5, "priority":3},
+        {"type":"hp", "below_percent":70, "use_item":"great health potion",  "priority":2},
+        {"type":"mp", "below_percent":90, "use_item":"mana potion", "priority":2},
+        {"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":60, "priority":1, "cooldown":60}
 ],
 "hunt_config": {
 	"cap_leave": 90,
 	"mana_name": "mana potion",
 	"take_mana": 1500,
 	"mana_leave": 500,
-	"health_name": "ultimate health potion",
-	"take_health": 250,
-	"health_leave": 80
+        "health_name": "great health potion",
+        "take_health": 400,
+        "health_leave": 150,
+	"health_name2": "ultimate health potion",
+	"take_health2": 80,
+	"health_leave2": 30
 },
 "persistent_actions": [
 	{"action":"haste", "interval":40, "args":["v"]},

@@ -67,6 +67,7 @@ node (33520,32276,7)
 node (33536,32264,7)
 stand (33547,32268,7)
 label hunt
+action summon
 node (33557,32266,8)
 node (33566,32277,8)
 node (33580,32276,8)

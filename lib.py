@@ -1209,3 +1209,135 @@ def dynamic_barrier_rectangles(client, rectangles, monster_count=2, allow_in=Fal
         client.minimap.add_barrier_coords(coords_barrier)
     else:
         client.minimap.remove_barrier_coords(coords_barrier)
+
+# Market functions
+def find_locker(client):
+    client.reach_locker()
+
+# Create sell offers for list of items
+# Item dict: {"name": <name of item>, "min_offer": <do not sell below this value>, "max_offer":<do not sell above this value>, "amount":<default all>]}, 
+# example:
+#call create_sell_offers("items_sell":[{"name":"skull staff", "min_offer":4500, "max_offer":6000}, {"name":"demon armor", "min_offer":200000, "max_offer":300000}])
+def create_sell_offers(client, items_sell=[]):
+    market = client.start_market()
+    for item in items_sell:
+        name = item['name']
+        print(f'[Market] Check sell offers {name}')
+        stats = market.get_offers_item(name)
+        print(f'[Market] Sell offers: {stats["sell"]}')
+
+        smallest_sell_price = 0
+        if stats['sell']['smallest_price'] is not None:
+            smallest_sell_price = stats['sell']['smallest_price'] 
+
+        amount = item.get('amount', 'max')
+        min_price = item.get('min_offer', 0)
+        max_price = item.get('max_offer', 1e12)
+        if smallest_sell_price == 0:
+            # No offers, create max sell price
+            market.create_sell_offer_current_item(max_price, amount=amount)
+        elif smallest_sell_price >= min_price:
+            sell_price = smallest_sell_price - 1
+            market.create_sell_offer_current_item(sell_price, amount=amount)
+        else:
+            print(f'[Market] Skip sell {name} : smallest sell price offer {smallest_sell_price}')
+
+
+# Create buy offers for list of items
+# Item dict: {"name": <name of item>, "min_offer": <do not buy below this value>, "max_offer":<do not buy above this value>, "amount":<default 1>} 
+# example:
+#call create_buy_offers("items_buy":[{"name":"skull staff", "min_offer":2000, "max_offer":4500, "amount":10}, {"name":"demon armor", "min_offer":50000, "max_offer":100000}])
+def create_buy_offers(client, items_buy=[]):
+    market = client.start_market()
+    for item in items_buy:
+        name = item['name']
+        print(f'[Market] Check buy offers {name}')
+        stats = market.get_offers_item(name)
+        print(f'[Market] Buy offers: {stats["buy"]}')
+
+        highest_buy_price = 0
+        if stats['buy']['highest_price'] is not None:
+            highest_buy_price = stats['buy']['highest_price'] 
+
+        amount = item.get('amount', 1)
+        min_price = item.get('min_offer', 0)
+        max_price = item.get('max_offer', 1e12)
+        if highest_buy_price == 0:
+            # No offers, create min buy price
+            market.create_buy_offer_current_item(min_price, amount=amount)
+        elif highest_buy_price <= max_price:
+            buy_price = highest_buy_price + 1
+            market.create_buy_offer_current_item(buy_price, amount=amount)
+        else:
+            print(f'[Market] Skip buy {name} : highest buy price offer {highest_buy_price}')
+
+# Cancel obsolete buy offers
+# example:
+#[
+#  {"name":"skull staff"}, 
+#  {"name":"demon armor"} 
+#]
+def cancel_obsolete_buy_offers(client, items):
+    market = client.start_market()
+    buy_offers = market.get_list_buy_offers()
+    buy_offers_to_cancel = []
+    set_items = list(map(lambda x: ''.join([c.lower() for c in x['name'] if c.isalpha()]), items))
+    print(set_items)
+    for item, _, price in buy_offers:
+        if item not in set_items:
+            print(f'[Market] Skip {item}')
+            continue
+        name = items[set_items.index(item)]['name']
+        stats = market.get_offers_item(name)
+        highest_buy_price = 0
+        if stats['buy']['highest_price'] is not None:
+            highest_buy_price = stats['buy']['highest_price'] 
+        print(highest_buy_price)
+        if higest_buy_price > price:
+            buy_offers_to_cancel.append(name)
+    print(buy_offers_to_cancel)
+    market.cancel_buy_offers(buy_offers_to_cancel)
+
+# Cancel obsolete sell offers
+# example:
+#[
+#  {"name":"skull staff"}, 
+#  {"name":"demon armor"} 
+#]
+def cancel_obsolete_sell_offers(client, items):
+    market = client.start_market()
+    sell_offers = market.get_list_sell_offers()
+    sell_offers_to_cancel = []
+    set_items = list(map(lambda x: ''.join([c.lower() for c in x['name'] if c.isalpha()]), items))
+    print(set_items)
+    for item, _, price in sell_offers:
+        if item not in set_items:
+            print(f'[Market] Skip {item}')
+            continue
+        name = items[set_items.index(item)]['name']
+        stats = market.get_offers_item(name)
+        print(stats)
+        lowest_sell_price = 0
+        if stats['sell']['smallest_price'] is not None:
+            smallest_sell_price = stats['sell']['smallest_price'] 
+        print(smallest_sell_price)
+        if smallest_sell_price < price:
+            sell_offers_to_cancel.append(name)
+    print(sell_offers_to_cancel)
+    market.cancel_sell_offers(sell_offers_to_cancel)
+
+# Create sell offers for list of items defined in setup.json
+def create_sell_offers_from_setup(client, var_name='items_sell'):
+    items_sell = client.script_options.get(var_name, []) 
+    create_sell_offers(client, items_sell)
+
+# Create buy offers for list of items defined in setup.json
+def cancel_obsolete_buy_offers_from_setup(client, var_name='items_buy'):
+    items_buy = client.script_options.get(var_name, []) 
+    cancel_obsolete_buy_offers(client, items_buy)
+
+# Cancel obsolete sell offers for list of items defined in setup.json
+def cancel_obsolete_sell_offers_from_setup(client, var_name='items_sell'):
+    items_sell = client.script_options.get(var_name, []) 
+    cancel_obsolete_sell_offers(client, items_sell)
+

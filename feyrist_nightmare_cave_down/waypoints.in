@@ -78,6 +78,7 @@ node (33620, 32289, 8)
 node (33616, 32275, 8)
 stand (33610, 32267, 8)
 label hunt
+action summon
 label wait_lure_3
 node (33600, 32266, 9)
 label wait_lure_3

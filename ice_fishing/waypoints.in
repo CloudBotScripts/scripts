@@ -1,7 +1,6 @@
 label start
 node (32265,31141,7)
 action deposit
-action refill
 node (32285,31137,7)
 action check_worms
 node (32287,31136,7)

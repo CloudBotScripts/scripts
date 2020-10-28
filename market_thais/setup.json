@@ -1,0 +1,39 @@
+{
+"general": {},
+"script_options": {
+	"skill_train":"sword",
+	"items_buy": [
+		{"name":"tibia coins", "min_offer":7000 , "max_offer": 25000, "amount":1}
+	],
+	"items_sell": [
+		{"name":"tibia coins", "min_offer":12000 , "max_offer": 28000, "amount":1},
+		{"name":"gear wheel", "min_offer":3000 , "max_offer": 5000, "amount":1}
+	]
+},
+"containers": {},
+"tools": {},
+"items":
+{
+	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+},
+"spells":
+{
+	"utani hur": "v",
+	"exura ico":"r"
+},
+"healing":
+[
+	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
+	{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2}
+],
+"hunt_config": {},
+"label_actions": [],
+"persistent_actions": [
+	{"action":"haste", "interval":40, "args":["v"]},
+	{"action":"eat_food", "interval":30, "args":["f11"]}
+],
+"target_monsters": [],
+"target_spells": [],
+"loot": []
+}

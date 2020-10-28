@@ -4,7 +4,6 @@ sys.path.append('../scripts/')
 from lib import *
 import global_actions
 
-import clipboard
 def waypoint_action(client, action):
 
     def use_pick_south():
@@ -29,6 +28,10 @@ def waypoint_action(client, action):
         sleep(0.1)
         client.click(x, y, button='left')
         sleep(0.1)
+        client.keyDown('shift')
+        sleep(0.1)
+        client.click(x, y, button='left')
+        sleep(0.1)
         client.keyUp('shift')
         sleep(0.4)
         client.hotkey('alt', 'd')
@@ -37,18 +40,17 @@ def waypoint_action(client, action):
         sleep(0.6)
 
         # get last 4 server messages
-        client.hotkey('shift', 'ctrl', 'a')
-        sleep(0.3)
-        client.hotkey('ctrl', 'c')
-        sleep(0.5)
-        s = clipboard.paste().split('\n')
-        look_results = [line for line in s if 'You' in line and 'see' in line]
+        log = client.copy_server_log()
+        look_results = [line for line in log if 'You' in line and 'see' in line]
         sleep(1)
-        if 'fragile ice' in look_results[-1]:
+        if 'fragile' in look_results[-1]:
+            print('[Action] Closed ice hole')
             return 'closed'
-        elif 'movement of fish' in look_results[-1]:
+        elif 'movement of' in look_results[-1]:
+            print('[Action] Fish in ice hole')
             return 'fish'
         elif 'ice hole' in look_results[-1]:
+            print('[Action] Empty ice hole')
             return 'empty'
         else:
             return 'other'

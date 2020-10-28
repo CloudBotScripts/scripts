@@ -2,7 +2,8 @@
 "general": 
 {
 	"loot_type":"auto",
-	"loot_priority":"first"
+	"loot_priority":"after",
+	"walk_type":"keys"
 },
 "script_options": {
 	"hours_leave": [9],
@@ -19,7 +20,6 @@
 },
 "containers": 
 {
-	"gold_bp":"Golden Backpack",
 	"loot_bp":"Red Backpack"
 },
 "tools":
@@ -57,7 +57,7 @@
 	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
 ],
 "hunt_config": {
-	"cap_leave": 150,
+	"cap_leave": 50,
 	"mana_name": "mana potion",
 	"take_mana": 1200,
 	"mana_leave": 450,
@@ -68,6 +68,7 @@
 	"hotkey_health_potions": 3
 },
 "persistent_actions": [
+	{"action":"drop_vials", "interval":60},
 	{"action":"haste", "interval":40, "args":["v"]},
 	{"action":"lure_monsters", "interval":0.5, "args":[4]},
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},

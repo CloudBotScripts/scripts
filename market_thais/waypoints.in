@@ -1,0 +1,45 @@
+label start
+stand (32347, 32231, 7)
+node (32348, 32226, 8)
+walk (32350, 32225, 8)
+call find_locker()
+label cancel obsolete offers
+call cancel_obsolete_buy_offers_from_setup("var_name":"items_buy")
+call cancel_obsolete_sell_offers_from_setup("var_name":"items_sell")
+label create new offers
+call create_buy_offers_from_setup("var_name":"items_sell")
+call create_sell_offers_from_setup("var_name":"items_buy")
+stand (32347, 32231, 8)
+label train
+node (32354, 32216, 7)
+node (32369, 32216, 7)
+node (32381, 32215, 7)
+node (32393, 32214, 7)
+node (32407, 32206, 7)
+stand (32413, 32207, 7)
+node (32412, 32200, 6)
+action end
+action check_train
+label magic
+ladder (33181, 31793, 7)
+action end
+label distance
+ladder (33178, 31793, 7)
+action end
+label club
+ladder (33176, 31790, 7)
+action end
+label sword
+ladder (33178, 31787, 7)
+action end
+label axe
+ladder (33181, 31787, 7)
+action end
+label start_trainer
+node (32412, 32199, 6)
+stand (32413, 32207, 6)
+node (32397, 32214, 7)
+node (32380, 32215, 7)
+node (32367, 32215, 7)
+node (32357, 32215, 7)
+node (32346, 32220, 7)
