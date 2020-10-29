@@ -1332,6 +1332,11 @@ def create_sell_offers_from_setup(client, var_name='items_sell'):
     create_sell_offers(client, items_sell)
 
 # Create buy offers for list of items defined in setup.json
+def create_buy_offers_from_setup(client, var_name='items_buy'):
+    items_buy = client.script_options.get(var_name, []) 
+    create_buy_offers(client, items_buy)
+
+# Create buy offers for list of items defined in setup.json
 def cancel_obsolete_buy_offers_from_setup(client, var_name='items_buy'):
     items_buy = client.script_options.get(var_name, []) 
     cancel_obsolete_buy_offers(client, items_buy)
