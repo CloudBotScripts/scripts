@@ -34,7 +34,9 @@ def waypoint_action(client, action):
         client.npc_say(["mission", 'yes', 'bait', 'bait', 'bait', 'bait', 'hunt', 'yes'])
 
     elif action == "buy_bait":
-        client.buy_items_from_npc(['bait'], [1])
+        bait_count = client.get_hotkey_item_count(client.items['bait'])
+        if bait_count < 1:
+            client.buy_items_from_npc(['bait'], [10])
 
     elif action == "set_bait":
         container = client.get_container('Backpack')
@@ -49,56 +51,57 @@ def waypoint_action(client, action):
 
     elif action == "go_up":
         client.press('d')
-        sleep(0.2)
+        sleep(0.7)
 
     elif action == "go_down":
         client.press('s')
-        sleep(0.2)
+        sleep(0.7)
 
     elif action == "telescope":
         # open server messages
-        client.use_sqm(-1, 0)
-        sleep(0.4)
         client.hotkey('alt', 'd')
         sleep(0.2)
         client.hotkey('tab')
         sleep(0.2)
 
-        # get last 4 server messages
-        client.hotkey('shift', 'ctrl', 'a')
-        sleep(0.2)
-        client.hotkey('ctrl', 'c')
-        sleep(0.2)
-        s = clipboard.paste().split('\n')
-        last_messages = s[::-1]
-        for message in last_messages:
-            print(message)
-            if 'sea serpent in sight' in message:
-                client.jump_label('telescope')
-                break
-            elif 'you lost it' in message:
-                client.jump_label('telescope')
-                break
-            elif 'straight ahead of you' in message:
-                client.jump_label('straight')
-                break
-            elif 'the starboard side' in message:
-                client.jump_label('starboard')
-                break
-            elif 'the larboard side' in message:
-                client.jump_label('larboard')
-                break
-            elif 'gain speed' in message:
-                client.jump_label('speed')
-                break
-            elif 'right location' in message:
-                client.jump_label('finish')
-                break
+        keep = True
+        while keep:
+            keep = False
+            client.use_sqm(-1, 0)
+            sleep(0.4)
+
+            # get last server messages
+            s = client.copy_server_log()
+
+            last_messages = s[::-1]
+            for message in last_messages:
+                print(message)
+                if 'sea serpent in sight' in message:
+                    keep = True
+                    break
+                elif 'you lost it' in message:
+                    keep = True
+                    break
+                elif 'straight ahead of you' in message:
+                    client.jump_label('straight')
+                    break
+                elif 'the starboard side' in message:
+                    client.jump_label('starboard')
+                    break
+                elif 'the larboard side' in message:
+                    client.jump_label('larboard')
+                    break
+                elif 'gain speed' in message:
+                    client.jump_label('speed')
+                    break
+                elif 'right location' in message:
+                    client.jump_label('finish')
+                    break
+                else:
+                    print('Message does not match')
             else:
-                print('Message does not match')
-        else:
-            print('Failed to get message')
-            exit()
+                print('Failed to get message')
+                exit()
 
     elif action == "repeat":
         client.jump_label('repeat_bait')

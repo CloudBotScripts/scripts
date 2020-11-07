@@ -3,6 +3,7 @@ node (32332, 32835, 7)
 stand (32336, 32838, 7)
 node (32336, 32844, 6)
 action deposit
+action refill
 stand (32336, 32838, 6)
 walk (32339, 32836, 7)
 action bank

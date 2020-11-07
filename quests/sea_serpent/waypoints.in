@@ -18,26 +18,39 @@ label telescope
 action telescope
 label straight
 action go_down
+node (31946, 31046, 7)
 stand (31949,31044,7)
+walk (31950, 31044, 6)
 action straight
 action repeat
+
 label starboard
 action go_down
+node (31946, 31046, 7)
 stand (31949,31044,7)
+walk (31950, 31044, 6)
 action starboard
 action repeat
+
 label larboard
 action go_down
+node (31946, 31046, 7)
 stand (31949,31044,7)
+walk (31950, 31044, 6)
 action larboard
 action repeat
+
 label speed
 action go_down
+node (31946, 31046, 7)
 stand (31949,31044,7)
+walk (31950, 31044, 6)
 action speed
 action repeat
+
 label finish 
 action go_down
+node (31946, 31046, 7)
 stand (31949,31044,7)
 action passage
 ladder (32341,31112,7)

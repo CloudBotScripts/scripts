@@ -41,6 +41,7 @@ def waypoint_action(client, action):
 
         # get last 4 server messages
         log = client.copy_server_log()
+
         look_results = [line for line in log if 'You' in line and 'see' in line]
         sleep(1)
         if 'fragile' in look_results[-1]:

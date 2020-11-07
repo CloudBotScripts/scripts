@@ -18,12 +18,14 @@
 {
 	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
 	"ultimate health potion": {"hotkey":"F", "id":7643, "use":"self"},
-	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"},
+	"bait": {"hotkey":"5", "id":939, "use":"crosshair"}
 },
 "spells":
 {
 	"exori":"1",
-	"exori ico":"q"
+	"exori ico":"q",
+	"exura ico":"r"
 },
 "healing":
 [

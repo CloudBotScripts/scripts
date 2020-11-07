@@ -35,6 +35,7 @@
 "target_monsters": 
 [
 	{"name":"Mountain Troll", "action":"follow", "loot":true},
+	{"name":"Troll Marauder", "action":"follow", "loot":true},
 	{"name":"Trolltrained Salamander", "action":"follow", "loot":true},
 	{"name":"Woodling", "action":"follow", "loot":true},
 	{"name":"Meadow Strider", "action":"follow", "loot":true},

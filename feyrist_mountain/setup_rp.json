@@ -3,7 +3,6 @@
 {
 	"loot_type":"auto",
 	"loot_priority":"after",
-	"walk_type":"keys",
 	"track_loot":true
 },
 "script_options": {
@@ -78,7 +77,7 @@
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
 	{"action":"refill_diamond_ammo", "interval":5, "use_in_battle":true},
 	{"action":"recover_full_mana", "interval":3, "args":["e"]},
-	{"action":"lure_monsters_diamond_arrow", "interval":0.5, "args":{"count":5}}
+	{"alias":"lure", "action":"lure_monsters_diamond_arrow", "interval":0.5, "args":{"count":5}}
 ],
 "target_monsters": 
 [

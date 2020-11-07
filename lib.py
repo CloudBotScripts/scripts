@@ -128,13 +128,14 @@ def set_persistent_interval(client, persistent_alias, interval=60):
             persistent['interval'] = interval
             break
 
+# Change persistent args by using alias
 def set_persistent_args(client, persistent_alias, key, value):
     for persistent in client.persistent_actions:
         if persistent.get('alias', 'none') == persistent_alias:
             persistent['args'][key] = value
             break
 
-# Attack distance until certain amount of monsters on screen, then follow
+# Set action for target monster
 def set_target_action(client, selected_monsters='all', action='follow'):
     for monster in client.target_conf:
         if selected_monsters == 'all' or monster in selected_monsters:

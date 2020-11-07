@@ -7,7 +7,7 @@ node (33214,32404,7)
 node (33214,32422,7)
 node (33218,32444,7)
 stand (33214,32455,7)
-node (33206,32460,8)
+walk (33210, 32460, 8)
 action deposit
 action refill
 node (33214,32458,8)
