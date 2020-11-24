@@ -355,8 +355,8 @@ def cast_spell(client, hotkey='v', min_mp=98):
     if mp_percentage > min_mp:
         client.hotkey(spell_hotkey)
 
-# Refill ammo using hotkey
-def refill_ammo(client, ammo_name="arrow", equip_slot="ammunition", min_amount=80):
+# Refill spear using hotkey
+def refill_ammo(client, ammo_name="spear", equip_slot="weapon", min_amount=1):
     refill_hotkey_slot = client.items[ammo_name]
     refill_hotkey = client.item_hotkeys[ammo_name]
 
@@ -366,8 +366,8 @@ def refill_ammo(client, ammo_name="arrow", equip_slot="ammunition", min_amount=8
     if ammo_count is None or ammo_count < min_amount:
         client.hotkey(refill_hotkey)
 
-# Refill ammo using hotkey
-def refill_priority_ammo(client, priority_ammo_name="spectral bolt", regular_ammo_name="infernal bolt", equip_slot="ammunition", min_amount=20):
+# Refill spear using hotkey
+def refill_priority_ammo(client, priority_ammo_name="royal spear", regular_ammo_name="spear", equip_slot="weapon", min_amount=1):
     priority_ammo_slot = client.items[priority_ammo_name]
     priority_ammo_hotkey = client.item_hotkeys[priority_ammo_name]
 
@@ -392,40 +392,44 @@ def refill_priority_ammo(client, priority_ammo_name="spectral bolt", regular_amm
 
 # Call refill of ammo
 def refill_diamond_ammo(client, save_single_target=False):
-    crystalline_hotkey_slot = client.items["crystalline arrow"]
-    crystalline_hotkey = client.item_hotkeys["crystalline arrow"]
-    diamond_hotkey_slot = client.items["diamond arrow"]
-    diamond_hotkey = client.item_hotkeys["diamond arrow"]
+    print('[Action] This is deprecated, please use refill_quiver')
+    return
 
-    ammo_used = client.get_name_item_in_slot(client.equips, 'ammunition')
+# Move a single stack of ammo_name into quiver.
+# Use singular name for ammo_name e.g. diamond arrow.
+def refill_quiver(client, quiver_name='Quiver', ammo_name='diamond arrow'):
+    ammo_hotkey_slot = client.items[ammo_name]
+    ammo_count = client.get_hotkey_item_count(ammo_hotkey_slot)
 
-    # Use crystalline arrow
-    if save_single_target:
-        monster_list = client.battle_list.get_monster_list(filter_by=client.target_conf.keys())
-        monster_count = len(monster_list)
-        if monster_count == 1 and client.battle_list.is_targetting():
-            if ammo_used != 'crystalline arrows': 
-                client.hotkey(crystalline_hotkey)
-            return
+    quiver = client.get_container(quiver_name)
+    if not quiver:
+        print(f'[Action] {quiver} container must be open to refill')
+        return
+    quiver_slots = quiver.get_num_slots()
+    empty_slots = 0
+    for slot in reversed(range(quiver_slots)):
+        if quiver.get_item_in_slot(slot) == 'none':
+            empty_slots += 1
 
-    # Use diamond arrows
-    diamond_count = client.get_hotkey_item_count(diamond_hotkey_slot)
+    if empty_slots == 0 or ammo_count < 100 * (quiver_slots - empty_slots):
+        print(f'[Action] Quiver is already filled')
+        return
 
-    # Equip diamond if has diamond arrow and is not equiped
-    if diamond_count > 0: 
-        if not ammo_used.startswith('diamond arrow'): 
-            client.hotkey(diamond_hotkey)
-    # Use regular arrows
-    else:
-        ammo_count = client.equips.get_count_item_in_slot('ammunition')
-        if ammo_count is None or ammo_count < 70:
-            client.hotkey(crystalline_hotkey)
+    containers = client.get_opened_containers_with_name()
+    for container, name in containers:
+        if 'Quiver' in name:
+            continue
+        num_slots = container.get_num_slots()
+        for slot in reversed(range(num_slots)):
+            if ammo_name in container.get_item_in_slot(slot):
+                print(f'[Action] Move {ammo_name} from {name} to {quiver_name}')
+                client.take_item_from_slot(container, slot, dest=quiver)
+                sleep(0.3)
+                return
 
 def conjure_diamond_arrows(client):
-    hp_percentage, mp_percentage = client.status_bar.get_percentage()
-    if mp_percentage > 30:
-        print('[Action] Conjure Diamond Arrows')
-        client.hotkey('f4')
+    print('[Action] This is deprecated, conjure diamond arrows does not exist')
+    return
 
 # Function to levitate
 def levitate(client, direction, hotkey):
@@ -879,7 +883,7 @@ def check_skill(client):
 
 def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, rune=False, ammo=False, on_fail='train'):
     client.turn_chat_off()
-    mana_check = health_check = cap_check = ammo_check = rune_check = imbuement_check = True
+    mana_check = health_check = cap_check = ammo_check = rune_check = quiver_check = imbuement_check = True
     print('[Action] Check Supplies results:')
     if mana:
         mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
@@ -916,11 +920,12 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
         ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
         ammo_check = ammo_count >= 0.9 * take_ammo
         print('[Action] Ammo:', ammo_check, ammo_count, '/', take_ammo)
+        
     if imbuement:
         imbuement_check = check_imbuements(client)
         print('[Action] Imbuements:', imbuement_check)
 
-    if not all((mana_check, health_check, cap_check, ammo_check, imbuement_check, rune_check)):
+    if not all((mana_check, health_check, cap_check, ammo_check, quiver_check, imbuement_check, rune_check)):
         client.save_screenshot()
         if on_fail == 'train': 
             print('[Action] Missing supplies, go train')
