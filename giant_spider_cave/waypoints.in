@@ -17,12 +17,15 @@ stand (32627,32771,7)
 action travel_east
 node (32690,32778,7)
 action check_task
+call conditional_jump_script_options("var_name":"get_task", "label_jump":"go_get_task", "label_skip":"skip_get_task")
+label go_get_task
 stand (32694,32773,7)
 stand (32694,32772,7)
 stand (32694,32768,6)
-action get_task
+label get_task
+call talk_npc("list_words": ["task", "giant spider", "yes"])
 stand (32694,32772,6)
-label skip_task
+label skip_get_task
 node (32699,32789,7)
 node (32728,32812,7)
 node (32752,32832,7)

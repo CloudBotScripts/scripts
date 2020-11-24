@@ -77,7 +77,8 @@
 	{"label":"withdraw_amulet", "action":"withdraw_item_from_depot_to_backpack", "args": {
 		"item_name":"garlic necklace", "depot_num":4, "backpack_name":"Backpack", "amount":8, "stack":false}},
 	{"label":"count_diamond_arrow", "action":"conditional_jump_item_count_below", "args": {"item_name":"diamond arrow", "amount":200, "label_jump":"wait_diamond_arrow", "label_skip":"skip_ammo"}},
-	{"label":"wait_diamond_arrow", "action":"wait", "args": {"tmin":60, "tmax":100}}
+	{"label":"wait_diamond_arrow", "action":"wait", "args": {"tmin":60, "tmax":100}},
+	{"label":"wait_mana", "action":"wait_mana_percentage_below", "args": {"mana_perc":80, "monster_count_below":2}}
 ],
 "persistent_actions": [
 	{"action":"drop_vials", "interval":60},

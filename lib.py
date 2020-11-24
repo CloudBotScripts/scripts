@@ -76,9 +76,9 @@ def drop_items(client, names=[]):
 
 # Drop vials from backpack. Vials must be visible.
 # Will drop only if capacity < cap and if there are no monsters on screen.
-def drop_vials(client, cap=500, drop_stacks=4):
-    monster_count = client.battle_list.get_monster_count()
-    if monster_count < 1 and client.get_cap() <= cap:
+def drop_vials(client, cap=500, drop_stacks=4, monster_count=1):
+    m_count = client.battle_list.get_monster_count()
+    if m_count < monster_count and client.get_cap() <= cap:
         containers = client.get_opened_containers()
         for container in containers:
             num_slots = container.get_num_slots()
@@ -113,12 +113,10 @@ def throw_rune_if_monsters(client, min_mp, rune_name, min_monsters_hit=3, select
     best_sqm, monsters_hit = client.find_sqm_max_hit(reachable_creatures_sqm)
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
     if mp_percentage > min_mp and monsters_hit >= min_monsters_hit:
-        print(f'[Action] Throw rune {rune_name} in sqm {best_sqm}')
+        print(f'[Action] Throw rune {rune_name} in {best_sqm} to hit {monsters_hit} monsters')
         client.hotkey(rune_hotkey)
         sleep(0.1)
         client.click_sqm(*best_sqm)
-    else:
-        print(f'[Action] Rune will hit {monsters_hit}')
 
 # Set persistent interval
 ## Use 999999 or high number to turn off
@@ -279,6 +277,7 @@ def recover_full_mana(client, hotkey='e', monster_count_below=1):
     monster_count = client.battle_list.get_monster_count()
     hp_percentage, mp_percentage = client.status_bar.get_percentage()
     if monster_count < monster_count_below and mp_percentage < 95:
+        print(f'[Action] Recover mana {hotkey}')
         client.use_potion(hotkey)
 
 # Use hotkey
@@ -330,7 +329,7 @@ def swap_equip(client, item_equip, item_unequip, selected_monsters='all', dist=1
         monster_list = [m for m in monster_list if m in selected_monsters]
 
     creatures_sqm = client.gameboard.get_sqm_monsters()
-    print('Monsters:', monster_list)
+    #print('Monsters:', monster_list)
     monster_count = len(monster_list)
     if len(creatures_sqm) >= monster_count: # Found all monsters on screen
         near_monster_count = sum(max(abs(x[0]), abs(x[1])) <= dist for x in creatures_sqm)
@@ -754,6 +753,8 @@ def time_leave(client):
     return False
 
 def check(client, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
+    if client.force_resupply:
+        return False
     mana_check = health_check = cap_check = ammo_check = rune_check = time_check = True
     if mana:
         mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
@@ -809,7 +810,7 @@ def check_hunt(client, success, fail=None, mana=True, health=True, cap=True, run
 
 def check_time(client, train, repeat):
     cest = timezone('Europe/Berlin')
-    if time_leave(client):
+    if time_leave(client) or client.force_resupply:
         print('[Action] Go train')
         client.jump_label(train)
     else:
@@ -876,7 +877,7 @@ def check_skill(client):
     elif skill == 'magic':
         client.jump_label('magic')
 
-def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, rune=False, ammo=False, logout_fail=True):
+def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, rune=False, ammo=False, on_fail='train'):
     client.turn_chat_off()
     mana_check = health_check = cap_check = ammo_check = rune_check = imbuement_check = True
     print('[Action] Check Supplies results:')
@@ -920,8 +921,21 @@ def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, run
         print('[Action] Imbuements:', imbuement_check)
 
     if not all((mana_check, health_check, cap_check, ammo_check, imbuement_check, rune_check)):
-        print('[Action] Log out, missing supplies')
-        client.logout()
+        client.save_screenshot()
+        if on_fail == 'train': 
+            print('[Action] Missing supplies, go train')
+            if 'train' in client.waypoint.labels:
+                client.script_options['hours_leave'] = list(range(25))
+                client.jump_label('train')
+            else:
+                print('[Action] Label train not setup, logout')
+                client.logout()
+
+        elif on_fail == 'logout':
+            print('[Action] Missing supplies, logout')
+            client.logout()
+    else:
+        client.force_resupply = False
 
 def check_imbuements(client):
     if 'imbuements' in client.script_options.keys():

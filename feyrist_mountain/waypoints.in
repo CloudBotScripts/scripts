@@ -49,6 +49,8 @@ stand (33265,31832,6)
 stand (33271,31832,7)
 stand (33268,31830,8)
 stand (33271,31831,9)
+label deactivate_lure
+call set_persistent_interval("persistent_alias":"lure", "interval":200000000)
 call jump_to_label("label":"after_portal")
 label red_portal_1
 stand (32342,32271,11)
@@ -58,13 +60,11 @@ label red_portal_2
 stand (32908,32338,15)
 label use_gem_north
 label after_portal
-label deactivate_lure
-call set_persistent_interval("persistent_alias":"lure", "interval":200000000)
 node (33579,32262,7)
 label activate_lure
+call set_persistent_interval("persistent_alias":"lure", "interval":0.5)
 label hunt
 action walk_keys
-call set_persistent_interval("persistent_alias":"lure", "interval":0.5)
 node (33563,32268,7)
 node (33559,32281,7)
 node (33550,32294,7)

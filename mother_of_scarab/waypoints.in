@@ -1,24 +1,5 @@
 label start
-node (33125,32843,7)
-action deposit
-action refill
-label go_bank
-stand (33127,32827,7)
-stand (33127,32826,7)
-stand (33132,32821,6)
-action sell
-action bank
-stand (33131,32816,6)
-stand (33131,32813,5)
-action sell
-action buy_potions
-action check_runes
-stand (33128,32819,5)
-action buy_runes
-label skip_runes
-stand (33131,32816,5)
-stand (33127,32826,6)
-node (33126,32837,7)
+load scripts/general/refill_ankrahmun.in
 action check_supplies
 label go_hunt
 node (33142,32826,7)
@@ -51,6 +32,8 @@ node (33342,32592,10)
 node (33353,32604,10)
 node (33353,32612,10)
 stand (33355,32612,10)
+call conditional_jump_script_options_value("var_name":"spawn", "label_jump_map":{"-1":"go_hunt_-1", "-2":"go_hunt_-2"})
+label go_hunt_-1
 label hunt
 node (33363,32613,11)
 node (33359,32624,11)
@@ -74,9 +57,11 @@ node (33356,32599,11)
 node (33346,32614,11)
 node (33358,32622,11)
 node (33367,32616,11)
-action check_down
+action check
+label go_hunt_-2
 label down
 stand (33370,32616,11)
+label hunt2
 node (33373,32628,12)
 node (33358,32633,12)
 node (33364,32646,12)
@@ -100,11 +85,12 @@ node (33356,32656,12)
 node (33365,32650,12)
 node (33362,32636,12)
 node (33373,32623,12)
+action check2
+label leave2
 stand (33372,32617,12)
 stand (33372,32616,12)
 label skip_down
 node (33362,32614,11)
-action check
 label leave
 stand (33356,32613,11)
 stand (33355,32612,11)
@@ -137,43 +123,6 @@ node (33127,32832,7)
 node (33128,32842,7)
 action check_time
 label train
-node (33124,32855,7)
-node (33107,32851,7)
-node (33089,32851,7)
-node (33089,32869,7)
-ladder (33084,32877,7)
-node (33086,32883,6)
-node (33094,32884,6)
-action travel_edron
-node (33176,31769,6)
-stand (33175,31775,6)
-node (33190,31778,7)
-node (33190,31790,7)
-node (33178,31790,7)
-action check_train
-label magic
-ladder (33181, 31793, 7)
-action end
-label distance
-ladder (33178, 31793, 7)
-action end
-label club
-ladder (33176, 31790, 7)
-action end
-label sword
-ladder (33178, 31787, 7)
-action end
-label axe
-ladder (33181, 31787, 7)
-action end
-label start trainer
-node (33191,31780,7)
-node (33179,31776,7)
-ladder (33175,31775,7)
-node (33176,31763,6)
-action travel_ankrahmun
-node (33083,32879,6)
-stand (33084,32877,6)
-node (33089,32852,7)
-node (33106,32851,7)
-node (33126,32849,7)
+load scripts/general/dp_to_train_ankrahmun.in
+label start_trainer
+load scripts/general/train_to_dp_ankrahmun.in

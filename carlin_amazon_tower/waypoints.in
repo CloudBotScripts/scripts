@@ -18,6 +18,18 @@ node (32350,31819,7)
 node (32341,31808,7)
 node (32342,31796,7)
 node (32337,31785,7)
+action check_ammo
+node (32331, 31790, 7)
+node (32320, 31790, 7)
+node (32310, 31790, 7)
+node (32302, 31790, 7)
+stand (32294, 31786, 7)
+action buy_ammo
+node (32300, 31790, 7)
+node (32314, 31790, 7)
+node (32328, 31790, 7)
+node (32336, 31785, 7)
+label skip_ammo
 action check_supplies
 label go_hunt
 node (32341,31769,7)
@@ -59,3 +71,5 @@ node (32341,31769,7)
 action check_time
 label exit
 action end
+label avoid_trap_depot
+stand (32338,31782,6)

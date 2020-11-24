@@ -15,7 +15,7 @@ These scripts are the official scripts for CloudBot.
 | 8+    | [Wasp Cave Thais](wasp_thais/setup_ek.json)  | 10-50k/h             |  10-20k/h      |
 | 8+    | [Swamp Trolls](swamp_troll/setup_ek.json)                | :star: :star: :star:                    | :star: :star: :star:                    |
 | 10+   | [Rotworm Venore Southeast](rotworm_venore_southeast/setup.json)                | :star: :star:                    | :star: :star:                    |
-| 15+   | [Amazon Tower Carlin](carlin_amazon_tower/setup.json)  | :star: :star: :star:    | :star: :star: :star:                    |
+| 15+   | [Amazon Tower Carlin](carlin_amazon_tower/setup_ek.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup.json)   | :star: :star:                           | :star: :star:                           |
 | 20+   | [Tarantulas Port Hope](tarantula_cave/setup.json)  | :star:                                  | :star:                                  |
 | 25+   | [Elvenbane Ab'Dendriel](elvenbane/setup_ek.json)  | :star:                                  | :star: :star:                         |
@@ -66,6 +66,7 @@ These scripts are the official scripts for CloudBot.
 | 8+    | [Wasp Darashia](wasp_darashia/setup_rp.json) | 10-50k/h | 10-20k/h                           |
 | 8+    | [Goblin Distance Train](goblin_train_ab/setup_rp.json)| 1-2k/h            | 4-8k/h                           |
 | 15+   | [Wasp Cave Thais Spear](wasp_thais/setup_rp.json)  | 10-50k/h     | 10-20k/h                             |
+| 15+   | [Amazon Tower Carlin](carlin_amazon_tower/setup_rp.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup_rp.json)   | :star: :star:                           | :star: :star:                           |
 | 25+   | [Yalahar Elves](yalahar_elves/setup_rp.json)  |  Elvish talisman, Holy orchid, Elvish bow     |  30-50k/h                   |
 | 25+   | [Forest Fury Camp](forest_fury/setup_rp.json)               | 10-50k/h | 30-45k/h |

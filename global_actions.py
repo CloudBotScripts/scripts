@@ -292,8 +292,7 @@ def waypoint_action(client, action):
                 mana='mana_name' in client.hunt_config.keys(),
                 health='health_name' in client.hunt_config.keys(),
                 ammo='ammo_name' in client.hunt_config.keys(), 
-                rune='rune_name' in client.hunt_config.keys(), 
-                logout_fail=True)
+                rune='rune_name' in client.hunt_config.keys())
 
     elif action == "summon":
         hotkey = client.script_options.get('summon', False)

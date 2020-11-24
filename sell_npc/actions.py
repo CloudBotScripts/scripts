@@ -242,30 +242,5 @@ def waypoint_action(client, action):
         client.reach_locker()
         stash_item_from_slot(client, client.equips, 'backpack')
 
-    elif action == "buy_potions":
-        npc_refill(client, mana=True, health=False)
-
-    elif action == "refill":
-        if not withdraw_item_from_stash(client, 'brown mushroom', 50, client.items['brown mushroom']): 
-            print('Not enough mushrooms')
-        if 'ammo_name' in client.hunt_config.keys():
-            ammo_name = client.hunt_config['ammo_name']
-            if not withdraw_item_from_stash(client, ammo_name, client.hunt_config['take_ammo'], client.items[ammo_name]): 
-                print('Not enough ammo')
-
-    elif action == "check_ammo":
-        if 'ammo_name' not in client.hunt_config.keys():
-            client.jump_label('skip_ammo')
-        else:
-            ammo_name = client.hunt_config['ammo_name']
-            if 'arrow' not in ammo_name and 'bolt' not in ammo_name:
-                client.jump_label('skip_ammo')
-
-    elif action == "buy_ammo":
-        npc_refill(client, ammo='ammo_name' in client.hunt_config.keys())
-
-    elif action == "check_supplies":
-        check_supplies(client, health=False, imbuement=False, ammo='ammo_name' in client.hunt_config.keys(), logout_fail=True)
-
     else:
         global_actions.waypoint_action(client, action)
