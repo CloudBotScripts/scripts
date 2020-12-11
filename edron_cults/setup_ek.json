@@ -2,8 +2,7 @@
 "general": 
 {
 	"loot_type":"auto",
-	"follow_mode":"bot",
-	"track_loot":true,
+	"beta":true,
 	"loot_priority":"after"
 },
 "script_options": {
@@ -27,10 +26,11 @@
 },
 "items":
 {
-	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
-	"great health potion": {"hotkey":"f7", "id":239, "use":"self"},
-	"ultimate health potion": {"hotkey":"F", "id":7643, "use":"self"},
-	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+	"strong mana potion": { "hotkey": "e", "id": 237, "use": "self" },
+	"great health potion": { "hotkey": "f3", "id": 239, "use": "self" },
+	"supreme health potion": { "hotkey": "F", "id": 23375, "use": "self" },
+	"brown mushroom": { "hotkey": "f11", "id": 3725, "use": "use" },
+	"sword ring": { "hotkey": "f9", "id": 3091, "use": "equip" }
 },
 "spells":
 {
@@ -38,39 +38,42 @@
 	"utura gran": "R",
 	"utito tempo": "X",
 	"exeta res": "x",
-	"exura ico":"r",
-	"exura gran ico":"f",
-	"exori":"1",
-	"exori min":"2",
-	"exori hur":"3",
-	"exori gran":"4",
-	"exori ico":"q"
+	"exura ico": "r",
+	"exura med ico": "g",
+	"exura gran ico": "f",
+	"exori": "1",
+	"exori min": "2",
+	"exori hur": "3",
+	"utevo gran res eq":"f9",
+	"exori gran": "4",
+	"exori ico": "q"
 },
 "healing":
 [
-	{"type":"hp", "below_percent":30, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
-	{"type":"hp", "below_percent":50, "use_item":"ultimate health potion",  "priority":4},
-        {"type":"hp", "below_percent":90, "use_spell":"exura ico", "min_mana_percent":5, "priority":3},
-        {"type":"hp", "below_percent":70, "use_item":"great health potion",  "priority":2},
-        {"type":"mp", "below_percent":90, "use_item":"mana potion", "priority":2},
-        {"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":60, "priority":1, "cooldown":60}
+	{"type": "hp", "below_percent": 30, "use_spell": "exura gran ico", "min_mana_percent": 20, "priority": 7, "cooldown": 600},
+	{"type": "hp", "below_percent": 40, "use_item": "supreme health potion", "priority": 6},
+	{"type": "hp", "below_percent": 60, "use_item": "great health potion", "priority": 5},
+	{"type": "hp", "below_percent": 85, "use_spell": "exura med ico", "min_mana_percent": 10, "priority": 4},
+	{"type": "hp", "below_percent": 97, "use_spell": "exura ico", "min_mana_percent": 5, "priority": 3},
+	{"type": "mp", "below_percent": 90, "use_item": "strong mana potion", "priority": 2},
+	{"type": "hp", "below_percent": 95, "use_spell": "utura gran", "min_mana_percent": 20, "priority": 1, "cooldown": 60}
 ],
 "hunt_config": {
-	"cap_leave": 90,
-	"mana_name": "mana potion",
+	"cap_leave": 10,
+	"mana_name": "strong mana potion",
 	"take_mana": 1500,
-	"mana_leave": 500,
-        "health_name": "great health potion",
-        "take_health": 400,
-        "health_leave": 150,
-	"health_name2": "ultimate health potion",
-	"take_health2": 80,
-	"health_leave2": 30
+	"mana_leave": 250,
+	"health_name": "great health potion",
+	"take_health": 200,
+	"health_leave": 40,
+	"health_name2": "supreme health potion",
+	"take_health2": 20,
+	"health_leave2": 10
 },
 "persistent_actions": [
 	{"action":"haste", "interval":40, "args":["v"]},
 	{"action":"lure_monsters", "interval":0.5, "args":[8]},
-	{"action":"recover_full_mana", "interval":2, "args":["e"]},
+	{"action": "equip_item", "interval": 300, "use_in_battle": true, "args": {"hotkey": "f9", "amount": 0, "slot":"ring"}},
 	{"action":"blacklist_coords", "interval":3, "args":{"coords_barrier":[[33159, 31902, 8] ,[33159, 31903, 8] ,[33171, 31897, 8] ,[33163, 31913, 8] ,[33163, 31914, 8] ,[33150, 31915, 8] ,[33150, 31916, 8] ,[33150, 31917, 8] ,[33150, 31918, 8] ,[33154, 31932, 8] ,[33154, 31933, 8]]}}, 
 	{"action":"eat_food", "interval":30, "args":["f11"]}
 ],
@@ -90,7 +93,7 @@
 	{"name":"exori", "min_mana_percent":10, "priority":5, "cooldown": 4, "min_monster_count":2},
 	{"name":"exori gran", "min_mana_percent":30, "priority":4, "cooldown": 6,  "min_monster_count":2},
 	{"name":"exori min", "min_mana_percent":20, "priority":3, "cooldown": 6, "min_monster_count":2},
-	{"name":"utito tempo", "min_mana_percent":70, "priority":5, "cooldown": 15,  "min_monster_count":3, "group":"support"}
+	{"name":"utito tempo", "min_mana_percent":60, "priority":5, "cooldown": 15,  "min_monster_count":3, "group":"support"}
 ],
 "loot": []
 }

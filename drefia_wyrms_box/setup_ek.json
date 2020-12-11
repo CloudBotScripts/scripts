@@ -2,15 +2,16 @@
 "general": 
 {
 	"loot_type":"auto",
-	"loot_priority":"after"
+	"loot_priority":"after",
+	"beta": true
 },
 "script_options": {
 	"hours_leave": [9.5],
 	"skill_train":"sword",
 	"imbuements":[
 		{"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
-		{"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"},
-                {"equip_slot":"armor", "name":"Intricate Vampirism", "type":"Life Leech"}
+		{"equip_slot":"weapon", "name":"Intricate Vampirism", "type":"Life Leech"},
+		{"equip_slot":"helmet", "name":"Intricate Void", "type":"Mana Leech"}
 	],
 	"summon":false,
 	"sort_deposit": {"alexander":6, "lailene":6, "tamoril":8, "rashid": 9, "green_djinn": 10}
@@ -24,50 +25,50 @@
 	"rope": {"name":"elvenhair rope", "id": 646},
 	"shovel": {"name":"shovel", "id": 3457}
 },
-"items":
-{
-	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
-        "ultimate health potion": {"hotkey":"f7", "id":7643, "use":"self"},
-	"supreme health potion": {"hotkey":"F", "id":23375, "use":"self"},
-	"avalanche rune": {"info": "Rune for Ghost trap", "hotkey":"7", "id": 3161, "use":"target"},
-	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+"items": {
+	"strong mana potion": { "hotkey": "e", "id": 237, "use": "self" },
+	"great health potion": { "hotkey": "f3", "id": 239, "use": "self" },
+	"avalanche rune": {"hotkey":"9", "id":3161, "use":"target"},
+	"supreme health potion": { "hotkey": "F", "id": 23375, "use": "self" },
+	"brown mushroom": { "hotkey": "f11", "id": 3725, "use": "use" },
+	"sword ring": { "hotkey": "f9", "id": 3091, "use": "equip" }
 },
-"spells":
-{
+"spells": {
 	"utani hur": "v",
 	"utura gran": "R",
 	"utito tempo": "X",
 	"exeta res": "x",
-	"exura ico":"r",
-	"exura gran ico":"f",
+	"exura ico": "r",
+	"exura med ico": "g",
+	"exura gran ico": "f",
+	"exori": "1",
+	"exori min": "2",
+	"exori hur": "3",
+	"exori mas": "5",
 	"utevo gran res eq":"f9",
-	"exori":"1",
-	"exori min":"2",
-	"exori hur":"3",
-	"exori gran":"4",
-	"exori mas":"5",
-	"exori ico":"q"
+	"exori gran": "4",
+	"exori ico": "q"
 },
-"healing":
-[
-        {"type":"hp", "below_percent":20, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
-        {"type":"hp", "below_percent":40, "use_item":"supreme health potion",  "priority":4},
-        {"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":5, "priority":3},
-        {"type":"hp", "below_percent":70, "use_item":"ultimate health potion",  "priority":2},
-        {"type":"mp", "below_percent":90, "use_item":"mana potion", "priority":2},
-        {"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":60, "priority":1, "cooldown":60}
+"healing": [
+	{ "type": "hp", "below_percent": 30, "use_spell": "exura gran ico", "min_mana_percent": 20, "priority": 7, "cooldown": 600 },
+	{ "type": "hp", "below_percent": 40, "use_item": "supreme health potion", "priority": 6 },
+	{ "type": "hp", "below_percent": 60, "use_item": "great health potion", "priority": 5 },
+	{ "type": "hp", "below_percent": 85, "use_spell": "exura med ico", "min_mana_percent": 10, "priority": 4 },
+	{ "type": "hp", "below_percent": 97, "use_spell": "exura ico", "min_mana_percent": 5, "priority": 3 },
+	{ "type": "mp", "below_percent": 90, "use_item": "strong mana potion", "priority": 2 },
+	{ "type": "hp", "below_percent": 95, "use_spell": "utura gran", "min_mana_percent": 20, "priority": 1, "cooldown": 60 }
 ],
 "hunt_config": {
-        "cap_leave": 150,
-        "mana_name": "mana potion",
-        "take_mana": 1400,
-        "mana_leave": 300,
-        "health_name": "ultimate health potion",
-        "take_health": 400,
-        "health_leave": 100,
-        "health_name2": "supreme health potion",
-        "take_health2": 100,
-        "health_leave2": 50,
+	"cap_leave": -10,
+	"mana_name": "strong mana potion",
+	"take_mana": 1800,
+	"mana_leave": 250,
+	"health_name": "great health potion",
+	"take_health": 200,
+	"health_leave": 40,
+	"health_name2": "supreme health potion",
+	"take_health2": 20,
+	"health_leave2": 10,
 	"rune_name": "avalanche rune",
 	"take_rune": 40,
 	"rune_leave": 20
@@ -79,7 +80,7 @@
 	{"action":"drop_vials", "interval":5},
 	{"action":"haste", "interval":40, "args":["v"]},
 	{"action":"anti_paralyze", "interval":1, "args":["v"]},
-	{"action":"lure_monsters", "interval":0.5, "args":{"count":10}},
+	{"action":"lure_monsters", "interval":0.5, "args":{"count":8}},
 	{"action":"eat_food", "interval":30, "args":["f11"]}
 ],
 "target_monsters": 
@@ -94,8 +95,8 @@
 	{"name":"exori", "min_mana_percent":10, "priority":5, "cooldown": 4, "min_monster_count":1},
 	{"name":"exori gran", "min_mana_percent":20, "priority":4, "cooldown": 6,  "min_monster_count":3},
 	{"name":"exori min", "min_mana_percent":20, "priority":3, "cooldown": 6, "min_monster_count":1},
-	{"name":"exeta res", "min_mana_percent":30, "priority":5, "cooldown": 5,  "min_monster_count":1, "group":"support"},
-	{"name":"utito tempo", "min_mana_percent":70, "priority":5, "cooldown": 15, "min_monster_count":4, "group":"support"},
+	{"name":"exeta res", "min_mana_percent":20, "priority":5, "cooldown": 5,  "min_monster_count":1, "group":"support"},
+	{"name":"utito tempo", "min_mana_percent":60, "priority":5, "cooldown": 15, "min_monster_count":4, "group":"support"},
 	{"name":"exori mas", "min_mana_percent":10, "priority":10, "cooldown":2, "monsters":["Vampire", "Necromancer", "Mummy", "Ghoul", "Demon Skeleton", "Skeleton", "Tarnished Spirit"]},
 	{"name":"avalanche rune", "min_mana_percent":2, "priority":10, "cooldown":2, "monsters":["Ghost", "Vampire", "Necromancer", "Mummy", "Ghoul", "Demon Skeleton", "Skeleton", "Tarnished Spirit"]}
 ],

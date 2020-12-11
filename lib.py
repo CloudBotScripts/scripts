@@ -118,6 +118,11 @@ def throw_rune_if_monsters(client, min_mp, rune_name, min_monsters_hit=3, select
         sleep(0.1)
         client.click_sqm(*best_sqm)
 
+# Scan bodies on screen and mark them to loot
+def scan_bodies(client, dist=5):
+    print(f'[Action] Scan corpses around')
+    client.mark_bodies_near_sqm((0,0), dist=dist)
+
 # Set persistent interval
 ## Use 999999 or high number to turn off
 def set_persistent_interval(client, persistent_alias, interval=60):
@@ -758,48 +763,68 @@ def time_leave(client):
 
 def check(client, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
     if client.force_resupply:
+        print('[Action] Force Resupply')
         return False
+    print('[Action] Check results:')
     mana_check = health_check = cap_check = ammo_check = rune_check = time_check = True
     if mana:
         mana_name, take_mana = client.hunt_config['mana_name'], client.hunt_config['take_mana']
         mana_count = client.get_hotkey_item_count(client.items[mana_name])
-        mana_check = mana_count > client.hunt_config['mana_leave']
+        mana_leave = client.hunt_config['mana_leave']
+        mana_check = mana_count > mana_leave
+        if not mana_check:
+            print(f'[Action] Mana: {mana_count}/{mana_leave}')
     if health:
         health_name, take_health = client.hunt_config['health_name'], client.hunt_config['take_health']
         health_count = client.get_hotkey_item_count(client.items[health_name])
-        health_check = health_count > client.hunt_config['health_leave']
+        health_leave = client.hunt_config['health_leave']
+        health_check = health_count > health_leave
+        if not health_check:
+            print(f'[Action] Health: {health_count}/{health_leave}')
         if 'health_name2' in client.hunt_config.keys():
             health_name2, take_health2 = client.hunt_config['health_name2'], client.hunt_config['take_health2']
             health_count2 = client.get_hotkey_item_count(client.items[health_name2])
-            health_check2 = health_count2 > client.hunt_config['health_leave2']
+            health_leave2 = client.hunt_config['health_leave2']
+            health_check2 = health_count2 > health_leave2
+            if not health_check2:
+                print(f'[Action] Health2: {health_count2}/{health_leave2}')
             health_check = health_check and health_check2
     if rune:
         rune_name, take_rune = client.hunt_config['rune_name'], client.hunt_config['take_rune']
         rune_count = client.get_hotkey_item_count(client.items[rune_name])
-        rune_check = rune_count > client.hunt_config['rune_leave']
+        rune_leave = client.hunt_config['rune_leave']
+        rune_check = rune_count > rune_leave
+        if not rune_check:
+            print(f'[Action] Rune: {rune_count}/{rune_leave}')
         if 'rune_name2' in client.hunt_config.keys():
             rune_name2, take_rune2 = client.hunt_config['rune_name2'], client.hunt_config['take_rune2']
             rune_count2 = client.get_hotkey_item_count(client.items[rune_name2])
-            rune_check2 = rune_count2 > client.hunt_config['rune_leave2']
+            rune_leave2 = client.hunt_config['rune_leave2']
+            rune_check2 = rune_count2 > rune_leave2
+            if not rune_check2:
+                print(f'[Action] Rune: {rune_count2}/{rune_leave2}')
             rune_check = rune_check and rune_check2
     if ammo:
         ammo_name, take_ammo = client.hunt_config['ammo_name'], client.hunt_config['take_ammo']
         ammo_count = client.get_hotkey_item_count(client.items[ammo_name])
-        ammo_check = ammo_count > client.hunt_config['ammo_leave']
+        ammo_leave = client.hunt_config['ammo_leave']
+        ammo_check = ammo_count > ammo_leave
+        if not ammo_check:
+            print(f'[Action] Ammo: {ammo_count}/{ammo_leave}')
     if cap:
-        cap_check = client.get_cap() > client.hunt_config['cap_leave']
+        cap_count = client.get_cap()
+        cap_leave = client.hunt_config['cap_leave']
+        cap_check = cap_count > cap_leave
+        if not cap_check:
+            print(f'[Action] Cap: {cap_count}/{cap_leave}')
     if time:
         time_check = not time_leave(client)
+        print('[Action] Time:', time_check)
 
-    print('[Action] Check results:')
-    print('[Action] Mana:', mana_check)
-    print('[Action] Health:', health_check)
-    print('[Action] Ammo:', ammo_check)
-    print('[Action] Rune:', rune_check)
-    print('[Action] Cap:', cap_check)
-    print('[Action] Time:', time_check)
     if all((mana_check, health_check, cap_check, ammo_check, rune_check, time_check, other)):
+        print('[Action] Success')
         return True
+    print('[Action] Fail')
     return False
 
 def check_hunt(client, success, fail=None, mana=True, health=True, cap=True, rune=False, ammo=False, time=False, other=True):
@@ -833,6 +858,28 @@ def check_blacklist_player_online(client, label_jump):
             client.jump_label(label_jump)
     else:
         print('[Action] Could not find VIP window')
+
+# Jump to label if player on screen
+# threshold sets the number of retries before leaving. The counter is reset in check_supplies action
+# go_train will force char to leave hunt and go train
+def conditional_jump_player_on_screen(client, label_jump='train', threshold=10, go_train=False):
+    if not client.retro_safe:
+        print('[Action] Retro safe must be set to true')
+        return
+    if client.player_battle_list.has_creature():
+        try:
+            client.player_threshold += 1
+        except Exception as e:
+            client.player_threshold = 1
+
+        print(f'[Action] Player on screen (threshold {client.player_threshold})')
+
+        if client.player_threshold < threshold:
+            return
+        print(f'[Action] Jump label {label_jump} due to player on screen')
+        client.jump_label(label_jump)
+        if go_train:
+            client.script_options['hours_leave'] = list(range(25))
 
 # Target off if monster on screen
 ## Retro safe must be on
@@ -883,6 +930,7 @@ def check_skill(client):
 
 def check_supplies(client, mana=True, health=True, cap=True, imbuement=True, rune=False, ammo=False, on_fail='train'):
     client.turn_chat_off()
+    client.player_threshold = 0
     mana_check = health_check = cap_check = ammo_check = rune_check = quiver_check = imbuement_check = True
     print('[Action] Check Supplies results:')
     if mana:
@@ -961,7 +1009,7 @@ def check_imbuements(client):
                 if imbuement['name'] in equip_imbuements:
                     print(equip_slot, ': imbuement', imbuement['name'], 'active')
                 else:
-                    print('Equip', imbuement['equip_slot'], 'has no', imbuement['name'], 'active')
+                    print('[Action] Equip', imbuement['equip_slot'], 'has no', imbuement['name'], 'active')
                     return False
     return True
 

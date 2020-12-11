@@ -34,7 +34,7 @@ These scripts are the official scripts for CloudBot.
 | 100+  | [Giant Spider Port Hope](giant_spider_cave/setup_ek.json)          | :star: :star:                           | :star: :star: :star:     |         
 | 120+  | [Sea Serpent North](sea_serpent/setup_ek_north.json) | :star: :star: :star:                    | :star: :star: :star:                    | 
 | 150+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
-| 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_ek.json)             | :star: :star: :star:                    | :star: :star: :star:                    |
+| 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_ek.json)             |  30-100k/h        |  250-350k/h     |
 | 160+  | [Krailos Nightmare Advanced Lure](krailos_nightmare_box/setup_ek.json) | :star:                                  | :star: :star: :star:                    |
 | 160+  | [Sea Serpent South](sea_serpent/setup_ek_south.json) | :star: :star:                           | :star: :star: :star:                    |
 | 160+  | [Hero Old Fortress -1](hero_fortress/setup_ek.json)   | :star: :star:                          | :star: :star: :star: :star:             |  
@@ -95,8 +95,7 @@ These scripts are the official scripts for CloudBot.
 | 250+  | [Glooth Bandit South](glooth_bandit_south/setup_rp.json)  | :star: :star: :star: :star:             | :star: :star: :star: :star:             | 
 | 250+  | [Oramond West Tasker](oramond_west_tasker/setup_rp.json)    | :star: :star: :star:                  | :star: :star: :star: :star: :star:      |   
 | 300+  | [Cults Edron Full](edron_cults/setup_rp.json) | :star: :star:                           | :star: :star: :star: :star:             |
-| 300+  | [Oramond Sewers](oramond_sewers/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
-| 350+  | [Drefia Wyrms](drefia_wyrms/setup_rp.json) | :star: :star:        | :star: :star: :star: :star:      |       
+| 300+  | [Oramond Sewers Advanced Lure](oramond_sewers_box/setup_rp.json) | :star: :star: :star: :star:             | :star: :star: :star: :star: :star:      |
 | 350+  | [Drefia Wyrms Advanced Lure](drefia_wyrms_box/setup_rp.json) | 0-60k/h   | 1.1-1.4kk/h |       
 | 350+  | [Oramond Demon Sewers Entrance](oramond_demon_sewers/setup_rp.json) | :star: :star: :star: :star:        | :star: :star: :star:      |       
 | 350+  | [Medusa Tower](medusa_tower/setup_rp.json)     | :star: :star: :star:              | :star: :star: :star: :star: :star:      |
@@ -127,6 +126,7 @@ These scripts are the official scripts for CloudBot.
 | 150+  | [Ice Witch Svargrond](ice_witch/setup_ms.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 | 160+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 | 180+  | [Edron Werecave](edron_werecave/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
+| 200+  | [Putrid Mummy](putrid_mummy_mage/setup_mage.json)    | 50-150k/h           | 300-400k/h |
 | 200+  | [Cormaya Werecave](cormaya_werecave/setup_mage.json) | :star: :star: :star:                    | :star: :star: :star:                    |
 
 ## Quests/Other
@@ -134,7 +134,7 @@ These scripts are the official scripts for CloudBot.
 | ----- | ------------------------------- |
 | 8+    | [Buy Blessing](buy_blessing/info.txt)                    |
 | 8+    | [Market Thais Example](market_thais/setup.json)                    |
-| 20+   | [Sell Items NPC](sell_npc/setup.json)                    |
+| 20+   | [Sell Items NPC](sell_npc/setup_rp.json)                    |
 | 10+   | [Ice Fishing Svargrond](ice_fishing/setup.json)           |
 | 15+   | [Train Rotworm Venore North](train_venore_rotworm_north/setup_ek.json)           |
 | 15+   | [Train Slime Venore](train_slime/setup_ek.json)           |

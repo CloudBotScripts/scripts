@@ -55,7 +55,8 @@ call lure_monsters("count":5)
 node (33622, 31896, 9)
 label refill_mana
 node (33627, 31905, 9)
-node (33628, 31911, 9)
+walk (33628, 31911, 9)
+call wait_lure("lure_amount":3, "dist":2, "min_left_behind":3)
 node (33622, 31908, 9)
 walk (33618, 31908, 9)
 call wait_lure("lure_amount":5, "dist":1, "min_left_behind":5)
@@ -63,7 +64,6 @@ call lure_monsters("count":5)
 node (33618, 31908, 9)
 label refill_mana
 node (33616, 31915, 9)
-node (33620, 31925, 9)
 node (33610, 31925, 9)
 node (33606, 31928, 9)
 walk (33609, 31928, 9)
@@ -72,16 +72,15 @@ call lure_monsters("count":5)
 node (33609, 31928, 9)
 label refill_mana
 node (33619, 31931, 9)
-node (33628, 31932, 9)
-node (33636, 31934, 9)
-node (33639, 31928, 9)
 walk (33636, 31927, 9)
+action walk_mouse
 call wait_lure("lure_amount":5, "dist":1, "min_left_behind":5)
 call lure_monsters("count":5)
 node (33636, 31927, 9)
 label refill_mana
 node (33646, 31924, 9)
 node (33652, 31923, 9)
+action walk_keys
 action check
 label leave
 node (33638, 31925, 9)

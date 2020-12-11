@@ -42,17 +42,15 @@
 },
 "items":
 {
-	"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
+	"great mana potion": {"hotkey":"e", "id":238, "use":"self"},
 	"ultimate spirit potion": {"hotkey":"f", "id":23374, "use":"self"},
-	"crystalline arrow": {"hotkey":"j", "id":15793, "use":"equip"},
-	"diamond arrow": {"hotkey":"k", "id":25757, "use":"equip"},
+	"crystalline arrow": {"hotkey":"j", "id":15793, "use":"use"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
 "spells":
 {
 	"utani hur": "v",
 	"utura gran": "R",
-	"exevo gran con hur": "f4",
 	"utevo gran res sac": "f3",
 	"exura gran san":"r",
 	"exevo mas san":"1",
@@ -63,19 +61,18 @@
 	{"type":"mp", "below_percent":20, "use_item":"ultimate spirit potion",      "priority":5},
 	{"type":"hp", "below_percent":75, "use_spell":"exura gran san", "min_mana_percent":10,  "priority":4},
 	{"type":"hp", "below_percent":50, "use_item":"ultimate spirit potion",      "priority":3},
-	{"type":"mp", "below_percent":80, "use_item":"strong mana potion", "priority":3},
-	{"type":"hp", "below_percent":98, "use_spell":"utura gran", "min_mana_percent":50, "priority":1, "cooldown":60},
-	{"type":"hp", "below_percent":101, "use_spell":"exevo gran con hur", "min_mana_percent":70, "priority":1, "cooldown":301}
+	{"type":"mp", "below_percent":80, "use_item":"great mana potion", "priority":3},
+	{"type":"hp", "below_percent":98, "use_spell":"utura gran", "min_mana_percent":50, "priority":1, "cooldown":60}
 ],
 "hunt_config": {
 	"cap_leave": 2000,
-	"mana_name": "strong mana potion",
+	"mana_name": "great mana potion",
 	"take_mana": 100,
 	"ammo_name": "crystalline arrow",
 	"take_ammo": 200
 },
 "persistent_actions": [
-	{"action":"refill_ammo", "interval":9, "use_in_battle":true, "args":{"ammo_name":"crystalline arrow"}},
+	{"action":"refill_quiver", "interval":40, "use_in_battle":true, "args":{"ammo_name":"crystalline arrow", "quiver_name":"Quiver"}},
 	{"interval":30, "action":"eat_food"}, 
 	{"interval":40, "action":"haste"}
 ],

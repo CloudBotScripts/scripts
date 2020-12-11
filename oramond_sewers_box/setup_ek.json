@@ -3,11 +3,11 @@
 {
         "loot_type":"auto",
 	"loot_priority":"after",
-	"track_loot":true,
-	"anti_trap": "weapon"
+	"anti_trap": "weapon",
+	"beta":true
 },
 "script_options": {
-        "hours_leave": [9.6],
+        "hours_leave": [9.5],
         "skill_train":"sword",
         "imbuements":[
                 {"equip_slot":"weapon", "name":"Intricate Void", "type":"Mana Leech"},
@@ -24,45 +24,48 @@
 "tools": {},
 "items":
 {
-        "mana potion": {"hotkey":"e", "id":268, "use":"self"},
-	"great health potion": {"hotkey":"f7", "id":239, "use":"self"},
-	"supreme health potion": {"hotkey":"F", "id":23375, "use":"self"},
-        "brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
+	"strong mana potion": { "hotkey": "e", "id": 237, "use": "self" },
+	"great health potion": { "hotkey": "f3", "id": 239, "use": "self" },
+	"supreme health potion": { "hotkey": "F", "id": 23375, "use": "self" },
+	"brown mushroom": { "hotkey": "f11", "id": 3725, "use": "use" },
+	"sword ring": { "hotkey": "6", "id": 3091, "use": "equip" }
 },
 "spells":
 {
         "utani hur": "v",
         "utura gran": "R",
         "utito tempo": "X",
-        "exeta res": "x",
         "exura ico":"r",
+	"exura med ico": "g",
         "exura gran ico":"f",
         "exori":"1",
         "exori min":"2",
         "exori hur":"3",
         "exori gran":"4",
-        "exori ico":"q"
+        "exori ico":"q",
+	"utevo gran res eq":"f9"
 },
 "healing":
 [
-        {"type":"hp", "below_percent":30, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
-        {"type":"hp", "below_percent":50, "use_item":"supreme health potion",  "priority":4},
-        {"type":"hp", "below_percent":90, "use_spell":"exura ico", "min_mana_percent":5, "priority":3},
-        {"type":"hp", "below_percent":70, "use_item":"great health potion",  "priority":2},
-        {"type":"mp", "below_percent":90, "use_item":"mana potion", "priority":2},
-        {"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":60, "priority":1, "cooldown":60}
+	{"type": "hp", "below_percent": 30, "use_spell": "exura gran ico", "min_mana_percent": 20, "priority": 7, "cooldown": 600 },
+	{"type": "hp", "below_percent": 40, "use_item": "supreme health potion", "priority": 6 },
+	{"type": "hp", "below_percent": 60, "use_item": "great health potion", "priority": 5 },
+	{"type": "hp", "below_percent": 85, "use_spell": "exura med ico", "min_mana_percent": 10, "priority": 4 },
+	{"type": "hp", "below_percent": 97, "use_spell": "exura ico", "min_mana_percent": 5, "priority": 3 },
+	{"type": "mp", "below_percent": 90, "use_item": "strong mana potion", "priority": 2 },
+	{"type": "hp", "below_percent": 95, "use_spell": "utura gran", "min_mana_percent": 20, "priority": 1, "cooldown": 60 }
 ],
 "hunt_config": {
-        "cap_leave": -2,
-        "mana_name": "mana potion",
-        "take_mana": 1600,
-        "mana_leave": 300,
-        "health_name": "great health potion",
-        "take_health": 400,
-        "health_leave": 150,
-        "health_name2": "supreme health potion",
-        "take_health2": 50,
-        "health_leave2": 25
+        "cap_leave": 50,
+	"mana_name": "strong mana potion",
+	"take_mana": 1600,
+	"mana_leave": 250,
+	"health_name": "great health potion",
+	"take_health": 250,
+	"health_leave": 40,
+	"health_name2": "supreme health potion",
+	"take_health2": 50,
+	"health_leave2": 20
 },
 "label_actions": [
 	{"label":"refill_mana", "action":"wait_mana_percentage_below", "args": {"mana_perc":50, "hotkey":"e", "monster_count_below":2}}
