@@ -1,0 +1,69 @@
+{
+"general": 
+{
+	"loot_type":"manual",
+	"anti_trap":"knife",
+	"loot_priority":"first"
+},
+"script_options": {
+	"hours_leave": [9.5],
+	"skill_train":"magic"
+},
+"containers": 
+{
+	"loot_bp":"Red Backpack"
+},
+"tools": {
+	"rope": {"name":"rope", "id":3003}
+},
+"items":
+{
+	"knife": {"hotkey":"u", "id":3291, "use":"crosshair"},
+	"strong mana potion": {"hotkey":"e", "id":237, "use":"self"}
+},
+"spells":
+{
+    "exura gran":"r",
+    "utana vid":"8"
+},
+"healing":
+[
+    {"type":"hp", "below_percent":75, "use_spell":"exura gran", "min_mana_percent":5,  "priority":3},
+    {"type":"mp", "below_percent":50, "use_item":"strong mana potion", "priority":2}
+],
+"hunt_config": {
+	"cap_leave": 30,
+	"mana_name": "strong mana potion",
+	"take_mana": 200,
+	"mana_leave": 60
+},
+"label_actions": [],
+"persistent_actions": [
+    {"action":"drop_vials", "interval":60},
+    {"action":"anti_paralyze", "interval":1, "args":["r"]},
+    {"action":"use_hotkey", "interval": 195, "use_in_battle":true, "args":{"hotkey":"8"}}
+],
+"target_monsters": [
+	{"name":"Orc", "action":"follow", "priority":1, "loot":true},
+	{"name":"Orc Shaman", "action":"follow", "priority":2, "loot":true},
+	{"name":"Orc Warlord", "action":"follow", "priority":2, "loot":true},
+	{"name":"Orc Leader", "action":"follow", "priority":4, "loot":true}
+],
+"target_spells": [],
+"loot": [
+	{"name":"broken shamanic staff", "action":"loot", "dest":"loot_bp"},
+	{"name":"red backpack", "action":"loot", "dest":"loot_bp"},
+	{"name":"orc tooth", "action":"loot", "dest":"loot_bp"},
+	{"name":"sword ring", "action":"loot", "dest":"loot_bp"},
+	{"name":"shamanic hood", "action":"loot", "dest":"loot_bp"},
+	{"name":"wand of decay", "action":"loot", "dest":"loot_bp"},
+	{"name":"health potion", "action":"loot", "dest":"loot_bp"},
+	{"name":"life ring", "action":"loot", "dest":"loot_bp"},
+	{"name":"strong health potion", "action":"loot", "dest":"loot_bp"},
+	{"name":"small sapphire", "action":"loot", "dest":"loot_bp"},
+	{"name":"warrior helmet", "action":"loot", "dest":"loot_bp"},
+	{"name":"corncob", "action":"use"},
+	{"name":"meat", "action":"use"},
+	{"name":"ham", "action":"use"}
+]
+}

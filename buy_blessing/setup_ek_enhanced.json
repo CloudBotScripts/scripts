@@ -21,7 +21,7 @@
 },
 "items":
 {
-	"mana potion": {"hotkey":"e", "id":268, "use":"self"},
+	"strong mana potion": {"hotkey":"e", "id":237, "use":"self"},
 	"great health potion": {"hotkey":"F", "id":239, "use":"self"},
 	"brown mushroom": {"hotkey":"f11", "id":3725, "use":"use"}
 },
@@ -46,7 +46,7 @@
 	{"type":"hp", "below_percent":20, "use_spell":"exura gran ico", "min_mana_percent":20, "priority":5, "cooldown": 900},
 	{"type":"hp", "below_percent":70, "use_item":"great health potion",  "priority":4},
 	{"type":"hp", "below_percent":85, "use_spell":"exura ico", "min_mana_percent":20, "priority":3},
-	{"type":"mp", "below_percent":80, "use_item":"mana potion", "priority":2},
+	{"type":"mp", "below_percent":80, "use_item":"strong mana potion", "priority":2},
 	{"type":"hp", "below_percent":95, "use_spell":"utura gran", "min_mana_percent":20, "priority":1, "cooldown":60}
 ],
 "hunt_config": {

@@ -1,13 +1,13 @@
 {
 "general": 
 {
-	"loot_type":"manual"
+	"loot_type":"manual",
+	"anti_trap":"weapon"
 },
 "script_options": {
 	"hours_leave": [9.5],
 	"lower_level": true,
-	"upper_level": true,
-	"anti_trap":"weapon"
+	"upper_level": true
 },
 "containers": 
 {

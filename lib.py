@@ -395,10 +395,21 @@ def refill_priority_ammo(client, priority_ammo_name="royal spear", regular_ammo_
             print(f'[Action] Equip {regular_ammo_name} into {equip_slot}')
             client.hotkey(regular_ammo_hotkey)
 
-# Call refill of ammo
-def refill_diamond_ammo(client, save_single_target=False):
-    print('[Action] This is deprecated, please use refill_quiver')
-    return
+# Refill quiver using hotkey
+def refill_ammo_to_quiver(client, ammo_name="bolt", quiver_slots=8):
+    refill_hotkey_slot = client.items[ammo_name]
+    refill_hotkey = client.item_hotkeys[ammo_name]
+
+    ammo_count = client.get_hotkey_item_count(refill_hotkey_slot)
+    quiver_count = client.equips.get_count_item_in_slot("shield")
+
+    if (quiver_count % 100) >= quiver_slots:
+        print('[Action] Quiver is full')
+        return
+
+    if ammo_count > quiver_count:
+        print('[Action] Refill quiver')
+        client.hotkey(refill_hotkey)
 
 # Move a single stack of ammo_name into quiver.
 # Use singular name for ammo_name e.g. diamond arrow.
@@ -863,8 +874,8 @@ def check_blacklist_player_online(client, label_jump):
 # threshold sets the number of retries before leaving. The counter is reset in check_supplies action
 # go_train will force char to leave hunt and go train
 def conditional_jump_player_on_screen(client, label_jump='train', threshold=10, go_train=False):
-    if not client.retro_safe:
-        print('[Action] Retro safe must be set to true')
+    if not client.use_player_list:
+        print('[Action] Option retro_safe or use_player_list must be set to true')
         return
     if client.player_battle_list.has_creature():
         try:
@@ -884,10 +895,10 @@ def conditional_jump_player_on_screen(client, label_jump='train', threshold=10, 
 # Target off if monster on screen
 ## Retro safe must be on
 def stop_target_player_on_screen(client):
-    if not client.retro_safe:
-        print('[Action] Retro safe must be set to true')
+    if not client.use_player_list:
+        print('[Action] Option retro_safe or use_player_list must be set to true')
         return
-    if client.target_on and client.retro_safe and client.player_battle_list.has_creature():
+    if client.target_on and client.use_player_list and client.player_battle_list.has_creature():
         print('[Action] Stop target 2s due to player on screen')
         if client.battle_list.is_targetting():
             client.hotkey('esc')
@@ -1156,10 +1167,10 @@ def conditional_jump_night(client, label_jump_night, label_jump_day=None):
 # Alert if player on screen (will send max one alert every 5 mins)
 ## Retro safe must be on
 def alert_player_on_screen(client):
-    if not client.retro_safe:
-        print('[Action] Retro safe must be set to true')
+    if not client.use_player_list:
+        print('[Action] Option retro_safe or use_player_list must be set to true')
         return
-    if client.retro_safe and client.player_battle_list.has_creature():
+    if client.player_battle_list.has_creature():
         if time.time() > client.last_alert_time + 5:
             print('[Action] Player on screen, sending alert')
             players = ', '.join(client.player_battle_list.get_player_list())

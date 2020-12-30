@@ -3,7 +3,7 @@
 {
 	"loot_type":"auto",
 	"loot_priority":"after",
-	"beta": true
+	"anti_trap":"weapon"
 },
 "script_options": {
 	"hours_leave": [9.5],
@@ -22,7 +22,7 @@
 },
 "tools":
 {
-	"rope": {"name":"elvenhair rope", "id": 646},
+	"rope": {"name": "rope", "id": 3003},
 	"shovel": {"name":"shovel", "id": 3457}
 },
 "items": {
@@ -80,7 +80,7 @@
 	{"action":"drop_vials", "interval":5},
 	{"action":"haste", "interval":40, "args":["v"]},
 	{"action":"anti_paralyze", "interval":1, "args":["v"]},
-	{"action":"lure_monsters", "interval":0.5, "args":{"count":8}},
+	{"action":"lure_monsters", "interval":0.5, "args":{"count":8, "min_count":2, "drop_above_hp_perc":70}},
 	{"action":"eat_food", "interval":30, "args":["f11"]}
 ],
 "target_monsters": 

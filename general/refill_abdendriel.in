@@ -1,0 +1,19 @@
+label abdendriel
+label go_bank
+stand (32682, 31685, 7)
+walk (32684, 31687, 8)
+action bank
+ladder (32682, 31685, 8)
+ladder (32682, 31687, 7)
+node (32681, 31686, 6)
+action deposit
+node (32681, 31669, 6)
+node (32670, 31660, 6)
+stand (32670, 31659, 6)
+action sell
+action buy_potions
+stand (32669, 31663, 6)
+node (32680, 31664, 6)
+node (32681, 31676, 6)
+stand (32682, 31684, 6)
+action check_supplies

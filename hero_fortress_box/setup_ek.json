@@ -57,9 +57,9 @@
 	"health_leave2": 200
 },
 "persistent_actions": [
-	{"action":"drop_vials", "interval":200},
+	{"action":"drop_vials", "interval":60},
 	{"action":"haste", "interval":40, "args":["v"]},
-	{"action":"lure_monsters", "interval":0.5, "args":{"count":5}},
+	{"action":"lure_monsters", "interval":1, "args":{"count":8, "min_count":2, "drop_above_hp_perc":80}},
 	{"action":"eat_food", "interval":30, "args":["f11"]}
 ],
 "label_actions": [

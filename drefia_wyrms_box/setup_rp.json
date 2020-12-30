@@ -71,7 +71,7 @@
 	{"label":"refill_mana", "action":"wait_mana_percentage_below", "args": {"mana_perc":45, "hotkey":"e", "monster_count_below":2}}
 ],
 "persistent_actions": [
-	{"action":"refill_quiver", "interval":30, "use_in_battle":true, "args":{"quiver_name":"Quiver"}},
+	{"action":"refill_quiver", "interval":30, "use_in_battle":true, "args":{"quiver_name":"Quiver", "ammo_name":"diamond arrow"}},
 	{"action":"haste", "interval":40, "args":{"hotkey":"v"}},	
 	{"action":"anti_paralyze", "interval":1, "args":["r"]},
 	{"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},

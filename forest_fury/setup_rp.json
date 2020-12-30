@@ -51,7 +51,7 @@
     {"action":"drop_vials", "interval":60},
     {"action":"anti_paralyze", "interval":1, "args":["r"]},
     {"action":"eat_food", "interval":40, "args":{"hotkey":"f11"}},
-    {"action":"refill_priority_ammo", "interval":10, "use_in_battle":true, "args":{"priority_ammo_name":"piercing bolt", "regular_ammo_name":"bolt", "equip_slot":"ammunition", "min_amount":10}},
+    {"action":"use_hotkey", "interval":40, "use_in_battle":true, "args":{"hotkey":"f1"}},
     {"action":"equip_item", "interval":1, "use_in_battle":true, "args":{"hotkey":"V", "amount":1, "selected_monsters":["Forest Fury", "Wilting Leaf Golem"], "slot":"ring"}}
 ],
 "target_monsters": 

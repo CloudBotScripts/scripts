@@ -2,7 +2,6 @@
 "general": 
 {
 	"loot_type":"auto",
-	"beta":true,
 	"loot_priority":"after"
 },
 "script_options": {
@@ -44,7 +43,7 @@
 	"exori": "1",
 	"exori min": "2",
 	"exori hur": "3",
-	"utevo gran res eq":"f9",
+	"utevo gran res eq":"f3",
 	"exori gran": "4",
 	"exori ico": "q"
 },

@@ -1,0 +1,109 @@
+label start
+load scripts/general/refill_oramond.in
+label gohunt
+node (33626, 31897, 6)
+node (33621, 31914, 6)
+node (33603,31915,6)
+node (33584,31914,6)
+stand (33574,31915,6)
+action levitate_down
+node (33568,31917,7)
+label hunt
+node (33567, 31901, 7)
+walk (33575, 31898, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+node (33583, 31891, 7)
+node (33589, 31883, 7)
+walk (33589, 31880, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+node (33581, 31876, 7)
+walk (33570, 31872, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+node (33560, 31873, 7)
+walk (33557, 31872, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+node (33570, 31875, 7)
+node (33576, 31887, 7)
+node (33569, 31898, 7)
+node (33556, 31898, 7)
+walk (33548, 31898, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+node (33533, 31903, 7)
+walk (33533, 31903, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+walk (33524, 31912, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+node (33524, 31932, 7)
+walk (33524, 31932, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+walk (33518, 31949, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+walk (33518, 31964, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+walk (33521, 31977, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+node (33529, 31990, 7)
+walk (33529, 31990, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+node (33534, 31973, 7)
+walk (33534, 31955, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+node (33532, 31932, 7)
+walk (33538, 31913, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+walk (33536, 31900, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+walk (33552, 31897, 7)
+call wait_lure("lure_amount":5, "dist":1, "min_left_behind":6)
+call lure_monsters("count":6)
+action check
+label leave
+node (33570,31918,7)
+stand (33574,31916,7)
+action levitate_up
+node (33594,31916,6)
+node (33609,31914,6)
+node (33621,31904,6)
+node (33631,31897,6)
+node (33631, 31897, 6)
+action check_time
+label train
+node (33620,31899,6)
+stand (33610,31899,6)
+node (33602,31898,7)
+label train_oramond
+action check_train
+label magic
+ladder (33603,31901,7)
+action end
+label distance
+ladder (33600,31901,7)
+action end
+label club
+ladder (33603,31896,7)
+action end
+label sword
+ladder (33600,31896,7)
+action end
+label axe
+ladder (33598,31898,7)
+action end
+label start_train
+node (33606,31899,7)
+stand (33609,31899,7)
+stand (33610,31899,7)

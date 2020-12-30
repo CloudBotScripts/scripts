@@ -24,8 +24,9 @@ These scripts are the official scripts for CloudBot.
 | 35+   | [Thais Cyclops South](thais_cyclops_south/setup_ek.json)   | :star: :star:                           | :star: :star:                           |
 | 40+   | [Mount Sternum Thais](mount_sternum/setup_ek.json) | :star:                                  | :star: :star:             |
 | 40+   | [Mutated Humans](mutated_humans/setup.json) | :star:                                  | :star: :star: :star:             |
-| 45+   | [Forest Fury Camp](forest_fury/setup.json)               | :star: :star: :star:                    | :star: :star: :star:                    |
+| 45+   | [Forest Fury Camp](forest_fury/setup_ek.json)               |  30-50k/h    |  40-50k/h   |
 | 50+   | [Pirates Yalahar](pirates_yalahar/setup.json)                 | :star: :star:                           | :star: :star:                           |
+| 50+   | [Broken Staff Collector Stealth Ring](orc_fortress_shaman/setup_ek.json)   | :star: :star:              | :star: :star: :star:                    |
 | 60+   | [Dark Cathedral -2](dark_cathedral/setup.json)   | :star: :star:                                  | :star: :star: :star:                    |
 | 65+   | [Kazordoon Mountain Dragons](kazz_dragon/setup_ek.json)   | :star: :star:              | :star: :star: :star:                    |
 | 70+   | [Outside Orc Fortress](outside_orc_fortress/setup_ek.json)   | :star: :star:              | :star: :star: :star:                    |
@@ -33,16 +34,16 @@ These scripts are the official scripts for CloudBot.
 | 90+   | [Killer Caimans](killer_caimans/setup.json)                  | :star: :star: :star:                    | :star: :star:                           |
 | 100+  | [Giant Spider Port Hope](giant_spider_cave/setup_ek.json)          | :star: :star:                           | :star: :star: :star:     |         
 | 120+  | [Sea Serpent North](sea_serpent/setup_ek_north.json) | :star: :star: :star:                    | :star: :star: :star:                    | 
-| 150+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
-| 150+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_ek.json)             |  30-100k/h        |  250-350k/h     |
+| 160+  | [Vampire Crypt Edron](vampire_crypt_edron/setup_ek.json)             |  30-100k/h        |  300-400k/h     |
 | 160+  | [Krailos Nightmare Advanced Lure](krailos_nightmare_box/setup_ek.json) | :star:                                  | :star: :star: :star:                    |
 | 160+  | [Sea Serpent South](sea_serpent/setup_ek_south.json) | :star: :star:                           | :star: :star: :star:                    |
 | 160+  | [Hero Old Fortress -1](hero_fortress/setup_ek.json)   | :star: :star:                          | :star: :star: :star: :star:             |  
 | 160+  | [Feyrist Dark Faun Cave](feyrist_dark_faun/setup_ek.json)                |  5-80k/h                   |  500-700k/h            |    
-| 170+  | [Vampire Crypt Edron Advanced Lure](vampire_crypt_edron_box/setup_ek.json)             | :star: :star: :star: :star:      | :star: :star: :star:                    |
+| 170+  | [Krailos Giant Spider Cave](krailos_spider_cave/setup_ek.json)       | :star: :star: :star:                    | :star: :star: :star:                    |              
 | 180+  | [Sea Serpent South -1](sea_serpent/setup_ek_south_down.json) | :star: :star:                           | :star: :star: :star:                    |
 | 180+  | [Putrid Mummy Advanced Lure](putrid_mummy/setup_ek.json)    | :star: :star: :star:                    | :star: :star: :star:                       |
 | 180+  | [Feyrist Mountain](feyrist_mountain/setup_ek.json)                |  100-180k/h                   |  500-700k/h            |    
+| 190+  | [Vampire Crypt Edron Advanced Lure](vampire_crypt_edron_box/setup_ek.json)             | :star: :star: :star: :star:      | :star: :star: :star:                    |
 | 200+  | [Quara Grotto Liberty Bay](quaras_liberty_bay/setup_ek.json)| 60-150k/h   |  700-850k/h   |
 | 200+  | [Minotaur Cults](minotaur_cults/setup_ek.json) | :star: :star: :star: :star:             | :star: :star:                           |
 | 200+  | [Feyrist Nightmare cave](feyrist_nightmare_cave/setup.json)| :star: :star: :star:             | :star: :star: :star:       
@@ -68,10 +69,10 @@ These scripts are the official scripts for CloudBot.
 | 15+   | [Wasp Cave Thais Spear](wasp_thais/setup_rp.json)  | 10-50k/h     | 10-20k/h                             |
 | 15+   | [Amazon Tower Carlin](carlin_amazon_tower/setup_rp.json)  | :star: :star: :star:    | :star: :star: :star:                    |
 | 20+   | [Amazon Camp Venore](venore_amazon_camp/setup_rp.json)   | :star: :star:                           | :star: :star:                           |
-| 25+   | [Yalahar Elves](yalahar_elves/setup_rp.json)  |  Elvish talisman, Holy orchid, Elvish bow     |  30-50k/h                   |
-| 25+   | [Forest Fury Camp](forest_fury/setup_rp.json)               | 10-50k/h | 30-45k/h |
+| 25+   | [Yalahar Elves](yalahar_elves/setup_rp.json)  |  30-50k/h     |  30-50k/h                   |
+| 25+   | [Forest Fury Camp](forest_fury/setup_rp.json)               | 30-50k/h | 30-45k/h |
 | 30+   | [Stonerefiner](stonerefiner/setup_rp.json) | :star: :star:              | :star: :star: :star:                    |
-| 30+   | [Bonelord Liberty Bay](bonelord_liberty_bay/setup_rp.json)         | Bonelord eye | 50-60k/h       |
+| 30+   | [Bonelord Liberty Bay](bonelord_liberty_bay/setup_rp.json)         | 30-60k/h | 50-60k/h       |
 | 30+   | [Meriana Gargoyle](meriana_gargoyle/setup_rp.json)            | :star:                                  | :star: :star: :star:                          |
 | 40+   | [Yalahar Necromancer](yalahar_necromancer/setup_rp.json)            | Reins item (up to 1kk)             | 60-80k/h                         |
 | 50+   | [Yalahar Necromancer 50+](yalahar_necromancer/setup_rp50.json)            | Reins item (up to 1kk)                   | 70-80k/h                          |

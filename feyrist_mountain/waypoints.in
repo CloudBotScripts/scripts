@@ -65,6 +65,7 @@ label activate_lure
 call set_persistent_interval("persistent_alias":"lure", "interval":0.5)
 label hunt
 action walk_keys
+call drop_vials()
 node (33563,32268,7)
 node (33559,32281,7)
 node (33550,32294,7)
