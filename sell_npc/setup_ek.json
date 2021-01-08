@@ -1,17 +1,8 @@
  {
-"info": [
-	"This script assumes that the items are sorted according to default sort_deposit:",
-	"flint: 5 (Oramond items)",
-	"alexander and lailene: 6 (Edron spellbooks)", 
-	"esrik: 7 (Farmine/Zao items)", 
-	"tamoril:8 (Gems, Diamonds yalahar)", 
-	"rashid: 9", 
-	"green_djinn: 10"
-],
 "setup": [
 	"You can use any setup.json for this script, all you need to setup is the 'script_options'",
-	"The script uses Golden Backpack to hold items", 
-	"Make sure you have a Golden Backpack opened with a Golden Backpack inside that has a Golden backpack inside, and so on",
+	"Make sure you set the 'backpack_name' and have enough backpacks to hold the items. The backpacks should all have a single backpack inside of the same type",
+	"Also, ensure that each depot number has only items that are sold in the same NPC or city.",
 	"Some npcs require quest access, please be sure that you have done the quest"
 ],
   "general": {
@@ -19,19 +10,28 @@
     "anti_trap": "weapon"
   },
   "script_options": {
-    "skill_train": "sword",
-	"rashid": true,
-	"green_djinn":true,
-	"flint":true,
-	"lailene":true,
-	"alexander":true,
-	"telas":false,
-	"tamoril":true,
-	"esrik":false
+    "skill_train": "axe",
+    "backpack_name":"Golden Backpack",
+
+    "rashid": true,
+    "green_djinn":false,
+    "blue_djinn":false,
+    "flint":false,
+    "lailene":false,
+    "alexander":false,
+    "telas":false,
+    "tamoril":false,
+    "esrik":false,
+
+    "rashid_depot":9,
+    "djinn_depot":10,
+    "edron_depot":6,
+    "flint_depot":5,
+    "tamoril_depot":8,
+    "esrik_depot":7
   },
   "containers": {
-	"gold_bp":"Golden Backpack",
-	"loot_bp":"Shopping Bag"
+	"loot_bp":"Red Backpack"
   },
   "tools": {
     "rope": { "name": "rope", "id": 3003 }

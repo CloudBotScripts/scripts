@@ -134,7 +134,7 @@ stand (33637,31891,6)
 stand (33480,31985,7)
 action travel_venore
 label skip_sell_flint
-action check_sell_green_djinn
+action check_sell_djinn
 stand (32954,32022,6)
 action travel_ankrahmun
 stand (33084,32877,6)
@@ -151,6 +151,8 @@ node (33099,32733,7)
 node (33099,32705,7)
 node (33102,32685,7)
 node (33103,32666,7)
+action check_djinn_type
+label green_djinn
 stand (33101,32657,7)
 stand (33101,32656,7)
 stand (33093,32648,6)
@@ -179,6 +181,47 @@ stand (33077,32640,6)
 stand (33092,32649,5)
 stand (33101,32656,6)
 node (33103,32666,7)
+label not_green_djinn
+call jump_to_label("label":"end_djinn")
+label blue_djinn
+node (33115, 32649, 7)
+node (33117, 32627, 7)
+node (33129, 32609, 7)
+node (33127, 32586, 7)
+stand (33120, 32577, 7)
+node (33122, 32568, 6)
+node (33114, 32558, 6)
+node (33108, 32550, 6)
+node (33104, 32542, 6)
+use (33103, 32537, 6)
+node (33102, 32533, 6)
+use (33106, 32532, 6)
+node (33108, 32528, 6)
+stand (33110, 32526, 6)
+stand (33110, 32529, 5)
+walk (33109, 32527, 4)
+action sell
+stand (33107, 32527, 4)
+stand (33109, 32525, 3)
+stand (33104, 32522, 2)
+action sell
+stand (33109, 32525, 2)
+stand (33107, 32527, 3)
+stand (33110, 32529, 4)
+stand (33110, 32526, 5)
+use (33106, 32532, 6)
+node (33101, 32534, 6)
+use (33103, 32537, 6)
+node (33107, 32547, 6)
+node (33114, 32558, 6)
+node (33122, 32569, 6)
+stand (33120, 32577, 6)
+node (33123, 32592, 7)
+node (33122, 32609, 7)
+node (33114, 32629, 7)
+node (33112, 32647, 7)
+node (33108, 32659, 7)
+label end_djinn
 node (33102,32685,7)
 node (33099,32705,7)
 node (33099,32733,7)
@@ -199,7 +242,7 @@ node (33090,32862,7)
 ladder (33084,32877,7)
 stand (33092,32884,6)
 action travel_venore
-label skip_sell_green_djinn
+label skip_sell_djinn
 action check_rashid
 label goto_svargrond_depot
 stand (32954,32022,6)

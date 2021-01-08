@@ -1,4 +1,10 @@
 {
+"setup": [
+	"You can use any setup.json for this script, all you need to setup is the 'script_options'",
+	"Make sure you set the 'backpack_name' and have enough backpacks to hold the items. The backpacks should all have a single backpack inside of the same type",
+	"Also, ensure that each depot number has only items that are sold in the same NPC or city.",
+	"Some npcs require quest access, please be sure that you have done the quest"
+],
 "general": 
 {
 	"loot_type":"auto",
@@ -6,6 +12,8 @@
 },
 "script_options": {
 	"skill_train":"magic",
+	"backpack_name":"Golden Backpack",
+
 	"rashid": true,
 	"green_djinn":false,
 	"flint":false,
@@ -13,7 +21,14 @@
 	"alexander":true,
 	"telas":false,
 	"tamoril":false,
-	"esrik":false
+	"esrik":false,
+
+	"rashid_depot":9,
+	"djinn_depot":10,
+	"edron_depot":6,
+	"flint_depot":5,
+	"tamoril_depot":8,
+	"esrik_depot":7
 },
 "containers": 
 {

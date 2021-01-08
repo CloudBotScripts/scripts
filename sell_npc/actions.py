@@ -37,11 +37,19 @@ def waypoint_action(client, action):
         # Withdraw items until no backpack slots or no cap
         withdraw_any = False
         if client.get_cap() < 800:
+            print('[Action] Need at least 800 cap to sell items')
             return False
-        for i in range(10):
+
+        prev_cap = 100000
+        for i in range(15):
             print('cap:', client.get_cap())
+            if client.get_cap() >= prev_cap:
+                print('[Action] Could not withdraw more items')
+                break
+            prev_cap = client.get_cap()
+
             if client.get_cap() < 200:
-                print('Low cap')
+                print('[Action] Low cap')
                 return withdraw_any
 
             dest = client.get_container(backpack)
@@ -58,6 +66,7 @@ def waypoint_action(client, action):
             while items > 0:
                 items -= 1
                 client.take_item_from_slot(src, 0, dest)
+                sleep(0.2)
             withdraw_any = True
 
             # Go back one backpack
@@ -78,9 +87,17 @@ def waypoint_action(client, action):
         if not client.script_options['rashid']:
             client.jump_label('skip_sell_rashid') 
 
-    elif action == 'check_sell_green_djinn':
-        if not client.script_options['green_djinn']:
-            client.jump_label('skip_sell_green_djinn') 
+    elif action == 'check_sell_djinn':
+        if not client.script_options['green_djinn'] and not client.script_options['blue_djinn']:
+            client.jump_label('skip_sell_djinn') 
+
+    elif action == 'check_djinn_type':
+        if client.script_options['green_djinn']:
+            client.jump_label('green_djinn') 
+        elif client.script_options['blue_djinn']:
+            client.jump_label('blue_djinn') 
+        else:
+            client.jump_label('end_djinn') 
 
     elif action == 'check_sell_flint':
         if not client.script_options['flint']:
@@ -113,7 +130,7 @@ def waypoint_action(client, action):
         client.jump_label('start_flint')
         
     elif action == "flint":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=5)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['flint_depot'])
         if not withdraw:
             client.jump_label('end_flint')
 
@@ -121,7 +138,7 @@ def waypoint_action(client, action):
         client.jump_label('start_djinn')
         
     elif action == "djinn":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=10)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['djinn_depot'])
         if not withdraw:
             client.jump_label('end_djinn')
 
@@ -129,7 +146,7 @@ def waypoint_action(client, action):
         client.jump_label('start_edron')
         
     elif action == "edron":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=6)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['edron_depot'])
         if not withdraw:
             client.jump_label('end_edron')
             
@@ -140,7 +157,7 @@ def waypoint_action(client, action):
         client.jump_label('start_farmine')
         
     elif action == "farmine":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=7)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['esrik_depot'])
         if not withdraw:
             client.jump_label('end_farmine')
 
@@ -151,7 +168,7 @@ def waypoint_action(client, action):
         client.jump_label('start_yalahar')
         
     elif action == "yalahar":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=8)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['tamoril_depot'])
         if not withdraw:
             client.jump_label('end_yalahar')
 
@@ -186,7 +203,7 @@ def waypoint_action(client, action):
         client.jump_label('start_rashid_svargrond')
         
     elif action == "rashid_svargrond":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=9)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['rashid_depot'])
         if not withdraw:
             client.jump_label('end_rashid_svargrond')
 
@@ -194,7 +211,7 @@ def waypoint_action(client, action):
         client.jump_label('start_rashid_carlin')
         
     elif action == "rashid_carlin":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=9)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['rashid_depot'])
         if not withdraw:
             client.jump_label('end_rashid_carlin')
 
@@ -202,7 +219,7 @@ def waypoint_action(client, action):
         client.jump_label('start_rashid_liberty_bay')
         
     elif action == "rashid_liberty_bay":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=9)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['rashid_depot'])
         if not withdraw:
             client.jump_label('end_rashid_liberty_bay')
 
@@ -210,7 +227,7 @@ def waypoint_action(client, action):
         client.jump_label('start_rashid_port_hope')
         
     elif action == "rashid_port_hope":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=9)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['rashid_depot'])
         if not withdraw:
             client.jump_label('end_rashid_port_hope')
 
@@ -218,7 +235,7 @@ def waypoint_action(client, action):
         client.jump_label('start_rashid_ankrahmun')
         
     elif action == "rashid_ankrahmun":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=9)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['rashid_depot'])
         if not withdraw:
             client.jump_label('end_rashid_ankrahmun')
 
@@ -226,7 +243,7 @@ def waypoint_action(client, action):
         client.jump_label('start_rashid_darashia')
         
     elif action == "rashid_darashia":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=9)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['rashid_depot'])
         if not withdraw:
             client.jump_label('end_rashid_darashia')
 
@@ -234,7 +251,7 @@ def waypoint_action(client, action):
         client.jump_label('start_rashid_edron')
         
     elif action == "rashid_edron":
-        withdraw = withdraw_items_to_backpack(backpack='Golden Backpack', depot=9)
+        withdraw = withdraw_items_to_backpack(backpack=client.script_options['backpack_name'], depot=client.script_options['rashid_depot'])
         if not withdraw:
             client.jump_label('end_rashid_edron')
 
